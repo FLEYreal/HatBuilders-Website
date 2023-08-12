@@ -14,7 +14,12 @@ export default async function RootLayout({
     children: React.ReactNode
 }) {
 
-    console.log(await Theme.get())
+    async function onThemeChange() {
+        let theme = await Theme.get();
+
+        if(theme === '1') await Theme.set('0')
+        else if(theme === '0') await Theme.set('1')
+    }
 
     return (
         <html lang="en">

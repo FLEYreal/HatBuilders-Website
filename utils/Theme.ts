@@ -9,7 +9,7 @@ export default class Theme {
             method: 'GET',
         })
             .then((res) => res.json())
-            .then((res) => res);
+            .then((res) => res.body.theme.value);
     }
 
     // Set THEME
@@ -19,7 +19,7 @@ export default class Theme {
             body: JSON.stringify({value: value})
         })
             .then((res) => res.json())
-            .then((res) => res);
+            .then((res) => res.status);
     }
 
     // Delete THEME
@@ -28,6 +28,6 @@ export default class Theme {
             method: 'DELETE'
         })
             .then((res) => res.json())
-            .then((res) => res);
+            .then((res) => res.status);
     }
 }
