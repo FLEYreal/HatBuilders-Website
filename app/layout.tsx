@@ -6,11 +6,18 @@ export const metadata: Metadata = {
     description: 'HatBuilders: Future of Minecraft Building is in our hands!',
 }
 
-export default function RootLayout({
-    children,
+export default async function RootLayout({
+    children
 }: {
     children: React.ReactNode
 }) {
+
+    await fetch('http://localhost:80/api/theme', {
+        method: 'POST',
+        body: JSON.stringify({ value: '1' })
+    })
+        .then((res) => res.json())
+        .then((res) => console.log(res));
 
     return (
         <html lang="en">
