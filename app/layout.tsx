@@ -1,30 +1,29 @@
+'use client'
 import './globals.css'
 import type { Metadata } from 'next'
+import { GlobalThemeProvider } from './Theme/provider'
 
-import Theme from '@/utils/Theme'
+import Header from '@/components/Header'
 
 export const metadata: Metadata = {
     title: 'HatBuilders Website',
     description: 'HatBuilders: Future of Minecraft Building is in our hands!',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
     children
 }: {
     children: React.ReactNode
 }) {
 
-    async function onThemeChange() {
-        let theme = await Theme.get();
-
-        if(theme === '1') await Theme.set('0')
-        else if(theme === '0') await Theme.set('1')
-    }
-
     return (
         <html lang="en">
             <body>
-                {children}
+                <GlobalThemeProvider>
+                    <Header />
+
+                    {children}
+                </GlobalThemeProvider>
             </body>
         </html>
     )
