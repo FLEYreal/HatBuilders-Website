@@ -1,20 +1,21 @@
-// Базовые импорты
+// Basic Imports
 import Image from 'next/image'
 import React from 'react';
 
-// Стили
+// Styles
 import styles from './page.module.scss'
 
 // Material-UI
 import { Typography, Button } from '@mui/material'
 import { HatButton } from '@/mui/styles'
+import Link from 'next/link';
 
 export default function Home({ params: { lng } }: { params: { lng: string } }) {
-
 
     return (
         <Typography component='main'>
             [ {lng} ] HatBuilders future website is going to be here!
+            <Link href='/screenshots'>To Screenshots</Link>
             <Button variant='contained' color='primary'>primary</Button>
             <Button variant='contained' color='secondary'>secondary</Button>
             <Button variant='contained' color='info'>info</Button>

@@ -1,3 +1,4 @@
+'use client';
 import { Switch } from "@mui/material";
 import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
