@@ -9,12 +9,12 @@ import styles from './page.module.scss'
 import { Typography, Button } from '@mui/material'
 import { HatButton } from '@/mui/styles'
 
-export default function Home() {
-    
+export default function Home({ params: { lng } }: { params: { lng: string } }) {
+
 
     return (
         <Typography component='main'>
-            HatBuilders future website is going to be here!
+            [ {lng} ] HatBuilders future website is going to be here!
             <Button variant='contained' color='primary'>primary</Button>
             <Button variant='contained' color='secondary'>secondary</Button>
             <Button variant='contained' color='info'>info</Button>

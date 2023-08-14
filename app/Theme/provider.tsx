@@ -1,3 +1,4 @@
+'use client'
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { Theme } from '@mui/material/styles';
 import { darkTheme, lightTheme } from '@/mui/theme';
