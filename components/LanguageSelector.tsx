@@ -18,11 +18,15 @@ import { styled } from '@mui/system';
 import { useTheme } from "@emotion/react";
 import { Theme } from '@mui/material';
 
-function LanguageSelector() {
+import { useTranslation } from '@/i18n/client';
+
+function LanguageSelector({ lng }: { lng:string }) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [selectedLanguage, setSelectedLanguage] = React.useState<string>('en');
 
     const pathname = usePathname();
+    const theme = useTheme() as Theme;
+    const { t } = useTranslation(lng, 'components')
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -41,9 +45,6 @@ function LanguageSelector() {
         return pathArr.join('/')
     }
 
-    const theme = useTheme() as Theme;
-    console.log('THEME: ', theme.palette.mode)
-
     const StyledLink = styled(Link)(({ theme }) => ({
         color: theme.palette.primary.main,
         textDecoration: 'none',
@@ -54,7 +55,7 @@ function LanguageSelector() {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Button onClick={handleClick}>Language</Button>
+            <Button onClick={handleClick}>{t('language')}</Button>
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}

@@ -1,3 +1,4 @@
+'use server';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Typography';
@@ -14,7 +15,7 @@ import { useTranslation } from '@/i18n'
 async function Header({ lng }: { lng: string }) {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { t } = await useTranslation(lng, 'home')
+    const { t } = await useTranslation(lng, 'components')
 
     const LanguageSelector = dynamic(() => import('./LanguageSelector'), {
         ssr: false
@@ -26,7 +27,7 @@ async function Header({ lng }: { lng: string }) {
                 <Box style={{ display: 'flex', alignItems: 'center' }}>
                     {t('dark-mode')}:
                     <ThemeSwitch />
-                    <LanguageSelector />
+                    <LanguageSelector lng={lng} />
                 </Box>
 
 
