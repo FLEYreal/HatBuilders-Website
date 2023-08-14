@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { GlobalThemeProvider } from './Theme/provider'
 
 import Header from '@/components/Header'
+import { CssBaseline } from '@mui/material'
 
 export const metadata: Metadata = {
     title: 'HatBuilders Website',
@@ -20,6 +21,7 @@ export default function RootLayout({
         <html lang="en">
             <body>
                 <GlobalThemeProvider>
+                    <CssBaseline />
                     <Header />
 
                     {children}
