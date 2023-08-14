@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import Coloring from '@/utils/Coloring';
+import { colors } from '@mui/material';
 
 // Main vars
 export const $primary = '#5FA60C';
@@ -14,7 +15,7 @@ export const darkTheme = createTheme({
         primary: {
             main: Coloring.lightenColor($primary, 0.25),
             light: Coloring.darkenColor($primary, 0.55),
-            dark: Coloring.darkenColor($primary, 0.025)
+            dark: Coloring.darkenColor($primary, 0.025),
         },
         secondary: {
             main: Coloring.lightenColor($secondary, 0.25),
