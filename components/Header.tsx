@@ -1,17 +1,22 @@
+'use client'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Typography';
 
 import { useTheme } from '@mui/material/styles';
 import ThemeSwitch from './ThemeSwitch';
 
-async function Header() {
+function Header() {
     return (
         <AppBar position="static">
-            <Toolbar>
-                Hello
+            <Toolbar color='primary'>
+                <Box style={{ display: 'flex', alignItems: 'center' }}>
+                    Dark Mode:
+                    <ThemeSwitch />
+                </Box>
 
-                <ThemeSwitch />
+
             </Toolbar>
         </AppBar>
     );

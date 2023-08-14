@@ -15,11 +15,11 @@ export default function Home() {
     return (
         <Typography component='main'>
             HatBuilders future website is going to be here!
-            {/* <HatButton variant='contained' color='primary'>primary</HatButton>
-            <HatButton variant='contained' color='secondary'>secondary</HatButton>
-            <HatButton variant='contained' color='info'>info</HatButton>
-            <HatButton variant='contained' color='warning'>warning</HatButton>
-            <HatButton variant='contained' color='error'>error</HatButton> */}
+            <Button variant='contained' color='primary'>primary</Button>
+            <Button variant='contained' color='secondary'>secondary</Button>
+            <Button variant='contained' color='info'>info</Button>
+            <Button variant='contained' color='warning'>warning</Button>
+            <Button variant='contained' color='error'>error</Button>
         </Typography>
     )
 }
