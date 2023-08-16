@@ -2,7 +2,7 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Typography';
-import { Menu, MenuItem, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 import dynamic from 'next/dynamic';
 
@@ -29,8 +29,6 @@ async function Header({ lng }: { lng: string }) {
                     <ThemeSwitch />
                     <LanguageSelector lng={lng} />
                 </Box>
-
-
             </Toolbar>
         </AppBar>
     );

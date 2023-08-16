@@ -1,8 +1,4 @@
-import { 
-    createTheme, 
-    Experimental_CssVarsProvider as CssVarsProvider,
-    experimental_extendTheme as extendTheme, 
-} from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import Coloring from '@/utils/Coloring';
 
 // Main vars
@@ -11,10 +7,6 @@ export const $secondary = '#2D8721';
 export const $info = '#01828C';
 export const $warning = '#FFAB28';
 export const $error = '#FF0300';
-
-export const customTheme = extendTheme({
-
-})
 
 export const darkTheme = createTheme({
     palette: {
@@ -44,6 +36,11 @@ export const darkTheme = createTheme({
             main: Coloring.lightenColor($error, 0.25),
             light: Coloring.lightenColor($error, 0.55),
             dark: Coloring.darkenColor($error, 0.025)
+        },
+        opposite: {
+            main: '#000',
+            light: '#000',
+            dark: '#000'
         }
     },
     shadows: [
@@ -116,6 +113,11 @@ export const lightTheme = createTheme({
             main: $error,
             light: Coloring.lightenColor($error, 0.30),
             dark: Coloring.darkenColor($error, 0.15),
+        },
+        opposite: {
+            main: '#FFFFFF',
+            light: '#FFFFFF',
+            dark: '#FFFFFF'
         }
     },
     shadows: [
