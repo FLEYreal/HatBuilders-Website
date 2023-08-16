@@ -37,10 +37,20 @@ export const darkTheme = createTheme({
             light: Coloring.lightenColor($error, 0.55),
             dark: Coloring.darkenColor($error, 0.025)
         },
-        opposite: {
-            main: '#000',
-            light: '#000',
-            dark: '#000'
+        plain_text: {
+            main: '#ffffff',
+            light: '#ffffff',
+            dark: '#ffffff'
+        },
+        white: {
+            main: '#ffffff',
+            light: '#ffffff',
+            dark: '#ffffff'
+        },
+        black: {
+            main: '#000000',
+            light: '#000000',
+            dark: '#000000'
         }
     },
     shadows: [
@@ -90,34 +100,45 @@ export const lightTheme = createTheme({
     palette: {
         mode: 'light',
         primary: {
-            main: $primary,
-            light: Coloring.lightenColor($primary, 0.30),
-            dark: Coloring.darkenColor($primary, 0.15),
+            main: Coloring.lightenColor($primary, 0.25),
+            light: Coloring.darkenColor($primary, 0.55),
+            dark: Coloring.darkenColor($primary, 0.025),
         },
         secondary: {
-            main: $secondary,
-            light: Coloring.lightenColor($secondary, 0.30),
-            dark: Coloring.darkenColor($secondary, 0.15),
+            main: Coloring.lightenColor($secondary, 0.25),
+            light: Coloring.lightenColor($secondary, 0.55),
+            dark: Coloring.darkenColor($secondary, 0.025)
         },
         info: {
-            main: $info,
-            light: Coloring.lightenColor($info, 0.30),
-            dark: Coloring.darkenColor($info, 0.15),
+            main: Coloring.lightenColor($info, 0.25),
+            light: Coloring.lightenColor($info, 0.55),
+            dark: Coloring.darkenColor($info, 0.025)
+
         },
         warning: {
-            main: $warning,
-            light: Coloring.lightenColor($warning, 0.30),
-            dark: Coloring.darkenColor($warning, 0.15),
+            main: Coloring.lightenColor($warning, 0.25),
+            light: Coloring.lightenColor($warning, 0.55),
+            dark: Coloring.darkenColor($warning, 0.025)
         },
         error: {
-            main: $error,
-            light: Coloring.lightenColor($error, 0.30),
-            dark: Coloring.darkenColor($error, 0.15),
+            main: Coloring.lightenColor($error, 0.25),
+            light: Coloring.lightenColor($error, 0.55),
+            dark: Coloring.darkenColor($error, 0.025)
         },
-        opposite: {
-            main: '#FFFFFF',
-            light: '#FFFFFF',
-            dark: '#FFFFFF'
+        plain_text: {
+            main: '#000000',
+            light: '#000000',
+            dark: '#000000'
+        },
+        white: {
+            main: '#ffffff',
+            light: '#ffffff',
+            dark: '#ffffff'
+        },
+        black: {
+            main: '#000000',
+            light: '#000000',
+            dark: '#000000'
         }
     },
     shadows: [

@@ -2,19 +2,34 @@ import { createTheme } from '@mui/material/styles';
 
 declare module "@mui/material/styles" {
     interface Palette {
-        opposite: string;
+        plain_text: string;
+        white: string;
+        black: string;
     }
+
     interface PaletteOptions {
-        opposite?: {
+        plain_text?: {
             main: string,
             light: string,
             dark: string
         };
+        white?: {
+            main: string,
+            light: string,
+            dark: string
+        };
+        black?: {
+            main: string,
+            light: string,
+            dark: string
+        }
     }
 }
 
 declare module "@mui/material/Button" {
     interface ButtonPropsColorOverrides {
-        opposite: true;
+        plain_text: true;
+        white: true;
+        black: true;
     }
 }

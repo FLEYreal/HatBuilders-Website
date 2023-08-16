@@ -6,24 +6,26 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Image from 'next/image';
 
-import globals from '@/globals.module.scss'
-
 import ru from '@/public/icons/ru.svg';
 import uk from '@/public/icons/uk.svg';
+import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 import { styled } from '@mui/system';
-
 import { useTranslation } from '@/i18n/client';
+import { useTheme } from '@emotion/react';
+import { Theme } from "@mui/material/styles";
+import { Typography } from '@mui/material';
 
 function LanguageSelector({ lng }: { lng:string }) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [selectedLanguage, setSelectedLanguage] = React.useState<string>('en');
 
     const pathname = usePathname();
-    const { t } = useTranslation(lng, 'components')
+    const { t } = useTranslation(lng, 'header')
+    const theme = useTheme() as Theme;
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -50,9 +52,10 @@ function LanguageSelector({ lng }: { lng:string }) {
         },
     }));
 
+
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Button onClick={handleClick}>{t('language')}</Button>
+            <Button startIcon={<LanguageRoundedIcon/>} onClick={handleClick} sx={{fontWeight: 600}} variant={theme.palette.mode === 'dark' ? 'outlined' : 'contained'}>{t('language')}</Button>
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
@@ -61,13 +64,13 @@ function LanguageSelector({ lng }: { lng:string }) {
                 <MenuItem onClick={() => handleClose('ru')}>
                     <StyledLink href={languageToggle('ru')}>
                         <Image src={ru} alt="Russian" width={20} height={15} />
-                        <span style={{ marginLeft: '10px' }}>Русский</span>
+                        <Typography component='span' color="plain_text.main" sx={{ marginLeft: '10px' }}>Русский</Typography>
                     </StyledLink>
                 </MenuItem>
                 <MenuItem onClick={() => handleClose('en')}>
                     <StyledLink href={languageToggle('en')}>
                         <Image src={uk} alt="English" width={20} height={15} />
-                        <span style={{ marginLeft: '10px' }}>English</span>
+                        <Typography component='span' color="plain_text.main" sx={{ marginLeft: '10px' }}>English</Typography>
                     </StyledLink>
                 </MenuItem>
             </Menu>

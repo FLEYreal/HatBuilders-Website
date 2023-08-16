@@ -1,33 +1,32 @@
-'use server';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
 import Box from '@mui/material/Typography';
-import { Typography } from '@mui/material';
 
 import dynamic from 'next/dynamic';
 
 import ThemeSwitch from './ThemeSwitch';
+import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 
 // Language
 import { useTranslation } from '@/i18n'
-//import LanguageSelector from './LanguageSelector';
 
 async function Header({ lng }: { lng: string }) {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { t } = await useTranslation(lng, 'components')
+    const { t } = await useTranslation(lng, 'header')
 
     const LanguageSelector = dynamic(() => import('./LanguageSelector'), {
         ssr: false
     });
 
     return (
-        <AppBar position="fixed" sx={{backdropFilter: 'blur(2px)', background: 'rgba(0,0,0,0.4)'}}>
+        <AppBar position="fixed" sx={{backdropFilter: 'blur(2px)', background: 'rgba(0,0,0,0.35)'}}>
             <Toolbar color='primary'>
-                <Box style={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography>{t('dark-mode')}:</Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <ThemeSwitch />
                     <LanguageSelector lng={lng} />
+                    <Button startIcon={<LocalMallRoundedIcon/>} variant="contained" color="primary" sx={{fontWeight: 600, ml: 2}}>{t('buy')}</Button>
                 </Box>
             </Toolbar>
         </AppBar>
