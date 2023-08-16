@@ -1,20 +1,34 @@
 'use client'
+
+// Basic imports
 import React, { useRef, useEffect, useState, createContext } from "react";
 
+// Scroll context to get scroll position
 export const scrollContext = createContext<{value: number, isScrolled: boolean}>({
-    value: 0,
-    isScrolled: false
+    value: 0, // Scroll position
+    isScrolled: false // Is scrolled, defined by either value equals 0 or not
 });
 
 function GlobalScrollEvent({ children }: { children: React.ReactNode }) {
+
+    // BASIC HOOKS
+
+    // Get main div element
     const divRef = useRef<HTMLDivElement>(null);
+
+    // State to store document height
     const [documentHeight, setDocumentHeight] = useState<number>(0);
+
+    // State to store scroll position
     const [scrollPos, setScrollPost] = useState<{value: number, isScrolled: boolean}>({
         value: 0,
         isScrolled: false
     })
 
+    // EFFECT HOOKS
+
     useEffect(() => {
+
         // Function to get size of document
         const getDocumentHeight = () => {
             const body = document.body;
@@ -44,6 +58,8 @@ function GlobalScrollEvent({ children }: { children: React.ReactNode }) {
     }, []);
 
     useEffect(() => {
+
+        // Function to handle scroll event
         const handleScroll = (e: any) => {
             setScrollPost({
                 value: divElement!.scrollTop,
@@ -51,11 +67,13 @@ function GlobalScrollEvent({ children }: { children: React.ReactNode }) {
             })
         };
 
+        // Add event listener
         const divElement = divRef.current;
         if (divElement) {
             divElement.addEventListener("scroll", handleScroll);
         }
 
+        // Remove event listener on cleanup
         return () => {
             if (divElement) {
                 divElement.removeEventListener("scroll", handleScroll);

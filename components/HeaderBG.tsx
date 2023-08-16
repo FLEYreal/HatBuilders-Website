@@ -1,11 +1,19 @@
 'use client';
+// Basic imports
 import React, { useContext, useEffect, useState } from 'react'
-import Box from '@mui/material/Typography';
 
+// Material-UI
+import Typography from '@mui/material/Typography';
+
+// Context
 import { scrollContext } from './GlobalScrollEvent';
 
 function HeaderBG({children}: {children?: React.ReactNode}) {
+
+    // Get scroll context
     const scroll = useContext(scrollContext)
+
+    // Styles that depend of "scroll.value" which is scroll position on the page
     const [scrollStyles, setScrollStyles] = useState({
         backdropFilter: 'none',
         background: 'none'
@@ -13,12 +21,15 @@ function HeaderBG({children}: {children?: React.ReactNode}) {
 
     useEffect(() => {
 
+        // If scroll is at the top of the page, remove background
         if(scroll?.value === 0 || scroll?.value === undefined) {
             setScrollStyles({
                 backdropFilter: 'none',
                 background: 'none'
             })
-        } else {
+        } 
+        // If scroll is not at the top of the page, add background
+        else {
             setScrollStyles({
                 backdropFilter: 'blur(2px)',
                 background: 'rgba(0,0,0,0.35)'
@@ -27,7 +38,7 @@ function HeaderBG({children}: {children?: React.ReactNode}) {
     }, [scroll])
 
     return (
-        <Box sx={{
+        <Typography component='span' sx={{
             ...scrollStyles,
             position: 'absolute',
             width: '100%',
@@ -35,7 +46,7 @@ function HeaderBG({children}: {children?: React.ReactNode}) {
             transition: 'all ease 0.3s'
         }}>
             {children}
-        </Box>
+        </Typography>
     );
 }
 

@@ -1,4 +1,8 @@
+// Class Coloring is made to work with colors
+
 export default class Coloring {
+
+    // Function lightenColor is used to lighten color by amount
     static lightenColor(color: string, amount: number) {
         const hex = color.replace(/[^0-9A-F]/gi, '');
 
@@ -13,6 +17,7 @@ export default class Coloring {
         return `#${newHex}`;
     }
 
+    // Function darkenColor is used to darken color by amount
     static darkenColor(color: string, amount: number) {
         const hex = color.replace(/[^0-9A-F]/gi, '');
 

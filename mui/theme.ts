@@ -1,13 +1,17 @@
+// Material-UI
 import { createTheme } from '@mui/material/styles';
+
+// Utils
 import Coloring from '@/utils/Coloring';
 
-// Main vars
+// Main variables for colors
 export const $primary = '#5FA60C';
 export const $secondary = '#2D8721';
 export const $info = '#01828C';
 export const $warning = '#FFAB28';
 export const $error = '#FF0300';
 
+// Custom dark theme
 export const darkTheme = createTheme({
     palette: {
         mode: 'dark',
@@ -96,6 +100,7 @@ export const darkTheme = createTheme({
     }
 });
 
+// Custom light theme
 export const lightTheme = createTheme({
     palette: {
         mode: 'light',

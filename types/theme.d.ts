@@ -1,5 +1,7 @@
+// Material-UI
 import { createTheme } from '@mui/material/styles';
 
+// Change basic theme types so I could use custom palettes
 declare module "@mui/material/styles" {
     interface Palette {
         plain_text: string;

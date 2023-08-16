@@ -1,24 +1,33 @@
+// Basic Imports
 import type { Metadata } from 'next'
-import { GlobalThemeProvider } from '@/app/Theme/provider'
-
-import Header from '@/components/Header'
-import { CssBaseline } from '@mui/material'
-
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 
-import { dir } from 'i18next'
-import { languages } from '@/i18n/settings'
+// Material-UI
+import { CssBaseline } from '@mui/material'
+
+// Providers
+import { GlobalThemeProvider } from '@/app/Theme/provider'
 import GlobalScrollEvent from '@/components/GlobalScrollEvent'
 
+// Components
+import Header from '@/components/Header'
+
+// Language
+import { dir } from 'i18next'
+import { languages } from '@/i18n/settings'
+
+// Static params of language in the link
 export async function generateStaticParams() {
     return languages.map((lng) => ({ lng }))
 }
 
+// Meta data for SEO
 export const metadata: Metadata = {
     title: 'HatBuilders Website',
     description: 'HatBuilders: Future of Minecraft Building is in our hands!',
 }
 
+// Layout
 export default async function RootLayout({
     children,
     params: {

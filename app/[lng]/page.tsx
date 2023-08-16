@@ -1,13 +1,8 @@
 // Basic Imports
-import Image from 'next/image'
 import React from 'react';
-
-// Styles
-import styles from './page.module.scss'
 
 // Material-UI
 import { Typography, Button } from '@mui/material'
-import { HatButton } from '@/mui/styles'
 import Link from 'next/link';
 
 export default function Home({ params: { lng } }: { params: { lng: string } }) {
