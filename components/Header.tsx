@@ -31,7 +31,7 @@ async function Header({ lng }: { lng: string }) {
 
     return (
         // Header itself
-        <AppBar position="fixed" sx={{ background: 'none'}}>
+        <AppBar position="fixed" sx={{ background: 'none' }}>
 
             {/* Header background, it's client side component as its background depends on scroll position */}
             <HeaderBG></HeaderBG>

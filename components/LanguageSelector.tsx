@@ -3,14 +3,12 @@
 // Basic imports
 import * as React from 'react';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 // Material-UI
 import { Box, Menu, MenuItem, Button, Typography } from '@mui/material'
 import { Theme } from "@mui/material/styles";
 import { useTheme } from '@emotion/react';
-import { styled } from '@mui/system';
 
 // Icons
 import ru from '@/public/icons/ru.svg';
@@ -28,6 +26,7 @@ function LanguageSelector({ lng }: { lng: string }) {
 
     // Other Hooks
     const pathname = usePathname();
+    const router = useRouter()
     const { t } = useTranslation(lng, 'header')
     const theme = useTheme() as Theme;
 
@@ -37,29 +36,21 @@ function LanguageSelector({ lng }: { lng: string }) {
     };
 
     // Close menu as language is selected
-    const handleClose = (language: string) => {
-        setSelectedLanguage(language);
+    const handleClose = () => {
         setAnchorEl(null);
     };
 
-    // Change language
-    const languageToggle: (lang: string) => string = (lang) => {
+    // Close menu and change language
+    const handleCloseAndChange = (language: string) => {
+        setAnchorEl(null);
+        setSelectedLanguage(language);
+
         let pathArr = pathname.split('/')
-        pathArr[1] = lang
+        pathArr[1] = language
         pathArr.join('/')
 
-        return pathArr.join('/')
+        router.push(pathArr.join('/'))
     }
-
-    // Styled link component so it didnt show basic link styles
-    const StyledLink = styled(Link)(({ theme }) => ({
-        color: theme.palette.primary.main,
-        textDecoration: 'none',
-        '&:hover': {
-            color: theme.palette.primary.main,
-        },
-    }));
-
 
     return (
         // Language selector
@@ -87,32 +78,28 @@ function LanguageSelector({ lng }: { lng: string }) {
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
-                onClose={() => handleClose(selectedLanguage)}
+                onClose={() => handleClose()}
             >
                 {/* 2 Menu items with Russian and English languages */}
 
-                <MenuItem onClick={() => handleClose('ru')}>
-                    {/* Wraped into link */}
-                    <StyledLink href={languageToggle('ru')}>
+                <MenuItem onClick={() => handleCloseAndChange('ru')}>
 
-                        {/* Image of the flag */}
-                        <Image src={ru} alt="Russian" width={20} height={15} />
+                    {/* Image of the flag */}
+                    <Image src={ru} alt="Russian" width={20} height={15} />
 
-                        {/* Displayed text */}
-                        <Typography component='span' color="plain_text.main" sx={{ marginLeft: '10px' }}>Русский</Typography>
-                    </StyledLink>
+                    {/* Displayed text */}
+                    <Typography component='span' color="plain_text.main" sx={{ marginLeft: '10px' }}>Русский</Typography>
+
                 </MenuItem>
 
-                <MenuItem onClick={() => handleClose('en')}>
-                    {/* Wraped into link */}
-                    <StyledLink href={languageToggle('en')}>
+                <MenuItem onClick={() => handleCloseAndChange('en')}>
 
-                        {/* Image of the flag */}
-                        <Image src={uk} alt="English" width={20} height={15} />
+                    {/* Image of the flag */}
+                    <Image src={uk} alt="English" width={20} height={15} />
 
-                        {/* Displayed text */}
-                        <Typography component='span' color="plain_text.main" sx={{ marginLeft: '10px' }}>English</Typography>
-                    </StyledLink>
+                    {/* Displayed text */}
+                    <Typography component='span' color="plain_text.main" sx={{ marginLeft: '10px' }}>English</Typography>
+
                 </MenuItem>
             </Menu>
         </Box>
