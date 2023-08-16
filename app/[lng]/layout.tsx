@@ -9,6 +9,7 @@ import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 
 import { dir } from 'i18next'
 import { languages } from '@/i18n/settings'
+import GlobalScrollEvent from '@/components/GlobalScrollEvent'
 
 export async function generateStaticParams() {
     return languages.map((lng) => ({ lng }))
@@ -32,12 +33,14 @@ export default async function RootLayout({
     return (
         <html lang={lng} dir={dir(lng)}>
             <body>
-                <GlobalThemeProvider>
-                    <CssBaseline />
-                    <Header lng={lng} />
+                <GlobalScrollEvent>
+                    <GlobalThemeProvider>
+                        <CssBaseline />
+                        <Header lng={lng} />
 
-                    {children}
-                </GlobalThemeProvider>
+                        {children}
+                    </GlobalThemeProvider>
+                </GlobalScrollEvent>
             </body>
         </html>
     )

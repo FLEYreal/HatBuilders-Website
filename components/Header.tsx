@@ -6,6 +6,8 @@ import Box from '@mui/material/Typography';
 import dynamic from 'next/dynamic';
 
 import ThemeSwitch from './ThemeSwitch';
+import HeaderBG from './HeaderBG';
+
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 
 // Language
@@ -21,12 +23,13 @@ async function Header({ lng }: { lng: string }) {
     });
 
     return (
-        <AppBar position="fixed" sx={{backdropFilter: 'blur(2px)', background: 'rgba(0,0,0,0.35)'}}>
+        <AppBar position="fixed" sx={{ background: 'none'}}>
+            <HeaderBG></HeaderBG>
             <Toolbar color='primary'>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <ThemeSwitch />
                     <LanguageSelector lng={lng} />
-                    <Button startIcon={<LocalMallRoundedIcon/>} variant="contained" color="primary" sx={{fontWeight: 600, ml: 2}}>{t('buy')}</Button>
+                    <Button startIcon={<LocalMallRoundedIcon />} variant="contained" color="primary" sx={{ fontWeight: 600, ml: 2 }}>{t('buy')}</Button>
                 </Box>
             </Toolbar>
         </AppBar>
