@@ -4,7 +4,6 @@ import { GlobalThemeProvider } from '@/app/Theme/provider'
 import Header from '@/components/Header'
 import { CssBaseline } from '@mui/material'
 
-import { i18n } from '@/i18n/i18next.config'
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 
 import { dir } from 'i18next'

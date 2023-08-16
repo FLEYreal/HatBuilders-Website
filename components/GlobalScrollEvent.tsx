@@ -1,9 +1,14 @@
 'use client'
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, createContext } from "react";
 
-function GlobalScrollEvent({ children }: { children: React.ReactNode}) {
+export const scrollState = createContext<number>(0);
+
+function GlobalScrollEvent({ children }: { children: React.ReactNode }) {
     const divRef = useRef<HTMLDivElement>(null);
-    const [documentHeight, setDocumentHeight] = useState(0);
+    const [documentHeight, setDocumentHeight] = useState<number>(0);
+    const [scrollPos, setScrollPost] = useState<number>(0)
+
+    useEffect(() => console.log(scrollPos), [scrollPos])
 
     useEffect(() => {
         // Function to get size of document
@@ -35,8 +40,9 @@ function GlobalScrollEvent({ children }: { children: React.ReactNode}) {
     }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            console.log("Произошло событие скролла!");
+        const handleScroll = (e: any) => {
+            console.log(window.scrollY)
+            setScrollPost(window.scrollY)
         };
 
         const divElement = divRef.current;
@@ -52,9 +58,11 @@ function GlobalScrollEvent({ children }: { children: React.ReactNode}) {
     }, []);
 
     return (
-        <div ref={divRef} style={{ overflow: "auto", height: documentHeight }}>
-            {children}
-        </div>
+        <scrollState.Provider value={scrollPos}>
+            <div ref={divRef} style={{ overflow: "auto", height: documentHeight }}>
+                {children}
+            </div>
+        </scrollState.Provider>
     );
 }
 
