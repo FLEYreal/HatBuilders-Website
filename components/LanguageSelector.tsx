@@ -15,8 +15,6 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 import { styled } from '@mui/system';
-import { useTheme } from "@emotion/react";
-import { Theme } from '@mui/material';
 
 import { useTranslation } from '@/i18n/client';
 
@@ -25,7 +23,6 @@ function LanguageSelector({ lng }: { lng:string }) {
     const [selectedLanguage, setSelectedLanguage] = React.useState<string>('en');
 
     const pathname = usePathname();
-    const theme = useTheme() as Theme;
     const { t } = useTranslation(lng, 'components')
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {

@@ -2,7 +2,7 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Typography';
-import { Menu, MenuItem } from '@mui/material';
+import { Menu, MenuItem, Typography } from '@mui/material';
 
 import dynamic from 'next/dynamic';
 
@@ -22,10 +22,10 @@ async function Header({ lng }: { lng: string }) {
     });
 
     return (
-        <AppBar position="static">
+        <AppBar position="fixed" sx={{backdropFilter: 'blur(2px)', background: 'rgba(0,0,0,0.4)'}}>
             <Toolbar color='primary'>
                 <Box style={{ display: 'flex', alignItems: 'center' }}>
-                    {t('dark-mode')}:
+                    <Typography>{t('dark-mode')}:</Typography>
                     <ThemeSwitch />
                     <LanguageSelector lng={lng} />
                 </Box>
