@@ -22,7 +22,6 @@ function LanguageSelector({ lng }: { lng: string }) {
 
     // States
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const [selectedLanguage, setSelectedLanguage] = React.useState<string>('en');
 
     // Other Hooks
     const pathname = usePathname();
@@ -43,7 +42,6 @@ function LanguageSelector({ lng }: { lng: string }) {
     // Close menu and change language
     const handleCloseAndChange = (language: string) => {
         setAnchorEl(null);
-        setSelectedLanguage(language);
 
         let pathArr = pathname.split('/')
         pathArr[1] = language
