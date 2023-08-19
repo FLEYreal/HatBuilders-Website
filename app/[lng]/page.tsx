@@ -1,5 +1,6 @@
 // Basic Imports
 import React from 'react';
+import Image from 'next/image';
 
 // Material-UI
 import { Typography, Box, Button } from '@mui/material'
@@ -8,11 +9,22 @@ import { Typography, Box, Button } from '@mui/material'
 import { useTranslation } from '@/i18n'
 
 // Styles
-import { $container_based, $flex_row_center, $green_background, $main_text_size } from '@/mui/styles';
+import {
+    $container_based,
+    $flex_row,
+    $green_background,
+    $main_text_size,
+    $main_portfolio_size,
+    $portfolio_image,
+    $portfolio_image_box
+} from '@/mui/styles';
 
 // Icons & Images
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 import FolderSpecialRoundedIcon from '@mui/icons-material/FolderSpecialRounded';
+import portfolio_1 from '@/public/images/portfolio/1.png'
+import portfolio_2 from '@/public/images/portfolio/2.png'
+import portfolio_3 from '@/public/images/portfolio/3.jpeg'
 
 export default async function Home({ params: { lng } }: { params: { lng: string } }) {
 
@@ -37,8 +49,9 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                 {/* INNER CONTENT */}
                 <Box sx={{
                     ...$container_based,
-                    ...$flex_row_center,
-                    mt: '80px'
+                    ...$flex_row,
+                    mt: '80px',
+                    justifyContent: 'space-between'
                 }}>
 
                     {/* Text Content */}
@@ -54,7 +67,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         <Typography variant='h5' component='p'>
                             {t('submain_description')}
                         </Typography>
-                        <Box sx={{mt: '60px'}}>
+                        <Box sx={{ mt: '60px' }}>
                             <Button
                                 sx={{
                                     padding: '8px 20px',
@@ -80,8 +93,38 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                     </Box>
 
                     {/* Examples from Portfolio */}
-                    <Box>
-
+                    <Box sx={{
+                        width: $main_portfolio_size,
+                        height: 'inherit',
+                        position: 'relative'
+                    }}>
+                        <Box component='div' sx={{
+                            ...$portfolio_image_box,
+                            position: 'absolute',
+                            top: '60px',
+                            left: '60px',
+                            zIndex: '10'
+                        }}>
+                            <Image src={portfolio_1} alt='Example from portfolio #1' style={$portfolio_image} />
+                        </Box>
+                        <Box component='div' sx={{
+                            ...$portfolio_image_box,
+                            position: 'absolute',
+                            top: '30px',
+                            left: '30px',
+                            zIndex: '9'
+                        }}>
+                            <Image src={portfolio_2} alt='Example from portfolio #1' style={{...$portfolio_image, opacity: '0.6'}} />
+                        </Box>
+                        <Box component='div' sx={{
+                            ...$portfolio_image_box,
+                            position: 'absolute',
+                            top: '0px',
+                            left: '0px',
+                            zIndex: '8'
+                        }}>
+                            <Image src={portfolio_3} alt='Example from portfolio #1' style={{...$portfolio_image, opacity: '0.3'}} />
+                        </Box>
                     </Box>
                 </Box>
 

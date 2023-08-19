@@ -42,7 +42,7 @@ async function Header({ lng }: { lng: string }) {
             <HeaderBG></HeaderBG>
 
             {/* Toolbar with all buttons and other interaction elements */}
-            <Toolbar color='primary'>
+            <Toolbar disableGutters={true} color='primary'>
                 <Box sx={{
                     justifyContent: 'space-between',
                     ...$flex_row_center,
