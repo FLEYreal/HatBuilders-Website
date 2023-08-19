@@ -9,6 +9,7 @@ import { Typography, Box, Button } from '@mui/material'
 import { useTranslation } from '@/i18n'
 
 // Styles
+import global from '@/app/globals.module.scss'
 import {
     $container_based,
     $flex_row,
@@ -53,6 +54,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                     ...$container_based,
                     ...$flex_row,
                     mt: '80px',
+                    mb: '80px',
                     justifyContent: 'space-between',
                     position: 'relative',
                 }}>
@@ -62,13 +64,13 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         width: $main_text_size,
                         zIndex: '10'
                     }}>
-                        <Typography variant='h3' component='h1' sx={{ fontWeight: '600', mb: '18px' }}>
+                        <Typography className={global.appearance} variant='h3' component='h1' sx={{ fontWeight: '600', mb: '18px' }}>
                             {t('name')} -
                         </Typography>
-                        <Typography variant='h5' component='p' sx={{ mb: '32px' }}>
+                        <Typography className={global.appearance} variant='h5' component='p' sx={{ mb: '32px' }}>
                             {t('main_description')}
                         </Typography>
-                        <Typography variant='h5' component='p'>
+                        <Typography className={global.appearance} variant='h5' component='p'>
                             {t('submain_description')}
                         </Typography>
                         <Box sx={{ mt: '60px' }}>
@@ -78,6 +80,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                                     mr: '16px',
                                     fontSize: '20px',
                                 }}
+                                className={global.appearance}
                                 startIcon={<LocalMallRoundedIcon />}
                                 color="white"
                                 variant="outlined">
@@ -88,6 +91,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                                     padding: '8px 20px',
                                     fontSize: '20px',
                                 }}
+                                className={global.appearance}
                                 startIcon={<FolderSpecialRoundedIcon />}
                                 color="white"
                                 variant="outlined">
@@ -102,7 +106,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         height: 'inherit',
                         position: 'relative'
                     }}>
-                        <Box component='div' sx={{
+                        <Box className={`${global.appearance} ${global.screenshot}`} component='div' sx={{
                             ...$portfolio_image_box,
                             position: 'absolute',
                             top: {
@@ -123,7 +127,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         }}>
                             <Image src={portfolio_1} alt='Example from portfolio #1' style={$portfolio_image} />
                         </Box>
-                        <Box component='div' sx={{
+                        <Box className={`${global.appearance} ${global.screenshot}`} component='div' sx={{
                             ...$portfolio_image_box,
                             position: 'absolute',
                             top: {
@@ -142,9 +146,9 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                             },
                             zIndex: '9'
                         }}>
-                            <Image src={portfolio_2} alt='Example from portfolio #1' style={{ ...$portfolio_image, opacity: '0.6' }} />
+                            <Image src={portfolio_2} alt='Example from portfolio #1' style={{ ...$portfolio_image }} />
                         </Box>
-                        <Box component='div' sx={{
+                        <Box className={`${global.appearance} ${global.screenshot}`} component='div' sx={{
                             ...$portfolio_image_box,
                             position: 'absolute',
                             top: {
@@ -163,12 +167,12 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                             },
                             zIndex: '8'
                         }}>
-                            <Image src={portfolio_3} alt='Example from portfolio #1' style={{ ...$portfolio_image, opacity: '0.3' }} />
+                            <Image src={portfolio_3} alt='Example from portfolio #1' style={{ ...$portfolio_image }} />
                         </Box>
                     </Box>
 
                     {/* Bubbles */}
-                    <Box component='span' sx={{
+                    <Box component='span' className={global.wave} sx={{
                         ...$green_bubble,
                         width: '105px',
                         height: '105px',
@@ -194,7 +198,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                     }}></Box>
 
 
-                    <Box component='span' sx={{
+                    <Box component='span' className={global.wave} sx={{
                         ...$green_bubble,
                         width: '225px',
                         height: '225px',
@@ -202,7 +206,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         right: -120,
                         zIndex: '1'
                     }}></Box>
-                    <Box component='span' sx={{
+                    <Box component='span' className={global.wave} sx={{
                         ...$green_bubble,
                         width: '140px',
                         height: '140px',
@@ -210,7 +214,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         right: -60,
                         zIndex: '1'
                     }}></Box>
-                    <Box component='span' sx={{
+                    <Box component='span' className={global.wave} sx={{
                         ...$green_bubble,
                         width: '320px',
                         height: '320px',
@@ -219,7 +223,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         zIndex: '1'
                     }}></Box>
 
-                    <Box component='span' sx={{
+                    <Box component='span' className={global.wave} sx={{
                         ...$green_bubble,
                         width: '220px',
                         height: '220px',

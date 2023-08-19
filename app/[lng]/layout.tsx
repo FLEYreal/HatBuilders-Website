@@ -16,6 +16,9 @@ import Header from '@/components/Header'
 import { dir } from 'i18next'
 import { languages } from '@/i18n/settings'
 
+// Styles
+import global from '@/app/globals.module.scss'
+
 // Static params of language in the link
 export async function generateStaticParams() {
     return languages.map((lng) => ({ lng }))
@@ -40,7 +43,7 @@ export default async function RootLayout({
 
     return (
         <html lang={lng} dir={dir(lng)}>
-            <body>
+            <body className={global.body}>
                 <GlobalScrollEvent>
                     <GlobalThemeProvider>
                         <CssBaseline />
