@@ -16,6 +16,9 @@ import logo from '@/public/images/logo.jpg'
 // Language
 import { useTranslation } from '@/i18n'
 
+// Styles
+import { $container_based, $flex_row_center } from '@/mui/styles';
+
 async function Header({ lng }: { lng: string }) {
 
     // { t } is a function to get all translations in the current language
@@ -41,22 +44,13 @@ async function Header({ lng }: { lng: string }) {
             {/* Toolbar with all buttons and other interaction elements */}
             <Toolbar color='primary'>
                 <Box sx={{
-                    margin: '0 auto',
-                    display: 'flex',
-                    flexFlow: 'row wrap',
                     justifyContent: 'space-between',
-                    alignItems: 'center',
-                    width: {
-                        xl: '1200px',
-                        lg: '1200px',
-                        md: '90%',
-                        sm: '95%',
-                        xs: '96%'
-                    }
+                    ...$flex_row_center,
+                    ...$container_based
                 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                         <Image src={logo} style={{ borderRadius: '100%', width: '40px', height: '40px', marginRight: '10px' }} alt='HatBuilders Logo' />
-                        <Typography variant='h5'>HatBuilders | Official</Typography>
+                        <Typography variant='h5'>{t('name')} | {t('official')}</Typography>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
 
