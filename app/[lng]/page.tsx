@@ -18,7 +18,8 @@ import {
     $main_portfolio_size,
     $portfolio_image,
     $portfolio_image_box,
-    $green_bubble
+    $green_bubble,
+    $main_buttons
 } from '@/mui/styles';
 
 // Icons & Images
@@ -52,7 +53,14 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                 {/* INNER CONTENT */}
                 <Box sx={{
                     ...$container_based,
-                    ...$flex_row,
+                    display: 'flex',
+                    flexFlow: {
+                        xl: 'row nowrap',
+                        lg: 'row nowrap',
+                        md: 'row nowrap',
+                        sm: 'column nowrap',
+                        xs: 'column nowrap'
+                    },
                     mt: '80px',
                     mb: '80px',
                     justifyContent: 'space-between',
@@ -64,22 +72,48 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         width: $main_text_size,
                         zIndex: '10'
                     }}>
-                        <Typography className={global.appearance} variant='h3' component='h1' sx={{ fontWeight: '600', mb: '18px' }}>
+                        <Typography className={global.appearance} component='h1' sx={{
+                            color: '#fff',
+                            fontWeight: '600', 
+                            mb: '18px', 
+                            fontSize: {
+                                xl: '52px',
+                                lg: '50px',
+                                md: '40px',
+                                sm: '38px',
+                                xs: '34px'
+                            } 
+                        }}>
                             {t('name')} -
                         </Typography>
-                        <Typography className={global.appearance} variant='h5' component='p' sx={{ mb: '32px' }}>
+                        <Typography className={global.appearance} component='p' sx={{ 
+                            color: '#fff',
+                            mb: '32px', 
+                            fontSize: {
+                                xl: '24px',
+                                lg: '22px',
+                                md: '17.5px',
+                                sm: '19px',
+                                xs: '19px'
+                            } 
+                        }}>
                             {t('main_description')}
                         </Typography>
-                        <Typography className={global.appearance} variant='h5' component='p'>
+                        <Typography className={global.appearance} component='p' sx={{
+                            color: '#fff',
+                            fontSize: {
+                                xl: '24px',
+                                lg: '22px',
+                                md: '17.5px',
+                                sm: '19px',
+                                xs: '19px'
+                            } 
+                        }}>
                             {t('submain_description')}
                         </Typography>
                         <Box sx={{ mt: '60px' }}>
                             <Button
-                                sx={{
-                                    padding: '8px 20px',
-                                    mr: '16px',
-                                    fontSize: '20px',
-                                }}
+                                sx={$main_buttons}
                                 className={global.appearance}
                                 startIcon={<LocalMallRoundedIcon />}
                                 color="white"
@@ -87,10 +121,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                                 BUY
                             </Button>
                             <Button
-                                sx={{
-                                    padding: '8px 20px',
-                                    fontSize: '20px',
-                                }}
+                                sx={$main_buttons}
                                 className={global.appearance}
                                 startIcon={<FolderSpecialRoundedIcon />}
                                 color="white"
@@ -103,7 +134,14 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                     {/* Examples from Portfolio */}
                     <Box sx={{
                         width: $main_portfolio_size,
-                        height: 'inherit',
+                        display: {xs: 'none', sm: 'flex' },
+                        height: {
+                            xl: 'inherit',
+                            lg: 'inherit',
+                            md: 'inherit',
+                            sm: '320px',
+                            xs: '320px'
+                        },
                         position: 'relative'
                     }}>
                         <Box className={`${global.appearance} ${global.screenshot}`} component='div' sx={{
@@ -196,8 +234,6 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         left: -50,
                         zIndex: '1'
                     }}></Box>
-
-
                     <Box component='span' className={global.wave} sx={{
                         ...$green_bubble,
                         width: '225px',
@@ -222,14 +258,17 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         bottom: -250,
                         zIndex: '1'
                     }}></Box>
-
                     <Box component='span' className={global.wave} sx={{
                         ...$green_bubble,
                         width: '220px',
                         height: '220px',
                         left: 460,
                         top: -100,
-                        zIndex: '1'
+                        zIndex: '1',
+                        display: {
+                            xs: 'none',
+                            md: 'block'
+                        }
                     }}></Box>
                 </Box>
 
