@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
 // Material-UI
-import { AppBar, Toolbar, Button, Box, Typography } from '@mui/material'
+import { AppBar, Toolbar, Button, Box, Typography, IconButton } from '@mui/material'
 
 // Components
 import ThemeSwitch from './ThemeSwitch';
@@ -11,6 +11,7 @@ import HeaderBG from './HeaderBG';
 
 // Icons & Images
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import logo from '@/public/images/logo.jpg'
 
 // Language
@@ -49,10 +50,22 @@ async function Header({ lng }: { lng: string }) {
                     ...$container_based
                 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Image src={logo} style={{ borderRadius: '100%', width: '40px', height: '40px', marginRight: '10px' }} alt='HatBuilders Logo' />
-                        <Typography variant='h5'>{t('name')} | {t('official')}</Typography>
+                        <Image src={logo} style={{ 
+                            borderRadius: '100%', 
+                            width: '40px', 
+                            height: '40px', 
+                            marginRight: '10px' 
+                        }} 
+                        alt='HatBuilders Logo' />
+                        <Typography sx={{
+                            fontSize: {
+                                xs: '15px',
+                                md: '22px'
+                            },
+                            fontWeight: '600'
+                        }}>{t('name')} | {t('official')}</Typography>
                     </Box>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Box sx={{ display: {xs: 'none', md: 'flex'}, alignItems: 'center' }}>
 
                         {/* Switch for theme */}
                         <ThemeSwitch />
@@ -64,6 +77,7 @@ async function Header({ lng }: { lng: string }) {
                         {/* !!! It's not finished yet !!! */}
                         <Button startIcon={<LocalMallRoundedIcon />} variant="contained" color="primary" sx={{ fontWeight: 600, ml: 2 }}>{t('buy')}</Button>
                     </Box>
+                    <IconButton sx={{ display: {xs: 'flex', md: 'none'}}}><MenuRoundedIcon/></IconButton>
                 </Box>
             </Toolbar>
         </AppBar>
