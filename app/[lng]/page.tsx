@@ -105,8 +105,20 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         <Box component='div' sx={{
                             ...$portfolio_image_box,
                             position: 'absolute',
-                            top: '60px',
-                            left: '60px',
+                            top: {
+                                xs: '70px',
+                                sm: '70px',
+                                md: '70px',
+                                lg: '60px',
+                                xl: '60px',
+                            },
+                            left: {
+                                xs: '50px',
+                                sm: '50px',
+                                md: '50px',
+                                lg: '60px',
+                                xl: '60px',
+                            },
                             zIndex: '10'
                         }}>
                             <Image src={portfolio_1} alt='Example from portfolio #1' style={$portfolio_image} />
@@ -114,8 +126,20 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         <Box component='div' sx={{
                             ...$portfolio_image_box,
                             position: 'absolute',
-                            top: '30px',
-                            left: '30px',
+                            top: {
+                                xs: '50px',
+                                sm: '50px',
+                                md: '50px',
+                                lg: '30px',
+                                xl: '30px',
+                            },
+                            left: {
+                                xs: '30px',
+                                sm: '30px',
+                                md: '30px',
+                                lg: '30px',
+                                xl: '30px',
+                            },
                             zIndex: '9'
                         }}>
                             <Image src={portfolio_2} alt='Example from portfolio #1' style={{ ...$portfolio_image, opacity: '0.6' }} />
@@ -123,8 +147,20 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         <Box component='div' sx={{
                             ...$portfolio_image_box,
                             position: 'absolute',
-                            top: '0px',
-                            left: '0px',
+                            top: {
+                                xs: '30px',
+                                sm: '30px',
+                                md: '30px',
+                                lg: '0px',
+                                xl: '0px',
+                            },
+                            left: {
+                                xs: '10px',
+                                sm: '10px',
+                                md: '10px',
+                                lg: '0px',
+                                xl: '0px',
+                            },
                             zIndex: '8'
                         }}>
                             <Image src={portfolio_3} alt='Example from portfolio #1' style={{ ...$portfolio_image, opacity: '0.3' }} />
@@ -170,7 +206,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         ...$green_bubble,
                         width: '140px',
                         height: '140px',
-                        bottom: 55,
+                        bottom: -40,
                         right: -60,
                         zIndex: '1'
                     }}></Box>
