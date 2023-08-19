@@ -1,15 +1,17 @@
 // Basic Imports
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 // Material-UI
-import { AppBar, Toolbar, Button, Box } from '@mui/material'
+import { AppBar, Toolbar, Button, Box, Typography } from '@mui/material'
 
 // Components
 import ThemeSwitch from './ThemeSwitch';
 import HeaderBG from './HeaderBG';
 
-// Icons
+// Icons & Images
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
+import logo from '@/public/images/logo.jpg'
 
 // Language
 import { useTranslation } from '@/i18n'
@@ -38,17 +40,36 @@ async function Header({ lng }: { lng: string }) {
 
             {/* Toolbar with all buttons and other interaction elements */}
             <Toolbar color='primary'>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Box sx={{
+                    margin: '0 auto',
+                    display: 'flex',
+                    flexFlow: 'row wrap',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    width: {
+                        xl: '1200px',
+                        lg: '1200px',
+                        md: '90%',
+                        sm: '95%',
+                        xs: '96%'
+                    }
+                }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <Image src={logo} style={{ borderRadius: '100%', width: '40px', height: '40px', marginRight: '10px' }} alt='HatBuilders Logo' />
+                        <Typography variant='h5'>HatBuilders | Official</Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
 
-                    {/* Switch for theme */}
-                    <ThemeSwitch />
+                        {/* Switch for theme */}
+                        <ThemeSwitch />
 
-                    {/* Button to choose website's language */}
-                    <LanguageSelector lng={lng} />
+                        {/* Button to choose website's language */}
+                        <LanguageSelector lng={lng} />
 
-                    {/* Button to Buy Service */}
-                    {/* !!! It's not finished yet !!! */}
-                    <Button startIcon={<LocalMallRoundedIcon />} variant="contained" color="primary" sx={{ fontWeight: 600, ml: 2 }}>{t('buy')}</Button>
+                        {/* Button to Buy Service */}
+                        {/* !!! It's not finished yet !!! */}
+                        <Button startIcon={<LocalMallRoundedIcon />} variant="contained" color="primary" sx={{ fontWeight: 600, ml: 2 }}>{t('buy')}</Button>
+                    </Box>
                 </Box>
             </Toolbar>
         </AppBar>
