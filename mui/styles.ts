@@ -69,3 +69,9 @@ export const $portfolio_image = {
     borderRadius: '8px',
     flexShrink: '0',
 }
+
+export const $green_bubble = {
+    borderRadius: '100%',
+    background: 'rgba(159, 230, 76, 0.15)',
+    position: 'absolute'
+}

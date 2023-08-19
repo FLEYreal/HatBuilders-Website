@@ -16,7 +16,8 @@ import {
     $main_text_size,
     $main_portfolio_size,
     $portfolio_image,
-    $portfolio_image_box
+    $portfolio_image_box,
+    $green_bubble
 } from '@/mui/styles';
 
 // Icons & Images
@@ -43,7 +44,8 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                 width: '100%',
                 minHeight: '640px',
                 background: $green_background,
-                overflow: 'hidden'
+                overflow: 'hidden',
+                position: 'relative',
             }}>
 
                 {/* INNER CONTENT */}
@@ -51,12 +53,14 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                     ...$container_based,
                     ...$flex_row,
                     mt: '80px',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                    position: 'relative',
                 }}>
 
                     {/* Text Content */}
                     <Box sx={{
-                        width: $main_text_size
+                        width: $main_text_size,
+                        zIndex: '10'
                     }}>
                         <Typography variant='h3' component='h1' sx={{ fontWeight: '600', mb: '18px' }}>
                             {t('name')} -
@@ -114,7 +118,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                             left: '30px',
                             zIndex: '9'
                         }}>
-                            <Image src={portfolio_2} alt='Example from portfolio #1' style={{...$portfolio_image, opacity: '0.6'}} />
+                            <Image src={portfolio_2} alt='Example from portfolio #1' style={{ ...$portfolio_image, opacity: '0.6' }} />
                         </Box>
                         <Box component='div' sx={{
                             ...$portfolio_image_box,
@@ -123,9 +127,70 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                             left: '0px',
                             zIndex: '8'
                         }}>
-                            <Image src={portfolio_3} alt='Example from portfolio #1' style={{...$portfolio_image, opacity: '0.3'}} />
+                            <Image src={portfolio_3} alt='Example from portfolio #1' style={{ ...$portfolio_image, opacity: '0.3' }} />
                         </Box>
                     </Box>
+
+                    {/* Bubbles */}
+                    <Box component='span' sx={{
+                        ...$green_bubble,
+                        width: '105px',
+                        height: '105px',
+                        top: 0,
+                        left: -340,
+                        zIndex: '1'
+                    }}></Box>
+                    <Box component='span' sx={{
+                        ...$green_bubble,
+                        width: '180px',
+                        height: '180px',
+                        top: 250,
+                        left: -170,
+                        zIndex: '1'
+                    }}></Box>
+                    <Box component='span' sx={{
+                        ...$green_bubble,
+                        width: '140px',
+                        height: '140px',
+                        top: -40,
+                        left: -50,
+                        zIndex: '1'
+                    }}></Box>
+
+
+                    <Box component='span' sx={{
+                        ...$green_bubble,
+                        width: '225px',
+                        height: '225px',
+                        top: -80,
+                        right: -120,
+                        zIndex: '1'
+                    }}></Box>
+                    <Box component='span' sx={{
+                        ...$green_bubble,
+                        width: '140px',
+                        height: '140px',
+                        bottom: 55,
+                        right: -60,
+                        zIndex: '1'
+                    }}></Box>
+                    <Box component='span' sx={{
+                        ...$green_bubble,
+                        width: '320px',
+                        height: '320px',
+                        right: 420,
+                        bottom: -250,
+                        zIndex: '1'
+                    }}></Box>
+
+                    <Box component='span' sx={{
+                        ...$green_bubble,
+                        width: '220px',
+                        height: '220px',
+                        left: 460,
+                        top: -100,
+                        zIndex: '1'
+                    }}></Box>
                 </Box>
 
             </Box>
