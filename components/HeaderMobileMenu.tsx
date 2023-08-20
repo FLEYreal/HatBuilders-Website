@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 
 // Material-UI
-import { IconButton, Menu, MenuItem, ListItemText, ListItemIcon } from '@mui/material';
+import { IconButton, Menu, MenuItem, ListItemText, ListItemIcon, Divider } from '@mui/material';
 
 // Images & Icons
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
@@ -12,11 +12,13 @@ import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 
 // Language
 import { useTranslation } from '@/i18n/client';
+
+// Components
 import LanguageSelector from './LanguageSelector';
+import ThemeSwitch from './ThemeSwitch';
 
 function HeaderMobileMenu({ lng }: { lng: string }) {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const [subMenuAnchor, setSubMenuAnchor] = useState<null | HTMLElement>(null);
 
     const { t } = useTranslation(lng, 'header')
 
@@ -26,14 +28,6 @@ function HeaderMobileMenu({ lng }: { lng: string }) {
 
     const handleMenuClose = () => {
         setAnchorEl(null);
-    };
-
-    const handleSubMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setSubMenuAnchor(event.currentTarget);
-    };
-
-    const handleSubMenuClose = () => {
-        setSubMenuAnchor(null);
     };
 
     return (
@@ -60,23 +54,9 @@ function HeaderMobileMenu({ lng }: { lng: string }) {
 
                 <LanguageSelector lng={lng} type='list' menu={{ sxMenu: {p: '15px 0px', pl: '20px', width: '225px'}, handleMenuClose }}/>
 
-                <MenuItem onClick={handleMenuClose} sx={{p: '15px 0px', pl: '20px', width: '225px'}}>Пункт меню 3</MenuItem>
-            </Menu>
-            <Menu
-                anchorEl={subMenuAnchor}
-                open={Boolean(subMenuAnchor)}
-                onClose={handleSubMenuClose}
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                }}
-            >
-                <MenuItem>Дополнительная опция 1</MenuItem>
-                <MenuItem>Дополнительная опция 2</MenuItem>
+                <Divider/>
+
+                <MenuItem sx={{p: '15px 0px', pl: '20px', width: '225px'}}><ThemeSwitch/></MenuItem>
             </Menu>
         </>
     );
