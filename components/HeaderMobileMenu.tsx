@@ -53,14 +53,14 @@ function HeaderMobileMenu({ lng }: { lng: string }) {
                     horizontal: 'left',
                 }}
             >
-                <MenuItem onClick={handleMenuClose} sx={{pt: '15px', pb: '15px', pl: '25px', pr: '50px'}}>
+                <MenuItem onClick={handleMenuClose} sx={{p: '15px 0px', pl: '20px', width: '225px'}}>
                     <ListItemIcon><LocalMallRoundedIcon/></ListItemIcon>
                     <ListItemText>{t('buy').toUpperCase()}</ListItemText>
                 </MenuItem>
 
-                <LanguageSelector lng={lng} type='list' menu={{ sxMenu: {pt: '15px', pb: '15px', pl: '25px', pr: '50px'}, handleMenuClose }}/>
+                <LanguageSelector lng={lng} type='list' menu={{ sxMenu: {p: '15px 0px', pl: '20px', width: '225px'}, handleMenuClose }}/>
 
-                <MenuItem onClick={handleMenuClose} sx={{pt: '15px', pb: '15px', pl: '25px', pr: '50px'}}>Пункт меню 3</MenuItem>
+                <MenuItem onClick={handleMenuClose} sx={{p: '15px 0px', pl: '20px', width: '225px'}}>Пункт меню 3</MenuItem>
             </Menu>
             <Menu
                 anchorEl={subMenuAnchor}

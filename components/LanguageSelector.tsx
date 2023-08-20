@@ -34,6 +34,12 @@ function LanguageSelector({ lng, type = 'button', menu }: { lng: string, type: '
         setAnchorEl(event.currentTarget);
     };
 
+    // Show menu but for Mobile
+    const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+        menu!.handleMenuClose
+    };
+
     // Close menu as language is selected
     const handleClose = () => {
         setAnchorEl(null);
@@ -81,14 +87,16 @@ function LanguageSelector({ lng, type = 'button', menu }: { lng: string, type: '
                         sx={menu!.sxMenu}
 
                         // Click handler
-                        // onClick={handleClick}
-                        onClick={menu!.handleMenuClose}
+                        onClick={handleMenuOpen}
                     >
+
+                        {/* Icon of the menu item */}
                         <ListItemIcon>
                             <LanguageRoundedIcon />
                         </ListItemIcon>
+
+                        {/* Displayed text */}
                         <ListItemText>
-                            {/* Displayed text */}
                             {t('language')}
                         </ListItemText>
                     </MenuItem>
