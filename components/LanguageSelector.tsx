@@ -116,7 +116,7 @@ function LanguageSelector({
 
                         {/* Displayed text */}
                         <ListItemText>
-                            {t('language')}
+                            {t('language').toUpperCase()}
                         </ListItemText>
                     </MenuItem>
             }

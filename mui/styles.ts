@@ -1,5 +1,7 @@
 export const $green_background = 'linear-gradient(135deg, #84BC43 0%, #7FB83D 0.01%, #396209 100%)'
 
+
+// Commons styles
 export const $container_size = {
     xl: '1200px',
     lg: '1200px',
@@ -8,6 +10,40 @@ export const $container_size = {
     xs: '96%'
 }
 
+export const $big_title_size = {
+    xl: '52px',
+    lg: '50px',
+    md: '40px',
+    sm: '38px',
+    xs: '34px'
+}
+
+export const $title_size = {
+    xl: '48px',
+    lg: '46px',
+    md: '32px',
+    sm: '30px',
+    xs: '28px'
+}
+
+export const $big_text_size = {
+    xl: '24px',
+    lg: '22px',
+    md: '20px',
+    sm: '19px',
+    xs: '19px'
+}
+
+export const $text_size = {
+    xl: '22px',
+    lg: '20px',
+    md: '19px',
+    sm: '18px',
+    xs: '18px'
+}
+
+
+// Various Styles
 export const $main_text_size = {
     xl: '39%',
     lg: '39%',
