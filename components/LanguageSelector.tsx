@@ -18,7 +18,26 @@ import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 // Translation
 import { useTranslation } from '@/i18n/client';
 
-function LanguageSelector({ lng, type = 'button', menu }: { lng: string, type: 'button' | 'list', menu: { sxMenu: SxProps, handleMenuClose: () => void } | undefined }) {
+interface LanguageSelectorType {
+
+    // Param of the link, indicates what language is used on the page
+    lng: string, 
+
+    // Type of the selector, either it's just a button or a part of the menu
+    type: 'button' | 'list', 
+
+    // Menu is a optional type, only used in the case of type: "list"
+    menu?: {
+        sxMenu: SxProps, // Styles for the menu item (paddings / width for example)
+        handleMenuClose: () => void // Function to close the menu
+    } | undefined
+}
+
+function LanguageSelector({
+    lng,
+    type = 'button',
+    menu
+}: LanguageSelectorType ) {
 
     // States
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

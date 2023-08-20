@@ -11,6 +11,7 @@ import { useTranslation } from '@/i18n'
 // Styles
 import global from '@/app/globals.module.scss'
 import {
+    // Import vars with styles in SX (Material-UI) format
     $container_based,
     $green_background,
     $main_text_size,
@@ -71,46 +72,38 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         width: $main_text_size,
                         zIndex: '10'
                     }}>
+
+                        {/* Title of the block */}
                         <Typography className={global.appearance} component='h1' sx={{
                             color: '#fff',
                             fontWeight: '600',
                             mb: '18px',
-                            fontSize: {
-                                xl: '52px',
-                                lg: '50px',
-                                md: '40px',
-                                sm: '38px',
-                                xs: '34px'
-                            }
+                            fontSize: { xl: '52px', lg: '50px', md: '40px', sm: '38px', xs: '34px' }
                         }}>
                             {t('name')} -
                         </Typography>
+
+                        {/* Main Description of the block */}
                         <Typography className={global.appearance} component='p' sx={{
                             color: '#fff',
                             mb: '32px',
-                            fontSize: {
-                                xl: '24px',
-                                lg: '22px',
-                                md: '17.5px',
-                                sm: '19px',
-                                xs: '19px'
-                            }
+                            fontSize: { xl: '24px', lg: '22px', md: '17.5px', sm: '19px', xs: '19px' }
                         }}>
                             {t('main_description')}
                         </Typography>
+
+                        {/* 2nd Paragraph of the Main Description */}
                         <Typography className={global.appearance} component='p' sx={{
                             color: '#fff',
-                            fontSize: {
-                                xl: '24px',
-                                lg: '22px',
-                                md: '17.5px',
-                                sm: '19px',
-                                xs: '19px'
-                            }
+                            fontSize: { xl: '24px', lg: '22px', md: '17.5px', sm: '19px', xs: '19p' }
                         }}>
                             {t('submain_description')}
                         </Typography>
+
+                        {/* Buttons */}
                         <Box sx={{ mt: '60px' }}>
+
+                            {/* Buy Button */}
                             <Button
                                 sx={$main_buttons}
                                 className={global.appearance}
@@ -119,6 +112,8 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                                 variant="outlined">
                                 {t('buy')}
                             </Button>
+
+                            {/* Portfolio button */}
                             <Button
                                 sx={$main_buttons}
                                 className={global.appearance}
@@ -134,74 +129,38 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                     <Box sx={{
                         width: $main_portfolio_size,
                         display: { xs: 'none', sm: 'flex' },
-                        height: {
-                            xl: 'inherit',
-                            lg: 'inherit',
-                            md: 'inherit',
-                            sm: '320px',
-                            xs: '320px'
-                        },
+                        height: { xl: 'inherit', lg: 'inherit', md: 'inherit', sm: '320px', xs: '320px' },
                         position: 'relative'
                     }}>
+
+                        {/* Example 1 */}
                         <Box className={`${global.appearance} ${global.screenshot}`} component='div' sx={{
                             ...$portfolio_image_box,
                             position: 'absolute',
-                            top: {
-                                xs: '70px',
-                                sm: '70px',
-                                md: '70px',
-                                lg: '60px',
-                                xl: '60px',
-                            },
-                            left: {
-                                xs: '50px',
-                                sm: '50px',
-                                md: '50px',
-                                lg: '60px',
-                                xl: '60px',
-                            },
+                            top: { xs: '70px', sm: '70px', md: '70px', lg: '60px', xl: '60px' },
+                            left: { xs: '50px', sm: '50px', md: '50px', lg: '60px', xl: '60px' },
                             zIndex: '10'
                         }}>
                             <Image src={portfolio_1} alt='Example from portfolio #1' style={$portfolio_image} />
                         </Box>
+
+                        {/* Example 2 */}
                         <Box className={`${global.appearance} ${global.screenshot}`} component='div' sx={{
                             ...$portfolio_image_box,
                             position: 'absolute',
-                            top: {
-                                xs: '50px',
-                                sm: '50px',
-                                md: '50px',
-                                lg: '30px',
-                                xl: '30px',
-                            },
-                            left: {
-                                xs: '30px',
-                                sm: '30px',
-                                md: '30px',
-                                lg: '30px',
-                                xl: '30px',
-                            },
+                            top: { xs: '50px', sm: '50px', md: '50px', lg: '30px', xl: '30px' },
+                            left: { xs: '30px', sm: '30px', md: '30px', lg: '30px', xl: '30px' },
                             zIndex: '9'
                         }}>
                             <Image src={portfolio_2} alt='Example from portfolio #1' style={{ ...$portfolio_image }} />
                         </Box>
+
+                        {/* Example 3 */}
                         <Box className={`${global.appearance} ${global.screenshot}`} component='div' sx={{
                             ...$portfolio_image_box,
                             position: 'absolute',
-                            top: {
-                                xs: '30px',
-                                sm: '30px',
-                                md: '30px',
-                                lg: '0px',
-                                xl: '0px',
-                            },
-                            left: {
-                                xs: '10px',
-                                sm: '10px',
-                                md: '10px',
-                                lg: '0px',
-                                xl: '0px',
-                            },
+                            top: { xs: '30px', sm: '30px', md: '30px', lg: '0px', xl: '0px' },
+                            left: { xs: '10px', sm: '10px', md: '10px', lg: '0px', xl: '0px' },
                             zIndex: '8'
                         }}>
                             <Image src={portfolio_3} alt='Example from portfolio #1' style={{ ...$portfolio_image }} />
@@ -217,7 +176,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         left: -340,
                         zIndex: '1'
                     }}></Box>
-                    <Box component='span' sx={{
+                    <Box component='span' className={global.wave} sx={{
                         ...$green_bubble,
                         width: '180px',
                         height: '180px',
@@ -225,7 +184,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                         left: -170,
                         zIndex: '1'
                     }}></Box>
-                    <Box component='span' sx={{
+                    <Box component='span' className={global.wave} sx={{
                         ...$green_bubble,
                         width: '140px',
                         height: '140px',
@@ -273,6 +232,6 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
             </Box>
 
-        </Typography>
+        </Typography >
     )
 }

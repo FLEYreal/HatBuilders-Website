@@ -18,9 +18,13 @@ import LanguageSelector from './LanguageSelector';
 import ThemeSwitch from './ThemeSwitch';
 
 function HeaderMobileMenu({ lng }: { lng: string }) {
+    // Show / Hide menu
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
+    // Translation
     const { t } = useTranslation(lng, 'header')
+
+    // Handlers for menu:
 
     const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -32,12 +36,16 @@ function HeaderMobileMenu({ lng }: { lng: string }) {
 
     return (
         <>
+            {/* Burger Menu Button */}
             <IconButton
                 sx={{ display: { xs: 'flex', md: 'none' } }}
                 onClick={handleMenuOpen}
             >
+                {/* Icon Component */}
                 <MenuRoundedIcon />
             </IconButton>
+
+            {/* Menu which opens by Burger Menu Button */}
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
@@ -47,15 +55,20 @@ function HeaderMobileMenu({ lng }: { lng: string }) {
                     horizontal: 'left',
                 }}
             >
+                {/* List of Menu Items: */}
+
+                {/* Buy button Item */}
                 <MenuItem onClick={handleMenuClose} sx={{p: '15px 0px', pl: '20px', width: '225px'}}>
                     <ListItemIcon><LocalMallRoundedIcon/></ListItemIcon>
                     <ListItemText>{t('buy').toUpperCase()}</ListItemText>
                 </MenuItem>
 
+                {/* Language Selector Item */}
                 <LanguageSelector lng={lng} type='list' menu={{ sxMenu: {p: '15px 0px', pl: '20px', width: '225px'}, handleMenuClose }}/>
 
                 <Divider/>
 
+                {/* Theme Switch Item */}
                 <MenuItem sx={{p: '15px 0px', pl: '20px', width: '225px'}}><ThemeSwitch/></MenuItem>
             </Menu>
         </>
