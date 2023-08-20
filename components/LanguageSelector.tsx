@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 // Material-UI
-import { Box, Menu, MenuItem, Button, Typography } from '@mui/material'
+import { Box, Menu, MenuItem, Button, Typography, ListItemIcon, ListItemText, SxProps } from '@mui/material'
 import { Theme } from "@mui/material/styles";
 import { useTheme } from '@emotion/react';
 
@@ -18,7 +18,7 @@ import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 // Translation
 import { useTranslation } from '@/i18n/client';
 
-function LanguageSelector({ lng }: { lng: string }) {
+function LanguageSelector({ lng, type = 'button', menu }: { lng: string, type: 'button' | 'list', menu: { sxMenu: SxProps, handleMenuClose: () => void } | undefined }) {
 
     // States
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -54,23 +54,45 @@ function LanguageSelector({ lng }: { lng: string }) {
         // Language selector
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-            {/* Button that displays menu with languages */}
-            <Button
-                // Icon shown before text
-                startIcon={<LanguageRoundedIcon />}
+            {
+                type === 'button' ?
+                    <>
+                        {/* Button that displays menu with languages */}
+                        <Button
+                            // Icon shown before text
+                            startIcon={<LanguageRoundedIcon />}
 
-                // Click handler
-                onClick={handleClick}
+                            // Click handler
+                            onClick={handleClick}
 
-                // Make font weight
-                sx={{ fontWeight: 600 }}
+                            // Make font weight
+                            sx={{ fontWeight: 600 }}
 
-                // Variant, outlined for dark theme, contained for light
-                variant={theme.palette.mode === 'dark' ? 'outlined' : 'contained'}>
+                            // Variant, outlined for dark theme, contained for light
+                            variant={theme.palette.mode === 'dark' ? 'outlined' : 'contained'}>
 
-                {/* Displayed text */}
-                {t('language')}
-            </Button>
+                            {/* Displayed text */}
+                            {t('language')}
+                        </Button>
+                    </> :
+                    <MenuItem
+
+                        // Apply styles
+                        sx={menu!.sxMenu}
+
+                        // Click handler
+                        // onClick={handleClick}
+                        onClick={menu!.handleMenuClose}
+                    >
+                        <ListItemIcon>
+                            <LanguageRoundedIcon />
+                        </ListItemIcon>
+                        <ListItemText>
+                            {/* Displayed text */}
+                            {t('language')}
+                        </ListItemText>
+                    </MenuItem>
+            }
 
             {/* Menu with languages */}
             <Menu
@@ -100,7 +122,7 @@ function LanguageSelector({ lng }: { lng: string }) {
 
                 </MenuItem>
             </Menu>
-        </Box>
+        </Box >
     );
 }
 

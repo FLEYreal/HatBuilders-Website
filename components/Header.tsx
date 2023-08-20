@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
 // Material-UI
-import { AppBar, Toolbar, Button, Box, Typography, IconButton } from '@mui/material'
+import { AppBar, Toolbar, Button, Box, Typography } from '@mui/material'
 
 // Components
 import ThemeSwitch from './ThemeSwitch';
@@ -11,7 +11,6 @@ import HeaderBG from './HeaderBG';
 
 // Icons & Images
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import logo from '@/public/images/logo.jpg'
 
 // Language
@@ -19,6 +18,7 @@ import { useTranslation } from '@/i18n'
 
 // Styles
 import { $container_based, $flex_row_center } from '@/mui/styles';
+import HeaderMobileMenu from '@/components/HeaderMobileMenu';
 
 async function Header({ lng }: { lng: string }) {
 
@@ -71,13 +71,13 @@ async function Header({ lng }: { lng: string }) {
                         <ThemeSwitch />
 
                         {/* Button to choose website's language */}
-                        <LanguageSelector lng={lng} />
+                        <LanguageSelector lng={lng} type='button' menu={undefined}/>
 
                         {/* Button to Buy Service */}
                         {/* !!! It's not finished yet !!! */}
                         <Button startIcon={<LocalMallRoundedIcon />} variant="contained" color="primary" sx={{ fontWeight: 600, ml: 2 }}>{t('buy')}</Button>
                     </Box>
-                    <IconButton sx={{ display: {xs: 'flex', md: 'none'}}}><MenuRoundedIcon/></IconButton>
+                    <HeaderMobileMenu lng={lng}/>
                 </Box>
             </Toolbar>
         </AppBar>
