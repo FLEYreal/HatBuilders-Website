@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // Material-UI
-import { Typography, Box, ListItemIcon, ListItemText } from '@mui/material'
+import { Box, ListItemIcon } from '@mui/material'
 
 // Language
 import { useTranslation } from '@/i18n'
@@ -56,14 +56,14 @@ export default async function SocialBlock({ lng }: { lng: string }) {
                     <Link href='https://discord.gg/7cNAGPbGQu' title={t('discord')} style={{ ...$flex_row_center, marginRight: '24px', marginTop: '32px'}} className={styles.social_link}>
                         <ListItemIcon><Image src={dc} alt='YouTube Icon' width={50} height={50}/></ListItemIcon>
                     </Link>
-                    <Link href='https://www.youtube.com/' style={{ ...$flex_row_center, marginRight: '24px', marginTop: '32px' }} className={styles.social_link}>
+                    <Link href='https://www.youtube.com/' title={t('youtube')} style={{ ...$flex_row_center, marginRight: '24px', marginTop: '32px' }} className={styles.social_link}>
                         <ListItemIcon><Image src={yt} alt='YouTube Icon' width={50} height={50}/></ListItemIcon>
                     </Link>
                     <Link href='https://www.vk.com/' style={{ ...$flex_row_center, marginRight: '24px', marginTop: '32px' }} className={styles.social_link}>
-                        <ListItemIcon><Image src={vk} alt='YouTube Icon' width={50} height={50}/></ListItemIcon>
+                        <ListItemIcon><Image src={vk} title={t('vk')} alt='YouTube Icon' width={50} height={50}/></ListItemIcon>
                     </Link>
                     <Link href='https://www.tiktok.com/' style={{ ...$flex_row_center, marginRight: '24px', marginTop: '32px' }} className={styles.social_link}>
-                        <ListItemIcon><Image src={tk} alt='YouTube Icon' width={50} height={50}/></ListItemIcon>
+                        <ListItemIcon><Image src={tk} title={t('tiktok')} alt='YouTube Icon' width={50} height={50}/></ListItemIcon>
                     </Link>
                 </Box>
             </Box>
