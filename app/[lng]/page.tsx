@@ -12,7 +12,6 @@ import { useTranslation } from '@/i18n'
 import global from '@/app/globals.module.scss'
 import {
     $container_based,
-    $flex_row,
     $green_background,
     $main_text_size,
     $main_portfolio_size,
@@ -74,28 +73,28 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                     }}>
                         <Typography className={global.appearance} component='h1' sx={{
                             color: '#fff',
-                            fontWeight: '600', 
-                            mb: '18px', 
+                            fontWeight: '600',
+                            mb: '18px',
                             fontSize: {
                                 xl: '52px',
                                 lg: '50px',
                                 md: '40px',
                                 sm: '38px',
                                 xs: '34px'
-                            } 
+                            }
                         }}>
                             {t('name')} -
                         </Typography>
-                        <Typography className={global.appearance} component='p' sx={{ 
+                        <Typography className={global.appearance} component='p' sx={{
                             color: '#fff',
-                            mb: '32px', 
+                            mb: '32px',
                             fontSize: {
                                 xl: '24px',
                                 lg: '22px',
                                 md: '17.5px',
                                 sm: '19px',
                                 xs: '19px'
-                            } 
+                            }
                         }}>
                             {t('main_description')}
                         </Typography>
@@ -107,7 +106,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                                 md: '17.5px',
                                 sm: '19px',
                                 xs: '19px'
-                            } 
+                            }
                         }}>
                             {t('submain_description')}
                         </Typography>
@@ -118,7 +117,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                                 startIcon={<LocalMallRoundedIcon />}
                                 color="white"
                                 variant="outlined">
-                                BUY
+                                {t('buy')}
                             </Button>
                             <Button
                                 sx={$main_buttons}
@@ -126,7 +125,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                                 startIcon={<FolderSpecialRoundedIcon />}
                                 color="white"
                                 variant="outlined">
-                                SEE PORTFOLIO
+                                {t('see_portfolio')}
                             </Button>
                         </Box>
                     </Box>
@@ -134,7 +133,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
                     {/* Examples from Portfolio */}
                     <Box sx={{
                         width: $main_portfolio_size,
-                        display: {xs: 'none', sm: 'flex' },
+                        display: { xs: 'none', sm: 'flex' },
                         height: {
                             xl: 'inherit',
                             lg: 'inherit',
