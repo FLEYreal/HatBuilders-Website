@@ -56,7 +56,7 @@ export default async function SocialBlock({ lng }: { lng: string }) {
                     <Link href='https://discord.gg/7cNAGPbGQu' title={t('discord')} style={{ ...$flex_row_center, marginRight: '24px', marginTop: '32px'}} className={styles.social_link}>
                         <ListItemIcon><Image src={dc} alt='YouTube Icon' width={50} height={50}/></ListItemIcon>
                     </Link>
-                    <Link href='https://www.youtube.com/' title={t('youtube')} style={{ ...$flex_row_center, marginRight: '24px', marginTop: '32px' }} className={styles.social_link}>
+                    <Link href='https://www.youtube.com/channel/UCP-DiE7nmpMVJsWzZIo6wyA' title={t('youtube')} style={{ ...$flex_row_center, marginRight: '24px', marginTop: '32px' }} className={styles.social_link}>
                         <ListItemIcon><Image src={yt} alt='YouTube Icon' width={50} height={50}/></ListItemIcon>
                     </Link>
                     <Link href='https://www.vk.com/' style={{ ...$flex_row_center, marginRight: '24px', marginTop: '32px' }} className={styles.social_link}>
