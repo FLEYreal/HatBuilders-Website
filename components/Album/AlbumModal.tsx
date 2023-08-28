@@ -94,7 +94,7 @@ function AlbumModal({ image, isOpen, setIsOpen }: {
                 display: isOpen ? 'flex' : 'none',
                 alignItems: 'center',
                 justifyContent: 'center',
-                zIndex: 10
+                zIndex: 100
             }}
 
             // Turn off image if clicked

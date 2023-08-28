@@ -2,10 +2,10 @@
 
 // Basic imports
 import Image from "next/image";
-import { useState } from "react";
+import { useContext } from "react";
 
 // Components
-import AlbumModal from "./AlbumModal";
+import { albumContext } from "@/components/Providers/AldumProvider";
 
 // Types
 import { albumImage } from "@/types/image";
@@ -20,24 +20,18 @@ function AlbumImage({
 }: albumImage) {
 
     // Hook to define state of modal of image
-    const [isOpen, setIsOpen] = useState(false)
+    const { setIsOpen, setImage } = useContext(albumContext)
 
-    // Handle
     function handleModal() {
         setIsOpen((prev: boolean) => !prev)
+        setImage({
+            alt: alt,
+            src: src
+        })
     }
 
     return (
         <>
-            <AlbumModal
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                image={{
-                    alt,
-                    src
-                }}
-            />
-
             <Image
                 alt={alt}
                 src={src}

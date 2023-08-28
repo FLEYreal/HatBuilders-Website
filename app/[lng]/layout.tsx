@@ -8,6 +8,7 @@ import { CssBaseline } from '@mui/material'
 // Providers
 import { GlobalThemeProvider } from '@/app/Theme/provider'
 import GlobalScrollEvent from '@/components/Providers/GlobalScrollEvent'
+import AlbumProvider from '@/components/Providers/AldumProvider'
 
 // Components
 import Header from '@/components/Header'
@@ -46,10 +47,12 @@ export default async function RootLayout({
             <body className={global.body}>
                 <GlobalScrollEvent>
                     <GlobalThemeProvider>
-                        <CssBaseline />
-                        <Header lng={lng} />
+                        <AlbumProvider>
+                            <CssBaseline />
+                            <Header lng={lng} />
 
-                        {children}
+                            {children}
+                        </AlbumProvider>
                     </GlobalThemeProvider>
                 </GlobalScrollEvent>
             </body>

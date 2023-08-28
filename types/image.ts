@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SetStateAction, Dispatch } from "react";
 
 export interface imageData {
     src: string;
@@ -14,4 +14,11 @@ export interface albumImage {
     width: number;
     style?: React.CSSProperties;
     className?: string;
+}
+
+export interface albumContextType {
+    image: imageData, 
+    setImage: Dispatch<SetStateAction<imageData>>,
+    isOpen: boolean,
+    setIsOpen: Dispatch<SetStateAction<boolean>>
 }
