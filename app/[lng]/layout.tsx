@@ -6,7 +6,7 @@ import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 import { CssBaseline } from '@mui/material'
 
 // Providers
-import { GlobalThemeProvider } from '@/app/Theme/provider'
+import { GlobalThemeProvider } from '@/components/Providers/Theme/provider'
 import GlobalScrollEvent from '@/components/Providers/GlobalScrollEvent'
 import AlbumProvider from '@/components/Providers/AldumProvider'
 

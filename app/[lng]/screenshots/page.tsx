@@ -1,6 +1,11 @@
+// Material-UI
+import { Box } from "@mui/material";
+
 async function Screenshots() {
     return ( 
-        <div>Future Screenshots!</div>
+        <Box>
+
+        </Box>
     );
 }
 

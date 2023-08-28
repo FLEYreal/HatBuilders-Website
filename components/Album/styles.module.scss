@@ -1,8 +1,10 @@
+// Animation of appearance for image itself
 .appearance_image {
     animation: image 0.2s normal ease 1;
     -webkit-animation: image 0.2s normal ease 1;
 }
 
+// Animation of appearance for background of modal
 .appearance_background {
     animation: bg 0.2s normal ease 1;
     -webkit-animation: bg 0.2s normal ease 1;

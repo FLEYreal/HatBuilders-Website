@@ -9,7 +9,7 @@ import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
 
 // Contexts
-import { useThemeContext } from '@/app/Theme/provider';
+import { useThemeContext } from '@/components/Providers/Theme/provider';
 import { scrollContext } from '@/components/Providers/GlobalScrollEvent'
 
 // Icons
