@@ -1,0 +1,39 @@
+.appearance_image {
+    animation: image 0.2s normal ease 1;
+    -webkit-animation: image 0.2s normal ease 1;
+}
+
+.appearance_background {
+    animation: bg 0.2s normal ease 1;
+    -webkit-animation: bg 0.2s normal ease 1;
+}
+
+@keyframes image {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        -moz-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        -o-transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+}
+
+@keyframes bg {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
