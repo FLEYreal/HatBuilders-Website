@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 import { imageData } from "@/types/image";
+import AlbumImage from '@/components/Album/AlbumImage'
 
 export default async function Album({ images, sizes, sx }: { images: imageData[], sizes: { width: number, height: number }, sx?: SxProps }) {
-
 
 
     return (
@@ -18,11 +18,9 @@ export default async function Album({ images, sizes, sx }: { images: imageData[]
         }}>
             {
                 images.map((i: imageData, key: number) => (
-                    <Image src={i.src} key={key} alt={i.alt} style={{
-                        borderRadius: '8px',
+                    <AlbumImage src={i.src} key={key} alt={i.alt} style={{
                         marginTop: '10px',
-                        marginRight: '10px',
-                        cursor: 'pointer'
+                        marginRight: '10px'
                     }}
 
                     height={sizes.height}

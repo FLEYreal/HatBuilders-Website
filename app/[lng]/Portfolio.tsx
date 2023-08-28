@@ -10,7 +10,7 @@ import {
     $title_size
 } from '@/mui/styles';
 
-import Album from "@/components/Album";
+import Album from "@/components/Album/Album";
 import { imageData } from "@/types/image";
 
 import portfolio from '@/public/en/lists/portfolio.json'
