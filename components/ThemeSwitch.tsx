@@ -10,7 +10,7 @@ import { useTheme } from "@emotion/react";
 
 // Contexts
 import { useThemeContext } from '@/app/Theme/provider';
-import { scrollContext } from '@/components/GlobalScrollEvent'
+import { scrollContext } from '@/components/Providers/GlobalScrollEvent'
 
 // Icons
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';

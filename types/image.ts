@@ -12,5 +12,6 @@ export interface albumImage {
     alt: string;
     height: number;
     width: number;
-    style: React.CSSProperties
+    style?: React.CSSProperties;
+    className?: string;
 }

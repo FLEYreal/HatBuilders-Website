@@ -7,7 +7,7 @@ import { CssBaseline } from '@mui/material'
 
 // Providers
 import { GlobalThemeProvider } from '@/app/Theme/provider'
-import GlobalScrollEvent from '@/components/GlobalScrollEvent'
+import GlobalScrollEvent from '@/components/Providers/GlobalScrollEvent'
 
 // Components
 import Header from '@/components/Header'

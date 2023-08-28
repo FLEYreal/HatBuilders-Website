@@ -16,7 +16,7 @@ function AlbumImage({
     alt,
     height,
     width,
-    style
+    style = {}
 }: albumImage) {
 
     // Hook to define state of modal of image
@@ -34,9 +34,7 @@ function AlbumImage({
                 setIsOpen={setIsOpen}
                 image={{
                     alt,
-                    src,
-                    height,
-                    width
+                    src
                 }}
             />
 

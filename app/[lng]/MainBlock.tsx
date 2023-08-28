@@ -23,6 +23,9 @@ import {
     $big_title_size
 } from '@/mui/styles';
 
+// Components
+import AlbumImage from '@/components/Album/AlbumImage'
+
 // Icons & Images
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 import FolderSpecialRoundedIcon from '@mui/icons-material/FolderSpecialRounded';
@@ -139,7 +142,7 @@ export default async function MainBlock({ lng }: { lng: string }) {
                         left: { xs: '50px', sm: '50px', md: '50px', lg: '60px', xl: '60px' },
                         zIndex: '10'
                     }}>
-                        <Image src={portfolio_1} width={400} height={400} alt='Example from portfolio #1' style={$portfolio_image} />
+                        <AlbumImage height={337.5} width={600} src='/en/images/portfolio/1.png' alt='Example from portfolio #1' style={$portfolio_image} />
                     </Box>
 
                     {/* Example 2 */}
@@ -150,7 +153,7 @@ export default async function MainBlock({ lng }: { lng: string }) {
                         left: { xs: '30px', sm: '30px', md: '30px', lg: '30px', xl: '30px' },
                         zIndex: '9'
                     }}>
-                        <Image src={portfolio_2} alt='Example from portfolio #1' style={{ ...$portfolio_image }} />
+                        <AlbumImage height={337.5} width={600} src='/en/images/portfolio/2.png' alt='Example from portfolio #2' style={{ ...$portfolio_image }} />
                     </Box>
 
                     {/* Example 3 */}
@@ -161,7 +164,7 @@ export default async function MainBlock({ lng }: { lng: string }) {
                         left: { xs: '10px', sm: '10px', md: '10px', lg: '0px', xl: '0px' },
                         zIndex: '8'
                     }}>
-                        <Image src={portfolio_3} alt='Example from portfolio #1' style={{ ...$portfolio_image }} />
+                        <AlbumImage height={337.5} width={600} src='/en/images/portfolio/3.jpeg'  alt='Example from portfolio #3' style={{ ...$portfolio_image }} />
                     </Box>
                 </Box>
 
