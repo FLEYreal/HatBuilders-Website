@@ -26,9 +26,9 @@ import {
 // Icons & Images
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 import FolderSpecialRoundedIcon from '@mui/icons-material/FolderSpecialRounded';
-import portfolio_1 from '@/public/images/portfolio/1.png'
-import portfolio_2 from '@/public/images/portfolio/2.png'
-import portfolio_3 from '@/public/images/portfolio/3.jpeg'
+import portfolio_1 from '@/public/en/images/portfolio/1.png'
+import portfolio_2 from '@/public/en/images/portfolio/2.png'
+import portfolio_3 from '@/public/en/images/portfolio/3.jpeg'
 
 export default async function MainBlock({ lng }: { lng: string }) {
 
@@ -139,7 +139,7 @@ export default async function MainBlock({ lng }: { lng: string }) {
                         left: { xs: '50px', sm: '50px', md: '50px', lg: '60px', xl: '60px' },
                         zIndex: '10'
                     }}>
-                        <Image src={portfolio_1} alt='Example from portfolio #1' style={$portfolio_image} />
+                        <Image src={portfolio_1} width={400} height={400} alt='Example from portfolio #1' style={$portfolio_image} />
                     </Box>
 
                     {/* Example 2 */}

@@ -11,8 +11,8 @@ import { Theme } from "@mui/material/styles";
 import { useTheme } from '@emotion/react';
 
 // Icons
-import ru from '@/public/icons/ru.svg';
-import uk from '@/public/icons/uk.svg';
+import ru from '@/public/en/icons/ru.svg';
+import uk from '@/public/en/icons/uk.svg';
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 
 // Translation

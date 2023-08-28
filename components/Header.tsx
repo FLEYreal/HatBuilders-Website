@@ -11,7 +11,7 @@ import HeaderBG from './HeaderBG';
 
 // Icons & Images
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
-import logo from '@/public/images/logo.jpg'
+import logo from '@/public/en/images/logo.jpg'
 
 // Language
 import { useTranslation } from '@/i18n'

@@ -20,10 +20,10 @@ import {
 } from '@/mui/styles'
 
 // Icons & Images
-import yt from '@/public/icons/social/yt.svg'
-import vk from '@/public/icons/social/vk.svg'
-import dc from '@/public/icons/social/dc.svg'
-import tk from '@/public/icons/social/tk.svg'
+import yt from '@/public/en/icons/social/yt.svg'
+import vk from '@/public/en/icons/social/vk.svg'
+import dc from '@/public/en/icons/social/dc.svg'
+import tk from '@/public/en/icons/social/tk.svg'
 
 export default async function SocialBlock({ lng }: { lng: string }) {
 
