@@ -1,44 +1,42 @@
-import Image from "next/image";
+// Basic Imports
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
+// Material-UI
 import { Box } from "@mui/material";
+
+// Types
 import { imageData } from "@/types/image";
 
+// Styles
 import styles from './styles.module.scss'
 
 function AlbumModal({ image, isOpen, setIsOpen }: {
+    // Data about images: src, alt, height, width
     image: imageData,
+
+    // useState consts, define a state of modal, either on or off
     isOpen: boolean,
     setIsOpen: (value: (prevIsOpen: boolean) => boolean) => void
+
 }) {
 
+    // Get components of the page with "useRef"
     const bgTag = useRef<HTMLElement>(null)
     const imageTag = useRef<HTMLImageElement>(null)
 
-    function handleModal() {
-        setIsOpen((prev: boolean) => !prev)
-    }
-
-    useEffect(() => {
-        if(isOpen && imageTag && bgTag) {
-            imageTag.current!.classList.add(styles.appearance_image);
-            bgTag.current!.classList.add(styles.appearance_background);
-        } 
-        
-        else if(!isOpen && imageTag && bgTag) {
-            imageTag.current!.classList.remove(styles.appearance_image);
-            bgTag.current!.classList.remove(styles.appearance_background);
-        }
-    }, [isOpen])
-
+    // dimensions of the future image
     const [originalDimensions, setOriginalDimensions] = useState({ width: 0, height: 0 });
 
+    // Limit of image's dimensions so it didn't get bigger than user's screen
     const maxScreenWidth = Math.floor(window.innerWidth * 0.8);
     const maxScreenHeight = Math.floor(window.innerHeight * 0.8);
 
+    // A size in fact
     let displayedWidth = originalDimensions.width;
     let displayedHeight = originalDimensions.height;
 
+    // Setup scale
     if (displayedHeight > maxScreenHeight) {
         const scale = maxScreenHeight / displayedHeight;
         displayedHeight = maxScreenHeight;
@@ -51,6 +49,20 @@ function AlbumModal({ image, isOpen, setIsOpen }: {
         displayedHeight *= scale;
     }
 
+    // useEffect to animate image's appearance
+    useEffect(() => {
+        if (isOpen && imageTag && bgTag) {
+            imageTag.current!.classList.add(styles.appearance_image);
+            bgTag.current!.classList.add(styles.appearance_background);
+        }
+
+        else if (!isOpen && imageTag && bgTag) {
+            imageTag.current!.classList.remove(styles.appearance_image);
+            bgTag.current!.classList.remove(styles.appearance_background);
+        }
+    }, [isOpen])
+
+    // useEffect to set sizes of the image
     useEffect(() => {
         const img = new window.Image();
         img.src = image.src;
@@ -60,11 +72,17 @@ function AlbumModal({ image, isOpen, setIsOpen }: {
         };
     }, [image.src]);
 
+    // Function to turn on/off modal
+    function handleModal() {
+        setIsOpen((prev: boolean) => !prev)
+    }
 
     return (
         <Box
             component='section'
             ref={bgTag}
+
+            // Styles of the background
             sx={{
                 backdropFilter: 'blur(2px)',
                 backgroundColor: 'rgba(0,0,0,0.75)',
@@ -78,15 +96,20 @@ function AlbumModal({ image, isOpen, setIsOpen }: {
                 justifyContent: 'center',
                 zIndex: 10
             }}
+
+            // Turn off image if clicked
             onClick={handleModal}
         >
-            <Image 
+            <Image
+
+                // Setup parameters of the image from outside's params
                 ref={imageTag}
-                src={image.src} 
-                width={displayedWidth} 
-                height={displayedHeight} 
-                alt={image.alt} 
+                src={image.src}
+                width={displayedWidth}
+                height={displayedHeight}
+                alt={image.alt}
                 style={{ display: 'inherit', borderRadius: '8px' }}
+
             />
         </Box>
     );
