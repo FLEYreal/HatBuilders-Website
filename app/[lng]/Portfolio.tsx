@@ -10,8 +10,14 @@ import {
     $title_size
 } from '@/mui/styles';
 
+import Album from "@/components/Album";
+import { imageData } from "@/types/image";
+
+import portfolio from '@/public/en/lists/portfolio.json'
 
 export default async function Portfolio({ lng }: { lng: string }) {
+
+    const images: imageData[] = portfolio
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { t } = await useTranslation(
@@ -32,6 +38,18 @@ export default async function Portfolio({ lng }: { lng: string }) {
                 }}>
                     {t('our_portfolio')}
                 </Box>
+
+                <Album
+                    images={images}
+                    sx={{
+                        mt: '16px'
+                    }}
+                    sizes={{
+                        height: 202.5,
+                        width: 360
+                    }}
+                />
+
             </Box>
 
         </Box>
