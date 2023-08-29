@@ -1,6 +1,6 @@
 // Basic Imports
 import React from 'react';
-import Image from 'next/image';
+import Link from 'next/link'
 
 // Material-UI
 import { Typography, Box, Button } from '@mui/material'
@@ -29,9 +29,6 @@ import AlbumImage from '@/components/Album/AlbumImage'
 // Icons & Images
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 import FolderSpecialRoundedIcon from '@mui/icons-material/FolderSpecialRounded';
-import portfolio_1 from '@/public/en/images/portfolio/1.png'
-import portfolio_2 from '@/public/en/images/portfolio/2.png'
-import portfolio_3 from '@/public/en/images/portfolio/3.jpeg'
 
 export default async function MainBlock({ lng }: { lng: string }) {
 
@@ -40,6 +37,10 @@ export default async function MainBlock({ lng }: { lng: string }) {
         lng, // Current language
         'home' // What file to take translation from
     )
+
+    function toPortfolio() {
+
+    }
 
     return (
         <Box sx={{
@@ -115,14 +116,16 @@ export default async function MainBlock({ lng }: { lng: string }) {
                         </Button>
 
                         {/* Portfolio button */}
-                        <Button
-                            sx={$main_buttons}
-                            className={global.appearance}
-                            startIcon={<FolderSpecialRoundedIcon />}
-                            color="white"
-                            variant="outlined">
-                            {t('see_portfolio')}
-                        </Button>
+                        <Link href="/screenshots">
+                            <Button
+                                sx={$main_buttons}
+                                className={global.appearance}
+                                startIcon={<FolderSpecialRoundedIcon />}
+                                color="white"
+                                variant="outlined">
+                                {t('see_portfolio')}
+                            </Button>
+                        </Link>
                     </Box>
                 </Box>
 

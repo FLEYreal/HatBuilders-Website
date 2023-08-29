@@ -9,8 +9,8 @@ import { imageData } from "@/types/image";
 import AlbumImage from '@/components/Album/AlbumImage'
 
 export default async function Album(
-    { images, sizes, sx }:
-    { images: imageData[], sizes: { width: number, height: number }, sx?: SxProps }) {
+    { images, sizes, limit, sx }:
+    { images: imageData[], sizes: { width: number, height: number }, limit?: number, sx?: SxProps }) {
 
 
     return (
@@ -20,8 +20,14 @@ export default async function Album(
         }}>
             {
                 // Iterate each image from JSON array
-                images.map((i: imageData, key: number) => (
-                    <AlbumImage
+                images.map((i: imageData, key: number) => {
+
+                    // If it's index higher than limit - don't load images anymore
+                    if(limit && key > limit - 1) {
+                        return;
+                    }
+
+                    return (<AlbumImage
                         src={i.src}
                         key={key}
                         alt={i.alt}
@@ -33,8 +39,8 @@ export default async function Album(
                         height={sizes.height}
                         width={sizes.width}
 
-                    />
-                ))
+                    />)
+                })
             }
         </Box>
     );
