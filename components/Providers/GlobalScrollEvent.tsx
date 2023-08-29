@@ -73,6 +73,12 @@ function GlobalScrollEvent({ children }: { children: React.ReactNode }) {
             divElement.addEventListener("scroll", handleScroll);
         }
 
+        // Setup state even after reload
+        setScrollPost({
+            value: divElement!.scrollTop,
+            isScrolled: divElement!.scrollTop > 0 ? true : false
+        })
+
         // Remove event listener on cleanup
         return () => {
             if (divElement) {
