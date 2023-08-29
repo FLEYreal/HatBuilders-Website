@@ -84,7 +84,7 @@ function AlbumModal({ image, isOpen, setIsOpen }: {
 
             // Styles of the background
             sx={{
-                backdropFilter: 'blur(2px)',
+                backdropFilter: 'blur(4px)',
                 backgroundColor: 'rgba(0,0,0,0.75)',
                 position: 'fixed',
                 top: 0,

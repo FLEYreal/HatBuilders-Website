@@ -19,6 +19,7 @@ import { useTranslation } from '@/i18n'
 // Styles
 import { $container_based, $flex_row_center } from '@/mui/styles';
 import HeaderMobileMenu from '@/components/HeaderMobileMenu';
+import Link from 'next/link';
 
 async function Header({ lng }: { lng: string }) {
 
@@ -49,35 +50,38 @@ async function Header({ lng }: { lng: string }) {
                     ...$flex_row_center,
                     ...$container_based
                 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Image src={logo} style={{ 
-                            borderRadius: '100%', 
-                            width: '40px', 
-                            height: '40px', 
-                            marginRight: '10px' 
-                        }} 
-                        alt='HatBuilders Logo' />
-                        <Typography sx={{
-                            fontSize: {
-                                xs: '15px',
-                                md: '22px'
-                            },
-                            fontWeight: '600'
-                        }}>{t('name')} | {t('official')}</Typography>
+                    <Box>
+                        <Link href='/' style={{ color: '#ffffff', textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+                            <Image src={logo} style={{
+                                borderRadius: '100%',
+                                width: '40px',
+                                height: '40px',
+                                marginRight: '10px'
+                            }}
+                            alt='HatBuilders Logo' />
+                            
+                            <Typography sx={{
+                                fontSize: {
+                                    xs: '15px',
+                                    md: '22px'
+                                },
+                                fontWeight: '600'
+                            }}>{t('name')} | {t('official')}</Typography>
+                        </Link>
                     </Box>
-                    <Box sx={{ display: {xs: 'none', md: 'flex'}, alignItems: 'center' }}>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
 
                         {/* Switch for theme */}
                         <ThemeSwitch />
 
                         {/* Button to choose website's language */}
-                        <LanguageSelector lng={lng} type='button' menu={undefined}/>
+                        <LanguageSelector lng={lng} type='button' menu={undefined} />
 
                         {/* Button to Buy Service */}
                         {/* !!! It's not finished yet !!! */}
                         <Button startIcon={<LocalMallRoundedIcon />} variant="contained" color="primary" sx={{ fontWeight: 600, ml: 2 }}>{t('buy')}</Button>
                     </Box>
-                    <HeaderMobileMenu lng={lng}/>
+                    <HeaderMobileMenu lng={lng} />
                 </Box>
             </Toolbar>
         </AppBar>

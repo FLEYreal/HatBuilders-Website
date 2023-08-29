@@ -10,6 +10,9 @@ import { albumContext } from "@/components/Providers/AldumProvider";
 // Types
 import { albumImage } from "@/types/image";
 
+// Styles
+import styles from './styles.module.scss'
+
 function AlbumImage({
     // Params for each image
     src,
@@ -42,6 +45,7 @@ function AlbumImage({
                     borderRadius: '8px',
                     ...style
                 }}
+                className={styles.hover}
                 onClick={handleModal}
             />
         </>
