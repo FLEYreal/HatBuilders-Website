@@ -1,10 +1,12 @@
 'use client'
 
 // Basic Imports
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 // Material-UI
 import { IconButton, Menu, MenuItem, ListItemText, ListItemIcon, Divider } from '@mui/material';
+import { Theme } from "@mui/material/styles";
+import { useTheme } from "@emotion/react";
 
 // Images & Icons
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
@@ -17,12 +19,22 @@ import { useTranslation } from '@/i18n/client';
 import LanguageSelector from '../LanguageSelector';
 import ThemeSwitch from '../ThemeSwitch';
 
+// Context
+import { scrollContext } from '../Providers/GlobalScrollEvent';
+
 function HeaderMobileMenu({ lng }: { lng: string }) {
     // Show / Hide menu
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
     // Translation
     const { t } = useTranslation(lng, 'header')
+
+    // Theme
+    const theme = useTheme() as Theme;
+    const dark = theme.palette.mode === 'dark';
+
+    // Get scroll context
+    const { isScrolled } = useContext(scrollContext)
 
     // Handlers for menu:
 
@@ -42,7 +54,10 @@ function HeaderMobileMenu({ lng }: { lng: string }) {
                 onClick={handleMenuOpen}
             >
                 {/* Icon Component */}
-                <MenuRoundedIcon />
+                <MenuRoundedIcon color={
+                    dark ? 'white' : 
+                        isScrolled ? 'white' : 'black'
+                } />
             </IconButton>
 
             {/* Menu which opens by Burger Menu Button */}
@@ -58,18 +73,18 @@ function HeaderMobileMenu({ lng }: { lng: string }) {
                 {/* List of Menu Items: */}
 
                 {/* Buy button Item */}
-                <MenuItem onClick={handleMenuClose} sx={{p: '15px 0px', pl: '20px', width: '225px'}}>
-                    <ListItemIcon><LocalMallRoundedIcon/></ListItemIcon>
+                <MenuItem onClick={handleMenuClose} sx={{ p: '15px 0px', pl: '20px', width: '225px' }}>
+                    <ListItemIcon><LocalMallRoundedIcon /></ListItemIcon>
                     <ListItemText>{t('buy').toUpperCase()}</ListItemText>
                 </MenuItem>
 
                 {/* Language Selector Item */}
-                <LanguageSelector lng={lng} type='list' menu={{ sxMenu: {p: '15px 0px', pl: '20px', width: '225px'}, handleMenuClose }}/>
+                <LanguageSelector lng={lng} type='list' menu={{ sxMenu: { p: '15px 0px', pl: '20px', width: '225px' }, handleMenuClose }} />
 
-                <Divider/>
+                <Divider />
 
                 {/* Theme Switch Item */}
-                <MenuItem sx={{p: '15px 0px', pl: '20px', width: '225px'}}><ThemeSwitch isMobile={true}/></MenuItem>
+                <MenuItem sx={{ p: '15px 0px', pl: '20px', width: '225px' }}><ThemeSwitch isMobile={true} /></MenuItem>
             </Menu>
         </>
     );

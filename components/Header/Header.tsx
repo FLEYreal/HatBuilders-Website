@@ -1,9 +1,8 @@
 // Basic Imports
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 
 // Material-UI
-import { AppBar, Toolbar, Button, Box, Typography } from '@mui/material'
+import { AppBar, Toolbar, Button, Box } from '@mui/material'
 
 // Components
 import ThemeSwitch from '../ThemeSwitch';
@@ -11,7 +10,6 @@ import HeaderBG from './HeaderBG';
 
 // Icons & Images
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
-import logo from '@/public/en/images/logo.jpg'
 
 // Language
 import { useTranslation } from '@/i18n'
@@ -19,7 +17,7 @@ import { useTranslation } from '@/i18n'
 // Styles
 import { $container_based, $flex_row_center } from '@/mui/styles';
 import HeaderMobileMenu from '@/components/Header/HeaderMobileMenu';
-import Link from 'next/link';
+import HeaderTitle from './HeaderTitle';
 
 async function Header({ lng }: { lng: string }) {
 
@@ -50,25 +48,7 @@ async function Header({ lng }: { lng: string }) {
                     ...$flex_row_center,
                     ...$container_based
                 }}>
-                    <Box>
-                        <Link href='/' style={{ color: '#ffffff', textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                            <Image src={logo} style={{
-                                borderRadius: '100%',
-                                width: '40px',
-                                height: '40px',
-                                marginRight: '10px'
-                            }}
-                            alt='HatBuilders Logo' />
-                            
-                            <Typography sx={{
-                                fontSize: {
-                                    xs: '15px',
-                                    md: '22px'
-                                },
-                                fontWeight: '600'
-                            }}>{t('name')} | {t('official')}</Typography>
-                        </Link>
-                    </Box>
+                    <HeaderTitle lng={lng}/>
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
 
                         {/* Switch for theme */}
