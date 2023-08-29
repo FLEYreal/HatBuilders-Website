@@ -6,7 +6,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Typography from '@mui/material/Typography';
 
 // Context
-import { scrollContext } from './Providers/GlobalScrollEvent';
+import { scrollContext } from '../Providers/GlobalScrollEvent';
 
 function HeaderBG({children}: {children?: React.ReactNode}) {
 

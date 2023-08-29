@@ -17,7 +17,7 @@ import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
 
 
-function ThemeSwitch() {
+function ThemeSwitch({ isMobile }: { isMobile?: boolean }) {
 
     // Contexts
     const { toggleTheme } = useThemeContext();
@@ -38,22 +38,39 @@ function ThemeSwitch() {
             }} >
                 {
                     // Changes icon between sun and moon depending on theme
-                    theme.palette.mode === 'dark' ? <WbSunnyRoundedIcon color='primary' /> : <DarkModeRoundedIcon color={scroll.isScrolled ? 'white' : 'primary'} />
+                    theme.palette.mode === 'dark' ? 
+                        <WbSunnyRoundedIcon color='primary' /> : 
+                        <DarkModeRoundedIcon color={
+                            scroll.isScrolled ? 
+                                isMobile ?
+                                    'primary' : 'white'
+                                : 'primary'
+                        } />
                 }
             </IconButton>
 
             {/* Switch that changes theme */}
             <Switch checked={dark} onChange={toggleTheme} sx={
                 scroll.isScrolled ?
-                    // Change color, depends on either scrolled or not
-                    {
-                        '& .MuiSwitch-thumb': {
-                            backgroundColor: ''
-                        },
-                        '& .MuiSwitch-track': {
-                            backgroundColor: ''
-                        }
-                    } :
+                // Change color, depends on either scrolled or not
+
+                    isMobile ?
+                        {
+                            '& .MuiSwitch-thumb': {
+                                backgroundColor: theme.palette.primary.main
+                            },
+                            '& .MuiSwitch-track': {
+                                backgroundColor: theme.palette.primary.main
+                            }
+                        } :
+                        {
+                            '& .MuiSwitch-thumb': {
+                                backgroundColor: ''
+                            },
+                            '& .MuiSwitch-track': {
+                                backgroundColor: ''
+                            }
+                        } :
                     {
                         '& .MuiSwitch-thumb': {
                             backgroundColor: theme.palette.primary.main

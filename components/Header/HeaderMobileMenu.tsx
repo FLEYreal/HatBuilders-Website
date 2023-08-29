@@ -14,8 +14,8 @@ import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 import { useTranslation } from '@/i18n/client';
 
 // Components
-import LanguageSelector from './LanguageSelector';
-import ThemeSwitch from './ThemeSwitch';
+import LanguageSelector from '../LanguageSelector';
+import ThemeSwitch from '../ThemeSwitch';
 
 function HeaderMobileMenu({ lng }: { lng: string }) {
     // Show / Hide menu
@@ -69,7 +69,7 @@ function HeaderMobileMenu({ lng }: { lng: string }) {
                 <Divider/>
 
                 {/* Theme Switch Item */}
-                <MenuItem sx={{p: '15px 0px', pl: '20px', width: '225px'}}><ThemeSwitch/></MenuItem>
+                <MenuItem sx={{p: '15px 0px', pl: '20px', width: '225px'}}><ThemeSwitch isMobile={true}/></MenuItem>
             </Menu>
         </>
     );

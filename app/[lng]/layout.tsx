@@ -11,7 +11,7 @@ import GlobalScrollEvent from '@/components/Providers/GlobalScrollEvent'
 import AlbumProvider from '@/components/Providers/AldumProvider'
 
 // Components
-import Header from '@/components/Header'
+import Header from '@/components/Header/Header'
 
 // Language
 import { dir } from 'i18next'

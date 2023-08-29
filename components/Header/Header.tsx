@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { AppBar, Toolbar, Button, Box, Typography } from '@mui/material'
 
 // Components
-import ThemeSwitch from './ThemeSwitch';
+import ThemeSwitch from '../ThemeSwitch';
 import HeaderBG from './HeaderBG';
 
 // Icons & Images
@@ -18,7 +18,7 @@ import { useTranslation } from '@/i18n'
 
 // Styles
 import { $container_based, $flex_row_center } from '@/mui/styles';
-import HeaderMobileMenu from '@/components/HeaderMobileMenu';
+import HeaderMobileMenu from '@/components/Header/HeaderMobileMenu';
 import Link from 'next/link';
 
 async function Header({ lng }: { lng: string }) {
@@ -32,7 +32,7 @@ async function Header({ lng }: { lng: string }) {
     )
 
     // dynamically import LanguageSelector component
-    const LanguageSelector = dynamic(() => import('./LanguageSelector'), {
+    const LanguageSelector = dynamic(() => import('../LanguageSelector'), {
         ssr: false
     });
 
