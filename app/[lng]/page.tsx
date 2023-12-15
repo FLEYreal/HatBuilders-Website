@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 
 // Language
 import { useTranslation } from '@/shared/i18n'
-//import { useTranslation } from '@/shared/i18n/client';
 
 // Material-UI
 import { Button, Typography } from '@mui/material'
