@@ -1,24 +1,15 @@
 // Basic Imports
 import type { Metadata } from 'next'
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 
 // Material-UI
-import { CssBaseline } from '@mui/material'
+import CssBaseline from '@mui/material/CssBaseline'
 
 // Providers
-import { GlobalThemeProvider } from '@/components/Providers/Theme/provider'
-import GlobalScrollEvent from '@/components/Providers/GlobalScrollEvent'
-import AlbumProvider from '@/components/Providers/AldumProvider'
-
-// Components
-import Header from '@/components/Header/Header'
+import { GlobalThemeProvider } from '@/shared/mui/provider'
 
 // Language
 import { dir } from 'i18next'
-import { languages } from '@/i18n/settings'
-
-// Styles
-import global from '@/app/globals.module.scss'
+import { languages } from '@/shared/i18n/settings'
 
 // Static params of language in the link
 export async function generateStaticParams() {
@@ -39,22 +30,17 @@ export default async function RootLayout({
     }
 }: {
     children: React.ReactNode,
-    params: Params
+    params: { lng: string }
 }) {
 
     return (
         <html lang={lng} dir={dir(lng)}>
-            <body className={global.body}>
-                <GlobalScrollEvent>
-                    <GlobalThemeProvider>
-                        <AlbumProvider>
-                            <CssBaseline />
-                            <Header lng={lng} />
+            <body>
+                <GlobalThemeProvider>
+                    <CssBaseline />
 
-                            {children}
-                        </AlbumProvider>
-                    </GlobalThemeProvider>
-                </GlobalScrollEvent>
+                    {children}
+                </GlobalThemeProvider>
             </body>
         </html>
     )

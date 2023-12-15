@@ -2,7 +2,7 @@
 import { createTheme } from '@mui/material/styles';
 
 // Utils
-import Coloring from '@/utils/Coloring';
+import Coloring from './Coloring';
 
 // Main variables for colors
 export const $primary = '#5FA60C';
@@ -41,21 +41,6 @@ export const darkTheme = createTheme({
             light: Coloring.lightenColor($error, 0.55),
             dark: Coloring.darkenColor($error, 0.025)
         },
-        plain_text: {
-            main: '#ffffff',
-            light: '#ffffff',
-            dark: '#ffffff'
-        },
-        white: {
-            main: '#ffffff',
-            light: '#ffffff',
-            dark: '#ffffff'
-        },
-        black: {
-            main: '#000000',
-            light: '#000000',
-            dark: '#000000'
-        }
     },
     shadows: [
         'none',
@@ -130,21 +115,6 @@ export const lightTheme = createTheme({
             light: Coloring.lightenColor($error, 0.55),
             dark: Coloring.darkenColor($error, 0.025)
         },
-        plain_text: {
-            main: '#000000',
-            light: '#000000',
-            dark: '#000000'
-        },
-        white: {
-            main: '#ffffff',
-            light: '#ffffff',
-            dark: '#ffffff'
-        },
-        black: {
-            main: '#000000',
-            light: '#000000',
-            dark: '#000000'
-        }
     },
     shadows: [
         'none',

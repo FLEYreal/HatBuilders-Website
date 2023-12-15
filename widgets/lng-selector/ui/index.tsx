@@ -11,20 +11,20 @@ import { Theme } from "@mui/material/styles";
 import { useTheme } from '@emotion/react';
 
 // Icons
-import ru from '@/public/en/icons/ru.svg';
-import uk from '@/public/en/icons/uk.svg';
+import ru from '@/public/icons/ru.svg';
+import uk from '@/public/icons/uk.svg';
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 
 // Translation
-import { useTranslation } from '@/i18n/client';
+import { useTranslation } from '@/shared/i18n/client';
 
 interface LanguageSelectorType {
 
     // Param of the link, indicates what language is used on the page
-    lng: string, 
+    lng: string,
 
     // Type of the selector, either it's just a button or a part of the menu
-    type: 'button' | 'list', 
+    type: 'button' | 'list',
 
     // Menu is a optional type, only used in the case of type: "list"
     menu?: {
@@ -33,11 +33,11 @@ interface LanguageSelectorType {
     } | undefined
 }
 
-function LanguageSelector({
+export default function LanguageSelector({
     lng,
     type = 'button',
     menu
-}: LanguageSelectorType ) {
+}: LanguageSelectorType) {
 
     // States
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -152,5 +152,3 @@ function LanguageSelector({
         </Box >
     );
 }
-
-export default LanguageSelector;
