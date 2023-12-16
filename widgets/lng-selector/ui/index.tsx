@@ -33,7 +33,7 @@ interface LanguageSelectorType {
     } | undefined
 }
 
-export default function LanguageSelector({
+export function LanguageSelector({
     lng,
     type = 'button',
     menu

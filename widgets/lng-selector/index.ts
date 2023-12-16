@@ -1,3 +1,2 @@
 // Basics
-import LanguageSelector from './ui';
-export default LanguageSelector;
+export { LanguageSelector } from './ui'
