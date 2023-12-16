@@ -9,6 +9,9 @@ import { useTheme } from "@emotion/react";
 import { Palette, PaletteColor } from "@mui/material";
 import { typography } from "@/shared/mui/theme";
 
+// Styles
+import s from './index.module.css';
+
 export function HatButton({
     children,
     onClick,
@@ -28,10 +31,10 @@ export function HatButton({
     return (
         <button
             onClick={onClick}
+            className={s.button}
             style={{
                 background: (theme.palette[color || "primary"] as PaletteColor)[type],
                 fontFamily: typography.fontFamily,
-                padding: '10px 24px',
                 color: color === 'primary' || color === 'info' || color === 'warning'
                     ? '#000000'
                     : '#ffffff',
