@@ -11,8 +11,8 @@ import { Button, Box, Divider } from '@mui/material'
 import { ThemeSelector } from '@/widgets/theme-selector'
 import { HatButton } from '@/widgets/button';
 import { HatInput } from '@/widgets/input';
+import { Modal } from '@/widgets/modal'
 import {Cross} from '@/widgets/cross'
-
 // Styles
 import './globals.css'
 
@@ -30,7 +30,6 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
         <Box component="main">
             <LanguageSelector lng={lng} type='button' menu={undefined} />
             <ThemeSelector />
-
             <Divider sx={{ m: '16px' }} />
 
             <HatButton color='primary'>HatButton</HatButton>
@@ -41,20 +40,24 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
             <Divider sx={{ m: '16px' }} />
 
-            <HatButton color='primary' variant='outlined'>zxcdsadqwd</HatButton>
-            <HatButton color='secondary' variant='outlined'>sadas</HatButton>
+            <HatButton color='primary' variant='outlined'>HatButton</HatButton>
+            <HatButton color='secondary' variant='outlined'>HatButton</HatButton>
             <HatButton color='info' variant='outlined'>HatButton</HatButton>
-            <HatButton color='warning' variant='outlined'>adsf</HatButton>
-            <HatButton color='error' variant='outlined'>qwe</HatButton>
+            <HatButton color='warning' variant='outlined'>HatButton</HatButton>
+            <HatButton color='error' variant='outlined'>HatButton</HatButton>
 
             <Divider sx={{ m: '16px' }} />
+
+            <Cross/>
 
             <HatInput color='primary' />
             <HatInput color='secondary' />
             <HatInput color='info' />
             <HatInput color='warning' />
             <HatInput color='error' />
-            {/* <Cross/> */}
+            
+            <Modal variant='black'>Modal test 1</Modal>
+            <Modal variant='gray'>Modal test 2</Modal>
         </Box>
     )
 }
