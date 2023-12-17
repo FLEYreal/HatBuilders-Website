@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "Minecraft Rus";
+    src: url("../../public/fonts/minecraft.ttf");
+}
+
+:root {
+    font-family: "Minecraft Rus", Calibri, Tahoma, sans-serif;
+}

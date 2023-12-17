@@ -7,10 +7,18 @@ import React, { CSSProperties } from "react";
 import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
 import { Palette, PaletteColor } from "@mui/material";
-import { typography } from "@/shared/mui/theme";
 
 // Styles
 import s from './index.module.css';
+
+// Interfaces
+export interface HatButtonType {
+    children: React.ReactNode;
+    onClick?: () => any;
+    style?: CSSProperties;
+    color?: string & keyof Palette;
+    type?: 'main' | 'light' | 'dark'
+}
 
 export function HatButton({
     children,
@@ -18,13 +26,7 @@ export function HatButton({
     style,
     color,
     type = 'main'
-}: {
-    children: React.ReactNode;
-    onClick?: () => any;
-    style?: CSSProperties;
-    color?: string & keyof Palette;
-    type?: 'main' | 'light' | 'dark'
-}) {
+}: HatButtonType) {
 
     const theme = useTheme() as Theme;
 
@@ -34,7 +36,7 @@ export function HatButton({
             className={s.button}
             style={{
                 background: (theme.palette[color || "primary"] as PaletteColor)[type],
-                fontFamily: typography.fontFamily,
+                fontFamily: 'inherit',
                 color: color === 'primary' || color === 'info' || color === 'warning'
                     ? '#000000'
                     : '#ffffff',

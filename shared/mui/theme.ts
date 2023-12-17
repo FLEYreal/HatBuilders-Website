@@ -1,6 +1,5 @@
 // Material-UI
 import { createTheme, Theme } from '@mui/material/styles';
-import Minecraft from '@/public/fonts/minecraft.ttf';
 
 export const palette = {
     primary: {
@@ -51,15 +50,6 @@ export const typography = {
     ].join(',')
 }
 
-const MinecraftFont = {
-    fontFamily: 'Minecraft Rus',
-    fontWeight: '500',
-    src: `
-        local('Minecraft Rus'),
-        url(${Minecraft}) format('otf')
-    `
-}
-
 // Custom dark theme
 export const darkTheme = createTheme({
     palette: {
@@ -69,16 +59,9 @@ export const darkTheme = createTheme({
     shadows: Array(25).fill('none') as Theme['shadows'],
     transitions: transitions,
     shape: { borderRadius: 8 },
-    typography: typography,
-    components: {
-        MuiCssBaseline: {
-            styleOverrides: {
-                '@global': {
-                    '@font-face': [MinecraftFont],
-                },
-            },
-        },
-    },
+    typography: {
+        fontFamily: 'inherit'
+    }
 });
 
 // Custom light theme
@@ -90,14 +73,7 @@ export const lightTheme = createTheme({
     shadows: Array(25).fill('none') as Theme['shadows'],
     transitions: transitions,
     shape: { borderRadius: 8 },
-    typography: typography,
-    components: {
-        MuiCssBaseline: {
-            styleOverrides: {
-                '@global': {
-                    '@font-face': [MinecraftFont],
-                },
-            },
-        },
-    },
+    typography: {
+        fontFamily: 'inherit'
+    }
 });
