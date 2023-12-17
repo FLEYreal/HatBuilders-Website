@@ -46,7 +46,6 @@ export default async function RootLayout({
         <html lang={lng} dir={dir(lng)}>
             <body className={minecraftFont.className}>
                 <GlobalThemeProvider>
-                    Layout.tsx
                     <CssBaseline />
                     {children}
                 </GlobalThemeProvider>

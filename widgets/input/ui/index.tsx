@@ -2,17 +2,19 @@
 // Basic
 import React, { CSSProperties } from "react";
 
-
-// Styles
-
+// MUI
+import { Theme } from "@mui/material/styles";
+import { useTheme } from "@emotion/react";
+import { Palette, PaletteColor } from "@mui/material";
+import { typography } from "@/shared/mui/theme";
 
 // Interfaces
 export interface HatInputType {
     value?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     style?: CSSProperties;
-    color?: string;
-    type?: 'normal' | 'active' | 'secondary'| 'error';
+    color?: string & keyof Palette;
+    type?: 'main' | 'light' | 'dark';
 }
 
 export function HatInput({
@@ -20,20 +22,21 @@ export function HatInput({
     onChange,
     style,
     color,
-    type = 'normal'
+    type = 'main'
 }: HatInputType) {
 
+    const theme = useTheme() as Theme;
 
     return (
         <input
             type="text"
             value={value}
             onChange={onChange}
-            style={{                
-                borderColor: color === 'primary' || color === 'info' || color === 'warning'
-                    ? '#000000'
-                    : '#ffffff',
-                    
+            style={{
+                fontFamily: typography.fontFamily,
+                outline: 0,
+                outlineOffset: 0,
+                border: '2px solid ' + (theme.palette[color || "primary"] as PaletteColor)[type],
                 ...style,
             }}
         />

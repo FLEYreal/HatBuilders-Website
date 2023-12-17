@@ -5,12 +5,13 @@ import dynamic from 'next/dynamic';
 import { useTranslation } from '@/shared/i18n'
 
 // Material-UI
-import { Button, Typography } from '@mui/material'
+import { Button, Box, Divider } from '@mui/material'
 
 // Widgets
 import { ThemeSelector } from '@/widgets/theme-selector'
 import { HatButton } from '@/widgets/button';
 import { HatInput } from '@/widgets/input';
+import {Cross} from '@/widgets/cross'
 
 // Styles
 import './globals.css'
@@ -26,22 +27,34 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
 
     return (
-        <main>
-            Page.tsx
+        <Box component="main">
             <LanguageSelector lng={lng} type='button' menu={undefined} />
             <ThemeSelector />
+
+            <Divider sx={{ m: '16px' }} />
+
             <HatButton color='primary'>HatButton</HatButton>
             <HatButton color='secondary'>HatButton</HatButton>
             <HatButton color='info'>HatButton</HatButton>
             <HatButton color='warning'>HatButton</HatButton>
             <HatButton color='error'>HatButton</HatButton>
-            <Button color='primary'>Button</Button>
-            <Button color='secondary'>Button</Button>
-            <Button color='info'>Button</Button>
-            <Button color='warning'>Button</Button>
-            <Button color='error'>Button</Button>
-           <HatInput color='error'
-            /> 
-        </main>
+
+            <Divider sx={{ m: '16px' }} />
+
+            <HatButton color='primary' variant='outlined'>HatButton</HatButton>
+            <HatButton color='secondary' variant='outlined'>HatButton</HatButton>
+            <HatButton color='info' variant='outlined'>HatButton</HatButton>
+            <HatButton color='warning' variant='outlined'>HatButton</HatButton>
+            <HatButton color='error' variant='outlined'>HatButton</HatButton>
+
+            <Divider sx={{ m: '16px' }} />
+
+            <HatInput color='primary' />
+            <HatInput color='secondary' />
+            <HatInput color='info' />
+            <HatInput color='warning' />
+            <HatInput color='error' />
+            <Cross/>
+        </Box>
     )
 }
