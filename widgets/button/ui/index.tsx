@@ -1,25 +1,18 @@
 'use client'
 
 // Basic
-import React, { CSSProperties } from "react";
+import React from "react";
 
 // MUI
 import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
-import { Palette, PaletteColor, Button, SxProps } from "@mui/material";
+import { PaletteColor, Button } from "@mui/material";
 
 // Libs
 import hexToRgba from 'hex-to-rgba';
 
 // Interfaces
-export interface HatButtonType {
-    children: React.ReactNode;
-    onClick?: () => any;
-    sx?: SxProps;
-    color?: string & keyof Palette;
-    type?: 'main' | 'light' | 'dark';
-    variant?: 'contained' | 'outlined'
-}
+import { HatButtonType } from "../types";
 
 export function HatButton({
     children,
