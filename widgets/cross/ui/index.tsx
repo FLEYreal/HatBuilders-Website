@@ -10,18 +10,25 @@ export function Cross({
     sx
 }: {
     onClose: () => any,
-    sx: SxProps
+    sx?: SxProps
 }) {
 
     return (
-        <HatButton onClick={onClose} color='error' sx={{
-            p: '10px',
-            width:'50',
-            height:'50',
-            color: '#fff',
-            
-            ...sx
-        }}>
+        <HatButton onClick={onClose} color='error'
+            sx={{
+                p: '10px',
+                color: '#fff',
+
+                '&:hover': {
+                    border: '9px solid rgb(66, 25, 25)',
+                },
+
+                '&:active': {
+                    backgroundColor: '#D32F2F'
+                },
+
+                ...sx
+            }}>
             <CloseIcon />
         </HatButton>
     )
