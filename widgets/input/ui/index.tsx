@@ -1,4 +1,4 @@
-"use client" 
+"use client"
 
 // Basic
 import React, { CSSProperties, ChangeEvent } from 'react'
@@ -32,7 +32,7 @@ export function HatInput({
 	const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
 		e.target.style.border = '2px solid white'
 		e.target.style.boxShadow =
-			'2px 2px 0px 0px rgba(0, 0, 0, 0.30) inset, -2px -2px 0px 0px rgba(255, 255, 255, 0.15) inset, 0px 0px 0px 2px rgba(255, 255, 255, 0.25)'
+			'3px 3px 0px 0px rgba(0, 0, 0, 0.30) inset, -3px -3px 0px 0px rgba(255, 255, 255, 0.15) inset, 0px 0px 0px 6px rgba(255, 255, 255, 0.35)'
 	}
 
 	// Input focus loss handler
@@ -50,14 +50,15 @@ export function HatInput({
 			onFocus={handleFocus}
 			onBlur={handleBlur}
 			style={{
+				transition: 'box-shadow 0.4s ease-in-out',
 				background: '#363636',
-				fontFamily: typography.fontFamily,
+				fontFamily: 'inherit',
+				padding: '16px 10px',
 				outline: 0,
 				color: 'white',
 				outlineOffset: 0,
-				border: `2px solid ${
-					(theme.palette[color || 'primary'] as PaletteColor)[type]
-				}`,
+				border: `2px solid ${(theme.palette[color || 'primary'] as PaletteColor)[type]
+					}`,
 				...style,
 			}}
 		/>

@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { useTranslation } from '@/shared/i18n'
 
 // Material-UI
-import { Button, Box, Divider } from '@mui/material'
+import { Box, Divider } from '@mui/material'
 
 // Widgets
 import { ThemeSelector } from '@/widgets/theme-selector'
