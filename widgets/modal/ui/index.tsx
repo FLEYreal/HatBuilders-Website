@@ -17,7 +17,7 @@ export interface HatModalType {
 	variant?: 'black' | 'gray'
 }
 
-export function Modal({ variant = 'black', children}: HatModalType) {
+export function Modal({ variant = 'black', children }: HatModalType) {
 	const [open, setOpen] = useState(false)
 
 	// Open a modal window
@@ -39,11 +39,11 @@ export function Modal({ variant = 'black', children}: HatModalType) {
 			background: modalBackground,
 			display: 'flex',
 			flexDirection: 'column-reverse',
-			alignItems: 'center', 
-            padding: '15px',
+			alignItems: 'center',
+			padding: '15px',
 			justifyContent: 'flex-end',
 			height: '600px',
-            boxShadow: '5px 5px 0px 0px rgba(255, 255, 255, 0.15) inset, -5px -5px 0px 0px rgba(0, 0, 0, 0.30) inset',
+			boxShadow: '5px 5px 0px 0px rgba(255, 255, 255, 0.15) inset, -5px -5px 0px 0px rgba(0, 0, 0, 0.30) inset',
 		},
 	}
 
@@ -54,11 +54,11 @@ export function Modal({ variant = 'black', children}: HatModalType) {
 				<DialogTitle sx={modalStyles.modal}>
 					{children}
 					<div style={{ alignSelf: 'flex-end', marginRight: '10px' }}>
-					<Cross onClose={handleCloseModal} />
-        			</div>
+						<Cross onClose={handleCloseModal} />
+					</div>
 				</DialogTitle>
 			</Dialog>
-			
+
 		</div>
 	)
 }

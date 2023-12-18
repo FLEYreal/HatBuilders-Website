@@ -12,7 +12,7 @@ import { ThemeSelector } from '@/widgets/theme-selector'
 import { HatButton } from '@/widgets/button';
 import { HatInput } from '@/widgets/input';
 import { Modal } from '@/widgets/modal'
-import {Cross} from '@/widgets/cross'
+import { Cross } from '@/widgets/cross'
 // Styles
 import './globals.css'
 
@@ -48,14 +48,14 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
             <Divider sx={{ m: '16px' }} />
 
-            <Cross/>
+            <Cross />
 
             <HatInput color='primary' />
             <HatInput color='secondary' />
             <HatInput color='info' />
             <HatInput color='warning' />
             <HatInput color='error' />
-            
+
             <Modal variant='black'>Modal test 1</Modal>
             <Modal variant='gray'>Modal test 2</Modal>
         </Box>
