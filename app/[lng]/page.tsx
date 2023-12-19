@@ -12,6 +12,7 @@ import { Cross } from '@/widgets/cross'
 
 // Styles
 import './globals.css'
+import { HatSwitch } from '@/widgets/switch'
 
 export default async function Home({ params: { lng } }: { params: { lng: string } }) {
 
@@ -49,6 +50,8 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
             <Modal variant='black'>Modal test 1</Modal>
             <Modal variant='gray'>Modal test 2</Modal>
+
+            <HatSwitch/>
         </Box>
     )
 }
