@@ -1,6 +1,3 @@
-// Basics
-import dynamic from 'next/dynamic';
-
 // Language
 import { useTranslation } from '@/shared/i18n'
 
@@ -8,17 +5,13 @@ import { useTranslation } from '@/shared/i18n'
 import { Box, Divider } from '@mui/material'
 
 // Widgets
-import { ThemeSelector } from '@/widgets/theme-selector'
 import { HatButton } from '@/widgets/button';
 import { HatInput } from '@/widgets/input';
 import { Modal } from '@/widgets/modal'
 import { Cross } from '@/widgets/cross'
+
 // Styles
 import './globals.css'
-
-const LanguageSelector = dynamic(() => import('@/widgets/lng-selector').then((module) => ({ default: module.LanguageSelector })), {
-    ssr: false
-});
 
 export default async function Home({ params: { lng } }: { params: { lng: string } }) {
 
@@ -28,8 +21,6 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
     return (
         <Box component="main">
-            <LanguageSelector lng={lng} type='button' menu={undefined} />
-            <ThemeSelector />
             <Divider sx={{ m: '16px' }} />
 
             <HatButton color='primary'>HatButton</HatButton>

@@ -1,16 +1,19 @@
 // Basics
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { dir } from 'i18next'
 
 // Material-UI
 import CssBaseline from '@mui/material/CssBaseline'
 
-// Providers
-import { GlobalThemeProvider } from '@/shared/mui/provider'
+// Widgets
+import { Header } from '@/widgets/header'
 
-// Language
-import { dir } from 'i18next'
+// Shared
+import { GlobalThemeProvider } from '@/shared/mui/provider'
 import { languages } from '@/shared/i18n/settings'
+import LanguageProvider from '@/shared/i18n/provider'
+import { langType } from '@/shared/i18n/types'
 
 // Styles
 import './globals.css';
@@ -39,16 +42,22 @@ export default async function RootLayout({
     }
 }: {
     children: React.ReactNode,
-    params: { lng: string }
+    params: { lng: langType }
 }) {
 
     return (
         <html lang={lng} dir={dir(lng)}>
             <body className={minecraftFont.className}>
-                <GlobalThemeProvider>
-                    <CssBaseline />
-                    {children}
-                </GlobalThemeProvider>
+                <LanguageProvider value={lng}>
+                    <GlobalThemeProvider>
+
+                        {/* <Header /> */}
+
+                        <CssBaseline />
+                        {children}
+
+                    </GlobalThemeProvider>
+                </LanguageProvider>
             </body>
         </html>
     )

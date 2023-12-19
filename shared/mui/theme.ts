@@ -50,6 +50,15 @@ export const typography = {
     ].join(',')
 }
 
+export const breakpoints = {
+    values: {
+        mobile: 320,
+        tablet: 480,
+        laptop: 789,
+        desktop: 1080,
+    },
+}
+
 // Custom dark theme
 export const darkTheme = createTheme({
     palette: {
