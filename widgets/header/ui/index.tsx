@@ -1,4 +1,6 @@
 // Basics
+import Image from 'next/image';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
 // Material-UI
@@ -11,8 +13,25 @@ const LanguageSelector = dynamic(() => import('@/widgets/lng-selector').then((mo
     ssr: false
 });
 
+// Assets
+import icon from '@/public/images/logo.png'
+
 
 export function Header() {
+
+    // Random funky phrases appearing instead of name near logo in the header
+    const phrases: string[] = [
+        'HatBuilders', 'HatBuilders', 'HatBuilders',
+        'HatBuilders', 'HatBuilders', 'HatBuilders',
+        'Innovative', 'Caring', 'Creative',
+        'Workaholics?', 'Inventive', 'Long Story Short: The Best',
+        'Curios', 'Fast, Cheap, High-Quality', '(〃￣︶￣)人(￣︶￣〃)',
+        'Rare Phrase?!', 'Sample Text', 'Just HatBuilders',
+        'Building the Future', '', 'HeadBuilders',
+        'HatBuilders', 'Responsible!', 'Ответственные!',
+        'Unique', 'Insane Builders, Careful!', 'Bright like a sun!'
+    ]
+    const randomPhrase: string = phrases[Math.floor(Math.random() * (phrases.length))]
 
     return (
         // Header Container
@@ -34,11 +53,35 @@ export function Header() {
             {/* Wrapper setups proper width */}
             <Wrapper sx={{
                 display: 'flex',
-                alignContent: 'center',
+                alignItems: 'center',
                 justifyContent: 'space-between',
             }}>
                 {/* Left: Logo Section */}
-                <Box></Box>
+                <Box>
+                    <span title='Return to Main Page'>
+                        <Link href='/' style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            fontSize: '14px',
+                            color: '#fff',
+                            textDecoration: 'none'
+                        }}>
+                            {/* Wrapper for icon to use SX styling for sizes */}
+                            <Box sx={{
+                                width: '40px',
+                                height: '40px',
+                                marginRight: '12px'
+                            }}>
+                                <Image src={icon} alt='HatBuilders' style={{
+                                    width: 'inherit',
+                                    height: 'inherit',
+                                    borderRadius: '100%'
+                                }} />
+                            </Box>
+                            {randomPhrase}
+                        </Link>
+                    </span>
+                </Box>
 
                 {/* Center: Navigation Section */}
                 <Box></Box>
