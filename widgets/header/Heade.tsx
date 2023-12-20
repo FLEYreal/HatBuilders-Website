@@ -60,28 +60,20 @@ const Heade = () => {
 
 	const navLinks = ['Main', 'About', 'Portfolio', 'Were Hiring', 'Order']
 
-	const renderNavLink = (content: string ) => {
+	const renderNavLink = (content: string) => {
 		const scrollToId = `${content.toLowerCase()}Section`
 
 		const handleClickNav = () => {
-			const element = document.getElementById(scrollToId);
+			const element = document.getElementById(scrollToId)
 			if (element) {
-				element.scrollIntoView({ behavior: 'smooth' });
+				element.scrollIntoView({ behavior: 'smooth' })
 			}
 		}
 
 		return (
 			<ul key={content}>
 				<li style={{ margin: '0', padding: '0', listStyle: 'none' }}>
-					<button
-						style={{
-							padding: '0',
-							border: 'none',
-							backgroundColor: 'inherit',
-							color: 'white',
-						}}
-						onClick={handleClickNav}
-					>
+					<button style={buttonStyles} onClick={handleClickNav}>
 						{content}
 					</button>
 				</li>
@@ -89,25 +81,37 @@ const Heade = () => {
 		)
 	}
 
+		//Nav button styles
+
+		const buttonStyles = {
+			padding: '0',
+			border: 'none',
+			backgroundColor: 'inherit',
+			color: 'white',
+			cursor: 'pointer',
+			fontFamily: 'inherit',
+		}
+
+		//Styles for the header container
+
+		const headerContainerStyles = {
+			position: 'fixed',
+			top: '0',
+			left: '0',
+			width: '100%',
+			height: '56px',
+			background: 'rgba(0, 0, 0, 0.40)',
+			boxShadow: '0px 4px 12px 2px rgba(0, 0, 0, 0.20)',
+			backdropFilter: 'blur(8px)',
+			display: 'flex',
+			alignContent: 'center',
+			justifyContent: 'space-between',
+			zIndex: '1000',
+		}
+
 	return (
 		// Header Container
-		<Box
-			component='header'
-			sx={{
-				position: 'fixed',
-				top: '0',
-				left: '0',
-				width: '100%',
-				height: '56px',
-				background: 'rgba(0, 0, 0, 0.40)',
-				boxShadow: '0px 4px 12px 2px rgba(0, 0, 0, 0.20)',
-				backdropFilter: 'blur(8px)',
-				display: 'flex',
-				alignContent: 'center',
-				justifyContent: 'space-between',
-				zIndex: '1000',
-			}}
-		>
+		<Box component='header' sx={headerContainerStyles}>
 			{/* Wrapper setups proper width */}
 			<Wrapper
 				sx={{
