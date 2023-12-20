@@ -17,6 +17,7 @@ import { langType } from '@/shared/i18n/types'
 
 // Styles
 import './globals.css';
+import Heade from '@/widgets/header/Heade';
 
 // Get Minecraft Font
 const minecraftFont = localFont({
@@ -51,7 +52,7 @@ export default async function RootLayout({
                 <LanguageProvider value={lng}>
                     <GlobalThemeProvider>
 
-                        <Header />
+                        <Heade />
 
                         <CssBaseline />
                         {children}
