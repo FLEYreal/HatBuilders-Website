@@ -1,19 +1,22 @@
 'use client';
 
 // Material-UI
-import { IconButton, Switch } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
 
 // Contexts
 import { useThemeContext } from '@/shared/mui/provider';
 
+// Widgets
+import { HatSwitch } from "@/widgets/switch"; 
+
 // Icons
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
 
 
-export function ThemeSelector({ isMobile }: { isMobile?: boolean }) {
+export function ThemeSelector() {
 
     // Contexts
     const { toggleTheme } = useThemeContext();
@@ -24,6 +27,10 @@ export function ThemeSelector({ isMobile }: { isMobile?: boolean }) {
 
     return (
         <>
+
+            {/* Switch that changes theme */}
+            <HatSwitch checked={dark} onChange={toggleTheme}/>
+
             {/* Icon near switch, changes theme on click as well */}
             <IconButton onClick={toggleTheme} sx={{
                 display: 'flex',
@@ -38,27 +45,6 @@ export function ThemeSelector({ isMobile }: { isMobile?: boolean }) {
                         <DarkModeRoundedIcon color='primary' />
                 }
             </IconButton>
-
-            {/* Switch that changes theme */}
-            <Switch checked={dark} onChange={toggleTheme} sx={
-                isMobile ?
-                    {
-                        '& .MuiSwitch-thumb': {
-                            backgroundColor: theme.palette.primary.main
-                        },
-                        '& .MuiSwitch-track': {
-                            backgroundColor: theme.palette.primary.main
-                        }
-                    } :
-                    {
-                        '& .MuiSwitch-thumb': {
-                            backgroundColor: ''
-                        },
-                        '& .MuiSwitch-track': {
-                            backgroundColor: ''
-                        }
-                    }
-            } />
         </>
     );
 }

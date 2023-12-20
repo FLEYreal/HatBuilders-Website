@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 // Basic imports
 import React from 'react';
@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 // Material-UI
-import { Box, Menu, MenuItem, Typography, IconButton } from '@mui/material'
+import { Menu, MenuItem, Typography, IconButton } from '@mui/material'
 
 // Icons
 import ru from '@/public/icons/ru.svg';
@@ -45,19 +45,17 @@ export function LanguageSelector() {
 
     return (
         // Language selector
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <>
-                        {/* Button that displays menu with languages */}
-                        <IconButton
+        <>
+            {/* Button that displays menu with languages */}
+            <IconButton
 
-                            // Click handler
-                            onClick={handleClick}
+                // Click handler
+                onClick={handleClick}
 
-                            // Make font weight
-                            sx={{ fontWeight: 600 }}>
-                            <LanguageRoundedIcon color='primary' />
-                        </IconButton>
-                    </>
+                // Make font weight
+                sx={{ fontWeight: 600 }}>
+                <LanguageRoundedIcon color='primary' />
+            </IconButton>
 
             {/* Menu with languages */}
             <Menu
@@ -87,6 +85,6 @@ export function LanguageSelector() {
 
                 </MenuItem>
             </Menu>
-        </Box >
+        </>
     );
 }

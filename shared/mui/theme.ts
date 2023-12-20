@@ -52,15 +52,17 @@ export const typography = {
 
 export const breakpoints = {
     values: {
-        mobile: 320,
-        tablet: 480,
-        laptop: 789,
-        desktop: 1080,
+        xs: 0,
+        sm: 320,
+        md: 480,
+        lg: 789,
+        xl: 1080,
     },
 }
 
 // Custom dark theme
 export const darkTheme = createTheme({
+    breakpoints: breakpoints,
     palette: {
         mode: 'dark',
         ...palette
@@ -75,6 +77,7 @@ export const darkTheme = createTheme({
 
 // Custom light theme
 export const lightTheme = createTheme({
+    breakpoints: breakpoints,
     palette: {
         mode: 'light',
         ...palette

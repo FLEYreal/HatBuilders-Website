@@ -19,3 +19,5 @@ export function LanguageProvider({ children, value }: { children?: React.ReactNo
     )
 
 }
+
+export const useLanguage = () => useContext(LanguageContext);
