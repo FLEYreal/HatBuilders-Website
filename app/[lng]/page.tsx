@@ -24,19 +24,19 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
         <Box component="main">
             <Divider sx={{ m: '16px' }} />
 
-            <HatButton color='primary'>HatButton</HatButton>
-            <HatButton color='secondary'>HatButton</HatButton>
-            <HatButton color='info'>HatButton</HatButton>
-            <HatButton color='warning'>HatButton</HatButton>
-            <HatButton color='error'>HatButton</HatButton>
+            <HatButton color='primary'>{t('discord')}</HatButton>
+            <HatButton color='secondary'>{t('discord')}</HatButton>
+            <HatButton color='info'>{t('discord')}</HatButton>
+            <HatButton color='warning'>{t('discord')}</HatButton>
+            <HatButton color='error'>{t('discord')}</HatButton>
 
             <Divider sx={{ m: '16px' }} />
 
-            <HatButton color='primary' variant='outlined'>HatButton</HatButton>
-            <HatButton color='secondary' variant='outlined'>HatButton</HatButton>
-            <HatButton color='info' variant='outlined'>HatButton</HatButton>
-            <HatButton color='warning' variant='outlined'>HatButton</HatButton>
-            <HatButton color='error' variant='outlined'>HatButton</HatButton>
+            <HatButton color='primary' variant='outlined'>{t('discord')}</HatButton>
+            <HatButton color='secondary' variant='outlined'>{t('discord')}</HatButton>
+            <HatButton color='info' variant='outlined'>{t('discord')}</HatButton>
+            <HatButton color='warning' variant='outlined'>{t('discord')}</HatButton>
+            <HatButton color='error' variant='outlined'>{t('discord')}</HatButton>
 
             <Divider sx={{ m: '16px' }} />
 
@@ -51,7 +51,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
             <Modal variant='black'>Modal test 1</Modal>
             <Modal variant='gray'>Modal test 2</Modal>
 
-            <HatSwitch/>
+            <HatSwitch />
         </Box>
     )
 }

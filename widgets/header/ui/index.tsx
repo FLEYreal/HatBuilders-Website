@@ -1,12 +1,9 @@
+'use client'
 // Basics
 import dynamic from 'next/dynamic';
 
 // Widgets
 import { ThemeSelector } from '@/widgets/theme-selector'
-
-// Shared
-import { useLanguage } from '@/shared/i18n/provider';
-
 const LanguageSelector = dynamic(() => import('@/widgets/lng-selector').then((module) => ({ default: module.LanguageSelector })), {
     ssr: false
 });
@@ -14,12 +11,13 @@ const LanguageSelector = dynamic(() => import('@/widgets/lng-selector').then((mo
 
 export function Header() {
 
-    let lng = useLanguage()
-    console.log('LNG:', lng)
+    function handleMenuClose() {
+
+    }
 
     return (
         <header>
-            <LanguageSelector lng={lng} type='button' menu={undefined} />
+            <LanguageSelector/>
             <ThemeSelector />
         </header>
     )

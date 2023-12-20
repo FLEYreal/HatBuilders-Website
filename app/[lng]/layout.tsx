@@ -12,7 +12,7 @@ import { Header } from '@/widgets/header'
 // Shared
 import { GlobalThemeProvider } from '@/shared/mui/provider'
 import { languages } from '@/shared/i18n/settings'
-import LanguageProvider from '@/shared/i18n/provider'
+import { LanguageProvider } from '@/shared/i18n/provider'
 import { langType } from '@/shared/i18n/types'
 
 // Styles
@@ -51,7 +51,7 @@ export default async function RootLayout({
                 <LanguageProvider value={lng}>
                     <GlobalThemeProvider>
 
-                        {/* <Header /> */}
+                        <Header />
 
                         <CssBaseline />
                         {children}

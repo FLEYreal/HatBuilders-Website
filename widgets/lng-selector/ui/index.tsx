@@ -1,43 +1,19 @@
 'use client';
 
 // Basic imports
-import * as React from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 // Material-UI
-import { Box, Menu, MenuItem, Button, Typography, ListItemIcon, ListItemText, SxProps } from '@mui/material'
-import { Theme } from "@mui/material/styles";
-import { useTheme } from '@emotion/react';
+import { Box, Menu, MenuItem, Typography, IconButton } from '@mui/material'
 
 // Icons
 import ru from '@/public/icons/ru.svg';
 import uk from '@/public/icons/uk.svg';
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 
-// Translation
-import { useTranslation } from '@/shared/i18n/client';
-
-interface LanguageSelectorType {
-
-    // Param of the link, indicates what language is used on the page
-    lng: string,
-
-    // Type of the selector, either it's just a button or a part of the menu
-    type: 'button' | 'list',
-
-    // Menu is a optional type, only used in the case of type: "list"
-    menu?: {
-        sxMenu: SxProps, // Styles for the menu item (paddings / width for example)
-        handleMenuClose: () => void // Function to close the menu
-    } | undefined
-}
-
-export function LanguageSelector({
-    lng,
-    type = 'button',
-    menu
-}: LanguageSelectorType) {
+export function LanguageSelector() {
 
     // States
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -45,18 +21,10 @@ export function LanguageSelector({
     // Other Hooks
     const pathname = usePathname();
     const router = useRouter()
-    const { t } = useTranslation(lng, 'header')
-    const theme = useTheme() as Theme;
 
     // Show menu
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
-    };
-
-    // Show menu but for Mobile
-    const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-        menu!.handleMenuClose
     };
 
     // Close menu as language is selected
@@ -78,48 +46,18 @@ export function LanguageSelector({
     return (
         // Language selector
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-
-            {
-                type === 'button' ?
                     <>
                         {/* Button that displays menu with languages */}
-                        <Button
-                            // Icon shown before text
-                            startIcon={<LanguageRoundedIcon />}
+                        <IconButton
 
                             // Click handler
                             onClick={handleClick}
 
                             // Make font weight
-                            sx={{ fontWeight: 600 }}
-
-                            // Variant, outlined for dark theme, contained for light
-                            variant={theme.palette.mode === 'dark' ? 'outlined' : 'contained'}>
-
-                            {/* Displayed text */}
-                            {t('language')}
-                        </Button>
-                    </> :
-                    <MenuItem
-
-                        // Apply styles
-                        sx={menu!.sxMenu}
-
-                        // Click handler
-                        onClick={handleMenuOpen}
-                    >
-
-                        {/* Icon of the menu item */}
-                        <ListItemIcon>
-                            <LanguageRoundedIcon />
-                        </ListItemIcon>
-
-                        {/* Displayed text */}
-                        <ListItemText>
-                            {t('language').toUpperCase()}
-                        </ListItemText>
-                    </MenuItem>
-            }
+                            sx={{ fontWeight: 600 }}>
+                            <LanguageRoundedIcon color='primary' />
+                        </IconButton>
+                    </>
 
             {/* Menu with languages */}
             <Menu
