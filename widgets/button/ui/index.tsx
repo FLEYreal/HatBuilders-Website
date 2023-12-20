@@ -48,7 +48,10 @@ export function HatButton({
         // Styles for Events
         '&:hover': {
             background: variant === 'contained' ? buttonColor : `${hexToRgba(buttonColor, 0.1)}`,
-            border: variant === 'contained' ? '2px solid #fff' : `2px solid ${buttonColor}`,
+            border: variant === 'contained' ?
+                theme.palette.mode === 'dark' ?
+                    '2px solid #fff' : '2px solid #000' :
+                    `2px solid ${buttonColor}`,
             boxShadow: variant === 'contained'
                 ? '4px 4px 0px 0px rgba(255, 255, 255, 0.50) inset, -4px -4px 0px 0px rgba(0, 0, 0, 0.30) inset'
                 : `0px 0px 0px 5px ${hexToRgba(buttonColor, 0.3)}`,
@@ -56,7 +59,10 @@ export function HatButton({
 
         '&:active': {
             background: variant === 'contained' ? buttonColor : `${hexToRgba(buttonColor, 0.2)}`,
-            border: variant === 'contained' ? '2px solid #fff' : `2px solid ${lightButtonColor}`,
+            border: variant === 'contained' ?
+            theme.palette.mode === 'dark' ?
+                '2px solid #fff' : '2px solid #000' :
+                `2px solid ${lightButtonColor}`,
             color: variant === 'contained' ? '#000000' : lightButtonColor,
             boxShadow: variant === 'contained'
                 ? '-4px -4px 0px 0px rgba(255, 255, 255, 0.50) inset, 4px 4px 0px 0px rgba(0, 0, 0, 0.30) inset'

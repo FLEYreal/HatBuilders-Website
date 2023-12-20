@@ -6,14 +6,14 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 // Material-UI
-import { Menu, MenuItem, Typography, IconButton } from '@mui/material'
+import { Menu, MenuItem, Typography, IconButton, SvgIconOwnProps } from '@mui/material'
 
 // Icons
 import ru from '@/public/icons/ru.svg';
 import uk from '@/public/icons/uk.svg';
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 
-export function LanguageSelector() {
+export function LanguageSelector({ color }: { color?: SvgIconOwnProps['color'] }) {
 
     // States
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -54,14 +54,20 @@ export function LanguageSelector() {
 
                 // Make font weight
                 sx={{ fontWeight: 600 }}>
-                <LanguageRoundedIcon color='primary' />
+                <LanguageRoundedIcon color={color || 'primary'} />
             </IconButton>
 
-            {/* Menu with languages */}
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
                 onClose={() => handleClose()}
+                slotProps={{
+                    paper: {
+                        sx: {
+                            boxShadow: '5px 5px 0px 0px rgba(255, 255, 255, 0.15) inset, -5px -5px 0px 0px rgba(0, 0, 0, 0.30) inset'
+                        }
+                    }
+                }}
             >
                 {/* 2 Menu items with Russian and English languages */}
 

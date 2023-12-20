@@ -15,13 +15,24 @@ const LanguageSelector = dynamic(() => import('@/widgets/lng-selector').then((mo
 export function Header() {
 
     return (
-
         // Header Container
-        <Box component='header' sx={{ width: '100%' }}>
+        <Box component='header' sx={{
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            width: '100%',
+            height: '56px',
+            background: 'rgba(0, 0, 0, 0.40)',
+            boxShadow: '0px 4px 12px 2px rgba(0, 0, 0, 0.20)',
+            backdropFilter: 'blur(8px)',
+            display: 'flex',
+            alignContent: 'center',
+            justifyContent: 'space-between',
+            zIndex: '1000'
+        }}>
 
             {/* Wrapper setups proper width */}
             <Wrapper sx={{
-                border: '2px solid red',
                 display: 'flex',
                 alignContent: 'center',
                 justifyContent: 'space-between',
@@ -36,12 +47,13 @@ export function Header() {
                 <Box sx={{
                     display: 'flex',
                     alignContent: 'center',
-                    justifyContent: 'space-between'
+                    justifyContent: 'center',
+                    flexFlow: 'row nowrap'
                 }}>
-                    <ThemeSelector />
-                    <LanguageSelector />
-                </Box>
-            </Wrapper>
-        </Box>
+                    <ThemeSelector iconColor='secondary' switchColor='secondary' />
+                    <LanguageSelector color='secondary' />
+                </Box >
+            </Wrapper >
+        </Box >
     )
 }

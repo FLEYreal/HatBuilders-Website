@@ -7,7 +7,9 @@ import React, { CSSProperties, ChangeEvent } from 'react'
 import { Theme } from "@mui/material/styles";
 import { useTheme } from '@emotion/react'
 import { Palette, PaletteColor } from '@mui/material'
-import { typography } from '@/shared/mui/theme'
+
+// Libs
+import hexToRgba from 'hex-to-rgba';
 
 // Interfaces
 export interface HatInputType {
@@ -30,9 +32,14 @@ export function HatInput({
 
 	// Input focus handler
 	const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-		e.target.style.border = '2px solid white'
-		e.target.style.boxShadow =
-			'3px 3px 0px 0px rgba(0, 0, 0, 0.30) inset, -3px -3px 0px 0px rgba(255, 255, 255, 0.15) inset, 0px 0px 0px 6px rgba(255, 255, 255, 0.35)'
+		if (theme.palette.mode === 'dark') {
+			e.target.style.border = '2px solid white'
+			e.target.style.boxShadow =
+				'3px 3px 0px 0px rgba(0, 0, 0, 0.30) inset, -3px -3px 0px 0px rgba(255, 255, 255, 0.15) inset, 0px 0px 0px 6px rgba(255, 255, 255, 0.35)'
+		} else {
+			e.target.style.boxShadow =
+				`0px 0px 0px 6px ${hexToRgba((theme.palette[color || 'primary'] as PaletteColor)[type], 0.35)}`
+		}
 	}
 
 	// Input focus loss handler
@@ -51,14 +58,13 @@ export function HatInput({
 			onBlur={handleBlur}
 			style={{
 				transition: 'box-shadow 0.4s ease-in-out',
-				background: '#363636',
+				background: theme.palette.mode === 'dark' ? '#363636' : '#fbfbfb',
 				fontFamily: 'inherit',
 				padding: '16px 10px',
 				outline: 0,
-				color: 'white',
+				color: theme.palette.mode === 'dark' ? '#fff' : '#000',
 				outlineOffset: 0,
-				border: `2px solid ${(theme.palette[color || 'primary'] as PaletteColor)[type]
-					}`,
+				border: `2px solid ${(theme.palette[color || 'primary'] as PaletteColor)[type]}`,
 				...style,
 			}}
 		/>

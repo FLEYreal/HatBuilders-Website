@@ -1,52 +1,45 @@
 'use client'
-// Basic
+
+// Basics
 import React, { ChangeEvent } from 'react'
 
 // MUI
 import Switch from '@mui/material/Switch'
-import { Theme } from '@mui/material/styles'
-import { Palette, PaletteColor } from '@mui/material'
-import { useTheme } from '@emotion/react'
+import { SwitchProps } from '@mui/material'
 
+// Interfaces
 export interface HatSwitchType {
 	checked?: boolean
 	onChange?: (event: ChangeEvent<HTMLInputElement>) => void
-	color?: string & keyof Palette
-	type?: 'main' | 'light' | 'dark'
+	color?: SwitchProps['color']
 }
 
 export function HatSwitch({
 	checked,
 	onChange,
 	color,
-	type = 'main',
 }: HatSwitchType){
 
-	// Hooks
-	const theme = useTheme() as Theme
-
-	// Handlers
+	// Handles switch's state change
 	const handleSwitchChange = (event: ChangeEvent<HTMLInputElement>) => {
 		if (onChange) {
 			onChange(event)
 		}
 	}
 
-	// Styling variables
-	const switchColor = (theme.palette[color || 'action'] as PaletteColor)[type]
-
-	const switchStyles = {
-		'& .MuiSwitch-thumb': {
-			backgroundColor: switchColor,
-			borderRadius: '0',
-		},
-		'& .MuiSwitch-track': {
-			backgroundColor: switchColor,
-			borderRadius: '0',
-		},
-	}
-
 	return (
-		<Switch checked={checked} onChange={handleSwitchChange} sx={switchStyles} />
+		<Switch 
+			color={color || 'primary'} 
+			checked={checked} 
+			onChange={handleSwitchChange} 
+			sx={{
+				'& .MuiSwitch-thumb': {
+					borderRadius: '0',
+				},
+				'& .MuiSwitch-track': {
+					borderRadius: '0',
+				},
+			}}
+		/>
 	)
 }
