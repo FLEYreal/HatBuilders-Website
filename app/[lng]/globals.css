@@ -6,3 +6,70 @@
 :root {
     font-family: "Minecraft Rus", Calibri, Tahoma, sans-serif;
 }
+
+.page {
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.page-enter {
+    opacity: 0;
+}
+
+
+.page-enter-active {
+    opacity: 1;
+    /* animation: fade-in 1s ease-in-out forwards;
+    -webkit-animation: fade-in 1s ease-in-out forwards; */
+}
+
+.page-exit {
+    opacity: 1;
+}
+
+.page-exit-active {
+    opacity: 0;
+    /* animation: fade-out 1s ease-in-out forwards;
+    -webkit-animation: fade-out 1s ease-in-out forwards; */
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+        -moz-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+        -o-transform: translateY(0%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+        -moz-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+        -o-transform: translateY(0%);
+    }
+}

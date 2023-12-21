@@ -6,6 +6,9 @@ import { dir } from 'i18next'
 // Material-UI
 import CssBaseline from '@mui/material/CssBaseline'
 
+// Features
+import { PageTransition } from '@/features/page-transition'
+
 // Widgets
 import { Header } from '@/widgets/header'
 
@@ -51,10 +54,12 @@ export default async function RootLayout({
                 <LanguageProvider value={lng}>
                     <GlobalThemeProvider>
 
-                        <Header />
-
                         <CssBaseline />
-                        {children}
+
+                        <Header />
+                        <PageTransition>
+                            {children}
+                        </PageTransition>
 
                     </GlobalThemeProvider>
                 </LanguageProvider>

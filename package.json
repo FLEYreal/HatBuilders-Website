@@ -14,6 +14,7 @@
     "@mui/icons-material": "^5.15.0",
     "@mui/material": "^5.15.0",
     "accept-language": "^3.0.18",
+    "framer-motion": "^10.16.16",
     "hex-to-rgba": "^2.0.1",
     "i18next": "^23.7.11",
     "i18next-browser-languagedetector": "^7.2.0",
@@ -21,12 +22,14 @@
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-i18next": "^13.5.0"
+    "react-i18next": "^13.5.0",
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-transition-group": "^4.4.10",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "file-loader": "^6.2.0",

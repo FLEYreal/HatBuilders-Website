@@ -1,3 +1,6 @@
+// Basics
+import Link from 'next/link';
+
 // Language
 import { useTranslation } from '@/shared/i18n'
 
@@ -20,9 +23,14 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
 
     return (
-        <Box component="main">
+        <Box component="main" sx={{
+            paddingTop: '56px'
+        }}>
             <Divider sx={{ m: '16px' }} />
 
+            <HatButton color='info'>
+                <Link href="/about">About!</Link>
+            </HatButton>
             <HatButton color='primary'>{t('discord')}</HatButton>
             <HatButton color='secondary'>{t('discord')}</HatButton>
             <HatButton color='info'>{t('discord')}</HatButton>
@@ -50,7 +58,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
 
             <Divider sx={{ m: '16px' }} />
-            
+
             <HatSwitch />
 
         </Box>
