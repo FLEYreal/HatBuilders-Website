@@ -11,9 +11,10 @@ import { Box, Divider } from '@mui/material'
 import { HatButton } from '@/widgets/button'
 import { HatInput } from '@/widgets/input'
 import { Modal } from '@/widgets/modal'
+import { HatLink } from '@/widgets/link';
+import { HatSwitch } from '@/widgets/switch'
 
 // Styles
-import { HatSwitch } from '@/widgets/switch'
 import './globals.css'
 
 
@@ -31,10 +32,8 @@ export default async function Home({
 		}}>
 			<Divider sx={{ m: '16px' }} />
 
-			<HatButton color='info'>
-				<Link href="/about">About!</Link>
-			</HatButton>
-			<HatButton color='primary'>{t('discord')}</HatButton>
+			<HatLink href="/about">About!</HatLink>
+
 			<HatButton color='secondary'>{t('discord')}</HatButton>
 			<HatButton color='info'>{t('discord')}</HatButton>
 			<HatButton color='warning'>{t('discord')}</HatButton>

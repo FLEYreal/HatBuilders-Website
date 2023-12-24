@@ -7,7 +7,7 @@ import { dir } from 'i18next'
 import CssBaseline from '@mui/material/CssBaseline'
 
 // Features
-import { PageTransition } from '@/features/page-transition'
+import { RouterTransition } from '@/features/router-transition'
 
 // Widgets
 import { Header } from '@/widgets/header'
@@ -51,19 +51,19 @@ export default async function RootLayout({
     return (
         <html lang={lng} dir={dir(lng)}>
             <body className={minecraftFont.className}>
-                <LanguageProvider value={lng}>
-                    <GlobalThemeProvider>
+                    <LanguageProvider value={lng}>
+                        <GlobalThemeProvider>
 
 
-                        <CssBaseline />
+                            <CssBaseline />
 
-                        <Header />
-                        <PageTransition>
-                            {children}
-                        </PageTransition>
+                            <Header />
+                            <RouterTransition>
+                                {children}
+                            </RouterTransition>
 
-                    </GlobalThemeProvider>
-                </LanguageProvider>
+                        </GlobalThemeProvider>
+                    </LanguageProvider>
             </body>
         </html>
     )
