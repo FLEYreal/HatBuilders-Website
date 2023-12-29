@@ -1,6 +1,7 @@
 // UI
-export { Wrapper as StepfulWrapper } from './ui/wrapper'
+export { Wrapper as StepfulWrapper, useModules, StepfulContext } from './ui/wrapper'
 export { ScrollDots } from './ui/scrollDots'
+export { More } from './ui/more'
 
 // Config
 export {
@@ -23,5 +24,7 @@ export type {
 
     // Interface for stepful wrapper parameters
     WrapperInterface as StepfulWrapperInterface,
+
+    direction, stepfulContext
 
 } from './config/types'

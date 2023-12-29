@@ -14,11 +14,14 @@ export type switchModule = (
     setWrapperStyles: Dispatch<React.SetStateAction<SxProps>>
 ) => void
 
+export type direction = 'up' | 'down'
+
 export type stepfulContext = {
     modules: ReactNode[],
     setModules: Dispatch<SetStateAction<ReactNode[]>>
     current: number,
-    setCurrent: Dispatch<SetStateAction<number>>
+    setCurrent: Dispatch<SetStateAction<number>>,
+    switchModule: (direction: direction) => void
 }
 
 // Interfaces
@@ -27,5 +30,5 @@ export interface WrapperInterface {
     current?: number,
     sx?: SxProps,
     component?: BoxProps['component'],
-    switchModule?: switchModule
+    customModuleSwitch?: switchModule
 }
