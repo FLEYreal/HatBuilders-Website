@@ -1,5 +1,5 @@
 // Basics
-import { ReactNode, Dispatch } from "react"
+import { ReactNode, Dispatch, SetStateAction } from "react"
 
 // Material-UI
 import { BoxProps } from "@mui/system"
@@ -13,6 +13,13 @@ export type switchModule = (
     wrapperStyles: SxProps,
     setWrapperStyles: Dispatch<React.SetStateAction<SxProps>>
 ) => void
+
+export type stepfulContext = {
+    modules: ReactNode[],
+    setModules: Dispatch<SetStateAction<ReactNode[]>>
+    current: number,
+    setCurrent: Dispatch<SetStateAction<number>>
+}
 
 // Interfaces
 export interface WrapperInterface {

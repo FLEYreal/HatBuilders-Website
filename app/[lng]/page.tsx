@@ -2,10 +2,10 @@
 import { useTranslation } from '@/shared/i18n'
 
 // Material-UI
-import { Box, Divider } from '@mui/material'
+import { Divider } from '@mui/material'
 
 // Features
-import { StepfulWrapper } from '@/features/stepful-display'
+import { ScrollDots, StepfulWrapper } from '@/features/stepful-display'
 
 // Widgets
 import { HatButton } from '@/widgets/button'
@@ -26,41 +26,43 @@ export default async function Home({
 	const { t } = await useTranslation(lng, 'home')
 
 	return (
-		<StepfulWrapper component="main" sx={{ paddingTop: '56px' }} modules={[
-			<>
-				<Divider sx={{ m: '16px' }} />
+		<>
+			<StepfulWrapper component="main" sx={{ paddingTop: '56px' }} modules={[
+				<>
+					<Divider sx={{ m: '16px' }} />
 
-				<HatButton color='secondary'>{t('discord')}</HatButton>
-				<HatButton color='info'>{t('discord')}</HatButton>
-				<HatButton color='warning'>{t('discord')}</HatButton>
-				<HatButton color='error'>{t('discord')}</HatButton>
+					<HatButton color='secondary'>{t('discord')}</HatButton>
+					<HatButton color='info'>{t('discord')}</HatButton>
+					<HatButton color='warning'>{t('discord')}</HatButton>
+					<HatButton color='error'>{t('discord')}</HatButton>
 
-				<Divider sx={{ m: '16px' }} />
-			</>,
-			<>
-				<HatButton color='primary' variant='outlined'>{t('discord')}</HatButton>
-				<HatButton color='secondary' variant='outlined'>{t('discord')}</HatButton>
-				<HatButton color='info' variant='outlined'>{t('discord')}</HatButton>
-				<HatButton color='warning' variant='outlined'>{t('discord')}</HatButton>
-				<HatButton color='error' variant='outlined'>{t('discord')}</HatButton>
+					<Divider sx={{ m: '16px' }} />
+				</>,
+				<>
+					<HatButton color='primary' variant='outlined'>{t('discord')}</HatButton>
+					<HatButton color='secondary' variant='outlined'>{t('discord')}</HatButton>
+					<HatButton color='info' variant='outlined'>{t('discord')}</HatButton>
+					<HatButton color='warning' variant='outlined'>{t('discord')}</HatButton>
+					<HatButton color='error' variant='outlined'>{t('discord')}</HatButton>
 
-				<Divider sx={{ m: '16px' }} />
-			</>,
-			<>
-				<HatInput color='primary' />
-				<HatInput color='secondary' />
-				<HatInput color='info' />
-				<HatInput color='warning' />
-				<HatInput color='error' />
+					<Divider sx={{ m: '16px' }} />
+				</>,
+				<>
+					<HatInput color='primary' />
+					<HatInput color='secondary' />
+					<HatInput color='info' />
+					<HatInput color='warning' />
+					<HatInput color='error' />
 
-				<Modal variant='black'>Modal test 1</Modal>
-				<Modal variant='gray'>Modal test 2</Modal>
+					<Modal variant='black'>Modal test 1</Modal>
+					<Modal variant='gray'>Modal test 2</Modal>
 
-				<Divider sx={{ m: '16px' }} />
+					<Divider sx={{ m: '16px' }} />
 
-				<HatSwitch />
-			</>
+					<HatSwitch />
+				</>
 
-		]} />
+			]} />
+		</>
 	)
 }

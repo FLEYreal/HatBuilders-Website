@@ -1,3 +1,5 @@
+'use client'
+
 import { keyframes } from "@mui/material"
 
 export const transitionDur = 0.75
