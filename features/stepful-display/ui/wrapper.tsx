@@ -1,48 +1,16 @@
 'use client'
 
 // Basics
-import { ReactNode, Dispatch, useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 
 // Material-UI
-import { SxProps, Box, keyframes } from "@mui/material"
-import { BoxProps } from "@mui/system"
-
-// Interfaces
-export interface WrapperInterface {
-    modules: ReactNode[],
-    current?: number,
-    sx?: SxProps,
-    component?: BoxProps['component'],
-    switchModule?: (
-        currentModule: number,
-        setCurrentModule: Dispatch<React.SetStateAction<number>>,
-        wrapperStyles: SxProps,
-        setWrapperStyles: Dispatch<React.SetStateAction<SxProps>>
-    ) => void
-}
+import { SxProps, Box } from "@mui/material"
 
 // Variables
-export const transitionDur = 0.75
-export const fadeIn = keyframes`
-    0% {
-        opacity: 0;
-        transform: translateY(-100%)
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0%)
-    }
-`
-export const fadeOut = keyframes`
-    0% {
-        opacity: 1;
-        transform: translateY(0%)
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(100%)
-    }
-`
+import { transitionDur, fadeInFromDown, fadeOutToUp, fadeInFromUp, fadeOutToDown } from './animations'
+
+// Interfaces
+import { WrapperInterface } from "../types"
 
 // Component(s)
 export const Wrapper = ({ modules, current = 0, sx = {}, component = 'section', switchModule }: WrapperInterface) => {
@@ -50,23 +18,39 @@ export const Wrapper = ({ modules, current = 0, sx = {}, component = 'section', 
     // States
     const [currentModule, setCurrentModule] = useState<number>(current)
     const [wrapperStyles, setWrapperStyles] = useState<SxProps>(sx)
+    const [isDelay, setIsDelay] = useState<boolean>(false)
 
     // Functions & Events & Handlers
-    function handleModuleSwitch() {
+    function handleModuleSwitch(event: WheelEvent) {
         let timeoutId; // variable to keep timeout's id
 
         // If there's a custom function from params
-        if (switchModule) {
-            switchModule(currentModule, setCurrentModule, wrapperStyles, setWrapperStyles);
-        } else {
+        if (switchModule && isDelay == false) switchModule(event, currentModule, setCurrentModule, wrapperStyles, setWrapperStyles);
+        else if (isDelay == false) {
 
-            // Switch to disappearance animation
+            // Set delay to true, now animation won't play until it's false again (it sets up to false in useEffect)
+            setIsDelay(true)
+
+            // Setup animation for scroll down
+            let fadeIn = fadeInFromDown;
+            let fadeOut = fadeOutToUp;
+
+            // Switch animation if scroll is up
+            if (event.deltaY < 0) {
+                fadeIn = fadeInFromUp
+                fadeOut = fadeOutToDown
+            }
+
+            // Turn disappearance animation
             setWrapperStyles((prev: SxProps) => ({
                 ...prev,
-                animation: `${fadeOut} ${transitionDur}s ease-in-out forwards`,
+                animation: `${fadeOut} ${transitionDur}s ease-in-out forwards`
             }));
 
+            // Setup time to let animation finish
             timeoutId = setTimeout(() => {
+
+                // Switch modules
                 setCurrentModule(prev => {
                     if (prev + 1 >= modules.length) return 0;
                     else return prev + 1;
@@ -82,23 +66,38 @@ export const Wrapper = ({ modules, current = 0, sx = {}, component = 'section', 
         }
     }
 
-
-    // Setup Fade-In animation when module first loaded
+    // UseEffects
     useEffect(() => {
 
+        // IF isDelay updated to true, setup timer that sets it to false in double time of transition duration
+        if (isDelay === true) setTimeout(() => setIsDelay(false), transitionDur * 2000)
+
+    }, [isDelay])
+
+    useEffect(() => {
+
+        // Setup listener to track scrolling
+        window.addEventListener('wheel', handleModuleSwitch);
+
+        // Clean up listeners
+        return () => { window.removeEventListener('wheel', handleModuleSwitch); };
+
+    }, [isDelay]);
+
+    useEffect(() => {
+
+        // Setup Fade-In animation when module first loaded
         setWrapperStyles((prev: SxProps) => ({
             ...prev,
-            animation: `${fadeIn} ${transitionDur}s ease-in-out forwards`,
+            animation: `${fadeInFromDown} ${transitionDur}s ease-in-out forwards`,
         }));
 
-    }, []);
+    }, [])
+
+
 
     return (
         <Box sx={wrapperStyles} component={component}>
-
-            {/* Temporary button for testing */}
-            <button onClick={handleModuleSwitch}>Switch current +1</button>
-
             {/* Load current module */}
             {modules[currentModule]}
         </Box>
