@@ -51,7 +51,6 @@ export default async function RootLayout({
                 <LanguageProvider value={lng}>
                     <GlobalThemeProvider>
 
-
                         <CssBaseline />
 
                         <Header />

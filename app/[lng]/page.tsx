@@ -1,6 +1,3 @@
-// Language
-import { useTranslation } from '@/shared/i18n'
-
 // Material-UI
 import { Divider } from '@mui/material'
 
@@ -12,6 +9,9 @@ import { HatButton } from '@/widgets/button'
 import { HatInput } from '@/widgets/input'
 import { Modal } from '@/widgets/modal'
 import { HatSwitch } from '@/widgets/switch'
+
+// Shared
+import { useTranslation } from '@/shared/i18n'
 
 // Styles
 import './globals.css'
