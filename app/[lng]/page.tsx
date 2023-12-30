@@ -27,7 +27,7 @@ export default async function Home({
 
 	return (
 		<>
-			<StepfulWrapper component="main" sx={{ paddingTop: '56px' }} modules={[
+			<StepfulWrapper id='main' component="main" sx={{ paddingTop: '56px' }} modules={[
 				<>
 					<Divider sx={{ m: '16px' }} />
 

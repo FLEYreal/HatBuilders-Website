@@ -56,11 +56,13 @@ export type StepfulContext = {
  * @property {SxProps} [sx] - Custom styles for wrapper
  * @property {BoxProps} [component] - It's property for "component" for Box component from Material-UI
  * @property {SwitchModule} [customModuleSwitch] - Define custom function to switch modules, if not provided, it uses built-in function
+ * @property {string} id - Required parameter. Unique id of the wrapper. If not provided, generates autamically
  */
 export interface WrapperInterface {
     modules: ReactNode[],
     current?: number,
     sx?: SxProps,
     component?: BoxProps['component'],
-    customModuleSwitch?: SwitchModule
+    customModuleSwitch?: SwitchModule,
+    id: string
 }

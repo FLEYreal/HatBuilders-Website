@@ -1,7 +1,7 @@
 'use client'
 
 // Basics
-import { useState, useEffect, createContext, ReactNode, useContext } from "react"
+import { useState, useEffect, createContext, ReactNode, useContext, useRef } from "react"
 
 // Material-UI
 import { SxProps, Box } from "@mui/material"
@@ -10,14 +10,14 @@ import { SxProps, Box } from "@mui/material"
 import { transitionDur, fadeInFromDown, fadeOutToUp, fadeInFromUp, fadeOutToDown } from '../config/animations'
 
 // Insides
-import { 
+import {
     // Components
-    ScrollDots, 
-    More, 
-    
+    ScrollDots,
+    More,
+
     // Types & Interfaces
-    StepfulWrapperInterface, 
-    StepfulContextType, 
+    StepfulWrapperInterface,
+    StepfulContextType,
     direction as directionType
 } from ".."
 
@@ -43,14 +43,13 @@ export const useModules = () => useContext(StepfulContext)
  * @param {StepfulWrapperInterface} StepfulWrapperInterface
  * @returns {ReactNode} - Displays a module defined by "modules[current]".
  */
-export const Wrapper = ({ modules, current = 0, sx = {}, component = 'section', customModuleSwitch }: StepfulWrapperInterface) => {
+export const Wrapper = ({ modules, current = 0, sx = {}, component = 'section', customModuleSwitch, id }: StepfulWrapperInterface) => {
 
-    // States
+    // Hooks
     const [moduleList, setModuleList] = useState<ReactNode[]>(modules)
-    const [currentModule, setCurrentModule] = useState<number>(current)
+    const [currentModule, setCurrentModule] = useState<number>(Number(localStorage.getItem(`${id}-current-module`)) || current)
     const [wrapperStyles, setWrapperStyles] = useState<SxProps>(sx)
-    const [isDelay, setIsDelay] = useState<boolean>(false)
-
+    const isDelay = useRef<boolean>(false)
 
     // Functions & Events & Handlers
 
@@ -63,10 +62,11 @@ export const Wrapper = ({ modules, current = 0, sx = {}, component = 'section', 
      * @returns {void}
      */
     function handleSwitchModule(direction: directionType = 'down') {
-        if (isDelay) return;
+        if (isDelay.current === true) return;
 
         // Set delay to true, now animation won't play until it's false again (it sets up to false in useEffect)
-        setIsDelay(true)
+        isDelay.current = true
+        setTimeout(() => isDelay.current = false, transitionDur * 2000)
 
         // Setup animation for scroll down
         let fadeIn = fadeInFromDown;
@@ -119,17 +119,11 @@ export const Wrapper = ({ modules, current = 0, sx = {}, component = 'section', 
         if (event.deltaY > 0) direction = 'down'
 
         // If there's a custom function from params
-        if (customModuleSwitch && isDelay == false) customModuleSwitch(direction, currentModule, setCurrentModule, wrapperStyles, setWrapperStyles);
+        if (customModuleSwitch && isDelay.current == false) customModuleSwitch(direction, currentModule, setCurrentModule, wrapperStyles, setWrapperStyles);
         else handleSwitchModule(direction)
     }
 
     // UseEffects
-    useEffect(() => {
-
-        // IF isDelay updated to true, setup timer that sets it to false in double time of transition duration
-        if (isDelay === true) setTimeout(() => setIsDelay(false), transitionDur * 2000)
-
-    }, [isDelay])
 
     useEffect(() => {
         // Setup listener to track scrolling
@@ -149,6 +143,18 @@ export const Wrapper = ({ modules, current = 0, sx = {}, component = 'section', 
         }));
 
     }, [])
+
+    useEffect(() => {
+
+        // When current module switched, update it in localstorage so it current module didn't get reset after page reload
+        if (
+            currentModule >= 0 &&
+            currentModule < moduleList.length &&
+            typeof id === 'string' &&
+            typeof currentModule === 'number'
+        ) localStorage.setItem(`${id}-current-module`, String(currentModule))
+
+    }, [currentModule, id, moduleList.length])
 
     return (
         <StepfulContext.Provider value={{
