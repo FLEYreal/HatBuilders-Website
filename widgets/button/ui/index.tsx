@@ -1,25 +1,18 @@
 'use client'
 
 // Basic
-import React, { CSSProperties } from "react";
+import React from "react";
 
 // MUI
 import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
-import { Palette, PaletteColor, Button, SxProps } from "@mui/material";
+import { PaletteColor, Button } from "@mui/material";
 
 // Libs
 import hexToRgba from 'hex-to-rgba';
 
 // Interfaces
-export interface HatButtonType {
-    children: React.ReactNode;
-    onClick?: () => any;
-    sx?: SxProps;
-    color?: string & keyof Palette;
-    type?: 'main' | 'light' | 'dark';
-    variant?: 'contained' | 'outlined'
-}
+import { HatButtonType } from "../types";
 
 export function HatButton({
     children,
@@ -55,7 +48,10 @@ export function HatButton({
         // Styles for Events
         '&:hover': {
             background: variant === 'contained' ? buttonColor : `${hexToRgba(buttonColor, 0.1)}`,
-            border: variant === 'contained' ? '2px solid #fff' : `2px solid ${buttonColor}`,
+            border: variant === 'contained' ?
+                theme.palette.mode === 'dark' ?
+                    '2px solid #fff' : '2px solid #000' :
+                    `2px solid ${buttonColor}`,
             boxShadow: variant === 'contained'
                 ? '4px 4px 0px 0px rgba(255, 255, 255, 0.50) inset, -4px -4px 0px 0px rgba(0, 0, 0, 0.30) inset'
                 : `0px 0px 0px 5px ${hexToRgba(buttonColor, 0.3)}`,
@@ -63,7 +59,10 @@ export function HatButton({
 
         '&:active': {
             background: variant === 'contained' ? buttonColor : `${hexToRgba(buttonColor, 0.2)}`,
-            border: variant === 'contained' ? '2px solid #fff' : `2px solid ${lightButtonColor}`,
+            border: variant === 'contained' ?
+            theme.palette.mode === 'dark' ?
+                '2px solid #fff' : '2px solid #000' :
+                `2px solid ${lightButtonColor}`,
             color: variant === 'contained' ? '#000000' : lightButtonColor,
             boxShadow: variant === 'contained'
                 ? '-4px -4px 0px 0px rgba(255, 255, 255, 0.50) inset, 4px 4px 0px 0px rgba(0, 0, 0, 0.30) inset'

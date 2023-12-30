@@ -2,4 +2,4 @@
 export { HatButton } from './ui'
 
 // Types
-export type { HatButtonType } from './ui'
+export type { HatButtonType } from './types'

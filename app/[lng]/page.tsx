@@ -1,60 +1,68 @@
-// Basics
-import dynamic from 'next/dynamic';
-
 // Language
 import { useTranslation } from '@/shared/i18n'
 
 // Material-UI
-import { Button, Box, Divider } from '@mui/material'
+import { Divider } from '@mui/material'
+
+// Features
+import { ScrollDots, StepfulWrapper } from '@/features/stepful-display'
 
 // Widgets
-import { ThemeSelector } from '@/widgets/theme-selector'
-import { HatButton } from '@/widgets/button';
-import { HatInput } from '@/widgets/input';
-import {Cross} from '@/widgets/cross'
+import { HatButton } from '@/widgets/button'
+import { HatInput } from '@/widgets/input'
+import { Modal } from '@/widgets/modal'
+import { HatSwitch } from '@/widgets/switch'
 
 // Styles
 import './globals.css'
 
-const LanguageSelector = dynamic(() => import('@/widgets/lng-selector').then((module) => ({ default: module.LanguageSelector })), {
-    ssr: false
-});
 
-export default async function Home({ params: { lng } }: { params: { lng: string } }) {
+export default async function Home({
+	params: { lng },
+}: {
+	params: { lng: string }
+}) {
+	// eslint-disable-next-line react-hooks/rules-of-hooks
+	const { t } = await useTranslation(lng, 'home')
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { t } = await useTranslation(lng, 'home')
+	return (
+		<>
+			<StepfulWrapper id='main' component="main" sx={{ paddingTop: '56px' }} modules={[
+				<>
+					<Divider sx={{ m: '16px' }} />
 
+					<HatButton color='secondary'>{t('discord')}</HatButton>
+					<HatButton color='info'>{t('discord')}</HatButton>
+					<HatButton color='warning'>{t('discord')}</HatButton>
+					<HatButton color='error'>{t('discord')}</HatButton>
 
-    return (
-        <Box component="main">
-            <LanguageSelector lng={lng} type='button' menu={undefined} />
-            <ThemeSelector />
+					<Divider sx={{ m: '16px' }} />
+				</>,
+				<>
+					<HatButton color='primary' variant='outlined'>{t('discord')}</HatButton>
+					<HatButton color='secondary' variant='outlined'>{t('discord')}</HatButton>
+					<HatButton color='info' variant='outlined'>{t('discord')}</HatButton>
+					<HatButton color='warning' variant='outlined'>{t('discord')}</HatButton>
+					<HatButton color='error' variant='outlined'>{t('discord')}</HatButton>
 
-            <Divider sx={{ m: '16px' }} />
+					<Divider sx={{ m: '16px' }} />
+				</>,
+				<>
+					<HatInput color='primary' />
+					<HatInput color='secondary' />
+					<HatInput color='info' />
+					<HatInput color='warning' />
+					<HatInput color='error' />
 
-            <HatButton color='primary'>HatButton</HatButton>
-            <HatButton color='secondary'>HatButton</HatButton>
-            <HatButton color='info'>HatButton</HatButton>
-            <HatButton color='warning'>HatButton</HatButton>
-            <HatButton color='error'>HatButton</HatButton>
+					<Modal variant='black'>Modal test 1</Modal>
+					<Modal variant='gray'>Modal test 2</Modal>
 
-            <Divider sx={{ m: '16px' }} />
+					<Divider sx={{ m: '16px' }} />
 
-            <HatButton color='primary' variant='outlined'>zxcdsadqwd</HatButton>
-            <HatButton color='secondary' variant='outlined'>sadas</HatButton>
-            <HatButton color='info' variant='outlined'>HatButton</HatButton>
-            <HatButton color='warning' variant='outlined'>adsf</HatButton>
-            <HatButton color='error' variant='outlined'>qwe</HatButton>
+					<HatSwitch />
+				</>
 
-            <Divider sx={{ m: '16px' }} />
-
-            <HatInput color='primary' />
-            <HatInput color='secondary' />
-            <HatInput color='info' />
-            <HatInput color='warning' />
-            <HatInput color='error' />
-            {/* <Cross/> */}
-        </Box>
-    )
+			]} />
+		</>
+	)
 }

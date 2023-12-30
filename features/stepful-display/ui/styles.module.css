@@ -1,0 +1,36 @@
+/* 
+
+This file only exists to animate an arrow in "More" component.
+As It's impossible to affect other class hovering another class in MUI.
+(Or I didn't find out the way lol)
+
+*/
+
+.moreWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    cursor: pointer;
+}
+
+.moreArrow {
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transform: translateY(-3px) rotate(180deg);
+    -webkit-transform: translateY(-3px) rotate(180deg);
+    -moz-transform: translateY(-3px) rotate(180deg);
+    -ms-transform: translateY(-3px) rotate(180deg);
+    -o-transform: translateY(-3px) rotate(180deg);
+}
+
+.moreWrapper:hover>.moreArrow {
+    transform: translateY(2px) rotate(180deg);
+    -webkit-transform: translateY(2px) rotate(180deg);
+    -moz-transform: translateY(2px) rotate(180deg);
+    -ms-transform: translateY(2px) rotate(180deg);
+    -o-transform: translateY(2px) rotate(180deg);
+}
