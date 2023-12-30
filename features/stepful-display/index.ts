@@ -20,11 +20,12 @@ export {
 export type {
 
     // Type for custom function to switch modules
-    switchModule as switchModuleType,
+    SwitchModule as SwitchModuleType,
 
     // Interface for stepful wrapper parameters
     WrapperInterface as StepfulWrapperInterface,
 
-    direction, stepfulContext
+    StepfulContext as StepfulContextType,
+    direction
 
 } from './config/types'
