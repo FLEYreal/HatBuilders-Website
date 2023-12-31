@@ -75,7 +75,7 @@ export interface ProviderInterface {
 export interface StepfulTabsInterface {
     ns?: string,
     moduleTheme?: {
-        color: ButtonBaseProps['color']
+        color: 'inherit' | 'primary' | 'secondary'
         translation: string
     }[]
 }

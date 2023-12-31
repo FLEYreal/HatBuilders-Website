@@ -33,23 +33,25 @@ export function StepfulTabs({ moduleTheme, ns = 'header' }: StepfulTabsInterface
     };
 
     return (
-        <Tabs value={current} onChange={handleTabChange}>
+        <Tabs 
+            textColor={moduleTheme ? moduleTheme[current].color : 'primary'} 
+            indicatorColor={moduleTheme ? 
+                moduleTheme[current].color as ('primary' | 'secondary') 
+                : 'primary'
+            } 
+            value={current} 
+            onChange={handleTabChange}
+        >
             {
                 modules.map((el, ind) => {
 
-                    let color = 'primary';
                     let translation = 'main';
-
-                    if (moduleTheme && moduleTheme[ind]) {
-                        color = moduleTheme[ind].color!
-                        translation = moduleTheme[ind].translation
-                    }
+                    if (moduleTheme && moduleTheme[ind]) translation = moduleTheme[ind].translation
 
                     return (
                         <Tab
                             key={ind}
                             sx={sxTab}
-                            color={color}
                             label={t(translation)}
                             id={`simple-tab-${ind}`}
                         />

@@ -100,7 +100,7 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
                 setCurrentModule(prev => {
 
                     if (direction === 'up') {
-                        if (prev - 1 <= 0) return moduleList.length - 1;
+                        if (prev <= 0) return moduleList.length - 1;
                         else return prev - 1;
                     } else {
                         if (prev + 1 >= moduleList.length) return 0;
