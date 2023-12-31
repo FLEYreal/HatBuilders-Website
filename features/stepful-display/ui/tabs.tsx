@@ -23,28 +23,37 @@ export const sxTab = {
  */
 export function StepfulTabs({ moduleTheme, ns = 'header' }: StepfulTabsInterface) {
 
+    // Get data from module's context
     let { modules, current, switchModule } = useModules();
 
+    // Get language
     let lng = useLanguage();
     const { t } = useTranslation(lng, ns);
 
+    // Handler(s)
     const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+
+        // Switch to the provided module by index
         switchModule(newValue);
     };
 
     return (
-        <Tabs 
-            textColor={moduleTheme ? moduleTheme[current].color : 'primary'} 
-            indicatorColor={moduleTheme ? 
-                moduleTheme[current].color as ('primary' | 'secondary') 
-                : 'primary'
-            } 
-            value={current} 
+        <Tabs
+            // Value & Change value
+            value={current}
             onChange={handleTabChange}
+
+            // Define colors
+            textColor={moduleTheme ? moduleTheme[current].color : 'primary'}
+            indicatorColor={moduleTheme ?
+                moduleTheme[current].color as ('primary' | 'secondary')
+                : 'primary'
+            }
         >
             {
                 modules.map((el, ind) => {
 
+                    // Setup translatable name for tab, if not, use "main"
                     let translation = 'main';
                     if (moduleTheme && moduleTheme[ind]) translation = moduleTheme[ind].translation
 

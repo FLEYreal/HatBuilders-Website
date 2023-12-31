@@ -32,6 +32,9 @@ export type {
 
     // Type for context
     StepfulContext as StepfulContextType,
+
+    // Interface for tabs component parameters
+    StepfulTabsInterface,
     
     // Type for switching direction
     direction

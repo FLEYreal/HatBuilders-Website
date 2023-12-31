@@ -1,8 +1,10 @@
+'use client'
+
 // Basics
 import dynamic from 'next/dynamic';
 
 // Material-UI
-import { Box } from '@mui/material';
+import { Box, SwitchProps, SvgIconOwnProps } from '@mui/material';
 
 
 // Widgets
@@ -11,7 +13,13 @@ const LanguageSelector = dynamic(() => import('@/widgets/lng-selector').then((mo
     ssr: false
 });
 
-export function Buttons() {
+// Hooks
+import { useModules, StepfulTabsInterface } from '@/features/stepful-display';
+
+export function Buttons({ moduleTheme }: { moduleTheme: StepfulTabsInterface['moduleTheme'] }) {
+
+    // Get current module's index to find a color needed from moduleTheme array
+    const { current } = useModules()
 
     return (
         <Box sx={{
@@ -20,8 +28,15 @@ export function Buttons() {
             justifyContent: 'center',
             flexFlow: 'row nowrap'
         }}>
-            <ThemeSelector iconColor='secondary' switchColor='secondary' />
-            <LanguageSelector color='secondary' />
+            <ThemeSelector 
+
+                // Setup color from theme of the module that's provided from parent header element
+                iconColor={moduleTheme![current].color || 'primary'}
+                switchColor={moduleTheme![current].color as SwitchProps['color'] || 'primary'}
+            />
+            <LanguageSelector 
+                color={moduleTheme![current].color || 'primary'}
+                />
         </Box>
     )
 }

@@ -5,10 +5,33 @@ import { Box } from '@mui/material';
 import { Wrapper } from '@/widgets/wrapper/ui';
 
 // Features
-import { StepfulTabs } from '@/features/stepful-display'
+import { StepfulTabs, StepfulTabsInterface } from '@/features/stepful-display'
 
 // Insides
 import { Logo, Buttons } from '..'
+
+const moduleTheme: StepfulTabsInterface['moduleTheme'] = [
+    {
+        color: 'secondary',
+        translation: 'main'
+    },
+    {
+        color: 'primary',
+        translation: 'about'
+    },
+    {
+        color: 'secondary',
+        translation: 'portfolio'
+    },
+    {
+        color: 'primary',
+        translation: 'hiring'
+    },
+    {
+        color: 'secondary',
+        translation: 'order'
+    },
+]
 
 /**
  * Header Component of the page
@@ -44,32 +67,11 @@ export function Header() {
                 {/* Center: Navigation Section */}
                 <StepfulTabs
                     ns="header"
-                    moduleTheme={[
-                        {
-                            color: 'secondary',
-                            translation: 'main'
-                        },
-                        {
-                            color: 'primary',
-                            translation: 'about'
-                        },
-                        {
-                            color: 'secondary',
-                            translation: 'portfolio'
-                        },
-                        {
-                            color: 'primary',
-                            translation: 'hiring'
-                        },
-                        {
-                            color: 'secondary',
-                            translation: 'order'
-                        },
-                    ]}
+                    moduleTheme={moduleTheme}
                 />
 
                 {/* Right: Settings Seciton */}
-                <Buttons />
+                <Buttons moduleTheme={moduleTheme}/>
             </Wrapper >
         </Box >
     )
