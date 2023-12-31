@@ -48,25 +48,42 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
      * Also has a delay for switching modules to let animation play entirely.
      * 
      * @param {directionType} direction - Defines a direction of module switch "up" is decreasing index, "down" is increasing index.
+     * If you type number instead of a direction, it will switch to the index of the module whose number you typed.
      * 
      * @returns {void}
      */
     function switchModule(direction: directionType = 'down') {
+
+        // Setup animation for scroll down by default
+        let fadeIn = fadeInFromDown;
+        let fadeOut = fadeOutToUp;
+
+        // Switch to the index typed in direction if the arg is type number
+        if (typeof direction === 'number') {
+
+            // Animation has to be downwards
+            if (currentModule > direction) {
+                fadeIn = fadeInFromUp
+                fadeOut = fadeOutToDown
+            }
+
+            // It's same module, no need to switch anywhere
+            else if(currentModule === direction) return;
+
+        }
+
+        // Switch animation if scroll direction is "up"
+        else if (typeof direction === 'string' && direction === 'up') {
+            fadeIn = fadeInFromUp
+            fadeOut = fadeOutToDown
+
+        }
+
         if (isDelay.current === true) return;
 
         // Set delay to true, now animation won't play until it's false again (it sets up to false in useEffect)
         isDelay.current = true
         setTimeout(() => isDelay.current = false, transitionDur * 2000)
-
-        // Setup animation for scroll down
-        let fadeIn = fadeInFromDown;
-        let fadeOut = fadeOutToUp;
-
-        // Switch animation if scroll is up
-        if (direction === 'up') {
-            fadeIn = fadeInFromUp
-            fadeOut = fadeOutToDown
-        }
 
         // Turn disappearance animation
         setModuleStyles((prev: SxProps) => ({
@@ -78,16 +95,19 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
         setTimeout(() => {
 
             // Switch modules
-            setCurrentModule(prev => {
+            if (typeof direction === 'number') setCurrentModule(direction)
+            else {
+                setCurrentModule(prev => {
 
-                if (direction === 'up') {
-                    if (prev - 1 <= 0) return moduleList.length - 1;
-                    else return prev - 1;
-                } else {
-                    if (prev + 1 >= moduleList.length) return 0;
-                    else return prev + 1;
-                }
-            });
+                    if (direction === 'up') {
+                        if (prev - 1 <= 0) return moduleList.length - 1;
+                        else return prev - 1;
+                    } else {
+                        if (prev + 1 >= moduleList.length) return 0;
+                        else return prev + 1;
+                    }
+                });
+            }
 
             // Switch to appearance animation after previous module faded
             setModuleStyles((prev: SxProps) => ({

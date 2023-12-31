@@ -27,7 +27,7 @@ export type SwitchModule = (
 /**
  * Type to defined module's transition's direction, wether it's upwards or downwards
  */
-export type direction = 'up' | 'down'
+export type direction = 'up' | 'down' | number
 
 /**
  * Type for a context object, it keeps all important data needs to be available to every stepful-display related features

@@ -1,10 +1,7 @@
 'use client'
 
-// Basics
-import { useState } from 'react';
-
 // Material-UI
-import { Tab } from '@mui/material';
+import { Tab, Tabs } from '@mui/material';
 import { TabList, TabContext } from '@mui/lab'
 
 // Shared
@@ -26,40 +23,39 @@ export const sxTab = {
  */
 export function StepfulTabs({ moduleTheme, ns = 'header' }: StepfulTabsInterface) {
 
-    let { modules, current, setCurrent } = useModules()
+    let { modules, current, switchModule } = useModules();
 
-    let lng = useLanguage()
-    const { t } = useTranslation(lng, ns)
+    let lng = useLanguage();
+    const { t } = useTranslation(lng, ns);
 
-    const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
-        setCurrent(Number(newValue));
+    const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+        switchModule(newValue);
     };
 
     return (
-        <TabContext value={String(current)}>
-            <TabList onChange={handleTabChange}>
-                {
-                    modules.map((el, ind) => {
+        <Tabs value={current} onChange={handleTabChange}>
+            {
+                modules.map((el, ind) => {
 
-                        let color = 'primary';
-                        let translation = 'main';
+                    let color = 'primary';
+                    let translation = 'main';
 
-                        if (moduleTheme && moduleTheme[ind]) {
-                            color = moduleTheme[ind].color!
-                            translation = moduleTheme[ind].translation
-                        }
+                    if (moduleTheme && moduleTheme[ind]) {
+                        color = moduleTheme[ind].color!
+                        translation = moduleTheme[ind].translation
+                    }
 
-                        return (
-                            <Tab 
-                            key={ind} 
-                            sx={sxTab} 
-                            color={color} 
-                            label={t(translation)} 
-                            value={String(current)}/>
-                        )
-                    })
-                }
-            </TabList>
-        </TabContext>
+                    return (
+                        <Tab
+                            key={ind}
+                            sx={sxTab}
+                            color={color}
+                            label={t(translation)}
+                            id={`simple-tab-${ind}`}
+                        />
+                    )
+                })
+            }
+        </Tabs>
     )
 }
