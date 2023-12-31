@@ -1,5 +1,6 @@
 // UI
-export { Wrapper as StepfulWrapper, useModules, StepfulContext } from './ui/wrapper'
+export { Modules as StepfulModules } from './ui/modules'
+export { StepfulContext, useModules, Provider as StepfulProvider } from './ui/provider'
 export { ScrollDots } from './ui/scrollDots'
 export { More } from './ui/more'
 
@@ -22,10 +23,16 @@ export type {
     // Type for custom function to switch modules
     SwitchModule as SwitchModuleType,
 
-    // Interface for stepful wrapper parameters
-    WrapperInterface as StepfulWrapperInterface,
+    // Interface for stepful Modules parameters
+    ModulesInterface as StepfulModulesInterface,
 
+    // Interface for stepful provider parameters
+    ProviderInterface as StepfulProvierInterface,
+
+    // Type for context
     StepfulContext as StepfulContextType,
+    
+    // Type for switching direction
     direction
 
 } from './config/types'

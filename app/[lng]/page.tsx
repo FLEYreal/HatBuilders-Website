@@ -2,7 +2,7 @@
 import { Divider } from '@mui/material'
 
 // Features
-import { ScrollDots, StepfulWrapper } from '@/features/stepful-display'
+import { StepfulModules, StepfulProvider } from '@/features/stepful-display'
 
 // Widgets
 import { HatButton } from '@/widgets/button'
@@ -27,7 +27,7 @@ export default async function Home({
 
 	return (
 		<>
-			<StepfulWrapper id='main' component="main" sx={{ paddingTop: '56px' }} modules={[
+			<StepfulProvider id='main' modules={[
 				<>
 					<Divider sx={{ m: '16px' }} />
 
@@ -62,7 +62,9 @@ export default async function Home({
 					<HatSwitch />
 				</>
 
-			]} />
+			]}>
+				<StepfulModules component="main" sx={{ paddingTop: '56px' }} />
+			</StepfulProvider>
 		</>
 	)
 }

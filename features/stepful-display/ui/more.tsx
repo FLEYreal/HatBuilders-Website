@@ -3,8 +3,8 @@
 // Material-UI
 import { SxProps, Box } from "@mui/material"
 
-// Insides
-import { useModules } from ".."
+// UI
+import { useModules } from "./provider"
 
 // Styles
 import s from './styles.module.css'

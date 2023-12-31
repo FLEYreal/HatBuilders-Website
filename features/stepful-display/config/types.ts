@@ -13,15 +13,15 @@ import { SxProps } from "@mui/material"
  * @param {direction} direction - Defines direction of animation
  * @param {number} currentModule - Index of displayed module from module array
  * @param {Dispatch<React.SetStateAction<number>>} setCurrentModule - useState hook function to change current module
- * @param {SxProps} wrapperStyles - Custom styles for module wrapper, it's where animation for transitioning is usually kept
- * @param {Dispatch<React.SetStateAction<SxProps>>} setWrapperStyles - useState hook function to change styles of wrapper for module
+ * @param {SxProps} ModulesStyles - Custom styles for module, it's where animation for transitioning is usually kept
+ * @param {Dispatch<React.SetStateAction<SxProps>>} setModulesStyles - useState hook function to change styles of Modules for module
  */
 export type SwitchModule = (
     direction: direction,
     currentModule: number,
     setCurrentModule: Dispatch<React.SetStateAction<number>>,
-    wrapperStyles: SxProps,
-    setWrapperStyles: Dispatch<React.SetStateAction<SxProps>>
+    ModulesStyles: SxProps,
+    setModulesStyles: Dispatch<React.SetStateAction<SxProps>>
 ) => void
 
 /**
@@ -43,26 +43,30 @@ export type StepfulContext = {
     setModules: Dispatch<SetStateAction<ReactNode[]>>
     current: number,
     setCurrent: Dispatch<SetStateAction<number>>,
-    switchModule: (direction: direction) => void
+    switchModule: (direction: direction) => void,
+    moduleStyles: SxProps, 
+    setModuleStyles: Dispatch<SetStateAction<SxProps>>
 }
 
 // Interfaces
 
 /**
- * Interface for the general component in stepful-display feature - Wrapper.
+ * Interface for the general component in stepful-display feature - Modules.
  * 
  * @property {ReactNode[]} module - Required parameter. Array of react components (modules) to display
  * @property {number} [current] - Index element from "modules" array. This index defines what is current module has to be displayed
- * @property {SxProps} [sx] - Custom styles for wrapper
+ * @property {SxProps} [sx] - Custom styles for Modules
  * @property {BoxProps} [component] - It's property for "component" for Box component from Material-UI
  * @property {SwitchModule} [customModuleSwitch] - Define custom function to switch modules, if not provided, it uses built-in function
- * @property {string} id - Required parameter. Unique id of the wrapper. If not provided, generates autamically
+ * @property {string} id - Required parameter. Unique id of the Modules. If not provided, generates autamically
  */
-export interface WrapperInterface {
+export interface ModulesInterface {
+    component?: BoxProps['component'],
+}
+
+export interface ProviderInterface {
+    children: ReactNode,
     modules: ReactNode[],
     current?: number,
-    sx?: SxProps,
-    component?: BoxProps['component'],
-    customModuleSwitch?: SwitchModule,
     id: string
 }

@@ -6,8 +6,8 @@ import { CSSProperties } from "react"
 // Material-UI
 import { Box } from "@mui/material"
 
-// Insides
-import { useModules } from "./wrapper"
+// UI
+import { useModules } from "../ui/provider"
 
 export const ScrollDots = () => {
 
