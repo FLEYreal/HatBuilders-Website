@@ -24,7 +24,7 @@ import { useModules } from "./provider"
  * 
  * @returns {ReactNode} - Displays a module defined by "modules[current]".
  */
-export const Modules = ({ component = 'section' }: StepfulModulesInterface) => {
+export const Modules = ({ sx, component = 'section' }: StepfulModulesInterface) => {
 
     // Hooks
     const { modules, current, switchModule, moduleStyles } = useModules()
@@ -57,7 +57,10 @@ export const Modules = ({ component = 'section' }: StepfulModulesInterface) => {
     }, [isDelay]);
 
     return (
-        <Box sx={moduleStyles} component={component}>
+        <Box
+            component={component}
+            sx={Object.assign({}, moduleStyles, sx)}
+        >
             {/* Load current module */}
             {modules[current]}
         </Box>

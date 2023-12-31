@@ -1,8 +1,9 @@
 // UI
-export { Modules as StepfulModules } from './ui/modules'
+export { Modules as DisplayModules } from './ui/modules'
 export { StepfulContext, useModules, Provider as StepfulProvider } from './ui/provider'
 export { ScrollDots } from './ui/scrollDots'
 export { More } from './ui/more'
+export { StepfulTabs } from './ui/tabs'
 
 // Config
 export {

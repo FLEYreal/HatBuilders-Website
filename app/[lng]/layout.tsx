@@ -6,9 +6,6 @@ import { dir } from 'i18next'
 // Material-UI
 import CssBaseline from '@mui/material/CssBaseline'
 
-// Widgets
-import { Header } from '@/widgets/header'
-
 // Shared
 import { GlobalThemeProvider } from '@/shared/mui/provider'
 import { languages } from '@/shared/i18n/settings'
@@ -53,7 +50,6 @@ export default async function RootLayout({
 
                         <CssBaseline />
 
-                        <Header />
                         {children}
 
                     </GlobalThemeProvider>

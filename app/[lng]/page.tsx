@@ -2,20 +2,21 @@
 import { Divider } from '@mui/material'
 
 // Features
-import { StepfulModules, StepfulProvider } from '@/features/stepful-display'
+import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
 
 // Widgets
 import { HatButton } from '@/widgets/button'
 import { HatInput } from '@/widgets/input'
 import { Modal } from '@/widgets/modal'
 import { HatSwitch } from '@/widgets/switch'
+import { Header } from '@/widgets/header'
+
 
 // Shared
 import { useTranslation } from '@/shared/i18n'
 
 // Styles
 import './globals.css'
-
 
 export default async function Home({
 	params: { lng },
@@ -26,8 +27,9 @@ export default async function Home({
 	const { t } = await useTranslation(lng, 'home')
 
 	return (
-		<>
-			<StepfulProvider id='main' modules={[
+		<StepfulProvider
+			id='main'
+			modules={[
 				<>
 					<Divider sx={{ m: '16px' }} />
 
@@ -63,8 +65,16 @@ export default async function Home({
 				</>
 
 			]}>
-				<StepfulModules component="main" sx={{ paddingTop: '56px' }} />
-			</StepfulProvider>
-		</>
+
+			{/* Main page special Header */}
+			<Header />
+
+			{/* Helpful components of stepful-display feature */}
+			<ScrollDots />
+			<More />
+
+			{/* Component that displays all modules from "modules" attribute of "StepfulProvider" */}
+			<DisplayModules component="main" sx={{ paddingTop: '56px' }} />
+		</StepfulProvider>
 	)
 }

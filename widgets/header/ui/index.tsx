@@ -4,8 +4,11 @@ import { Box } from '@mui/material';
 // Widgets
 import { Wrapper } from '@/widgets/wrapper/ui';
 
+// Features
+import { StepfulTabs } from '@/features/stepful-display'
+
 // Insides
-import { Logo, Buttons, SelectableTabs } from '..'
+import { Logo, Buttons } from '..'
 
 /**
  * Header Component of the page
@@ -36,13 +39,37 @@ export function Header() {
                 justifyContent: 'space-between',
             }}>
                 {/* Left: Logo Section */}
-                <Logo/>
+                <Logo />
 
                 {/* Center: Navigation Section */}
-                <SelectableTabs/>
+                <StepfulTabs
+                    ns="header"
+                    moduleTheme={[
+                        {
+                            color: 'secondary',
+                            translation: 'main'
+                        },
+                        {
+                            color: 'primary',
+                            translation: 'about'
+                        },
+                        {
+                            color: 'secondary',
+                            translation: 'portfolio'
+                        },
+                        {
+                            color: 'primary',
+                            translation: 'hiring'
+                        },
+                        {
+                            color: 'secondary',
+                            translation: 'order'
+                        },
+                    ]}
+                />
 
                 {/* Right: Settings Seciton */}
-                <Buttons/>
+                <Buttons />
             </Wrapper >
         </Box >
     )

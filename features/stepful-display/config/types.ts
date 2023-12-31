@@ -3,7 +3,7 @@ import { ReactNode, Dispatch, SetStateAction } from "react"
 
 // Material-UI
 import { BoxProps } from "@mui/system"
-import { SxProps } from "@mui/material"
+import { SxProps, ButtonBaseProps } from "@mui/material"
 
 // Types
 
@@ -61,6 +61,7 @@ export type StepfulContext = {
  * @property {string} id - Required parameter. Unique id of the Modules. If not provided, generates autamically
  */
 export interface ModulesInterface {
+    sx?: SxProps
     component?: BoxProps['component'],
 }
 
@@ -69,4 +70,12 @@ export interface ProviderInterface {
     modules: ReactNode[],
     current?: number,
     id: string
+}
+
+export interface StepfulTabsInterface {
+    ns?: string,
+    moduleTheme?: {
+        color: ButtonBaseProps['color']
+        translation: string
+    }[]
 }
