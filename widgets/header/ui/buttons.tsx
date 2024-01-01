@@ -4,7 +4,7 @@
 import dynamic from 'next/dynamic';
 
 // Material-UI
-import { Box, SwitchProps, SvgIconOwnProps } from '@mui/material';
+import { Box, SwitchProps } from '@mui/material';
 
 
 // Widgets

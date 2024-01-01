@@ -1,5 +1,8 @@
 'use client'
 
+// Basics
+import { useMemo } from 'react';
+
 // MUI
 import { useTheme } from '@emotion/react';
 import { SxProps, Theme } from '@mui/material';
@@ -23,36 +26,40 @@ export function Cross({
 
     const theme = useTheme() as Theme;
 
+    const customization = useMemo(() => {
+        return {
+            minWidth: '36px',
+            width: '36px',
+            height: '36px',
+
+            boxShadow: 'none',
+            transition: 'all 0.16s ease-in-out',
+            p: '1px',
+            color: '#fff',
+            boxSizing: 'border-box',
+            border: 'none',
+            backgroundColor: theme.palette.error.main,
+
+
+            '&:hover': {
+                p: '1px',
+                boxShadow: `0px 0px 0px 6px ${hexToRgba(theme.palette.error.main, 0.2)}`,
+                backgroundColor: theme.palette.error.main
+            },
+
+            '&:active': {
+                p: '1px',
+                boxShadow: `0px 0px 0px 10px ${hexToRgba(theme.palette.error.main, 0.3)}`,
+                backgroundColor: theme.palette.error.light
+            },
+
+            ...sx
+        }
+    }, [theme.palette, sx])
+
     return (
         <HatButton onClick={onClose} color='error'
-            sx={{
-                minWidth: '36px',
-                width: '36px',
-                height: '36px',
-
-                boxShadow: 'none',
-                transition: 'all 0.16s ease-in-out',
-                p: '1px',
-                color: '#fff',
-                boxSizing: 'border-box',
-                border: 'none',
-                backgroundColor: theme.palette.error.main,
-
-
-                '&:hover': {
-                    p: '1px',
-                    boxShadow: `0px 0px 0px 6px ${hexToRgba(theme.palette.error.main, 0.2)}`,
-                    backgroundColor: theme.palette.error.main
-                },
-
-                '&:active': {
-                    p: '1px',
-                    boxShadow: `0px 0px 0px 10px ${hexToRgba(theme.palette.error.main, 0.3)}`,
-                    backgroundColor: theme.palette.error.light
-                },
-
-                ...sx
-            }}>
+            sx={customization as SxProps}>
             <CloseIcon />
         </HatButton>
     )

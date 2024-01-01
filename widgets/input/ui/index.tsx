@@ -1,7 +1,7 @@
 "use client"
 
 // Basic
-import React, { CSSProperties, ChangeEvent } from 'react'
+import React, { CSSProperties, ChangeEvent, useMemo } from 'react'
 
 // MUI
 import { Theme } from "@mui/material/styles";
@@ -30,6 +30,20 @@ export function HatInput({
 
 	const theme = useTheme() as Theme;
 
+	const customization = useMemo(() => {
+		return {
+			transition: 'box-shadow 0.4s ease-in-out',
+			background: theme.palette.mode === 'dark' ? '#363636' : '#fbfbfb',
+			fontFamily: 'inherit',
+			padding: '16px 10px',
+			outline: 0,
+			color: theme.palette.mode === 'dark' ? '#fff' : '#000',
+			outlineOffset: 0,
+			border: `2px solid ${(theme.palette[color || 'primary'] as PaletteColor)[type]}`,
+			...style,
+		}
+	}, [style, theme.palette, color, type])
+
 	// Input focus handler
 	const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
 		if (theme.palette.mode === 'dark') {
@@ -56,17 +70,7 @@ export function HatInput({
 			onChange={onChange}
 			onFocus={handleFocus}
 			onBlur={handleBlur}
-			style={{
-				transition: 'box-shadow 0.4s ease-in-out',
-				background: theme.palette.mode === 'dark' ? '#363636' : '#fbfbfb',
-				fontFamily: 'inherit',
-				padding: '16px 10px',
-				outline: 0,
-				color: theme.palette.mode === 'dark' ? '#fff' : '#000',
-				outlineOffset: 0,
-				border: `2px solid ${(theme.palette[color || 'primary'] as PaletteColor)[type]}`,
-				...style,
-			}}
+			style={customization}
 		/>
 	)
 }

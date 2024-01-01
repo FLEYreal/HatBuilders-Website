@@ -1,7 +1,7 @@
 'use client'
 
 // Basic
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 
 // MUI
 import { Button, Dialog, DialogTitle, SxProps } from '@mui/material'
@@ -33,19 +33,21 @@ export function Modal({ variant = 'black', children }: HatModalType) {
 	// Styling variables
 	const modalBackground = variant === 'black' ? '#1F1F1F' : '#252525'
 
-	const modalStyles = {
-		textAlign: 'center',
-		modal: {
-			background: modalBackground,
-			display: 'flex',
-			flexDirection: 'column-reverse',
-			alignItems: 'center',
-			padding: '15px',
-			justifyContent: 'flex-end',
-			height: '600px',
-			boxShadow: '5px 5px 0px 0px rgba(255, 255, 255, 0.15) inset, -5px -5px 0px 0px rgba(0, 0, 0, 0.30) inset',
-		},
-	}
+	const modalStyles = useMemo(() => {
+		return {
+			textAlign: 'center',
+			modal: {
+				background: modalBackground,
+				display: 'flex',
+				flexDirection: 'column-reverse',
+				alignItems: 'center',
+				padding: '15px',
+				justifyContent: 'flex-end',
+				height: '600px',
+				boxShadow: '5px 5px 0px 0px rgba(255, 255, 255, 0.15) inset, -5px -5px 0px 0px rgba(0, 0, 0, 0.30) inset',
+			},
+		}
+	}, [modalBackground])
 
 	return (
 		<div >

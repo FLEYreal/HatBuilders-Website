@@ -1,6 +1,9 @@
 'use client'
-// Material-UI
+
+// Basics
 import { ReactNode } from "react";
+
+// Material-UI
 import { Box, SxProps, Theme } from "@mui/material"
 import { useTheme } from "@emotion/react"
 
