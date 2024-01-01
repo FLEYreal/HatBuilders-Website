@@ -2,7 +2,6 @@
 
 // Material-UI
 import { Tab, Tabs } from '@mui/material';
-import { TabList, TabContext } from '@mui/lab'
 
 // Shared
 import { useTranslation } from '@/shared/i18n/client'

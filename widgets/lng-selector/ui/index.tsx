@@ -1,5 +1,8 @@
 'use client'
 
+// Basics
+import { useCallback } from 'react';
+
 // Basic imports
 import React from 'react';
 import Image from 'next/image';
@@ -33,7 +36,7 @@ export function LanguageSelector({ color }: { color?: SvgIconOwnProps['color'] }
     };
 
     // Close menu and change language
-    const handleCloseAndChange = (language: string) => {
+    const handleCloseAndChange = useCallback((language: string) => {
         setAnchorEl(null);
 
         let pathArr = pathname.split('/')
@@ -41,7 +44,7 @@ export function LanguageSelector({ color }: { color?: SvgIconOwnProps['color'] }
         pathArr.join('/')
 
         router.push(pathArr.join('/'))
-    }
+    }, [pathname, router])
 
     return (
         // Language selector

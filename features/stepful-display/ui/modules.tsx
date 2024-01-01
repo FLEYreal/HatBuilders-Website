@@ -1,7 +1,7 @@
 'use client'
 
 // Basics
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useCallback } from "react"
 
 // Material-UI
 import { Box } from "@mui/material"
@@ -33,17 +33,17 @@ export const Modules = ({ sx, component = 'section' }: StepfulModulesInterface) 
     // Handlers
 
     /**
-     * Handler for scroll event, activates "handleSwitchModule" function is there's no custom defined function "customModuleSwitch"
+     * Handler for scroll event, activates "switchModule" function
      * 
      * @param {WheelEvent} event
      */
-    function handleScroll(event: WheelEvent) {
+    const handleScroll = useCallback((event: WheelEvent) => {
 
         let direction: directionType = 'up';
         if (event.deltaY > 0) direction = 'down'
 
         switchModule(direction)
-    }
+    }, [switchModule])
 
     // UseEffects
 
@@ -54,7 +54,7 @@ export const Modules = ({ sx, component = 'section' }: StepfulModulesInterface) 
         // Clean up listeners
         return () => { window.removeEventListener('wheel', handleScroll); };
 
-    }, [isDelay]);
+    }, [isDelay, handleScroll]);
 
     return (
         <Box

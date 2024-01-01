@@ -1,7 +1,7 @@
 'use client'
 
 // Basics
-import { ReactNode, createContext, useContext, useState, useRef, useEffect } from "react"
+import { ReactNode, createContext, useContext, useState, useRef, useEffect, useCallback } from "react"
 
 // Material-UI
 import { SxProps } from '@mui/material'
@@ -52,7 +52,7 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
      * 
      * @returns {void}
      */
-    function switchModule(direction: directionType = 'down') {
+    const switchModule = useCallback((direction: directionType = 'down') => {
 
         // Setup animation for scroll down by default
         let fadeIn = fadeInFromDown;
@@ -116,7 +116,7 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
             }));
 
         }, transitionDur * 1000);
-    }
+    }, [currentModule, moduleList.length])
 
     // UseEffects
 

@@ -15,5 +15,6 @@
     "we_are_hiring": "We're hiring!",
     "reviews": "Reviews",
     "time_to_order": "Time To Order!",
-    "more": "More"
+    "more": "More",
+    "input-warn": "Are you sure, you want to leave the page? You have filled inputs."
 }

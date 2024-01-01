@@ -1,7 +1,7 @@
 'use client'
 
 // Basics
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useCallback } from 'react'
 
 // MUI
 import Switch from '@mui/material/Switch'
@@ -21,11 +21,11 @@ export function HatSwitch({
 }: HatSwitchType){
 
 	// Handles switch's state change
-	const handleSwitchChange = (event: ChangeEvent<HTMLInputElement>) => {
+	const handleSwitchChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
 		if (onChange) {
 			onChange(event)
 		}
-	}
+	}, [onChange])
 
 	return (
 		<Switch 

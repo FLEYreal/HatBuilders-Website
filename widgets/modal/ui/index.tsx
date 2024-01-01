@@ -20,12 +20,12 @@ export interface HatModalType {
 export function Modal({ variant = 'black', children }: HatModalType) {
 	const [open, setOpen] = useState(false)
 
-	// Open a modal window
+	// Open a modal
 	const handleOpenModal = () => {
 		setOpen(true)
 	}
 
-	// Closing the modal window
+	// Closing the modal
 	const handleCloseModal = () => {
 		setOpen(false)
 	}
