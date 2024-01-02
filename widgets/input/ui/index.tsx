@@ -1,7 +1,7 @@
 "use client"
 
 // Basic
-import React, { CSSProperties, ChangeEvent, useMemo } from 'react'
+import React, { CSSProperties, ChangeEvent, useMemo, useCallback, memo, useEffect, useState } from 'react'
 
 // MUI
 import { Theme } from "@mui/material/styles";
@@ -11,23 +11,37 @@ import { Palette, PaletteColor } from '@mui/material'
 // Libs
 import hexToRgba from 'hex-to-rgba';
 
+// Translation
+import { useTranslation } from '@/shared/i18n/client';
+import { useLanguage } from '@/shared/i18n/provider';
+
 // Interfaces
 export interface HatInputType {
-	value?: string
-	onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+	v?: string
+	customOnChange?: (event: ChangeEvent<HTMLInputElement>) => void
 	style?: CSSProperties
 	color?: string & keyof Palette
 	type?: 'main' | 'light' | 'dark'
 }
 
-export function HatInput({
-	value,
-	onChange,
+// eslint-disable-next-line react/display-name
+export const HatInput = memo(({
+	v,
+	customOnChange,
 	style,
 	color,
 	type = 'main',
-}: HatInputType) {
+}: HatInputType) => {
 
+	
+	// Language Related
+	const lng = useLanguage()
+	const { t } = useTranslation(lng, 'home')
+
+	// States
+	const [value, setValue] = useState(v)
+
+	// Get theme to create styles relying on it
 	const theme = useTheme() as Theme;
 
 	const customization = useMemo(() => {
@@ -45,23 +59,52 @@ export function HatInput({
 	}, [style, theme.palette, color, type])
 
 	// Input focus handler
-	const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+	const handleFocus = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
+
 		if (theme.palette.mode === 'dark') {
+
 			e.target.style.border = '2px solid white'
 			e.target.style.boxShadow =
 				'3px 3px 0px 0px rgba(0, 0, 0, 0.30) inset, -3px -3px 0px 0px rgba(255, 255, 255, 0.15) inset, 0px 0px 0px 6px rgba(255, 255, 255, 0.35)'
-		} else {
+
+		}
+
+		else {
 			e.target.style.boxShadow =
 				`0px 0px 0px 6px ${hexToRgba((theme.palette[color || 'primary'] as PaletteColor)[type], 0.35)}`
 		}
-	}
+
+	}, [color, theme.palette, type])
 
 	// Input focus loss handler
-	const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+	const handleBlur = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
+
 		const borderColor = (theme.palette[color || 'primary'] as PaletteColor)[type]
+
 		e.target.style.border = `2px solid ${borderColor}`
 		e.target.style.boxShadow = 'none'
-	}
+
+	}, [color, theme.palette, type])
+
+	// Warn user in the case of leaving with filled inputs
+	const handleWarn = useCallback((e: BeforeUnloadEvent) => {
+		e.preventDefault()
+		e.returnValue = t('input-warn')
+	}, [t])
+
+	const onChange = useCallback(() => {
+		setValue(value)
+	}, [])
+
+
+	// UseEffects
+	useEffect(() => {
+		if(value && value?.length >= 3) {
+			window.addEventListener('beforeunload', handleWarn)
+
+			return () => window.removeEventListener('beforeunload', handleWarn)
+		}
+	}, [value, handleWarn])
 
 	return (
 		<input
@@ -73,4 +116,4 @@ export function HatInput({
 			style={customization}
 		/>
 	)
-}
+})
