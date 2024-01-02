@@ -1,7 +1,7 @@
 "use client"
 
 // Basic
-import React, { CSSProperties, ChangeEvent, useMemo, useCallback, memo, useEffect, useState } from 'react'
+import React, { CSSProperties, useMemo, useCallback, memo, useEffect, useState } from 'react'
 
 // MUI
 import { Theme } from "@mui/material/styles";
@@ -18,10 +18,11 @@ import { useLanguage } from '@/shared/i18n/provider';
 // Interfaces
 export interface HatInputType {
 	v?: string
-	customOnChange?: (event: ChangeEvent<HTMLInputElement>) => void
+	customOnChange?: () => void
 	style?: CSSProperties
 	color?: string & keyof Palette
 	type?: 'main' | 'light' | 'dark'
+	isRequired?: boolean
 }
 
 // eslint-disable-next-line react/display-name
@@ -31,15 +32,16 @@ export const HatInput = memo(({
 	style,
 	color,
 	type = 'main',
+	isRequired = false
 }: HatInputType) => {
 
-	
+
 	// Language Related
 	const lng = useLanguage()
 	const { t } = useTranslation(lng, 'home')
 
 	// States
-	const [value, setValue] = useState(v)
+	const [value, setValue] = useState(v || '')
 
 	// Get theme to create styles relying on it
 	const theme = useTheme() as Theme;
@@ -81,6 +83,7 @@ export const HatInput = memo(({
 
 		const borderColor = (theme.palette[color || 'primary'] as PaletteColor)[type]
 
+		// Styling
 		e.target.style.border = `2px solid ${borderColor}`
 		e.target.style.boxShadow = 'none'
 
@@ -89,22 +92,27 @@ export const HatInput = memo(({
 	// Warn user in the case of leaving with filled inputs
 	const handleWarn = useCallback((e: BeforeUnloadEvent) => {
 		e.preventDefault()
-		e.returnValue = t('input-warn')
-	}, [t])
-
-	const onChange = useCallback(() => {
-		setValue(value)
 	}, [])
 
+	const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
 
-	// UseEffects
+		// Use custom onChange function in the case it exists
+		if (customOnChange) customOnChange()
+		else setValue(e.target.value)
+
+	}, [customOnChange])
+
 	useEffect(() => {
-		if(value && value?.length >= 3) {
-			window.addEventListener('beforeunload', handleWarn)
 
+		// Apply events that warn you before leaving if you have inputs filled
+		if (value && value?.length >= 1) {
+
+			// Applying & Removing event listeners
+			window.addEventListener('beforeunload', handleWarn)
 			return () => window.removeEventListener('beforeunload', handleWarn)
+
 		}
-	}, [value, handleWarn])
+	}, [handleWarn, value])
 
 	return (
 		<input
