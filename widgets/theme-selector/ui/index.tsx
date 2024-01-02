@@ -19,11 +19,13 @@ import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
 export function ThemeSelector({
     sx,
     switchColor,
-    iconColor
+    iconColor,
+    isSwitch = true
 }: {
     sx?: SxProps,
     switchColor?: SwitchProps['color'],
-    iconColor?: SvgIconOwnProps['color']
+    iconColor?: SvgIconOwnProps['color'],
+    isSwitch?: boolean
 }) {
 
     // Contexts
@@ -36,14 +38,14 @@ export function ThemeSelector({
     return (
         <Box sx={{
             display: 'flex',
-            flexFlow: 'row',
+            flexFlow: 'row nowrap',
             alignItems: 'center',
             justifyContent: 'center',
             ...sx
         }}>
 
             {/* Switch that changes theme */}
-            <HatSwitch color={switchColor} checked={dark} onChange={toggleTheme} />
+            {isSwitch && <HatSwitch color={switchColor} checked={dark} onChange={toggleTheme} />}
 
             {/* Icon near switch, changes theme on click as well */}
             <IconButton onClick={toggleTheme} sx={{

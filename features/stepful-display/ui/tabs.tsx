@@ -14,7 +14,14 @@ import { useModules } from './provider';
 import { type StepfulTabsInterface } from '../config/types'
 
 export const sxTab = {
-    fontSize: '14px'
+    fontSize: {
+        lg: '12px',
+        xl: '15px'
+    },
+    minWidth: {
+        lg: '50px',
+        xl: '100px'
+    }
 }
 
 /**
@@ -50,7 +57,7 @@ export function StepfulTabs({ moduleTheme, ns = 'header' }: StepfulTabsInterface
             }
         >
             {
-                modules.map((el, ind) => {
+                modules.map((_, ind) => {
 
                     // Setup translatable name for tab, if not, use "main"
                     let translation = 'main';

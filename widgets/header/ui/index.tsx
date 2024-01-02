@@ -10,26 +10,38 @@ import { StepfulTabs, StepfulTabsInterface } from '@/features/stepful-display'
 // Insides
 import { Logo, Buttons } from '..'
 
+// Icons
+import HomeIcon from '@mui/icons-material/Home';
+import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import WorkIcon from '@mui/icons-material/Work';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import CelebrationIcon from '@mui/icons-material/Celebration';
+
 const moduleTheme: StepfulTabsInterface['moduleTheme'] = [
     {
         color: 'secondary',
-        translation: 'main'
+        translation: 'main',
+        icon: <HomeIcon/>
     },
     {
         color: 'primary',
-        translation: 'about'
+        translation: 'about',
+        icon: <LocalFireDepartmentIcon/>
     },
     {
         color: 'secondary',
-        translation: 'portfolio'
+        translation: 'portfolio',
+        icon: <WorkIcon/>
     },
     {
         color: 'primary',
-        translation: 'hiring'
+        translation: 'hiring',
+        icon: <BusinessCenterIcon/>
     },
     {
         color: 'secondary',
-        translation: 'order'
+        translation: 'order',
+        icon: <CelebrationIcon/>
     },
 ]
 
@@ -61,17 +73,29 @@ export function Header() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
             }}>
+
                 {/* Left: Logo Section */}
                 <Logo />
 
                 {/* Center: Navigation Section */}
-                <StepfulTabs
-                    ns="header"
-                    moduleTheme={moduleTheme}
-                />
+                <Box sx={{
+                    display: {
+                        xs: 'none',
+                        lg: 'block'
+                    }
+                }}>
+                    <StepfulTabs
+                        ns="header"
+                        moduleTheme={moduleTheme}
+                    />
+                </Box>
+                <Box>
+
+                </Box>
 
                 {/* Right: Settings Seciton */}
-                <Buttons moduleTheme={moduleTheme}/>
+                <Buttons moduleTheme={moduleTheme} />
+
             </Wrapper >
         </Box >
     )

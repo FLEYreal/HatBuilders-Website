@@ -1,9 +1,9 @@
 // Basics
-import { ReactNode, Dispatch, SetStateAction } from "react"
+import React, { ReactNode, Dispatch, SetStateAction } from "react"
 
 // Material-UI
 import { BoxProps } from "@mui/system"
-import { SxProps, ButtonBaseProps } from "@mui/material"
+import { SxProps } from "@mui/material"
 
 // Types
 
@@ -76,6 +76,7 @@ export interface StepfulTabsInterface {
     ns?: string,
     moduleTheme?: {
         color: 'inherit' | 'primary' | 'secondary'
-        translation: string
+        translation: string,
+        icon?: ReactNode
     }[]
 }
