@@ -5,7 +5,7 @@ import { Tab, Tabs } from '@mui/material';
 
 // Shared
 import { useTranslation } from '@/shared/i18n/client'
-import { useLanguage } from '@/shared/i18n/provider';
+import { useLanguage } from '@/shared/i18n/ui/provider';
 
 // Hooks
 import { useModules } from './provider';

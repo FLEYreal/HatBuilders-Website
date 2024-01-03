@@ -6,7 +6,7 @@ import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
 
 // Contexts
-import { useThemeContext } from '@/shared/mui/provider';
+import { useThemeContext } from '@/shared/mui/ui/provider';
 
 // Widgets
 import { HatSwitch } from "@/widgets/switch";

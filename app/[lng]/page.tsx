@@ -19,7 +19,7 @@ import { HatDivider} from '@/widgets/hat-text/ui/divider';
 import { HatTitle} from '@/widgets/hat-text/ui/title';
 
 // Shared
-import { useTranslation } from '@/shared/i18n'
+import { useTranslation } from '@/shared/i18n/modal'
 
 // Styles
 import './globals.css'

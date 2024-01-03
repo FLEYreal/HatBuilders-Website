@@ -7,10 +7,10 @@ import { dir } from 'i18next'
 import CssBaseline from '@mui/material/CssBaseline'
 
 // Shared
-import { GlobalThemeProvider } from '@/shared/mui/provider'
-import { languages } from '@/shared/i18n/settings'
-import { LanguageProvider } from '@/shared/i18n/provider'
-import { langType } from '@/shared/i18n/types'
+import { GlobalThemeProvider } from '@/shared/mui/ui/provider'
+import { languages } from '@/shared/i18n/modal/settings'
+import { LanguageProvider } from '@/shared/i18n/ui/provider'
+import { langType } from '@/shared/i18n/config/types'
 
 // Styles
 import './globals.css';
