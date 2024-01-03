@@ -4,9 +4,6 @@ import { Divider, Typography } from '@mui/material'
 // Features
 import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
 
-// Assets
-import greenHatbuilders from '@/public/images/greenHatbuilders.svg'
-
 // Widgets
 import { HatButton } from '@/widgets/button'
 import { HatInput } from '@/widgets/input'
@@ -14,9 +11,9 @@ import { Modal } from '@/widgets/modal'
 import { HatSwitch } from '@/widgets/switch'
 import { Header } from '@/widgets/header'
 import { Wrapper } from '@/widgets/wrapper/ui'
-import { HatText } from '@/widgets/hat-text/ui/text';
-import { HatDivider } from '@/widgets/hat-text/ui/divider';
-import { HatTitle } from '@/widgets/hat-text/ui/title';
+
+// Features
+import { Article, ArticleSection, ArticleBlock } from '@/features/article'
 
 // Shared
 import { useTranslation } from '@/shared/i18n/modal'
@@ -44,25 +41,20 @@ export default async function Home({
 					<HatButton color='warning' variant='outlined'>{t('discord')}</HatButton>
 					<HatButton color='error' variant='outlined'>{t('discord')}</HatButton>
 
-
-
 				</>,
 				<>
 					<Wrapper>
 
-						{/* <HatText content={'is a project whose goal is not just building best minecraft buildings to clients we love and care about but to do it more efficiently, fun and cheap!'} />
-
-						<HatDivider />
-
-						<HatTitle src={greenHatbuilders} /> */}
-
-						<Typography variant='h1'>H1 Text</Typography>
-						<Typography variant='h2'>H1 Text</Typography>
-						<Typography variant='h3'>H1 Text</Typography>
-						<Typography variant='h4'>H1 Text</Typography>
-						<Typography variant='h5'>H1 Text</Typography>
-						<Typography variant='h6'>H1 Text</Typography>
-						<Typography variant='link'>H1 Text</Typography>
+						<Article>
+							<ArticleSection>
+								<ArticleBlock.Text variant='h1'>Hello World!</ArticleBlock.Text>
+								<ArticleBlock.Text variant='h3'>This an Article usage example, have fun!</ArticleBlock.Text>
+							</ArticleSection>
+							<ArticleSection>
+								<ArticleBlock.Text variant='h2'>Its another Section of an article</ArticleBlock.Text>
+								<ArticleBlock.Text variant='h4'>A showcase of article. Its not finished yet tho. Tons of work has left to do!</ArticleBlock.Text>
+							</ArticleSection>
+						</Article>
 
 					</Wrapper>
 

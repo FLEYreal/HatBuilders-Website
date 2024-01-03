@@ -14,5 +14,4 @@ export {
 
 
 // Modal
-export * from './modal/theme/vars' // Import all MUI related variables
 export { darkTheme, lightTheme } from './modal/theme' // Import theme object
