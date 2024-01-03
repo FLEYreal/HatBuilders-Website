@@ -1,5 +1,5 @@
 // Material-UI
-import { Divider } from '@mui/material'
+import { Divider, Typography } from '@mui/material'
 
 // Features
 import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
@@ -14,9 +14,9 @@ import { Modal } from '@/widgets/modal'
 import { HatSwitch } from '@/widgets/switch'
 import { Header } from '@/widgets/header'
 import { Wrapper } from '@/widgets/wrapper/ui'
-import { HatText} from '@/widgets/hat-text/ui/text';
-import { HatDivider} from '@/widgets/hat-text/ui/divider';
-import { HatTitle} from '@/widgets/hat-text/ui/title';
+import { HatText } from '@/widgets/hat-text/ui/text';
+import { HatDivider } from '@/widgets/hat-text/ui/divider';
+import { HatTitle } from '@/widgets/hat-text/ui/title';
 
 // Shared
 import { useTranslation } from '@/shared/i18n/modal'
@@ -38,27 +38,33 @@ export default async function Home({
 			modules={[
 				<>
 
-<HatButton color='primary' variant='outlined'>{t('discord')}</HatButton>
+					<HatButton color='primary' variant='outlined'>{t('discord')}</HatButton>
 					<HatButton color='secondary' variant='outlined'>{t('discord')}</HatButton>
 					<HatButton color='info' variant='outlined'>{t('discord')}</HatButton>
 					<HatButton color='warning' variant='outlined'>{t('discord')}</HatButton>
 					<HatButton color='error' variant='outlined'>{t('discord')}</HatButton>
-					
-					
-					
+
+
+
 				</>,
 				<>
-				<Wrapper>
+					<Wrapper>
 
-					<HatText content={'is a project whose goal is not just building best minecraft buildings to clients we love and care about but to do it more efficiently, fun and cheap!'}/>
+						{/* <HatText content={'is a project whose goal is not just building best minecraft buildings to clients we love and care about but to do it more efficiently, fun and cheap!'} />
 
-					<HatDivider/>
+						<HatDivider />
 
-					<HatTitle src={greenHatbuilders} />
+						<HatTitle src={greenHatbuilders} /> */}
 
-				</Wrapper>
-					
-					
+						<Typography variant='h1'>H1 Text</Typography>
+						<Typography variant='h2'>H1 Text</Typography>
+						<Typography variant='h3'>H1 Text</Typography>
+						<Typography variant='h4'>H1 Text</Typography>
+						<Typography variant='h5'>H1 Text</Typography>
+						<Typography variant='h6'>H1 Text</Typography>
+						<Typography variant='link'>H1 Text</Typography>
+
+					</Wrapper>
 
 				</>,
 				<>

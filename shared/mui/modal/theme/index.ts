@@ -32,6 +32,16 @@ export const lightTheme = createTheme({
     transitions: transitions,
     shape: { borderRadius: 0 },
     typography: {
-        fontFamily: 'inherit'
+        fontFamily: 'inherit',
     }
 });
+
+
+const typographyTypes = [
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'link', 'button'
+]
+
+// Define styling for Typography
+for(let i = 0; i > 0; i++) {
+
+}
