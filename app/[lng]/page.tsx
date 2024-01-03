@@ -4,24 +4,25 @@ import { Divider } from '@mui/material'
 // Features
 import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
 
+// Assets
+import greenHatbuilders from '@/public/images/greenHatbuilders.svg'
+
 // Widgets
 import { HatButton } from '@/widgets/button'
 import { HatInput } from '@/widgets/input'
 import { Modal } from '@/widgets/modal'
 import { HatSwitch } from '@/widgets/switch'
 import { Header } from '@/widgets/header'
-
-// Assets
-import dc from '@/public/icons/social/dc.svg'
-import vk from '@/public/icons/social/vk.svg'
+import { Wrapper } from '@/widgets/wrapper/ui'
+import { HatText} from '@/widgets/hat-text/ui/text';
+import { HatDivider} from '@/widgets/hat-text/ui/divider';
+import { HatTitle} from '@/widgets/hat-text/ui/title';
 
 // Shared
 import { useTranslation } from '@/shared/i18n'
 
 // Styles
 import './globals.css'
-import { HatText } from '@/widgets/hat-text'
-import Image from 'next/image'
 
 export default async function Home({
 	params: { lng },
@@ -47,34 +48,18 @@ export default async function Home({
 					
 				</>,
 				<>
+				<Wrapper>
+
+					<HatText content={'is a project whose goal is not just building best minecraft buildings to clients we love and care about but to do it more efficiently, fun and cheap!'}/>
+
+					<HatDivider/>
+
+					<HatTitle src={greenHatbuilders} />
+
+				</Wrapper>
 					
-					<HatText type='title' variant='green' page= 'about'/>
+					
 
-					<HatText page= 'about' type='text' content='is a project whose goal is not just building best minecraft buildings to clients we love and care about but to do it more efficiently, fun and cheap!'/>
-
-					<HatText page= 'about' type='divider'/>
-
-
-					<HatText page= 'about' type='text' content='We can build the project of any scale from just a little village for your SMP server to big maps for UHC and whole lot more, if you’re interested, you can order any time, we’re always happy to hear you out!'/>
-
-					<HatText page= 'about' type='divider' variant='green' sx={{margin:'52px 0 53px 0'}}/>
-
-					<HatText page= 'about' type='text' content='If you love building, if you want to make money doing what you love, you can work with us. apply!'/>
-
-					<HatText page= 'about' type='divider' sx={{margin:'16px 0'}}/>
-
-					<HatText page= 'about' type='text' content='You also able to order from our discord server or vk group!'/>
-
-					<HatText page= 'about' type='divider'/>
-
-
-
-
-					<HatButton color='primary'>{t('order')}</HatButton>
-					<HatText page= 'about' type='actions' color='' content={<Image src={dc} alt="discord" style={{ height: '43px', width: '43px' }} />}>
-					</HatText>
-					<HatText page= 'about' type='actions' color='' content={<Image src={vk} alt="discord" style={{ height: '43px', width: '43px' }} />}>
-					</HatText>
 				</>,
 				<>
 					<HatInput color='primary' />
