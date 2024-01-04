@@ -1,5 +1,5 @@
 // Material-UI
-import { Divider, Typography } from '@mui/material'
+import { Divider, Button } from '@mui/material'
 
 // Features
 import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
@@ -20,6 +20,9 @@ import { useTranslation } from '@/shared/i18n/modal'
 
 // Styles
 import './globals.css'
+
+// Assets
+import hatbuildersSign from '@/public/images/greenHatbuilders.svg'
 
 export default async function Home({
 	params: { lng },
@@ -44,15 +47,22 @@ export default async function Home({
 				</>,
 				<>
 					<Wrapper>
-
 						<Article>
 							<ArticleSection>
+								<ArticleBlock.Image alt="HatBuilders Logo" src={hatbuildersSign} />
 								<ArticleBlock.Text variant='h1'>Hello World!</ArticleBlock.Text>
 								<ArticleBlock.Text variant='h3'>This an Article usage example, have fun!</ArticleBlock.Text>
 							</ArticleSection>
+							<ArticleBlock.Action.Divider />
 							<ArticleSection>
 								<ArticleBlock.Text variant='h2'>Its another Section of an article</ArticleBlock.Text>
 								<ArticleBlock.Text variant='h4'>A showcase of article. Its not finished yet tho. Tons of work has left to do!</ArticleBlock.Text>
+							</ArticleSection>
+							<ArticleSection>
+								<ArticleBlock.Action>
+									<HatButton>Button 1</HatButton>
+									<HatButton>Button 2</HatButton>
+								</ArticleBlock.Action>
 							</ArticleSection>
 						</Article>
 

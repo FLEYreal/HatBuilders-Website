@@ -140,11 +140,11 @@ for (let i = 0; i < themes.length; i++) {
         fontFamily: 'inherit',
         color: ['#FFFFFF', '#000000'][i],
         fontWeight: '500',
-        fontSize: '16px',
+        fontSize: '14px',
         margin: '6px 0',
-        [themes[i].breakpoints.up('md')]: { fontSize: '18px' },
+        [themes[i].breakpoints.up('md')]: { fontSize: '16px' },
         [themes[i].breakpoints.up('lg')]: { fontSize: '20px' },
-        [themes[i].breakpoints.up('xl')]: { fontSize: '30px' }
+        [themes[i].breakpoints.up('xl')]: { fontSize: '26px' }
     }
 
     // Type: Regular Title
@@ -153,11 +153,11 @@ for (let i = 0; i < themes.length; i++) {
         fontFamily: 'inherit',
         color: ['#FFFFFF', '#000000'][i],
         fontWeight: '600',
-        fontSize: '20px',
+        fontSize: '16px',
         margin: '8px 0',
-        [themes[i].breakpoints.up('md')]: { fontSize: '22px' },
-        [themes[i].breakpoints.up('lg')]: { fontSize: '28px' },
-        [themes[i].breakpoints.up('xl')]: { fontSize: '40px' }
+        [themes[i].breakpoints.up('md')]: { fontSize: '20px' },
+        [themes[i].breakpoints.up('lg')]: { fontSize: '26px' },
+        [themes[i].breakpoints.up('xl')]: { fontSize: '30px' }
     }
 
     // Type: Button Name

@@ -1,15 +1,18 @@
 // Basics
-import React, { ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
+import Image from 'next/image'
 
 // Material-UI
-import { Typography, BoxProps } from '@mui/material';
+import { Typography, BoxProps, Divider, Box } from '@mui/material';
 
 // Config
 import {
+    ArticleBlockInterface,
     TextInterface,
     ActionInterface,
-    ImageInterface
-} from '../config';
+    ImageInterface,
+    ActionDividerInterface
+} from '../config/types';
 
 // Components
 
@@ -20,7 +23,7 @@ import {
  * - ArticleBlock.Action : Create an action block with buttons and other components
  * - ArticleBlock.Image : Create a block with an image
  */
-function ArticleBlock({ children }: { children: ReactNode }) {
+function ArticleBlock({ children }: ArticleBlockInterface) {
     return (<>{children}</>)
 }
 
@@ -29,9 +32,9 @@ function ArticleBlock({ children }: { children: ReactNode }) {
  */
 const Text: React.FC<TextInterface> = ({
     variant = "h3",
+    component = "p",
     children,
-    sx,
-    component = "p"
+    sx
 }: TextInterface) => {
 
     // Define tag of the component relatively variant of the block
@@ -62,32 +65,81 @@ const Text: React.FC<TextInterface> = ({
 }
 
 /**
- * ArticleBlock: Block for creating action bars with buttons, widgets and other stuff
+ * ArticleBlock: Block for creating action bars with buttons, widgets and other stuff.
+ * Recommended to use only MUI components inside because otherwise, default styles might not be applied
  */
-const Action: React.FC<ActionInterface> = ({
-    children
-}) => {
-    return (<>{children}</>)
+const Action = ({
+    align = 'row',
+    m = '16px',
+
+    children,
+    component = "section",
+    sx = {}
+}: ActionInterface) => {
+
+    // Clone children and parse to apply custom styling
+    const clones = React.Children.map(children, (child: ReactNode) => {
+
+        // Recommended to use only MUI components inside because otherwise, sx won't be supported
+        return React.cloneElement(child as ReactElement, { sx: { marginRight: '10px', marginLeft: '0' } });
+
+    });
+
+    return (
+        <Box component={component} sx={{
+            display: 'flex',
+            alignItems: 'start',
+            justifyContent: 'start',
+            flexFlow: `${align} nowrap`,
+            m: m,
+            ml: '0',
+            ...sx
+        }}>
+            {clones}
+        </Box>
+    )
 }
 
 /**
  * ArticleBlock: Block for images. Enables you to properly insert image into an article so it fit well!
  */
-const Picture: React.FC<ImageInterface> = ({
-    children
-}) => {
-    return (<>{children}</>)
+const Picture = ({
+    src,
+    alt = "Image from Article"
+}: ImageInterface) => {
+    return (
+        <Image src={src} alt={alt} style={{
+            width: '100%',
+            margin: "10px 0",
+            borderRadius: '0'
+        }} />
+    )
 }
 
-// Setup display names
-Text.displayName = "ArticleBlock.Text"
-Action.displayName = "ArticleBlock.Action"
-Picture.displayName = "ArticleBlock.Image"
+/**
+ * ArticleBlock.Action: Custom divider that doesn't differ much from MUI version, it's just fits code style
+ */
+const ArticleDivider = ({
+    sx,
+    component = 'hr',
+    light = true,
+    variant = 'fullWidth'
+}: ActionDividerInterface) => {
+    return (<Divider
+        sx={sx}
+        component={component}
+        light={light}
+        variant={variant}
+    />)
+}
 
 // Assign to Article blocks
 ArticleBlock.Text = Text
 ArticleBlock.Action = Action
 ArticleBlock.Image = Picture
+
+// Asign to Action block
+Action.Divider = ArticleDivider
 
 // Export a single Article block
 export { ArticleBlock };
