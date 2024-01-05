@@ -21,27 +21,27 @@ const moduleTheme: StepfulTabsInterface['moduleTheme'] = [
     {
         color: 'secondary',
         translation: 'main',
-        icon: <HomeIcon/>
+        icon: <HomeIcon />
     },
     {
         color: 'primary',
         translation: 'about',
-        icon: <LocalFireDepartmentIcon/>
+        icon: <LocalFireDepartmentIcon />
     },
     {
         color: 'secondary',
         translation: 'portfolio',
-        icon: <WorkIcon/>
+        icon: <WorkIcon />
     },
     {
         color: 'primary',
         translation: 'hiring',
-        icon: <BusinessCenterIcon/>
+        icon: <BusinessCenterIcon />
     },
     {
         color: 'secondary',
         translation: 'order',
-        icon: <CelebrationIcon/>
+        icon: <CelebrationIcon />
     },
 ]
 
@@ -58,8 +58,8 @@ export function Header() {
             left: '0',
             width: '100%',
             height: '56px',
-            background: 'rgba(0, 0, 0, 0.40)',
-            boxShadow: '0px 4px 12px 2px rgba(0, 0, 0, 0.20)',
+            background: 'rgba(0, 0, 0, 0.4)',
+            boxShadow: '0px 4px 12px 2px rgba(0, 0, 0, 0.25)',
             backdropFilter: 'blur(8px)',
             display: 'flex',
             alignContent: 'center',
@@ -87,6 +87,8 @@ export function Header() {
                     <StepfulTabs
                         ns="header"
                         moduleTheme={moduleTheme}
+
+                        sxChild={{ color: 'rgba(255, 255, 255, 0.9)' }}
                     />
                 </Box>
                 <Box>

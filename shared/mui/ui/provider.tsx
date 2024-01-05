@@ -2,7 +2,7 @@
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { Theme } from '@mui/material/styles';
 import { darkTheme, lightTheme } from '../modal/theme';
-import { useEffect, useState, createContext, useContext } from 'react';
+import { useLayoutEffect, useState, createContext, useContext } from 'react';
 
 // Define the structure for the ThemeContext
 interface ThemeContextProps {
@@ -26,7 +26,7 @@ export const GlobalThemeProvider = ({ children }: { children: any }) => {
     const [theme, setTheme] = useState<Theme>(darkTheme); // State to manage the current theme
 
     // Effect to set the theme based on the stored value in localStorage
-    useEffect(() => {
+    useLayoutEffect(() => {
         const storedTheme = localStorage.getItem('theme');
         if (storedTheme && storedTheme === '0') {
             setTheme(lightTheme);

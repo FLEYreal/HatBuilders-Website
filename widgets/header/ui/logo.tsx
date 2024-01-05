@@ -1,3 +1,5 @@
+'use client'
+
 // Basics
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,16 +19,8 @@ export function Logo() {
     const short_phrases: string[] = [
         'HatBuilders', 'HatBuilders', 'HatBuilders',
         'HatBuilders', 'HatBuilders', 'HatBuilders',
-        'Innovative', 'Caring', 'Creative',
-        'Workaholics?', 'Inventive', 'Curios',
-        'Rare Phrase?!', 'Sample Text', 'HeadBuilders', 
-        'HatBuilders', 'Responsible!', 'Unique',
-    ]
-    const long_phrases: string[] = [
-        'Bright like a sun!', 'Insane Builders, Careful!',
-        'Just HatBuilders', '(〃￣︶￣)人(￣︶￣〃)',
-        'Long Story Short: The Best', 'Ответственные!',
-        'Building the Future', 'Fast, Cheap, High-Quality',
+        'Innovative', 'Creative', 'Inventive', 
+        'Curios', 'Sample Text', 'HeadBuilders', 
     ]
 
     return (
@@ -62,16 +56,7 @@ export function Logo() {
 
                     {/* For Desktop */}
                     <Typography sx={{
-                        fontSize: '15px',
-                        display: { xs: 'none', xl: 'block' }
-                    }}>
-                        {[...long_phrases, ...short_phrases][Math.floor(Math.random() * ([...long_phrases, ...short_phrases].length))]}
-                    </Typography>
-
-                    {/* For Tablet */}
-                    <Typography sx={{
-                        fontSize: '12px',
-                        display: { xs: 'none', lg: 'block', xl: 'none' }
+                        fontSize: { xs: '12px', xl: '15px' }
                     }}>
                         {short_phrases[Math.floor(Math.random() * (short_phrases.length))]}
                     </Typography>

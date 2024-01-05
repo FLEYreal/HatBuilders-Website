@@ -1,5 +1,5 @@
 // Material-UI
-import { Divider, Button } from '@mui/material'
+import { Divider } from '@mui/material'
 
 // Features
 import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
@@ -17,9 +17,6 @@ import { Article, ArticleSection, ArticleBlock } from '@/features/article'
 
 // Shared
 import { useTranslation } from '@/shared/i18n/modal'
-
-// Styles
-import './globals.css'
 
 // Assets
 import hatbuildersSign from '@/public/images/greenHatbuilders.svg'

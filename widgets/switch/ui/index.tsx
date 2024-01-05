@@ -18,7 +18,7 @@ export function HatSwitch({
 	checked,
 	onChange,
 	color,
-}: HatSwitchType){
+}: HatSwitchType) {
 
 	// Handles switch's state change
 	const handleSwitchChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -28,16 +28,18 @@ export function HatSwitch({
 	}, [onChange])
 
 	return (
-		<Switch 
-			color={color || 'primary'} 
-			checked={checked} 
-			onChange={handleSwitchChange} 
+		<Switch
+			color={color || 'primary'}
+			checked={checked}
+			onChange={handleSwitchChange}
 			sx={{
 				'& .MuiSwitch-thumb': {
 					borderRadius: '0',
+					boxShadow: '0px 0px 9px 2px rgba(34, 60, 80, 0.2)'
 				},
 				'& .MuiSwitch-track': {
 					borderRadius: '0',
+					boxShadow: '0px 0px 9px 0px rgba(34, 60, 80, 0.2)'
 				},
 			}}
 		/>

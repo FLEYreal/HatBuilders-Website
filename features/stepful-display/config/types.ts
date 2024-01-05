@@ -78,5 +78,8 @@ export interface StepfulTabsInterface {
         color: 'inherit' | 'primary' | 'secondary'
         translation: string,
         icon?: ReactNode
-    }[]
+    }[],
+
+    sxChild?: SxProps,
+    sxParent?: SxProps
 }

@@ -12,9 +12,6 @@ import { languages } from '@/shared/i18n/modal/settings'
 import { LanguageProvider } from '@/shared/i18n/ui/provider'
 import { langType } from '@/shared/i18n/config/types'
 
-// Styles
-import './globals.css';
-
 // Get Minecraft Font
 const minecraftFont = localFont({
     src: '../../public/fonts/minecraft.ttf'

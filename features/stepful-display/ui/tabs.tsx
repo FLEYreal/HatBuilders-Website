@@ -27,7 +27,7 @@ export const sxTab = {
 /**
  * Selectable tabs, list of main modules. When you click, it switches to selected module
  */
-export function StepfulTabs({ moduleTheme, ns = 'header' }: StepfulTabsInterface) {
+export function StepfulTabs({ moduleTheme, ns = 'header', sxChild, sxParent }: StepfulTabsInterface) {
 
     // Get data from module's context
     let { modules, current, switchModule } = useModules();
@@ -55,6 +55,9 @@ export function StepfulTabs({ moduleTheme, ns = 'header' }: StepfulTabsInterface
                 moduleTheme[current].color as ('primary' | 'secondary')
                 : 'primary'
             }
+
+            // Styles
+            sx={sxParent}
         >
             {
                 modules.map((_, ind) => {
@@ -66,7 +69,10 @@ export function StepfulTabs({ moduleTheme, ns = 'header' }: StepfulTabsInterface
                     return (
                         <Tab
                             key={ind}
-                            sx={sxTab}
+                            sx={{
+                                ...sxChild,
+                                ...sxTab
+                            }}
                             label={t(translation)}
                             id={`simple-tab-${ind}`}
                         />
