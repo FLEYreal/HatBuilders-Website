@@ -10,8 +10,10 @@ import { TextInterface } from '../../config/types';
 export const Text: React.FC<TextInterface> = ({
     variant = "h3",
     component = "p",
+    textAlign = 'start',
+
     children,
-    sx
+    sx,
 }: TextInterface) => {
 
     // Define tag of the component relatively variant of the block
@@ -33,6 +35,7 @@ export const Text: React.FC<TextInterface> = ({
             component={comp}
             variant={variant || 'h3'}
             sx={{
+                textAlign: textAlign,
                 ...sx
             }}
         >

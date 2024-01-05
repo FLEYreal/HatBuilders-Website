@@ -47,10 +47,10 @@ export default async function Home({
 				</>,
 				<>
 					<Wrapper>
-						<Article>
+						<Article align="start" textAlign="start">
 							<ArticleSection>
 								<ArticleBlock.Image alt="HatBuilders Logo" src={hatbuildersSign} />
-								<ArticleBlock.Text variant='h1'>Hello World!</ArticleBlock.Text>
+								<ArticleBlock.Text variant='h1' textAlign="center">Hello World!</ArticleBlock.Text>
 								<ArticleBlock.Text variant='h3'>This an Article usage example, have fun!</ArticleBlock.Text>
 							</ArticleSection>
 							<ArticleBlock.Action.Divider />
