@@ -64,7 +64,10 @@ export const darkTheme = createTheme({
     },
     shadows: Array(25).fill('none') as Theme['shadows'],
     transitions: transitions,
-    shape: { borderRadius: 0 }
+    shape: { borderRadius: 0 },
+    typography: {
+        fontFamily: 'inherit'
+    }
 });
 
 // Custom light theme
@@ -77,6 +80,9 @@ export const lightTheme = createTheme({
     shadows: Array(25).fill('none') as Theme['shadows'],
     transitions: transitions,
     shape: { borderRadius: 0 },
+    typography: {
+        fontFamily: 'inherit'
+    }
 });
 
 const themes = [darkTheme, lightTheme]

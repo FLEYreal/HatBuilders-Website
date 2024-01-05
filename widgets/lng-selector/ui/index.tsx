@@ -9,7 +9,10 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 // Material-UI
-import { Menu, MenuItem, Typography, IconButton, SvgIconOwnProps } from '@mui/material'
+import { MenuItem, Typography, IconButton, SvgIconOwnProps } from '@mui/material'
+
+// Widgets
+import { HatMenu } from '@/widgets/menu'
 
 // Icons
 import ru from '@/public/icons/ru.svg';
@@ -60,17 +63,9 @@ export function LanguageSelector({ color }: { color?: SvgIconOwnProps['color'] }
                 <LanguageRoundedIcon color={color || 'primary'} />
             </IconButton>
 
-            <Menu
+            <HatMenu
                 anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
                 onClose={() => handleClose()}
-                slotProps={{
-                    paper: {
-                        sx: {
-                            boxShadow: '5px 5px 0px 0px rgba(255, 255, 255, 0.15) inset, -5px -5px 0px 0px rgba(0, 0, 0, 0.30) inset'
-                        }
-                    }
-                }}
             >
                 {/* 2 Menu items with Russian and English languages */}
 
@@ -93,7 +88,7 @@ export function LanguageSelector({ color }: { color?: SvgIconOwnProps['color'] }
                     <Typography component='span' color="plain_text.main" sx={{ marginLeft: '10px' }}>English</Typography>
 
                 </MenuItem>
-            </Menu>
+            </HatMenu>
         </>
     );
 }
