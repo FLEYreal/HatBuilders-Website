@@ -82,7 +82,9 @@ export default async function Home({
 					<Divider sx={{ m: '16px' }} />
 
 					<HatSwitch />
-				</>
+				</>,
+				<>Hello World</>,
+				<>So do you</>
 
 			]}>
 
