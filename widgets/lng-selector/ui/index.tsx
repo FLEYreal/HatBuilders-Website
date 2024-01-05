@@ -65,7 +65,7 @@ export function LanguageSelector({ color }: { color?: SvgIconOwnProps['color'] }
 
             <HatMenu
                 anchorEl={anchorEl}
-                onClose={() => handleClose()}
+                onClick={() => handleClose()}
             >
                 {/* 2 Menu items with Russian and English languages */}
 
