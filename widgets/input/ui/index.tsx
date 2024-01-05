@@ -13,7 +13,7 @@ import hexToRgba from 'hex-to-rgba';
 
 // Translation
 import { useTranslation } from '@/shared/i18n/client';
-import { useLanguage } from '@/shared/i18n/provider';
+import { useLanguage } from '@/shared/i18n';
 
 // Interfaces
 export interface HatInputType {

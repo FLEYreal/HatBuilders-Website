@@ -9,13 +9,14 @@ import { Box, IconButton, SwitchProps, Menu, MenuItem } from '@mui/material';
 
 // Widgets
 import { ThemeSelector } from '@/widgets/theme-selector';
+import { HatMenu } from '@/widgets/menu';
 const LanguageSelector = dynamic(() => import('@/widgets/lng-selector').then((module) => ({ default: module.LanguageSelector })), { ssr: false });
 
 // Features
 import { useModules, StepfulTabsInterface } from '@/features/stepful-display';
 
 // Shared
-import { useLanguage } from '@/shared/i18n/provider';
+import { useLanguage } from '@/shared/i18n';
 import { useTranslation } from '@/shared/i18n/client';
 
 // Icons
@@ -81,17 +82,9 @@ export function Buttons({ moduleTheme }: { moduleTheme: StepfulTabsInterface['mo
             </IconButton>
 
             {/* Menu that works for small screens */}
-            <Menu
+            <HatMenu
                 anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
                 onClick={() => handleClose()}
-                slotProps={{
-                    paper: {
-                        sx: {
-                            boxShadow: '5px 5px 0px 0px rgba(255, 255, 255, 0.15) inset, -5px -5px 0px 0px rgba(0, 0, 0, 0.30) inset'
-                        }
-                    }
-                }}
             >
                 {
                     // Parse modules and create a menu item for each
@@ -113,7 +106,7 @@ export function Buttons({ moduleTheme }: { moduleTheme: StepfulTabsInterface['mo
                         )
                     })
                 }
-            </Menu>
+            </HatMenu>
         </Box>
     );
 }
