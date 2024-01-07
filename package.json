@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.0",
     "@mui/lab": "^5.0.0-alpha.158",
@@ -25,6 +25,7 @@
     "react-i18next": "^13.5.0"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.11.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
