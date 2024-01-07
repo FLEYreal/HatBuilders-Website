@@ -10,7 +10,7 @@ import { HatInput } from '@/widgets/input'
 import { Modal } from '@/widgets/modal'
 import { HatSwitch } from '@/widgets/switch'
 import { Header } from '@/widgets/header'
-import { Wrapper } from '@/widgets/wrapper/ui'
+import { Wrapper, Flex } from '@/widgets/wrapper'
 
 // Features
 import { Article, ArticleSection, ArticleBlock } from '@/features/article'
@@ -81,7 +81,14 @@ export default async function Home({
 					<HatSwitch />
 				</>,
 				<>Hello World</>,
-				<>So do you</>
+				<>
+					<Flex sxStyles={{ color: 'red' }} sx={{ border: '1px solid #fff', padding: '20px', gap: '15px' }}>
+						<Flex sx={{ fontSize: '50px' }}>Experiment!</Flex>
+						<Flex>Hello World</Flex>
+						<Flex>Hello World</Flex>
+						<Flex>Hello World</Flex>
+					</Flex>
+				</>
 
 			]}>
 

@@ -13,13 +13,15 @@ import styled from '@emotion/styled'
 
 // Styled Component
 const StyledWrapper = styled(Box) <styledDefaultInterface>`
-
+    
+    // Styles independent of screen resolution
     margin: 0 auto;
 
-    ${({ def }) => def.b('xs')} { width: ${({ def }) => def.v.sm } }
-    ${({ def }) => def.b('md')} { width: ${({ def }) => def.v.md } }
-    ${({ def }) => def.b('lg')} { width: ${({ def }) => def.v.lg } }
-    ${({ def }) => def.b('xl')} { width: ${({ def }) => def.v.xl } }
+    // Define Width for Wrapper
+    ${({ def }) => def.b('xs')} { width: ${({ def }) => def.v.sm + 'px'} }
+    ${({ def }) => def.b('md')} { width: ${({ def }) => def.v.md + 'px'} }
+    ${({ def }) => def.b('lg')} { width: ${({ def }) => def.v.lg + 'px'} }
+    ${({ def }) => def.b('xl')} { width: ${({ def }) => def.v.xl + 'px'} }
 
 `
 
@@ -27,6 +29,7 @@ const StyledWrapper = styled(Box) <styledDefaultInterface>`
 // Component
 export function Wrapper({ children, sx }: { children?: ReactNode, sx?: SxProps }) {
 
+    // Theme
     const theme = useTheme() as Theme
 
     return (
@@ -36,7 +39,7 @@ export function Wrapper({ children, sx }: { children?: ReactNode, sx?: SxProps }
                 v: theme.breakpoints.values,
                 t: theme
             }}
-            component="section" 
+            component="section"
             sx={sx}
         >
             {children}

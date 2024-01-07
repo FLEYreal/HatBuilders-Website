@@ -2,7 +2,7 @@
 import { Box } from '@mui/material';
 
 // Widgets
-import { Wrapper } from '@/widgets/wrapper/ui';
+import { Wrapper } from '@/widgets/wrapper';
 
 // Features
 import { StepfulTabs, StepfulTabsInterface } from '@/features/stepful-display'
