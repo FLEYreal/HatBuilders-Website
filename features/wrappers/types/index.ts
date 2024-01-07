@@ -1,5 +1,5 @@
 // Basics
-import { CSSProperties, ReactNode } from 'react'
+import { CSSProperties, FC, ReactNode } from 'react'
 
 // Material-UI
 import { BoxProps, SxProps } from '@mui/material';
@@ -11,13 +11,17 @@ import { styledDefaultInterface } from '@/shared/mui';
  * @param children - All provided children (React Components) will be inside this parent component.
  * @param sx - SX Styles are type of styles from Material-UI lib which used to create the feature.
  */
-export interface RootInterface extends BoxProps {
+export interface RootInterface extends BoxProps, styledDefaultInterface {
     children?: string | ReactNode;
 }
 
+// Interfaces & Types for Higher-Order Components
+export interface defaultWrapperInterface<T extends styledDefaultInterface> {
+    Wrapper: FC<T>
+}
 
-// Interfaces of components & styled components
-export interface CommonFlexIntefrace {
+// Interfaces of Components & Styled Components
+export interface FlexInterface extends RootInterface {
     flow?: CSSProperties['flexFlow'] | null;
     f?: CSSProperties['flex'] | null;
     grow?: CSSProperties['flex'] | null;
@@ -34,6 +38,3 @@ export interface CommonFlexIntefrace {
     // Styles for components if they're Material-UI components
     sxStyles?: SxProps | null
 }
-
-export interface FlexInterface extends RootInterface, CommonFlexIntefrace {}
-export interface StyledFlexInterface extends styledDefaultInterface, CommonFlexIntefrace {}

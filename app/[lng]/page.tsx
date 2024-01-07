@@ -10,10 +10,10 @@ import { HatInput } from '@/widgets/input'
 import { Modal } from '@/widgets/modal'
 import { HatSwitch } from '@/widgets/switch'
 import { Header } from '@/widgets/header'
-import { Wrapper, Flex } from '@/widgets/wrapper'
 
 // Features
 import { Article, ArticleSection, ArticleBlock } from '@/features/article'
+import { Wrapper, Flex } from '@/features/wrappers'
 
 // Shared
 import { useTranslation } from '@/shared/i18n/modal'

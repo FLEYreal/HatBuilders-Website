@@ -18,10 +18,10 @@ const StyledWrapper = styled(Box) <styledDefaultInterface>`
     margin: 0 auto;
 
     // Define Width for Wrapper
-    ${({ def }) => def.b('xs')} { width: ${({ def }) => def.v.sm + 'px'} }
-    ${({ def }) => def.b('md')} { width: ${({ def }) => def.v.md + 'px'} }
-    ${({ def }) => def.b('lg')} { width: ${({ def }) => def.v.lg + 'px'} }
-    ${({ def }) => def.b('xl')} { width: ${({ def }) => def.v.xl + 'px'} }
+    ${({ def }) => def!.b('xs')} { width: ${({ def }) => def!.v.sm + 'px'} }
+    ${({ def }) => def!.b('md')} { width: ${({ def }) => def!.v.md + 'px'} }
+    ${({ def }) => def!.b('lg')} { width: ${({ def }) => def!.v.lg + 'px'} }
+    ${({ def }) => def!.b('xl')} { width: ${({ def }) => def!.v.xl + 'px'} }
 
 `
 
