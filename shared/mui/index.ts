@@ -22,3 +22,8 @@ export {
     useSingleResolution
 
 } from './modal/hooks'
+
+
+// Types
+export type { styledInterface, styledDefaultInterface } from './types'
+
