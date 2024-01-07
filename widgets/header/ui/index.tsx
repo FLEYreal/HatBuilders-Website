@@ -1,11 +1,10 @@
 // Material-UI
 import { Box } from '@mui/material';
 
-// Widgets
-import { Wrapper } from '@/widgets/wrapper';
-
 // Features
 import { StepfulTabs, StepfulTabsInterface } from '@/features/stepful-display'
+import { Wrapper } from '@/features/wrappers';
+
 
 // Insides
 import { Logo, Buttons } from '..'

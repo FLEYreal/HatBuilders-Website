@@ -22,7 +22,7 @@ export interface styledInterface {
  * component.
  */
 export interface styledDefaultInterface {
-    def: {
+    def?: {
         b: Theme['breakpoints']['up'],
         v: Theme['breakpoints']['values'],
         t: Theme

@@ -4,18 +4,20 @@
 import { useEffect, useState, Children, ReactNode, cloneElement, ReactElement } from "react"
 
 // Material-UI
-import { Theme, Box } from "@mui/material"
+import { Box } from "@mui/material"
 
 // Emotion
 import styled from "@emotion/styled"
-import { useTheme } from "@emotion/react"
 
 // Types
-import { FlexInterface, StyledFlexInterface } from "../types"
+import { FlexInterface } from "../types"
+
+// Higher-Order Components
+import { defaultWrapper } from "./hocs"
 
 
 // Styled components
-const StyledFlex = styled(Box) <StyledFlexInterface>`
+const StyledFlex = styled(Box) <FlexInterface>`
 
     // Default pre-setup styles
     display: flex;
@@ -44,7 +46,7 @@ const StyledFlex = styled(Box) <StyledFlexInterface>`
 `
 
 
-export function Flex({
+function WrapperFlex({
 
     // Children of the component
     children,
@@ -63,11 +65,14 @@ export function Flex({
     childStyles = null,
     sxStyles = null,
 
+    // Get properties needed for styling from "defaultWrapper"
+    def,
+
     ...props
 }: FlexInterface) {
 
     // Theme object
-    const theme = useTheme() as Theme
+    // const theme = useTheme() as Theme
 
     // Cloned children to apply styles to them if needed
     const [clones, setClones] = useState<ReactNode>(children)
@@ -120,7 +125,7 @@ export function Flex({
             shrink={shrink}
             basis={basis}
 
-            def={{ t: theme, b: theme.breakpoints.up, v: theme.breakpoints.values }}
+            def={def}
             {...props}
         >
             {clones}
@@ -129,3 +134,5 @@ export function Flex({
 }
 
 
+
+export const Flex = defaultWrapper<FlexInterface>(WrapperFlex);
