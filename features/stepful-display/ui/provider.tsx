@@ -54,6 +54,8 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
      */
     const switchModule = useCallback((direction: directionType = 'down') => {
 
+        if (isDelay.current === true) return;
+
         // Setup animation for scroll down by default
         let fadeIn = fadeInFromDown;
         let fadeOut = fadeOutToUp;
@@ -68,7 +70,7 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
             }
 
             // It's same module, no need to switch anywhere
-            else if(currentModule === direction) return;
+            else if (currentModule === direction) return;
 
         }
 
@@ -76,10 +78,7 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
         else if (typeof direction === 'string' && direction === 'up') {
             fadeIn = fadeInFromUp
             fadeOut = fadeOutToDown
-
         }
-
-        if (isDelay.current === true) return;
 
         // Set delay to true, now animation won't play until it's false again (it sets up to false in useEffect)
         isDelay.current = true

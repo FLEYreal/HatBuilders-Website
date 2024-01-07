@@ -47,6 +47,9 @@ export function Buttons({ moduleTheme }: { moduleTheme: StepfulTabsInterface['mo
     // Handlers
     const handleTabMenu = (event: React.MouseEvent<HTMLButtonElement>) => { setAnchorEl(event.currentTarget) }
     const handleClose = () => { setAnchorEl(null) }
+    const handleSwitchModule = (index: number) => {
+        switchModule(index)
+    }
 
     return (
         <Box sx={{
@@ -95,7 +98,7 @@ export function Buttons({ moduleTheme }: { moduleTheme: StepfulTabsInterface['mo
                         if (moduleTheme && moduleTheme[ind]) translation = moduleTheme[ind].translation
 
                         return (
-                            <MenuItem key={ind} onClick={() => switchModule(ind)}>
+                            <MenuItem key={ind} onClick={() => handleSwitchModule(ind)}>
                                 <Box sx={{ mr: '16px' }}>
                                     {moduleTheme && moduleTheme[ind].icon}
                                 </Box>
