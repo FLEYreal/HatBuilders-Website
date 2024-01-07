@@ -38,3 +38,5 @@ export interface FlexInterface extends RootInterface {
     // Styles for components if they're Material-UI components
     sxStyles?: SxProps | null
 }
+
+export interface WrapperInterface extends RootInterface {}
