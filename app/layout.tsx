@@ -14,7 +14,7 @@ import { langType } from '@/shared/i18n/config/types'
 
 // Get Minecraft Font
 const minecraftFont = localFont({
-    src: '../../public/fonts/minecraft.ttf'
+    src: '../public/fonts/minecraft.ttf'
 });
 
 // Static params of language in the link

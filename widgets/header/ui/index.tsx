@@ -17,6 +17,16 @@ import WorkIcon from '@mui/icons-material/Work';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import CelebrationIcon from '@mui/icons-material/Celebration';
 
+interface DisableOptions {
+    logo?: boolean;
+    tabs?: boolean;
+    buttons?: boolean;
+}
+
+interface HeaderProps {
+    disable?: DisableOptions;
+}
+
 const moduleTheme: StepfulTabsInterface['moduleTheme'] = [
     {
         color: 'secondary',
@@ -48,7 +58,10 @@ const moduleTheme: StepfulTabsInterface['moduleTheme'] = [
 /**
  * Header Component of the page
  */
-export function Header() {
+export function Header({disable}: HeaderProps) {
+    const LogoVisible = disable?.logo !== true
+    const TabsVisible = disable?.tabs !== true
+    const ButtonsVisible = disable?.buttons !== true
 
     return (
         // Header Container
@@ -75,9 +88,10 @@ export function Header() {
             }}>
 
                 {/* Left: Logo Section */}
-                <Logo />
+                {LogoVisible && <Logo/>}
 
                 {/* Center: Navigation Section */}
+                {TabsVisible && (<div>
                 <Box sx={{
                     display: {
                         xs: 'none',
@@ -94,9 +108,11 @@ export function Header() {
                 <Box>
 
                 </Box>
+                </div>
+                )}
 
                 {/* Right: Settings Seciton */}
-                <Buttons moduleTheme={moduleTheme} />
+                {ButtonsVisible && <Buttons moduleTheme={moduleTheme} />}
 
             </Wrapper >
         </Box >
