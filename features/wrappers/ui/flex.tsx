@@ -42,8 +42,8 @@ const StyledFlex = styled(Box) <FlexInterface>`
     flex-flow: ${({ flow }) => flow ? flow : 'row wrap'};
     
     // "align" attribute
-    align-items: ${({ align }) => align && align[0] ? align[0] : 'row wrap'};
-    justify-content: ${({ align }) => align && align[1] ? align[1] : 'row wrap'};
+    align-items: ${({ align }) => align && align[0] ? align[0] : 'center'};
+    justify-content: ${({ align }) => align && align[1] ? align[1] : 'center'};
 
     // "f" attribute
     flex: ${({ f }) => f ? f : '1'};

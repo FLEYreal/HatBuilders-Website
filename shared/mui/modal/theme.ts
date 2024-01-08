@@ -16,7 +16,9 @@ export const palette = {
     info: {
         main: '#03A9F4',
         light: '#1CB8FF',
-        dark: '#0288D1'
+        dark: '#0288D1',
+        discord:'#5865F2',
+        vk:'#0077FF'
 
     },
     warning: {
