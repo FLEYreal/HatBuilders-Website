@@ -1,15 +1,15 @@
 'use client'
 
-// Basics
-import { ReactNode } from "react";
-
 // Material-UI
-import { Box, SxProps, Theme } from "@mui/material"
+import { Box } from "@mui/material"
 import { styledDefaultInterface } from "@/shared/mui";
 
 // Emotion
-import { useTheme } from "@emotion/react"
 import styled from '@emotion/styled'
+
+// Higher-Order Components
+import { defaultWrapper } from "./hocs";
+import { WrapperInterface } from "../types";
 
 // Styled Component
 const StyledWrapper = styled(Box) <styledDefaultInterface>`
@@ -27,23 +27,20 @@ const StyledWrapper = styled(Box) <styledDefaultInterface>`
 
 
 // Component
-export function Wrapper({ children, sx }: { children?: ReactNode, sx?: SxProps }) {
-
-    // Theme
-    const theme = useTheme() as Theme
+function WrapperComponent({ children, def, ...props }: WrapperInterface) {
 
     return (
         <StyledWrapper
-            def={{
-                b: theme.breakpoints.up,
-                v: theme.breakpoints.values,
-                t: theme
-            }}
+            def={def}
             component="section"
-            sx={sx}
+
+            {...props}
         >
             {children}
         </StyledWrapper>
     )
 
 }
+
+// Export New Wrapper
+export const Wrapper = defaultWrapper<WrapperInterface>(WrapperComponent)

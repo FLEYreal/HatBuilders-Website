@@ -1,7 +1,21 @@
 'use client'
 
 // Basics
-import { useEffect, useState, Children, ReactNode, cloneElement, ReactElement } from "react"
+import {
+
+    // Hooks
+    useEffect,
+    useState,
+
+    // Utils
+    cloneElement,
+    Children,
+
+    // Types
+    ReactNode,
+    ReactElement
+
+} from "react"
 
 // Material-UI
 import { Box } from "@mui/material"
@@ -131,5 +145,5 @@ function WrapperFlex({
 }
 
 
-
+// Export wrapped flex component
 export const Flex = defaultWrapper<FlexInterface>(WrapperFlex);

@@ -7,10 +7,9 @@ import { Theme } from "@mui/material"
 
 // Emotion
 import { useTheme } from "@emotion/react"
-import { RootInterface } from '../types';
 
 // Types
-import { defaultWrapperInterface } from "../types"
+import { defaultWrapperInterface, RootInterface } from "../types"
 
 export function defaultWrapper<T extends RootInterface>(Wrapper: defaultWrapperInterface<T>['Wrapper']) {
 
