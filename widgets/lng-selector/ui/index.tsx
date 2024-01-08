@@ -42,7 +42,7 @@ export function LanguageSelector({ color }: { color?: SvgIconOwnProps['color'] }
     const handleCloseAndChange = useCallback((language: string) => {
         setAnchorEl(null);
 
-        let pathArr = pathname.split('/')
+        let pathArr = pathname!.split('/')
         pathArr[1] = language
         pathArr.join('/')
 

@@ -8,7 +8,7 @@ import {
 	PortfolioModule,
 	HireModule,
 	OrderModule
-} from '@/pages/main'
+} from '@/paging/main'
 
 // Widgets
 import { Header } from '@/widgets/header'

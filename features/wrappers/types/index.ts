@@ -5,6 +5,9 @@ import { CSSProperties, FC, ReactNode } from 'react'
 import { BoxProps, SxProps } from '@mui/material';
 import { styledDefaultInterface } from '@/shared/mui';
 
+// Emotion
+import { SerializedStyles } from '@emotion/react'
+
 /**
  * Root inteface, parent of every interface in the feature.
  * 
@@ -13,6 +16,7 @@ import { styledDefaultInterface } from '@/shared/mui';
  */
 export interface RootInterface extends BoxProps, styledDefaultInterface {
     children?: string | ReactNode;
+    css?: SerializedStyles;
 }
 
 // Interfaces & Types for Higher-Order Components

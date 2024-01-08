@@ -5,6 +5,6 @@ export interface HatButtonType {
     onClick?: () => any;
     sx?: SxProps;
     color?: string & keyof Palette;
-    type?: 'main' | 'light' | 'dark'| 'discord'| 'vk';
+    type?: 'main' | 'light' | 'dark';
     variant?: 'contained' | 'outlined'
 }
