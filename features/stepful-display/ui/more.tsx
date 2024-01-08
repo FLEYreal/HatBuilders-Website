@@ -7,8 +7,13 @@ import { useTheme } from "@emotion/react"
 // UI
 import { useModules } from "./provider"
 
+// Shared
+import { useLanguage } from "@/shared/i18n"
+import { useTranslation } from "@/shared/i18n/client"
+
 // Styles
 import s from './styles.module.css'
+
 
 export function More({ sx }: { sx?: SxProps }) {
 
@@ -17,6 +22,10 @@ export function More({ sx }: { sx?: SxProps }) {
 
     // Theme
     const theme = useTheme() as Theme
+
+    // Language
+    const lng = useLanguage()
+    const { t } = useTranslation(lng, 'home')
 
     // Switch to next module on click
     const handleContinue = () => switchModule('down')
@@ -41,7 +50,7 @@ export function More({ sx }: { sx?: SxProps }) {
             ...sx
         }}>
             <div className={s.moreWrapper} onClick={handleContinue}>
-                <div>More</div>
+                <div>{t('more')}</div>
                 <div className={s.moreArrow}>^</div>
             </div>
         </Box>

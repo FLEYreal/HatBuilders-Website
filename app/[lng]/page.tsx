@@ -27,7 +27,6 @@ import dc from '@/public/icons/social/discord.svg'
 import vk from '@/public/icons/social/vkontakte.svg'
 
 
-
 export default async function Home({
 	params: { lng },
 }: {

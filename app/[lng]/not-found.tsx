@@ -17,7 +17,8 @@ import errorImage from '@/public/images/error.jpg';
 const ErrorPage = () => {
 
     return (
-        <Column center sx={{ background: 'black', height: '100vh' }}>
+        <Column center stretchY sx={{ background: '#000' }}
+        >
             <Header disable={{
                 logo: false,
                 tabs: true,
