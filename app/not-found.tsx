@@ -8,7 +8,7 @@ import { Typography } from '@mui/material';
 import { Header } from '@/widgets/header'
 
 // Features
-import { Flex } from '@/features/wrappers';
+import { Column } from '@/features/wrappers';
 
 // Assets
 import errorImage from '@/public/images/error.jpg';
@@ -17,10 +17,7 @@ import errorImage from '@/public/images/error.jpg';
 const ErrorPage = () => {
 
     return (
-        <Flex
-            flow="column nowrap"
-            sx={{ background: 'black', height: '100vh' }}
-        >
+        <Column center sx={{ background: 'black', height: '100vh' }}>
             <Header disable={{
                 logo: false,
                 tabs: true,
@@ -30,7 +27,7 @@ const ErrorPage = () => {
             <Typography variant='h5'>Извините, к сожалению нам не удалось найти страницу, которую вы ищите!</Typography>
 
             <Image src={errorImage} alt='Error 404' />
-        </Flex>
+        </Column>
     );
 }
 

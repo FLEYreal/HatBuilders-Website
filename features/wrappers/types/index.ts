@@ -17,11 +17,13 @@ export interface RootInterface extends BoxProps, styledDefaultInterface {
 
 // Interfaces & Types for Higher-Order Components
 export interface defaultWrapperInterface<T extends styledDefaultInterface> {
-    Wrapper: FC<T>
+    Wrapper: FC<T>;
 }
 
 // Interfaces of Components & Styled Components
 export interface FlexInterface extends RootInterface {
+    stretchY?: boolean;
+    stretchX?: boolean;
     flow?: CSSProperties['flexFlow'] | null;
     f?: CSSProperties['flex'] | null;
     grow?: CSSProperties['flex'] | null;
@@ -33,10 +35,23 @@ export interface FlexInterface extends RootInterface {
     ] | null;
 
     // Styles for components if they're normal HTML tags
-    childStyles?: CSSProperties | null
+    childStyles?: CSSProperties | null;
 
     // Styles for components if they're Material-UI components
-    sxStyles?: SxProps | null
+    sxStyles?: SxProps | null;
 }
 
 export interface WrapperInterface extends RootInterface {}
+
+export interface ColumnInterface extends FlexInterface {
+    center?: boolean;
+    wrap?: boolean;
+}
+export interface RowInterface extends FlexInterface {
+    center?: boolean;
+    wrap?: boolean;
+}
+export interface CenterInterface extends FlexInterface {
+    x?: boolean;
+    y?: boolean;
+}

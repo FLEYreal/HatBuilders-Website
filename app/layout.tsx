@@ -1,7 +1,7 @@
 // Basics
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { dir } from 'i18next'
+// import { dir } from 'i18next'
 
 // Material-UI
 import CssBaseline from '@mui/material/CssBaseline'
@@ -40,7 +40,8 @@ export default async function RootLayout({
 }) {
 
     return (
-        <html lang={lng}>
+        // dir={dir(lng)}
+        <html lang={lng}> 
             <body className={minecraftFont.className}>
                 <LanguageProvider value={lng}>
                     <GlobalThemeProvider>

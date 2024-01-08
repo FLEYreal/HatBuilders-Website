@@ -1,5 +1,5 @@
 // Material-UI
-import { Box, Divider } from '@mui/material'
+import { Divider, Box } from '@mui/material'
 
 // Features
 import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
@@ -13,10 +13,11 @@ import { Header } from '@/widgets/header'
 
 // Features
 import { Article, ArticleSection, ArticleBlock } from '@/features/article'
-import { Wrapper, Flex } from '@/features/wrappers'
+import { Wrapper, Flex, Center } from '@/features/wrappers'
 
 // Shared
 import { useTranslation } from '@/shared/i18n/modal'
+
 // Assets
 import Image from 'next/image'
 import hatbuildersSign from '@/public/images/greenHatbuilders.svg'
@@ -98,7 +99,14 @@ export default async function Home({
 
 					<HatSwitch />
 				</>,
-				<>Hello World</>,
+				<>
+						<Center stretchY x y sx={{ boxSizing: 'border-box', padding: '0 !important', border: '1px solid white', width: '50% !important' }}>
+							<Box>Hello Worlding</Box>
+							<Box>Hello Worlding</Box>
+							<Box>Hello Worlding</Box>
+							<Box>Hello Worlding</Box>
+						</Center>
+				</>,
 				<>
 					Hello World
 				</>
@@ -113,7 +121,7 @@ export default async function Home({
 			<More />
 
 			{/* Component that displays all modules from "modules" attribute of "StepfulProvider" */}
-			<DisplayModules component="main" sx={{ paddingTop: '56px' }} />
+			<DisplayModules component="main" />
 		</StepfulProvider>
 	)
 }

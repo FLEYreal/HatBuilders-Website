@@ -57,6 +57,10 @@ const StyledFlex = styled(Box) <FlexInterface>`
     // "basis" attribute
     flex-basis: ${({ basis }) => basis ? basis : '1'};
 
+    // "stretchY" and "stretchX" attributes
+    min-height: ${({ stretchY }) => stretchY ? '100vh' : 'auto'};
+    width: ${({ stretchX }) => stretchX ? '100%' : 'auto'};
+
 `
 
 
@@ -74,6 +78,8 @@ function WrapperFlex({
     grow = "1",
     shrink = "1",
     basis = "1",
+    stretchX = true,
+    stretchY = false,
 
     // Styles that will apply to children
     childStyles = null,
@@ -135,6 +141,9 @@ function WrapperFlex({
             grow={grow}
             shrink={shrink}
             basis={basis}
+
+            stretchX={stretchX}
+            stretchY={stretchY}
 
             def={def}
             {...props}
