@@ -1,6 +1,10 @@
+// Basics
+import { ReactNode } from 'react'
+import { StaticImageData } from 'next/image';
+
+// Material-UI
 import { SxProps } from '@mui/system'
 import { BoxProps, TypographyOwnProps, DividerOwnProps } from '@mui/material'
-import { ReactNode } from 'react'
 
 // Reusable Types
 type align = 'start' | 'center' | 'end';
@@ -78,6 +82,6 @@ export interface ActionDividerInterface extends ActionInterface {
  * @param alt - Image description, used mostly for SEO but will be displayed when image can't be loaded.
  */
 export interface ImageInterface extends ArticleBlockInterface {
-    src: string;
+    src: StaticImageData;
     alt: string;
 }

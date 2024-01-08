@@ -1,22 +1,37 @@
+// Basics
 import Image from 'next/image'
-import errorImage from '@/public/images/error.jpg';
-import { Header, Logo } from '@/widgets/header'
 
+// Material-UI
+import { Typography } from '@mui/material';
+
+// Widgets
+import { Header } from '@/widgets/header'
+
+// Features
+import { Flex } from '@/features/wrappers';
+
+// Assets
+import errorImage from '@/public/images/error.jpg';
+
+// Component(s)
 const ErrorPage = () => {
 
-return (
-    <div style={{ background: 'black', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-    <Header disable={{
-    logo: false,
-    tabs: true,
-    buttons: true}}/>
-    <p>
-    Sorry, but we&apos;re unable to find a page you&apos;re looking for
-    </p>
+    return (
+        <Flex
+            flow="column nowrap"
+            sx={{ background: 'black', height: '100vh' }}
+        >
+            <Header disable={{
+                logo: false,
+                tabs: true,
+                buttons: true
+            }} />
+            <Typography variant='h3'>Sorry, but we&apos;re unable to find a page you&apos;re looking for!</Typography>
+            <Typography variant='h5'>Извините, к сожалению нам не удалось найти страницу, которую вы ищите!</Typography>
 
-        <Image src={errorImage} alt='Error 404'/>
-    </div>
-);
+            <Image src={errorImage} alt='Error 404' />
+        </Flex>
+    );
 }
 
 export default ErrorPage;

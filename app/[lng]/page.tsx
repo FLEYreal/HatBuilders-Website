@@ -39,28 +39,28 @@ export default async function Home({
 		<StepfulProvider
 			id='main'
 			modules={[
-		<>
-		<Flex align={['start', 'start']} sx={{ backgroundImage: `url(${Cyberpuk.src})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '81.5vh' }}>
-			<Article align="center" textAlign="start">
-				<ArticleBlock.Image alt="HatBuilders Logo" src={minecraft} />
-				<ArticleBlock.Text sx={{ marginTop: '-1px' }}>Minecraft Builders That Construct the Future!</ArticleBlock.Text>
-			</Article>
-		</Flex>
+				<>
+					<Flex align={['start', 'start']} sx={{ backgroundImage: `url(${Cyberpuk.src})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '81.5vh' }}>
+						<Article align="center" textAlign="start">
+							<ArticleBlock.Image alt="HatBuilders Logo" src={minecraft} />
+							<ArticleBlock.Text sx={{ marginTop: '-1px' }}>Minecraft Builders That Construct the Future!</ArticleBlock.Text>
+						</Article>
+					</Flex>
 
-        <Flex align={['start', 'start']} sxStyles={{ width: '60px', height: '60px', marginRight: '16px' }}  sx={{ margin: '28px 0 27px 33px' }}>
-			
-        <HatButton variant="contained" type="discord" color="info" >
-		<Image src={dc} alt='discord' height={32} width={32} />
-		</HatButton>
+					<Flex align={['start', 'start']} sxStyles={{ width: '60px', height: '60px', marginRight: '16px' }} sx={{ margin: '28px 0 27px 33px' }}>
 
-        <HatButton variant="contained" type="vk" color="info" >
-		<Image src={vk} alt='vkontakte' height={38} width={38} />
-		</HatButton>
+						<HatButton variant="contained" type="discord" color="info" >
+							<Image src={dc} alt='discord' height={32} width={32} />
+						</HatButton>
 
-        </Flex>
-		</>,
+						<HatButton variant="contained" type="vk" color="info" >
+							<Image src={vk} alt='vkontakte' height={38} width={38} />
+						</HatButton>
 
-		<>
+					</Flex>
+				</>,
+
+				<>
 					<Wrapper>
 						<Article align="start" textAlign="start">
 							<ArticleSection>
