@@ -16,6 +16,7 @@ export const Picture = ({
         <Image src={src} alt={alt} style={{
             width: '100%',
             margin: "10px 0",
+            height: 'auto',
             borderRadius: '0'
         }} />
     )
