@@ -36,7 +36,7 @@ export function HatButton({
             // Default Styles for Button
             transition: variant == 'contained' ? '0s' : 'all 0.2s ease-in-out',
             fontFamily: 'inherit',
-            padding: '16px 36px',
+            // padding: '16px 36px',
             margin: '3px',
             cursor: 'pointer',
             color: variant === 'contained' ? '#000000' : buttonColor,

@@ -24,10 +24,10 @@ const StyledFlex = styled(Box) <FlexInterface>`
 
     // Relative styles can be setup by default
 
-    // "flow" attribue
+    // "flow" attribute
     flex-flow: ${({ flow }) => flow ? flow : 'row wrap'};
     
-    // "align" attribue
+    // "align" attribute
     align-items: ${({ align }) => align && align[0] ? align[0] : 'row wrap'};
     justify-content: ${({ align }) => align && align[1] ? align[1] : 'row wrap'};
 
@@ -70,9 +70,6 @@ function WrapperFlex({
 
     ...props
 }: FlexInterface) {
-
-    // Theme object
-    // const theme = useTheme() as Theme
 
     // Cloned children to apply styles to them if needed
     const [clones, setClones] = useState<ReactNode>(children)

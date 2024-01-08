@@ -1,5 +1,5 @@
 // Material-UI
-import { Divider } from '@mui/material'
+import { Box, Divider } from '@mui/material'
 
 // Features
 import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
@@ -17,9 +17,15 @@ import { Wrapper, Flex } from '@/features/wrappers'
 
 // Shared
 import { useTranslation } from '@/shared/i18n/modal'
-
 // Assets
+import Image from 'next/image'
 import hatbuildersSign from '@/public/images/greenHatbuilders.svg'
+import Cyberpuk from '@/public/images/Cyberpuk_fin.jpg'
+import minecraft from '@/public/images/croped.png'
+import dc from '@/public/icons/social/discord.svg'
+import vk from '@/public/icons/social/vkontakte.svg'
+
+
 
 export default async function Home({
 	params: { lng },
@@ -33,16 +39,28 @@ export default async function Home({
 		<StepfulProvider
 			id='main'
 			modules={[
-				<>
+		<>
+		<Flex align={['start', 'start']} sx={{ backgroundImage: `url(${Cyberpuk.src})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '81.5vh' }}>
+			<Article align="center" textAlign="start">
+				<ArticleBlock.Image alt="HatBuilders Logo" src={minecraft} />
+				<ArticleBlock.Text sx={{ marginTop: '-1px' }}>Minecraft Builders That Construct the Future!</ArticleBlock.Text>
+			</Article>
+		</Flex>
 
-					<HatButton color='primary' variant='outlined'>{t('discord')}</HatButton>
-					<HatButton color='secondary' variant='outlined'>{t('discord')}</HatButton>
-					<HatButton color='info' variant='outlined'>{t('discord')}</HatButton>
-					<HatButton color='warning' variant='outlined'>{t('discord')}</HatButton>
-					<HatButton color='error' variant='outlined'>{t('discord')}</HatButton>
+        <Flex align={['start', 'start']} sxStyles={{ width: '60px', height: '60px', marginRight: '16px' }}  sx={{ margin: '28px 0 27px 33px' }}>
+			
+        <HatButton variant="contained" type="discord" color="info" >
+		<Image src={dc} alt='discord' height={32} width={32} />
+		</HatButton>
 
-				</>,
-				<>
+        <HatButton variant="contained" type="vk" color="info" >
+		<Image src={vk} alt='vkontakte' height={38} width={38} />
+		</HatButton>
+
+        </Flex>
+		</>,
+
+		<>
 					<Wrapper>
 						<Article align="start" textAlign="start">
 							<ArticleSection>
@@ -82,12 +100,7 @@ export default async function Home({
 				</>,
 				<>Hello World</>,
 				<>
-					<Flex sxStyles={{ color: 'red' }} sx={{ border: '1px solid #fff', padding: '20px', gap: '15px' }}>
-						<Flex sx={{ fontSize: '50px' }}>Experiment!</Flex>
-						<Flex>Hello World</Flex>
-						<Flex>Hello World</Flex>
-						<Flex>Hello World</Flex>
-					</Flex>
+					Hello World
 				</>
 
 			]}>
