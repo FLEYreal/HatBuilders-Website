@@ -1,7 +1,7 @@
 // UI
 export { Modules as DisplayModules } from './ui/modules'
 export { StepfulContext, useModules, Provider as StepfulProvider } from './ui/provider'
-export { ScrollDots } from './ui/scrollDots'
+export { ScrollDots } from './ui/scroll-dots'
 export { More } from './ui/more'
 export { StepfulTabs } from './ui/tabs'
 
@@ -35,7 +35,7 @@ export type {
 
     // Interface for tabs component parameters
     StepfulTabsInterface,
-    
+
     // Type for switching direction
     direction
 

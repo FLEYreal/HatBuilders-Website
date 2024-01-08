@@ -37,11 +37,9 @@ export function Main({ }: MainInterface) {
     return (
         <Flex stretchX stretchY component='main'>
 
-            <Flex
-                css={BottomPlatform}
-                stretchX align={['center', 'space-between']}>
+            <BottomPlatform stretchX align={['center', 'space-between']}>
 
-            </Flex>
+            </BottomPlatform>
 
             {/* CONTENT PART: Everything that has to fit in user's view frame has to be here, otherwise use might not see everything! */}
             <Wrapper sx={{ pt: '56px' }}>

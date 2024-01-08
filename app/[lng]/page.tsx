@@ -2,8 +2,8 @@
 import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
 
 // Pages
-import { 
-	MainModule, 
+import {
+	MainModule,
 	AboutModule,
 	PortfolioModule,
 	HireModule,
@@ -32,10 +32,10 @@ export default async function Home({
 		<StepfulProvider
 			id='main'
 			modules={[
-				<MainModule key={0}/>,
-				<AboutModule key={1}/>,
-				<PortfolioModule key={2}/>,
-				<HireModule key={3}/>,
+				<MainModule key={0} />,
+				<AboutModule key={1} />,
+				<PortfolioModule key={2} />,
+				<HireModule key={3} />,
 				<OrderModule key={4} />
 
 			]}>
