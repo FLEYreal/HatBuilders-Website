@@ -21,9 +21,11 @@ function ArticleBlock({ children }: ArticleBlockInterface) {
 import { Text } from './text';
 import { Picture } from './image';
 import { Action } from './action';
+import { TranslateText } from './translate-text';
 
 // Assign Sub-Components to Parent
 ArticleBlock.Text = Text
+ArticleBlock.TranslateText = TranslateText
 ArticleBlock.Image = Picture
 ArticleBlock.Action = Action
 

@@ -41,7 +41,7 @@ export function Main({ }: MainInterface) {
             <Wrapper sx={{ pt: '64px' }}>
                 <Article align="center" textAlign="center">
                     <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" sx={{ m: 0 }} />
-                    <ArticleBlock.Text textAlign="center" sx={{ m: -2.5 }}>Minecraft Builders That Construct the Future!</ArticleBlock.Text>
+                    <ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5, color: '#ffffff' }} name="main_title" ns="home"/>
                 </Article>
             </Wrapper>
 

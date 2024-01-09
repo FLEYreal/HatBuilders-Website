@@ -17,8 +17,11 @@ type component = BoxProps['component'];
  * @param sx - SX Styles are type of styles from Material-UI lib which used to create the feature.
  */
 export interface RootInterface {
-    children?: string | ReactNode;
     sx?: SxProps;
+}
+
+export interface InsideInterface extends RootInterface {
+    children?: string | ReactNode;
 }
 
 // Interfaces for components
@@ -28,7 +31,7 @@ export interface RootInterface {
  * @param align - Align entire article.
  * @param textAlign - Align all the text inside the article.
  */
-export interface ArticleInterface extends RootInterface {
+export interface ArticleInterface extends InsideInterface {
     fullSize?: boolean;
     align?: align;
     textAlign?: align;
@@ -37,14 +40,14 @@ export interface ArticleInterface extends RootInterface {
 /**
  * @param component - Define what HTML tag will wrapper have. It's "section" by default.
  */
-export interface ArticleSectionInterface extends RootInterface {
+export interface ArticleSectionInterface extends InsideInterface {
     component?: component
 }
 
 /**
  * @param component - Define what HTML tag will wrapper have. It's "section" by default.
  */
-export interface ArticleBlockInterface extends RootInterface {
+export interface ArticleBlockInterface extends InsideInterface {
     component?: component
 }
 
@@ -57,6 +60,19 @@ export interface ArticleBlockInterface extends RootInterface {
 export interface TextInterface extends ArticleBlockInterface {
     variant?: TypographyOwnProps['variant'];
     textAlign?: align;
+}
+
+/**
+ * @param variant - Define typography (from Material-UI) variant of the text (h1, h2, h3, ...etc).
+ * @param textAlign - Define align of the text, start, center or end.
+ * @param name - Name of the translation in locale folder
+ * @param ns - What json file to use from local file.
+ */
+export interface TranslateTextInterface extends ArticleBlockInterface {
+    variant?: TypographyOwnProps['variant'];
+    textAlign?: align;
+    name?: string;
+    ns?: string
 }
 
 /**
