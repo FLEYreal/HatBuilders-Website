@@ -34,14 +34,29 @@ const StyledCyberpukBanner = styled(Box) <styledDefaultInterface>`
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: -500px;
-    left: 0px;
+    right: 0px;
+    width: 100%;
     margin: 0;
     padding: 0;
-    min-height: calc(100vh + 500px);
-    width: 100%;
     background: url(${cyberpukPng.src}) no-repeat center center fixed;
     background-size: cover;
+
+    ${({ def }) => def!.b('xs')} {
+        top: -290px;
+        min-height: calc(100vh + 290px);
+    }
+    ${({ def }) => def!.b('md')} {
+        top: -350px;
+        min-height: calc(100vh + 350px);
+    }
+    ${({ def }) => def!.b('lg')} {
+        top: -400px;
+        min-height: calc(100vh + 400px);
+    }
+    ${({ def }) => def!.b('xl')} {
+        top: -500px;
+        min-height: calc(100vh + 500px);
+    }
 `
 export const CyberpukBanner = defaultWrapper(StyledCyberpukBanner)
 

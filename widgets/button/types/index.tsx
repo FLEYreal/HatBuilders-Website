@@ -1,10 +1,49 @@
-import { Palette, SxProps } from "@mui/material";
+// Material-UI
+import { BoxProps, ButtonProps, Palette, SxProps } from "@mui/material";
 
-export interface HatButtonType {
-    children: React.ReactNode;
+// Shared
+import { styledDefaultInterface } from "@/shared/mui";
+
+// Root interfaces whose props are inherited by every component in the slice
+export interface RootInterface {
+    children?: React.ReactNode;
     onClick?: () => any;
     sx?: SxProps;
+
+    name?: string;
+    ns?: string;
+}
+
+// Button Interfaces
+export interface HatButtonInterface extends RootInterface {
     color?: string & keyof Palette;
     type?: 'main' | 'light' | 'dark';
-    variant?: 'contained' | 'outlined'
+    variant?: 'contained' | 'outlined';
+    toUpperCase?: boolean;
+}
+
+export interface BigButtonInterface extends RootInterface {
+    color?: string & keyof Palette;
+    type?: 'main' | 'light' | 'dark';
+    toUpperCase?: boolean;
+    w?: number;
+    h?: number;
+}
+
+// Button's components interfaces
+export interface WrapperBigButtonInterface extends styledDefaultInterface, BoxProps {
+    w?: number;
+    h?: number;
+}
+export interface BackBigButtonInterface extends styledDefaultInterface, BoxProps {
+    w?: number;
+    h?: number;
+    buttonColor?: string;
+    darkButtonColor?: string;
+}
+export interface FrontBigButtonInterface extends styledDefaultInterface, ButtonProps {
+    w?: number;
+    h?: number;
+    buttonColor?: string;
+    darkButtonColor?: string;
 }

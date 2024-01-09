@@ -14,7 +14,7 @@ import { SerializedStyles } from '@emotion/react'
  * @param children - All provided children (React Components) will be inside this parent component.
  * @param sx - SX Styles are type of styles from Material-UI lib which used to create the feature.
  */
-export interface RootInterface extends BoxProps, styledDefaultInterface {
+export interface RootInterface extends styledDefaultInterface {
     children?: string | ReactNode;
     css?: SerializedStyles;
 }
@@ -25,7 +25,7 @@ export interface defaultWrapperInterface<T extends styledDefaultInterface> {
 }
 
 // Interfaces of Components & Styled Components
-export interface FlexInterface extends RootInterface {
+export interface FlexInterface extends RootInterface, BoxProps {
     stretchY?: boolean;
     stretchX?: boolean;
     flow?: CSSProperties['flexFlow'] | null;
@@ -45,7 +45,7 @@ export interface FlexInterface extends RootInterface {
     sxStyles?: SxProps | null;
 }
 
-export interface WrapperInterface extends RootInterface {}
+export interface WrapperInterface extends RootInterface, BoxProps {}
 
 export interface ColumnInterface extends FlexInterface {
     center?: boolean;
