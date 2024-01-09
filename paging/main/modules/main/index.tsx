@@ -1,6 +1,3 @@
-// Basics
-// ...
-
 // Material-UI
 // ...
 
@@ -15,16 +12,13 @@
 // Features
 import { Wrapper } from "@/features/wrappers";
 import { Flex } from '@/features/wrappers'
-// import { Article, ArticleSection, ArticleBlock } from "@/features/article";
-
-// Shared
-// import { styledDefaultInterface } from "@/shared/mui";
-
-// Assets
-// ...
+import { Article, ArticleBlock } from "@/features/article";
 
 // Styles
-import { BottomPlatform } from './styles'
+import { BottomPlatform, CyberpukBanner } from './styles'
+
+// Assets
+import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
 
 // Interfaces & Types
 interface MainInterface {
@@ -35,15 +29,20 @@ interface MainInterface {
 export function Main({ }: MainInterface) {
 
     return (
-        <Flex stretchX stretchY component='main'>
+        <Flex stretchX stretchY component='div' align={['start', 'center']}>
+
+            <CyberpukBanner />
 
             <BottomPlatform stretchX align={['center', 'space-between']}>
 
             </BottomPlatform>
 
             {/* CONTENT PART: Everything that has to fit in user's view frame has to be here, otherwise use might not see everything! */}
-            <Wrapper sx={{ pt: '56px' }}>
-                Hello World
+            <Wrapper sx={{ pt: '64px' }}>
+                <Article align="center" textAlign="center">
+                    <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" sx={{ m: 0 }} />
+                    <ArticleBlock.Text textAlign="center" sx={{ m: -2.5 }}>Minecraft Builders That Construct the Future!</ArticleBlock.Text>
+                </Article>
             </Wrapper>
 
         </Flex>

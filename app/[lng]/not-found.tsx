@@ -11,7 +11,7 @@ import { Header } from '@/widgets/header'
 import { Column } from '@/features/wrappers';
 
 // Assets
-import errorImage from '@/public/images/error.jpg';
+import errorImage from '@/public/images/error.webp';
 
 // Component(s)
 const ErrorPage = () => {

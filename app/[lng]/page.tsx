@@ -48,7 +48,9 @@ export default async function Home({
 			<More />
 
 			{/* Component that displays all modules from "modules" attribute of "StepfulProvider" */}
-			<DisplayModules component="main" />
+			<DisplayModules component="main" sx={{
+				overflow: 'hidden'
+			}} />
 		</StepfulProvider>
 	)
 }

@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { Box, Typography } from '@mui/material';
 
 // Assets
-import icon from '@/public/images/logo.png'
+import icon from '@/public/images/logo.webp'
 
 /**
  * Logo of the project with the name switching to some funky phrases from time to time
