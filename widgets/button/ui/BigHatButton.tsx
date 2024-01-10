@@ -6,10 +6,7 @@ import React, { useMemo } from "react";
 // MUI
 import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
-import { PaletteColor, Box, Button, Typography } from "@mui/material";
-
-// Libs
-import hexToRgba from 'hex-to-rgba';
+import { PaletteColor, Typography } from "@mui/material";
 
 // Shared
 import { useLanguage } from "@/shared/i18n";
@@ -49,13 +46,17 @@ export function BigHatButton({
 
     const insides = children ? children : t(name)
     return (
-        <WrapperBigButton sx={sx} h={h} w={w}>
+        <WrapperBigButton
+            sx={sx} h={h} w={w}
+            darkButtonColor={darkButtonColor}
+            onClick={onClick}
+        >
             <BackBigButton
-                buttonColor={buttonColor} darkButtonColor={darkButtonColor}
+                buttonColor={buttonColor}
                 h={h} w={w}
             />
             <FrontBigButton
-                buttonColor={buttonColor} darkButtonColor={darkButtonColor}
+                buttonColor={buttonColor}
                 h={h} w={w}
                 variant="contained"
                 disableElevation

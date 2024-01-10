@@ -34,16 +34,15 @@ export interface BigButtonInterface extends RootInterface {
 export interface WrapperBigButtonInterface extends styledDefaultInterface, BoxProps {
     w?: number;
     h?: number;
+    darkButtonColor?: string;
 }
 export interface BackBigButtonInterface extends styledDefaultInterface, BoxProps {
     w?: number;
     h?: number;
     buttonColor?: string;
-    darkButtonColor?: string;
 }
 export interface FrontBigButtonInterface extends styledDefaultInterface, ButtonProps {
     w?: number;
     h?: number;
     buttonColor?: string;
-    darkButtonColor?: string;
 }

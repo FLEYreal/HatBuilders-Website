@@ -11,12 +11,20 @@ import { defaultWrapper } from "@/features/wrappers";
 import { WrapperBigButtonInterface, BackBigButtonInterface, FrontBigButtonInterface } from '../types'
 
 // Big Button Styled Components
-const StyledWrapperBigButton = styled(Box) <WrapperBigButtonInterface>`
-    width: ${({ w }) => w! + 12}px;
+const StyledFrontBigButton = styled(Button) <FrontBigButtonInterface>`
+    position: absolute;
+    top: 0px;
+    left: 6px;
+    z-index: 1;
+    width: ${({ w }) => w!}px;
     height: ${({ h }) => h! + 12}px;
-    position: relative;
+    background: ${({ buttonColor }) => buttonColor};
+    box-shadow: 0px 6px 0px 0px rgba(255, 255, 255, 0.40) inset, 0px -6px 0px 0px rgba(0, 0, 0, 0.30) inset;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
+    font-weight: 700;
+    color: #ffffff;
+    transition: none;
 `
-export const WrapperBigButton = defaultWrapper<WrapperBigButtonInterface>(StyledWrapperBigButton)
 
 const StyledBackBigButton = styled(Box) <BackBigButtonInterface>`
     position: absolute;
@@ -27,43 +35,41 @@ const StyledBackBigButton = styled(Box) <BackBigButtonInterface>`
     height: ${({ h }) => h!}px;
     background: ${({ buttonColor }) => buttonColor};
     box-shadow: 6px 0px 0px 0px rgba(255, 255, 255, 0.40) inset, -6px 0px 0px 0px rgba(0, 0, 0, 0.30) inset;
+`
 
-    &:hover {
+const StyledWrapperBigButton = styled(Box) <WrapperBigButtonInterface>`
+    width: ${({ w }) => w! + 12}px;
+    height: ${({ h }) => h! + 12}px;
+    position: relative;
+
+    &:hover > ${StyledBackBigButton} {
         background: ${({ darkButtonColor }) => darkButtonColor};
         box-shadow: 6px 0px 0px 0px rgba(255, 255, 255, 0.40) inset, -6px 0px 0px 0px rgba(0, 0, 0, 0.30) inset;
     }
 
-    &:active {
+    &:active > ${StyledBackBigButton} {
         background: ${({ darkButtonColor }) => darkButtonColor};
         box-shadow: 6px 0px 0px 0px rgba(0, 0, 0, 0.30) inset, -6px 0px 0px 0px rgba(255, 255, 255, 0.40) inset;
     }
-`
-export const BackBigButton = defaultWrapper<BackBigButtonInterface>(StyledBackBigButton)
 
-const StyledFrontBigButton = styled(Button) <FrontBigButtonInterface>`
-    position: absolute;
-    top: 0px;
-    left: 6px;
-    z-index: 1;
-    width: ${({ w }) => w!}px;
-    height: ${({ h }) => h! + 12}px;
-    background: ${({ buttonColor }) => buttonColor};
-    box-shadow: 0px 6px 0px 0px rgba(255, 255, 255, 0.40) inset, 0px -6px 0px 0px rgba(0, 0, 0, 0.30) inset;
-    font-weight: 700;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.40);
-    color: #ffffff;
-
-    &:hover {
+    &:hover > ${StyledFrontBigButton} {
         background: ${({ darkButtonColor }) => darkButtonColor};
         box-shadow: 0px 6px 0px 0px rgba(255, 255, 255, 0.40) inset, 0px -6px 0px 0px rgba(0, 0, 0, 0.30) inset;
     }
 
-    &:active {
+    &:active > ${StyledFrontBigButton} {
         background: ${({ darkButtonColor }) => darkButtonColor};
         box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.30) inset, 0px -6px 0px 0px rgba(255, 255, 255, 0.40) inset;
+        text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.4);
     }
 `
+
+
+
+export const WrapperBigButton = defaultWrapper<WrapperBigButtonInterface>(StyledWrapperBigButton)
+export const BackBigButton = defaultWrapper<BackBigButtonInterface>(StyledBackBigButton)
 export const FrontBigButton = defaultWrapper<FrontBigButtonInterface>(StyledFrontBigButton)
+
 
 
 
