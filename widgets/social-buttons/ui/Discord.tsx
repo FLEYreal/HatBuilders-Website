@@ -1,7 +1,7 @@
 'use client'
 
 // Basics
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import { createElement as e } from "react";
 
 // Emotion
@@ -19,41 +19,38 @@ import { styledDefaultInterface } from "@/shared/mui";
 // Assets
 import dc from '@/public/icons/social/discord.svg';
 
-// Interface
+// Interfaces
 export interface DcButtonInterface extends styledDefaultInterface, HatButtonInterface { }
+export interface StyledImageInterface extends styledDefaultInterface, ImageProps { }
 
 // Components
 const StyledDcButton = styled(({ def, ...props }: DcButtonInterface) => e(HatButton, props)) <DcButtonInterface>`
-    background: #5865f2;
+    min-width: 32px;
+    background-color: #5865f2;
     &:hover { 
-        background: #5865f2;
+        background-color: #5865f2;
     }
     &:active {
-        background: #5865f2;
+        background-color: #5865f2;
     }
 
-    ${({ def }) => def!.b('xs')} {
-        width: 60px; 
-        height: 60px;
-    }
-    ${({ def }) => def!.b('md')} {
-        width: 60px;
-        height: 60px;
-    }
-    ${({ def }) => def!.b('lg')} {
-        width: 60px; 
-        height: 60px;
-    }
-    ${({ def }) => def!.b('xl')} { 
-        width: 60px;
-        height: 60px;
-    }
+    ${({ def }) => def!.b('xs')} { width: 44px; height: 44px; }
+    ${({ def }) => def!.b('md')} { width: 50px; height: 50px; }
+    ${({ def }) => def!.b('lg')} { width: 56px; height: 56px; }
+    ${({ def }) => def!.b('xl')} { width: 60px; height: 60px; }
 `
 
-const DcButtonComponent = ({ ...props }: DcButtonInterface) => {
+const StyledImage = styled(({ def, ...props }: StyledImageInterface) => e(Image, props)) <StyledImageInterface>`
+    ${({ def }) => def!.b('xs')} { width: 20px; height: 20px; }
+    ${({ def }) => def!.b('md')} { width: 24px; height: 24px; }
+    ${({ def }) => def!.b('lg')} { width: 30px; height: 30px; }
+    ${({ def }) => def!.b('xl')} { width: 32px; height: 32px; }
+`
+
+const DcButtonComponent = ({ def, ...props }: DcButtonInterface) => {
     return (
-        <StyledDcButton toUpperCase={false} {...props}>
-            <Image src={dc} alt="Dc Button Icon" />
+        <StyledDcButton toUpperCase={false} def={def} {...props}>
+            <StyledImage src={dc} alt="Dc Button Icon" def={def} />
         </StyledDcButton>
     )
 }

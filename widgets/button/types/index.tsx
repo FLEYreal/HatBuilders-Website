@@ -1,5 +1,5 @@
 // Material-UI
-import { BoxProps, ButtonProps, Palette, SxProps } from "@mui/material";
+import { BoxProps, ButtonProps, Palette, SxProps, TypographyProps } from "@mui/material";
 
 // Shared
 import { styledDefaultInterface } from "@/shared/mui";
@@ -28,6 +28,10 @@ export interface BigHatButtonInterface extends RootInterface {
     toUpperCase?: boolean;
     w?: number;
     h?: number;
+
+    typographyProps?: TypographyProps;
+    frontProps?: FrontBigButtonInterface;
+    backProps?: BackBigButtonInterface;
 }
 
 // Button's components interfaces

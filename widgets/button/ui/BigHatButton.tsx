@@ -13,7 +13,7 @@ import { useLanguage } from "@/shared/i18n";
 import { useTranslation } from "@/shared/i18n/client";
 
 // Insides
-import { FrontBigButton, BackBigButton, WrapperBigButton } from "./styles";
+import { FrontBigButton, BackBigButton, WrapperBigButton } from "./styled-comps";
 
 // Interfaces
 import { BigHatButtonInterface } from "../types";
@@ -21,7 +21,6 @@ import { BigHatButtonInterface } from "../types";
 export function BigHatButton({
     children,
     onClick,
-    sx,
     color,
     type = 'main',
     toUpperCase = true,
@@ -30,7 +29,13 @@ export function BigHatButton({
     ns = 'home',
 
     w = 270,
-    h = 65
+    h = 65,
+
+    typographyProps,
+    frontProps,
+    backProps,
+
+    ...props
 }: BigHatButtonInterface) {
 
     // Hooks
@@ -47,13 +52,16 @@ export function BigHatButton({
     const insides = children ? children : t(name)
     return (
         <WrapperBigButton
-            sx={sx} h={h} w={w}
+            h={h} w={w}
             darkButtonColor={darkButtonColor}
             onClick={onClick}
+            {...props}
         >
             <BackBigButton
                 buttonColor={buttonColor}
                 h={h} w={w}
+
+                {...backProps}
             />
             <FrontBigButton
                 buttonColor={buttonColor}
@@ -62,8 +70,10 @@ export function BigHatButton({
                 disableElevation
                 disableRipple
                 disableFocusRipple
+
+                {...frontProps}
             >
-                <Typography variant="h2">
+                <Typography {...typographyProps}>
                     {
                         toUpperCase ? (insides as string).toUpperCase() : insides
                     }

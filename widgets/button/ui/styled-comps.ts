@@ -69,6 +69,7 @@ const StyledWrapperBigButton = styled(({ w, h, darkButtonColor, ...props }: Wrap
 
 
 
+// Export all styled components
 export const WrapperBigButton = defaultWrapper<WrapperBigButtonInterface>(StyledWrapperBigButton)
 export const BackBigButton = defaultWrapper<BackBigButtonInterface>(StyledBackBigButton)
 export const FrontBigButton = defaultWrapper<FrontBigButtonInterface>(StyledFrontBigButton)

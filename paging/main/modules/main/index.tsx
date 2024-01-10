@@ -2,7 +2,6 @@
 import { Typography } from "@mui/material";
 
 // Widgets
-import { BigHatButton } from "@/widgets/button";
 import { VkButton, DcButton } from '@/widgets/social-buttons';
 
 // Features
@@ -10,8 +9,8 @@ import { Column, Row, Wrapper } from "@/features/wrappers";
 import { Flex } from '@/features/wrappers'
 import { Article, ArticleBlock } from "@/features/article";
 
-// Styles
-import { BottomPlatform, CyberpukBanner } from './styles'
+// Insides
+import { BottomPlatform, CyberpukBanner, OrderButton } from './styled-comps'
 
 // Assets
 import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
@@ -25,15 +24,30 @@ export function Main() {
             <CyberpukBanner />
 
             <BottomPlatform stretchX align={['center', 'space-between']} flow='row nowrap'>
-                <Row align={['center', 'start']} sx={{ ml: '24px' }}>
+                <Row align={['center', 'start']} sx={{
+                    ml: '24px', display: {
+                        xs: 'none',
+                        md: 'flex'
+                    }
+                }}>
                     <DcButton /><VkButton />
                 </Row>
-                <Flex sx={{ position: 'absolute', top: '-40px' }}>
-                    <BigHatButton color="secondary" name="order" sx={{
-                        p: '24px 80px',
-                    }} />
+                <Flex sx={{
+                    position: 'absolute', top: {
+                        xs: '-38px',
+                        md: '-28px',
+                        lg: '-30px',
+                        xl: '-40px'
+                    }
+                }}>
+                    <OrderButton />
                 </Flex>
-                <Column stretchX={false} sxStyles={{ m: 0 }} sx={{ width: '250px' }}>
+                <Column stretchX={false} sxStyles={{ m: 0 }} sx={{
+                    width: '250px', display: {
+                        xs: 'none',
+                        md: 'flex'
+                    }
+                }}>
                     <Typography variant="h5">
                         @henem [3D Modeller]
                     </Typography>
