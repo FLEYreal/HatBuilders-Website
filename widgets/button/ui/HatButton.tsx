@@ -50,7 +50,6 @@ export function HatButton({
             // Default Styles for Button
             transition: variant == 'contained' ? '0s' : 'all 0.2s ease-in-out',
             fontFamily: 'inherit',
-            // padding: '16px 36px',
             margin: '3px',
             cursor: 'pointer',
             color: variant === 'contained' ? '#000000' : buttonColor,
@@ -89,6 +88,7 @@ export function HatButton({
         }
     }, [buttonColor, lightButtonColor, sx, theme.palette.mode, variant]);
 
+    // Define wether it's translatable text (name & ns are defined) or static (children is defined)
     const insides = children ? children : t(name)
 
     return (

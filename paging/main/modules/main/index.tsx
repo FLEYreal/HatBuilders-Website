@@ -21,17 +21,28 @@ export function Main() {
     return (
         <Flex stretchX stretchY component='div' align={['start', 'center']}>
 
+            {/* Logo & Title Component */}
+            <Wrapper sx={{ pt: '64px' }}>
+
+                <Article align="center" textAlign="center">
+                    <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" sx={{ m: 0 }} />
+                    <ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5, color: '#ffffff' }} name="main_title" ns="home" />
+                </Article>
+
+            </Wrapper>
+
+            {/* Styled Component: Background Banner of Main Module */}
             <CyberpukBanner />
 
+            {/* Styled Component: Platform at module's bottom with order button and etc... */}
             <BottomPlatform stretchX align={['center', 'space-between']} flow='row nowrap'>
-                <Row align={['center', 'start']} sx={{
-                    ml: '24px', display: {
-                        xs: 'none',
-                        md: 'flex'
-                    }
-                }}>
-                    <DcButton /><VkButton />
+
+                {/* Social Media Buttons */}
+                <Row align={['center', 'start']} sx={{ ml: '24px', display: { xs: 'none', md: 'flex' } }}>
+                    <DcButton isTransparent /><VkButton isTransparent />
                 </Row>
+
+                {/* Order Button Wrapper */}
                 <Flex sx={{
                     position: 'absolute', top: {
                         xs: '-38px',
@@ -40,30 +51,21 @@ export function Main() {
                         xl: '-40px'
                     }
                 }}>
-                    <OrderButton />
+                    <OrderButton /> {/* Styled Component of Order Button */}
                 </Flex>
-                <Column stretchX={false} sxStyles={{ m: 0 }} sx={{
-                    width: '250px', display: {
-                        xs: 'none',
-                        md: 'flex'
-                    }
-                }}>
-                    <Typography variant="h5">
-                        @henem [3D Modeller]
-                    </Typography>
-                    <Typography variant="h5">
-                        @fley0609 [Developer]
-                    </Typography>
-                </Column>
-            </BottomPlatform>
 
-            {/* CONTENT PART: Everything that has to fit in user's view frame has to be here, otherwise use might not see everything! */}
-            <Wrapper sx={{ pt: '64px' }}>
-                <Article align="center" textAlign="center">
-                    <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" sx={{ m: 0 }} />
-                    <ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5, color: '#ffffff' }} name="main_title" ns="home" />
-                </Article>
-            </Wrapper>
+                {/* Credits to website's creators */}
+                <Column align={['end', 'end']} stretchX={false} sxStyles={{ m: 0 }} sx={{
+                    width: '180px', mr: '24px', gap: '5px', display: { xs: 'none', md: 'flex' }
+                }}>
+
+                    <Typography variant="h5"><span title="Discord ID of Owner & Developer">@fley0609 [ Dev ]</span></Typography>
+                    <Typography variant="h5"><span title="Discord ID of 3D Modeller">@henem_ [ Art ]</span></Typography>
+                    <Typography variant="h5"><span title="Discord ID of 3D Modeller">@adaola [ Art ]</span></Typography>
+
+                </Column>
+
+            </BottomPlatform>
 
         </Flex >
 

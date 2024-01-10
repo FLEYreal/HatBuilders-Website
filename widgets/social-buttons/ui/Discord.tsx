@@ -20,19 +20,24 @@ import { styledDefaultInterface } from "@/shared/mui";
 import dc from '@/public/icons/social/discord.svg';
 
 // Interfaces
-export interface DcButtonInterface extends styledDefaultInterface, HatButtonInterface { }
+export interface DcButtonInterface extends styledDefaultInterface, HatButtonInterface {
+    isTransparent?: boolean;
+}
 export interface StyledImageInterface extends styledDefaultInterface, ImageProps { }
 
 // Components
-const StyledDcButton = styled(({ def, ...props }: DcButtonInterface) => e(HatButton, props)) <DcButtonInterface>`
+const StyledDcButton = styled(({ def, isTransparent = false, ...props }: DcButtonInterface) => e(HatButton, props)) <DcButtonInterface>`
     min-width: 32px;
     background-color: #5865f2;
     &:hover { 
         background-color: #5865f2;
+        opacity: ${({ isTransparent }) => isTransparent ? '0.6' : '1'};
     }
     &:active {
         background-color: #5865f2;
     }
+    
+    opacity: ${({ isTransparent }) => isTransparent ? '0.3' : '1'};
 
     ${({ def }) => def!.b('xs')} { width: 44px; height: 44px; }
     ${({ def }) => def!.b('md')} { width: 50px; height: 50px; }

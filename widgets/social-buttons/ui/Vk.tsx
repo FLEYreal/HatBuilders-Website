@@ -17,18 +17,27 @@ import { defaultWrapper } from "@/features/wrappers";
 import { styledDefaultInterface } from "@/shared/mui";
 
 // Assets
-import vk from '@/public/icons/social/vkontakte.svg';
+import vk from '@/public/icons/social/vk.svg';
 
 // Interfaces
-export interface VkButtonInterface extends styledDefaultInterface, HatButtonInterface { }
+export interface VkButtonInterface extends styledDefaultInterface, HatButtonInterface {
+    isTransparent?: boolean;
+}
 export interface StyledImageInterface extends styledDefaultInterface, ImageProps { }
 
 // Components
-const StyledVkButton = styled(({ def, ...props }: VkButtonInterface) => e(HatButton, props)) <VkButtonInterface>`
+const StyledVkButton = styled(({ def, isTransparent = false, ...props }: VkButtonInterface) => e(HatButton, props)) <VkButtonInterface>`
     min-width: 32px;
     background-color: #0077ff;
-    &:hover { background-color: #0077ff; }
-    &:active { background-color: #0077ff; }
+    &:hover { 
+        background-color: #0077ff;
+        opacity: ${({ isTransparent }) => isTransparent ? '0.6' : '1'};
+    }
+    &:active { 
+        background-color: #0077ff; 
+    }
+
+    opacity: ${({ isTransparent }) => isTransparent ? '0.3' : '1'};
 
     ${({ def }) => def!.b('xs')} { width: 44px; height: 44px; }
     ${({ def }) => def!.b('md')} { width: 50px; height: 50px; }
