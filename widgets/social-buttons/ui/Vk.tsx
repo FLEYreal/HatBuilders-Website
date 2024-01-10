@@ -2,6 +2,7 @@
 
 // Basics
 import Image from "next/image";
+import { createElement as e } from "react";
 
 // Emotion
 import styled from "@emotion/styled";
@@ -22,7 +23,7 @@ import vk from '@/public/icons/social/vkontakte.svg';
 export interface VkButtonInterface extends styledDefaultInterface, HatButtonInterface { }
 
 // Components
-const StyledVkButton = styled(HatButton) <VkButtonInterface>`
+const StyledVkButton = styled(({ def, ...props }: VkButtonInterface) => e(HatButton, props)) <VkButtonInterface>`
     background-color: #0077ff;
     &:hover { background-color: #0077ff; }
     &:active { background-color: #0077ff; }

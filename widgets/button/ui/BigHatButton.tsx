@@ -16,7 +16,7 @@ import { useTranslation } from "@/shared/i18n/client";
 import { FrontBigButton, BackBigButton, WrapperBigButton } from "./styles";
 
 // Interfaces
-import { BigButtonInterface } from "../types";
+import { BigHatButtonInterface } from "../types";
 
 export function BigHatButton({
     children,
@@ -31,7 +31,7 @@ export function BigHatButton({
 
     w = 270,
     h = 65
-}: BigButtonInterface) {
+}: BigHatButtonInterface) {
 
     // Hooks
     const theme = useTheme() as Theme;

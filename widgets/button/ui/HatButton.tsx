@@ -28,7 +28,9 @@ export function HatButton({
     toUpperCase = true,
 
     name = 'main',
-    ns = 'home'
+    ns = 'home',
+
+    ...props
 }: HatButtonInterface) {
 
     // Hooks
@@ -95,6 +97,8 @@ export function HatButton({
             disableElevation
             onClick={onClick}
             sx={buttonStyles}
+
+            {...props}
         >
             {
                 toUpperCase ? (insides as string).toUpperCase() : insides

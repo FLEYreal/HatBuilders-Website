@@ -2,10 +2,10 @@
 
 // Basics
 import Image from "next/image";
+import { createElement as e } from "react";
 
 // Emotion
 import styled from "@emotion/styled";
-import { Button } from "@mui/material";
 
 // Widgets
 import { HatButton, HatButtonInterface } from "@/widgets/button";
@@ -23,7 +23,7 @@ import dc from '@/public/icons/social/discord.svg';
 export interface DcButtonInterface extends styledDefaultInterface, HatButtonInterface { }
 
 // Components
-const StyledDcButton = styled(HatButton) <DcButtonInterface>`
+const StyledDcButton = styled(({ def, ...props }: DcButtonInterface) => e(HatButton, props)) <DcButtonInterface>`
     background: #5865f2;
     &:hover { 
         background: #5865f2;

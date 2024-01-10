@@ -22,7 +22,7 @@ export interface HatButtonInterface extends RootInterface {
     toUpperCase?: boolean;
 }
 
-export interface BigButtonInterface extends RootInterface {
+export interface BigHatButtonInterface extends RootInterface {
     color?: string & keyof Palette;
     type?: 'main' | 'light' | 'dark';
     toUpperCase?: boolean;
