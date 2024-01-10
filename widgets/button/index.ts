@@ -3,4 +3,4 @@ export { HatButton } from './ui/HatButton'
 export { BigHatButton } from './ui/BigHatButton'
 
 // Types
-export type { HatButtonType } from './types'
+export type { HatButtonInterface, BackBigButtonInterface } from './types'

@@ -46,20 +46,20 @@ const StyledFlex = styled(Box) <FlexInterface>`
     justify-content: ${({ align }) => align && align[1] ? align[1] : 'center'};
 
     // "f" attribute
-    flex: ${({ f }) => f ? f : '1'};
+    ${({ f }) => f ? `flex: ${f};` : ''}
 
     // "grow" attribute
-    flex-grow: ${({ grow }) => grow ? grow : '1'};
+    ${({ grow }) => grow ? `flex-grow: ${grow};` : ''}
 
     // "shrink" attribute
-    flex-shrink: ${({ shrink }) => shrink ? shrink : '1'};
+    ${({ shrink }) => shrink ? `flex-shrink: ${shrink};` : ''}
 
     // "basis" attribute
-    flex-basis: ${({ basis }) => basis ? basis : '1'};
+    ${({ basis }) => basis ? `flex-basis: ${basis};` : ''}
 
     // "stretchY" and "stretchX" attributes
-    min-height: ${({ stretchY }) => stretchY ? '100vh' : 'auto'};
-    width: ${({ stretchX }) => stretchX ? '100%' : 'auto'};
+    ${({ stretchY }) => stretchY ? `min-height: 100vh;` : ''}
+    ${({ stretchX }) => stretchX ? 'width: 100%;' : ''}
 
 `
 
@@ -74,10 +74,10 @@ function WrapperFlex({
     align = ['center', 'center'],
 
     // Styles sizing
-    f = "1",
-    grow = "1",
-    shrink = "1",
-    basis = "1",
+    f,
+    grow,
+    shrink,
+    basis,
     stretchX = true,
     stretchY = false,
 

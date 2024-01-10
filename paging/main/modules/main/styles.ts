@@ -19,10 +19,10 @@ import cyberpukPng from '@/public/images/Cyberpuk2.png'
 // COMPONENTS
 const StyledBottomPlatform = styled(Flex) <styledDefaultInterface>`
     position: absolute;
-    height: 140px;
+    height: 125px;
     bottom: 0;
     left: 0;
-    background: ${({ def }) => def && def.t.palette.mode === 'dark' ? '#121212' : '#ffffff'};
+    background: ${({ def }) => def && def.t.palette.mode === 'dark' ? 'linear-gradient(180deg, #121212 0%, #070707 100%)' : '#ffffff'};
     box-shadow: 0px 6px 0px 0px ${({ def }) => def && def.t.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15) inset' : 'rgba(0, 0, 0, 0.15) inset'};
 `
 export const BottomPlatform = defaultWrapper(StyledBottomPlatform)
