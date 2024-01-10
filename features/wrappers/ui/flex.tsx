@@ -9,6 +9,7 @@ import {
 
     // Utils
     cloneElement,
+    createElement as e,
     Children,
 
     // Types
@@ -29,9 +30,8 @@ import { FlexInterface } from "../types"
 // Higher-Order Components
 import { defaultWrapper } from "./hocs"
 
-
 // Styled components
-const StyledFlex = styled(Box) <FlexInterface>`
+const StyledFlex = styled(({ flow, align, f, grow, shrink, basis, stretchY, stretchX, def, ...props }: FlexInterface) => e(Box, props))<FlexInterface>`
 
     // Default pre-setup styles
     display: flex;

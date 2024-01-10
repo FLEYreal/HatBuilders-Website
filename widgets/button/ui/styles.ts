@@ -1,3 +1,6 @@
+// Basics
+import { createElement as e } from "react";
+
 // Material-UI
 import { Box, Button } from "@mui/material";
 
@@ -11,7 +14,7 @@ import { defaultWrapper } from "@/features/wrappers";
 import { WrapperBigButtonInterface, BackBigButtonInterface, FrontBigButtonInterface } from '../types'
 
 // Big Button Styled Components
-const StyledFrontBigButton = styled(Button) <FrontBigButtonInterface>`
+const StyledFrontBigButton = styled(({ w, h, buttonColor, ...props }: FrontBigButtonInterface) => e(Button, props)) <FrontBigButtonInterface>`
     position: absolute;
     top: 0px;
     left: 6px;
@@ -26,7 +29,7 @@ const StyledFrontBigButton = styled(Button) <FrontBigButtonInterface>`
     transition: none;
 `
 
-const StyledBackBigButton = styled(Box) <BackBigButtonInterface>`
+const StyledBackBigButton = styled(({ w, h, buttonColor, ...props }: BackBigButtonInterface) => e(Box, props)) <BackBigButtonInterface>`
     position: absolute;
     top: 6px;
     left: 0px;
@@ -37,7 +40,7 @@ const StyledBackBigButton = styled(Box) <BackBigButtonInterface>`
     box-shadow: 6px 0px 0px 0px rgba(255, 255, 255, 0.40) inset, -6px 0px 0px 0px rgba(0, 0, 0, 0.30) inset;
 `
 
-const StyledWrapperBigButton = styled(Box) <WrapperBigButtonInterface>`
+const StyledWrapperBigButton = styled(({ w, h, darkButtonColor, ...props }: WrapperBigButtonInterface) => e(Box, props)) <WrapperBigButtonInterface>`
     width: ${({ w }) => w! + 12}px;
     height: ${({ h }) => h! + 12}px;
     position: relative;

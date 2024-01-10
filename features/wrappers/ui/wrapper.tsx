@@ -1,5 +1,8 @@
 'use client'
 
+// Basics
+import { createElement as e } from "react";
+
 // Material-UI
 import { Box } from "@mui/material"
 import { styledDefaultInterface } from "@/shared/mui";
@@ -11,9 +14,11 @@ import styled from '@emotion/styled'
 import { defaultWrapper } from "./hocs";
 import { WrapperInterface } from "../types";
 
+// Define custom props type
+type StyledWrapperProps = styledDefaultInterface & React.ComponentProps<typeof Box>;
+
 // Styled Component
-const StyledWrapper = styled(Box) <styledDefaultInterface>`
-    
+const StyledWrapper = styled(({ def, ...props }: StyledWrapperProps) => e(Box, props)) <StyledWrapperProps>` 
     // Styles independent of screen resolution
     margin: 0 auto;
 

@@ -26,7 +26,7 @@ export function Main() {
 
             <BottomPlatform stretchX align={['center', 'space-between']} flow='row nowrap'>
                 <Row align={['center', 'start']} sx={{ ml: '24px' }}>
-                    <DcButton/><VkButton/>
+                    <DcButton /><VkButton />
                 </Row>
                 <Flex sx={{ position: 'absolute', top: '-40px' }}>
                     <BigHatButton color="secondary" name="order" sx={{
