@@ -4,9 +4,9 @@ import { createTheme, Theme } from '@mui/material/styles';
 // Palette of colors
 export const palette = {
     primary: {
-        main: '#26F153',
-        light: '#6FFF8E',
-        dark: '#0DBA33',
+        main: '#00A624',
+        light: '#26F153',
+        dark: '#008D1F',
     },
     secondary: {
         main: '#EC264A',

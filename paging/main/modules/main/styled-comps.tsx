@@ -27,7 +27,7 @@ import cyberpukPng from '@/public/images/Cyberpuk2.png'
 
 
 // COMPONENTS
-const StyledBottomPlatform = styled(({ def, ...props }: FlexInterface) => e(Flex, props)) <styledDefaultInterface>`
+const StyledBottomPlatform = styled(({ def, ...props }: FlexInterface) => e(Flex, props)) <FlexInterface>`
 
     // Statis styles
     position: absolute;

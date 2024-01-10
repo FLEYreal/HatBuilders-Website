@@ -4,6 +4,8 @@
 import Image, { ImageProps } from "next/image";
 import { createElement as e } from "react";
 
+import { Box } from '@mui/material'
+
 // Emotion
 import styled from "@emotion/styled";
 

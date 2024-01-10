@@ -29,6 +29,7 @@ export interface StyledImageInterface extends styledDefaultInterface, ImageProps
 const StyledVkButton = styled(({ def, isTransparent = false, ...props }: VkButtonInterface) => e(HatButton, props)) <VkButtonInterface>`
     min-width: 32px;
     background-color: #0077ff;
+
     &:hover { 
         background-color: #0077ff;
         opacity: ${({ isTransparent }) => isTransparent ? '0.6' : '1'};
