@@ -97,7 +97,7 @@ export function HatButton({
             sx={buttonStyles}
         >
             {
-                toUpperCase ? (insides as string).toUpperCase() : insides
+                // toUpperCase ? (insides as string).toUpperCase() : insides
             }
         </Button>
     );
