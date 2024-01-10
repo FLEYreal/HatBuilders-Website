@@ -6,35 +6,43 @@ import React, { useMemo } from "react";
 // MUI
 import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
-import { PaletteColor, Box, Button, Typography } from "@mui/material";
-
-// Libs
-import hexToRgba from 'hex-to-rgba';
+import { PaletteColor, Typography } from "@mui/material";
 
 // Shared
 import { useLanguage } from "@/shared/i18n";
 import { useTranslation } from "@/shared/i18n/client";
 
 // Insides
-import { FrontBigButton, BackBigButton, WrapperBigButton } from "./styles";
+import { FrontBigButton, BackBigButton, WrapperBigButton } from "./styled-comps";
 
 // Interfaces
-import { BigButtonInterface } from "../types";
+import { BigHatButtonInterface } from "../types";
 
 export function BigHatButton({
+
+    // Common props
     children,
     onClick,
-    sx,
     color,
     type = 'main',
     toUpperCase = true,
 
+    // Locale-related props
     name = 'main',
     ns = 'home',
 
+    // Size related props
     w = 270,
-    h = 65
-}: BigButtonInterface) {
+    h = 65,
+
+    // Provide props to all components inside of button
+    typographyProps,
+    frontProps,
+    backProps,
+
+    // Left props go to wrapper
+    ...props
+}: BigHatButtonInterface) {
 
     // Hooks
     const theme = useTheme() as Theme;
@@ -47,27 +55,52 @@ export function BigHatButton({
     const buttonColor = useMemo(() => (theme.palette[color || "primary"] as PaletteColor)[type], [color, type, theme.palette]);
     const darkButtonColor = useMemo(() => (theme.palette[color || "primary"] as PaletteColor)['dark'], [color, theme.palette])
 
+    // Define wether it's translatable text (name & ns are defined) or static (children is defined)
     const insides = children ? children : t(name)
+
     return (
-        <WrapperBigButton sx={sx} h={h} w={w}>
+
+        // Wrapper of the page
+        <WrapperBigButton
+
+            h={h} w={w}
+            darkButtonColor={darkButtonColor}
+            onClick={onClick}
+
+            {...props}
+        >
+
+            {/* Part that's behind main button (needed to create sharp angles for button) */}
+            {/* It's Box Component (from MUI) so you can provide all props available to Box */}
             <BackBigButton
-                buttonColor={buttonColor} darkButtonColor={darkButtonColor}
+
+                buttonColor={buttonColor}
                 h={h} w={w}
+
+                {...backProps}
             />
+
+            {/* Front part, which is a Button (from MUI) inside, so you can provide all props to it */}
             <FrontBigButton
-                buttonColor={buttonColor} darkButtonColor={darkButtonColor}
+
+                buttonColor={buttonColor}
                 h={h} w={w}
                 variant="contained"
+
                 disableElevation
                 disableRipple
                 disableFocusRipple
+
+                {...frontProps}
             >
-                <Typography variant="h2">
-                    {
-                        // toUpperCase ? (insides as string).toUpperCase() : insides
-                    }
+                {/* Typography is needed to be able to change font size, weight, family ... props. */}
+                {/* Provide everything needed to "typographyProps", it accepts all props available to Typography (MUI) */}
+                <Typography {...typographyProps}>
+                    {toUpperCase ? (insides as string).toUpperCase() : insides}
                 </Typography>
+
             </FrontBigButton>
+
         </WrapperBigButton>
     );
 }

@@ -17,8 +17,8 @@ export const palette = {
         main: '#03A9F4',
         light: '#1CB8FF',
         dark: '#0288D1',
-        discord:'#5865F2',
-        vk:'#0077FF'
+        discord: '#5865F2',
+        vk: '#0077FF'
 
     },
     warning: {
@@ -61,6 +61,9 @@ export const breakpoints = {
 export const darkTheme = createTheme({
     breakpoints: breakpoints,
     palette: {
+        background: {
+            default: "#070707"
+        },
         mode: 'dark',
         ...palette
     },
@@ -95,7 +98,7 @@ for (let i = 0; i < themes.length; i++) {
 
     themes[i].typography.h6 = {
         fontFamily: 'inherit',
-        color: ['#8C8C8C', '#B9B9B9'][i],
+        color: ['#585858', '#B9B9B9'][i],
         fontWeight: '400',
         fontSize: '7px',
         [themes[i].breakpoints.up('md')]: { fontSize: '9px' },
@@ -107,7 +110,7 @@ for (let i = 0; i < themes.length; i++) {
     // Example: Small Signs, Sub-Strings, Post-Scriptum
     themes[i].typography.h5 = {
         fontFamily: 'inherit',
-        color: ['#8C8C8C', '#B9B9B9'][i],
+        color: ['#585858', '#B9B9B9'][i],
         fontWeight: '400',
         fontSize: '9px',
         margin: '2px 0',
@@ -120,7 +123,7 @@ for (let i = 0; i < themes.length; i++) {
     // Example: Signs, Post-Scriptum
     themes[i].typography.h4 = {
         fontFamily: 'inherit',
-        color: ['#CECECE', '#505050'][i],
+        color: ['#9F9F9F', '#505050'][i],
         fontWeight: '400',
         fontSize: '10px',
         margin: '4px 0',

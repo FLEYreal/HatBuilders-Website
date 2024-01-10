@@ -1,53 +1,71 @@
 // Material-UI
-// ...
-
-// Emotion
-// ...
+import { Typography } from "@mui/material";
 
 // Widgets
-import { BigHatButton } from "@/widgets/button";
+import { VkButton, DcButton } from '@/widgets/social-buttons';
 
 // Features
-import { Wrapper } from "@/features/wrappers";
+import { Column, Row, Wrapper } from "@/features/wrappers";
 import { Flex } from '@/features/wrappers'
 import { Article, ArticleBlock } from "@/features/article";
 
-// Styles
-import { BottomPlatform, CyberpukBanner } from './styles'
+// Insides
+import { BottomPlatform, CyberpukBanner, OrderButton } from './styled-comps'
 
 // Assets
 import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
 
-// Interfaces & Types
-interface MainInterface {
-
-}
-
 // Main Component
-export function Main({ }: MainInterface) {
+export function Main() {
 
     return (
         <Flex stretchX stretchY component='div' align={['start', 'center']}>
 
-            <CyberpukBanner />
-
-            <BottomPlatform stretchX align={['center', 'space-between']}>
-                <span>what</span>
-                <Flex sx={{ position: 'absolute', top: '-40px' }}>
-                    <BigHatButton color="secondary" name="order" sx={{
-                        p: '24px 80px',
-                    }} />
-                </Flex>
-                <span>what</span>
-            </BottomPlatform>
-
-            {/* CONTENT PART: Everything that has to fit in user's view frame has to be here, otherwise use might not see everything! */}
+            {/* Logo & Title Component */}
             <Wrapper sx={{ pt: '64px' }}>
+
                 <Article align="center" textAlign="center">
                     <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" sx={{ m: 0 }} />
                     <ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5, color: '#ffffff' }} name="main_title" ns="home" />
                 </Article>
+
             </Wrapper>
+
+            {/* Styled Component: Background Banner of Main Module */}
+            <CyberpukBanner />
+
+            {/* Styled Component: Platform at module's bottom with order button and etc... */}
+            <BottomPlatform stretchX align={['center', 'space-between']} flow='row nowrap'>
+
+                {/* Social Media Buttons */}
+                <Row align={['center', 'start']} sx={{ ml: '24px', display: { xs: 'none', md: 'flex' } }}>
+                    <DcButton isTransparent /><VkButton isTransparent />
+                </Row>
+
+                {/* Order Button Wrapper */}
+                <Flex sx={{
+                    position: 'absolute', top: {
+                        xs: '-38px',
+                        md: '-28px',
+                        lg: '-30px',
+                        xl: '-40px'
+                    }
+                }}>
+                    <OrderButton /> {/* Styled Component of Order Button */}
+                </Flex>
+
+                {/* Credits to website's creators */}
+                <Column align={['end', 'end']} stretchX={false} sxStyles={{ m: 0 }} sx={{
+                    width: '180px', mr: '24px', gap: '5px', display: { xs: 'none', md: 'flex' }
+                }}>
+
+                    <Typography variant="h5"><span title="Discord ID of Owner & Developer">@fley0609 [ Dev ]</span></Typography>
+                    <Typography variant="h5"><span title="Discord ID of 3D Modeller">@henem_ [ Art ]</span></Typography>
+                    <Typography variant="h5"><span title="Discord ID of 3D Modeller">@adaola [ Art ]</span></Typography>
+
+                </Column>
+
+            </BottomPlatform>
 
         </Flex >
 

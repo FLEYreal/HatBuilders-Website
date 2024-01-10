@@ -45,7 +45,7 @@ export interface FlexInterface extends RootInterface, BoxProps {
     sxStyles?: SxProps | null;
 }
 
-export interface WrapperInterface extends RootInterface, BoxProps {}
+export interface WrapperInterface extends RootInterface, BoxProps { }
 
 export interface ColumnInterface extends FlexInterface {
     center?: boolean;

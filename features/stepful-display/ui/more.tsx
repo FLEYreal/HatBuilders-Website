@@ -38,16 +38,13 @@ export function More({ sx }: { sx?: SxProps }) {
             zIndex: 1000,
             position: 'absolute',
             bottom: 0,
-            left: 0,
-            width: '100%',
-            height: '160px',
-            background: theme.palette.mode === 'dark' ?
-                'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.85) 100%)' :
-                'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.3) 100%)',
+            left: 'calc(50% - 60px)',
+            width: '120px',
+            height: '74px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            pt: '80px',
+            pt: '4px',
             boxSizing: 'border-box',
             flexFlow: 'column',
             ...sx

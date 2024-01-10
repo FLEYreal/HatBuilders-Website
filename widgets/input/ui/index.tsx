@@ -22,7 +22,6 @@ export interface HatInputType {
 	style?: CSSProperties
 	color?: string & keyof Palette
 	type?: 'main' | 'light' | 'dark'
-	isRequired?: boolean
 }
 
 // eslint-disable-next-line react/display-name
@@ -32,7 +31,6 @@ export const HatInput = memo(({
 	style,
 	color,
 	type = 'main',
-	isRequired = false
 }: HatInputType) => {
 
 
