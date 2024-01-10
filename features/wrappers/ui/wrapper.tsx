@@ -21,6 +21,7 @@ type StyledWrapperProps = styledDefaultInterface & React.ComponentProps<typeof B
 const StyledWrapper = styled(({ def, ...props }: StyledWrapperProps) => e(Box, props)) <StyledWrapperProps>` 
     // Styles independent of screen resolution
     margin: 0 auto;
+    position: relative;
 
     // Define Width for Wrapper
     ${({ def }) => def!.b('xs')} { width: ${({ def }) => def!.v.sm + 'px'} }

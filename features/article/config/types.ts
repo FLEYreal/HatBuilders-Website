@@ -1,5 +1,5 @@
 // Basics
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import { StaticImageData } from 'next/image';
 
 // Material-UI
@@ -100,4 +100,5 @@ export interface ActionDividerInterface extends ActionInterface {
 export interface ImageInterface extends ArticleBlockInterface {
     src: StaticImageData;
     alt: string;
+    style: CSSProperties
 }

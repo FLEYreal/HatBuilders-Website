@@ -31,7 +31,7 @@ import { FlexInterface } from "../types"
 import { defaultWrapper } from "./hocs"
 
 // Styled components
-const StyledFlex = styled(({ flow, align, f, grow, shrink, basis, stretchY, stretchX, def, ...props }: FlexInterface) => e(Box, props))<FlexInterface>`
+const StyledFlex = styled(({ flow, align, f, grow, shrink, basis, stretchY, stretchX, def, ...props }: FlexInterface) => e(Box, props)) <FlexInterface>`
 
     // Default pre-setup styles
     display: flex;

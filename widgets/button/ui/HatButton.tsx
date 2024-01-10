@@ -48,6 +48,7 @@ export function HatButton({
         return {
 
             // Default Styles for Button
+            height: '36px',
             transition: variant == 'contained' ? '0s' : 'all 0.2s ease-in-out',
             fontFamily: 'inherit',
             margin: '3px',
@@ -100,7 +101,7 @@ export function HatButton({
 
             {...props}
         >
-            { toUpperCase ? (insides as string).toUpperCase() : insides }
+            {toUpperCase ? (insides as string).toUpperCase() : insides}
         </Button>
     );
 }

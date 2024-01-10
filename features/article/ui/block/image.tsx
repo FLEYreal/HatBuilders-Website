@@ -10,14 +10,17 @@ import { ImageInterface } from '../../config/types';
  */
 export const Picture = ({
     src,
-    alt = "Image from Article"
+    alt = "Image from Article",
+    style
 }: ImageInterface) => {
     return (
         <Image src={src} alt={alt} style={{
             width: '100%',
             margin: "10px 0",
             height: 'auto',
-            borderRadius: '0'
+            borderRadius: '0',
+
+            ...style
         }} />
     )
 }

@@ -37,7 +37,6 @@ export default async function Home({
 				<PortfolioModule key={2} />,
 				<HireModule key={3} />,
 				<OrderModule key={4} />
-
 			]}>
 
 			{/* Main page special Header */}

@@ -16,13 +16,13 @@ const Wrapper = styled(Box)(({ theme }) => ({
         width: '300px',
     },
     [theme.breakpoints.up('md')]: {
-        width: '360px',
+        width: '370px',
     },
     [theme.breakpoints.up('lg')]: {
-        width: '380px',
+        width: '400px',
     },
     [theme.breakpoints.up('xl')]: {
-        width: '500px',
+        width: '540px',
     },
     transition: 'font-size 0.3s ease',
 }));
@@ -33,24 +33,24 @@ const Wrapper = styled(Box)(({ theme }) => ({
  * for better readbility, convenient implementing, to define styles for all the article
  * and for SEO.
  */
-export function Article({ 
-    children, 
-    sx, 
-    fullSize = false, 
+export function Article({
+    children,
+    sx,
+    fullSize = false,
     align = 'start',
     textAlign = 'start'
 }: ArticleInterface) {
 
 
     return (
-        <Wrapper component="article" 
+        <Wrapper component="article"
             sx={{
-                width: fullSize ?  '100% !important'  : 'auto',
-                m: 
+                width: fullSize ? '100% !important' : 'auto',
+                m:
                     align === 'start' ? '0px auto 0px 0px' :
-                    align === 'center' ? '0 auto' :
-                    align === 'end' ? '0px 0px 0px auto' : '0',
-                
+                        align === 'center' ? '0 auto' :
+                            align === 'end' ? '0px 0px 0px auto' : '0',
+
                 textAlign: textAlign,
                 ...sx
             }}>

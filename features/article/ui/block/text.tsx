@@ -36,6 +36,7 @@ export const Text: React.FC<TextInterface> = ({
             variant={variant || 'h3'}
             sx={{
                 textAlign: textAlign,
+                p: '12px 0',
                 ...sx
             }}
         >

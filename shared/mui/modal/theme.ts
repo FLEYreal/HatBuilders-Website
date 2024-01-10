@@ -2,7 +2,7 @@
 import { createTheme, Theme } from '@mui/material/styles';
 
 // Palette of colors
-export const palette = {
+export const paletteDark = {
     primary: {
         main: '#00A624',
         light: '#26F153',
@@ -16,10 +16,7 @@ export const palette = {
     info: {
         main: '#03A9F4',
         light: '#1CB8FF',
-        dark: '#0288D1',
-        discord: '#5865F2',
-        vk: '#0077FF'
-
+        dark: '#0288D1'
     },
     warning: {
         main: '#ECB526',
@@ -30,7 +27,36 @@ export const palette = {
         main: '#D32F2F',
         light: '#EF5350',
         dark: '#B91818'
+    }
+}
+
+// Palette of colors
+export const paletteLight = {
+    primary: {
+        main: '#00E132',
+        light: '#36F661',
+        dark: '#0CB932',
     },
+    secondary: {
+        main: '#AC0624',
+        light: '#E02143',
+        dark: '#9E0520'
+    },
+    info: {
+        main: '#03A9F4',
+        light: '#1CB8FF',
+        dark: '#0288D1'
+    },
+    warning: {
+        main: '#ECB526',
+        light: '#FFC93F',
+        dark: '#CD9F28'
+    },
+    error: {
+        main: '#D32F2F',
+        light: '#EF5350',
+        dark: '#B91818'
+    }
 }
 
 // Duration of transitions
@@ -65,7 +91,7 @@ export const darkTheme = createTheme({
             default: "#070707"
         },
         mode: 'dark',
-        ...palette
+        ...paletteDark
     },
     shadows: Array(25).fill('none') as Theme['shadows'],
     transitions: transitions,
@@ -80,7 +106,7 @@ export const lightTheme = createTheme({
     breakpoints: breakpoints,
     palette: {
         mode: 'light',
-        ...palette
+        ...paletteLight
     },
     shadows: Array(25).fill('none') as Theme['shadows'],
     transitions: transitions,
@@ -142,7 +168,7 @@ for (let i = 0; i < themes.length; i++) {
         margin: '4px 0',
         [themes[i].breakpoints.up('md')]: { fontSize: '14px' },
         [themes[i].breakpoints.up('lg')]: { fontSize: '15px' },
-        [themes[i].breakpoints.up('xl')]: { fontSize: '18px' }
+        [themes[i].breakpoints.up('xl')]: { fontSize: '17px' }
     }
 
     // Type: Small Title

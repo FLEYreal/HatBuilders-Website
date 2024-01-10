@@ -10,7 +10,7 @@ import { Flex } from '@/features/wrappers'
 import { Article, ArticleBlock } from "@/features/article";
 
 // Insides
-import { BottomPlatform, CyberpukBanner, OrderButton } from './styled-comps'
+import { BottomPlatform, CyberpukBanner, StyledWrapper, OrderButton } from './styled-comps'
 
 // Assets
 import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
@@ -19,7 +19,7 @@ import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
 export function Main() {
 
     return (
-        <Flex stretchX stretchY component='div' align={['start', 'center']}>
+        <StyledWrapper stretchX stretchY component='div' align={['start', 'center']}>
 
             {/* Logo & Title Component */}
             <Wrapper sx={{ pt: '64px' }}>
@@ -67,7 +67,7 @@ export function Main() {
 
             </BottomPlatform>
 
-        </Flex >
+        </StyledWrapper >
 
     )
 }
