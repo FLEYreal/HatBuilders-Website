@@ -93,7 +93,6 @@ export function BigHatButton({
 
                 {...frontProps}
             >
-
                 {/* Typography is needed to be able to change font size, weight, family ... props. */}
                 {/* Provide everything needed to "typographyProps", it accepts all props available to Typography (MUI) */}
                 <Typography {...typographyProps}>
