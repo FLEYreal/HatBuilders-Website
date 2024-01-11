@@ -11,6 +11,7 @@ import { DcButton, VkButton } from "@/widgets/social-buttons";
 import { Flex, Wrapper } from "@/features/wrappers";
 import { ArticleSection, ArticleBlock } from "@/features/article";
 import { Float } from '@/features/animations';
+import { Appearance } from '@/features/animations'
 
 // Insides
 import {
@@ -77,18 +78,18 @@ export function About() {
                 {/* Left Section With Article */}
                 <StyledArticle>
                     <ArticleSection>
-                        <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Logo" />
-                        <ArticleBlock.TranslateText ns='home' name='about_p1' />
-                        <ArticleBlock.TranslateText ns='home' name='about_p2' />
+                        <Appearance dur={0.45} delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Logo" /></Appearance>
+                        <Appearance dur={0.45} delay={1.2}><ArticleBlock.TranslateText ns='home' name='about_p1' /></Appearance>
+                        <Appearance dur={0.45} delay={1.45}><ArticleBlock.TranslateText ns='home' name='about_p2' /></Appearance>
                     </ArticleSection>
 
                     <PrimaryDivider />
 
                     <ArticleSection>
-                        <ArticleBlock.TranslateText ns='home' name='about_p3' />
-                        <ArticleBlock.TranslateText ns='home' name='about_p4' />
+                        <Appearance dur={0.45} delay={1.7}><ArticleBlock.TranslateText ns='home' name='about_p3' /></Appearance>
+                        <Appearance dur={0.45} delay={2.15}><ArticleBlock.TranslateText ns='home' name='about_p4' /></Appearance>
 
-                        <ArticleBlock.Action
+                        <Appearance dur={0.45} delay={2.5}><ArticleBlock.Action
                             sx={{
                                 justifyContent: { xs: 'center', lg: 'flex-start' }
                             }}
@@ -97,7 +98,7 @@ export function About() {
                             <OrderButton ns='home' name='order' />
                             <VkButton /><DcButton />
 
-                        </ArticleBlock.Action>
+                        </ArticleBlock.Action></Appearance>
                     </ArticleSection>
                 </StyledArticle>
 

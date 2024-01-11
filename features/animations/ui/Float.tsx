@@ -4,7 +4,7 @@
 import { createElement as e } from "react"
 
 // Material-UI
-import { Box, BoxProps } from "@mui/material"
+import { Box } from "@mui/material"
 
 // Emotion
 import { keyframes } from "@emotion/react"
@@ -13,13 +13,8 @@ import styled from "@emotion/styled"
 // Features
 import { defaultWrapper } from "@/features/wrappers"
 
-// Shared
-import { styledDefaultInterface } from "@/shared/mui"
-
-// Interfaces
-export interface FloatInterface extends BoxProps, styledDefaultInterface {
-    dur?: number
-}
+// Insides
+import { FloatInterface } from "../types"
 
 // Animation
 const floatKeyframes = keyframes`
@@ -35,9 +30,10 @@ const floatKeyframes = keyframes`
 `
 
 // Styled-Component
-const StyledFloat = styled(({ dur, ...props }: FloatInterface) => e(Box, props))<FloatInterface>`
+const StyledFloat = styled(({ dur, delay, ...props }: FloatInterface) => e(Box, props))<FloatInterface>`
 
     animation: ${floatKeyframes} ${({ dur }) => dur ? dur : '6'}s ease-in-out infinite;
+    animation-delay: ${({ delay }) => delay ? delay : '0'}s;
 
 `
 

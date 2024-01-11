@@ -24,7 +24,6 @@ const Action = ({
     const clones = Children.map(children, (child: ReactNode) => {
 
         const sx = (child as ReactElement).props.sx
-        console.log(sx)
 
         // Recommended to use only MUI components inside because otherwise, sx won't be supported
         return cloneElement(child as ReactElement, { 
