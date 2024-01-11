@@ -13,7 +13,13 @@ import { Wrapper } from "@/features/wrappers";
 import { ArticleSection, ArticleBlock } from "@/features/article";
 
 // Insides
-import { StyledWrapper, Illustration, PrimaryDivider, StyledArticle } from "./styled-comps";
+import {
+    StyledWrapper,
+    Illustration,
+    PrimaryDivider,
+    StyledArticle,
+    OrderButton
+} from "./styled-comps";
 
 // Shared
 // ...
@@ -35,9 +41,7 @@ export function About() {
                 {/* Left Section With Article */}
                 <StyledArticle>
                     <ArticleSection>
-                        <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Logo" style={{
-                            width: '450px'
-                        }} />
+                        <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Logo"/>
                         <ArticleBlock.TranslateText ns='home' name='about_p1' />
                         <ArticleBlock.TranslateText ns='home' name='about_p2' />
                     </ArticleSection>
@@ -48,15 +52,13 @@ export function About() {
                         <ArticleBlock.TranslateText ns='home' name='about_p3' />
                         <ArticleBlock.TranslateText ns='home' name='about_p4' />
 
-                        <ArticleBlock.Action>
+                        <ArticleBlock.Action
+                            sx={{
+                                justifyContent: { xs: 'center', lg: 'flex-start' }
+                            }}
+                        >
 
-                            <HatButton sx={{
-                                height: '60px',
-                                p: '0px 70px',
-                                fontWeight: '600'
-                            }}>
-                                Order
-                            </HatButton>
+                            <OrderButton ns='home' name='order' />
                             <VkButton /><DcButton />
 
                         </ArticleBlock.Action>
@@ -71,3 +73,4 @@ export function About() {
         </StyledWrapper>
     )
 }
+

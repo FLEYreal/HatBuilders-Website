@@ -19,8 +19,8 @@ const Wrapper = styled(({ def, ...props }: ArticleInterface) => e(Box, props)) <
 
     ${({ def }) => def!.b('xs')} { width: 300px; } 
     ${({ def }) => def!.b('md')} { width: 370px; } 
-    ${({ def }) => def!.b('lg')} { width: 400px; } 
-    ${({ def }) => def!.b('xl')} { width: 540px; } 
+    ${({ def }) => def!.b('lg')} { width: 460px; } 
+    ${({ def }) => def!.b('xl')} { width: 560px; } 
 `
 
 
@@ -29,7 +29,7 @@ const Wrapper = styled(({ def, ...props }: ArticleInterface) => e(Box, props)) <
  * for better readbility, convenient implementing, to define styles for all the article
  * and for SEO.
  */
-const ArticleComponent =({
+const ArticleComponent = ({
     children,
     sx,
     fullSize = false,
@@ -52,9 +52,9 @@ const ArticleComponent =({
                 textAlign: textAlign,
                 ...sx
             }}
-            
+
             {...props}
-            >
+        >
             {children}
         </Wrapper>
     );

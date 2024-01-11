@@ -1,6 +1,6 @@
 // Basics
 import { CSSProperties, ReactNode } from 'react'
-import { StaticImageData } from 'next/image';
+import { ImageProps, StaticImageData } from 'next/image';
 
 // Material-UI
 import { BoxProps, TypographyOwnProps, DividerOwnProps } from '@mui/material'
@@ -44,7 +44,7 @@ export interface ArticleSectionInterface extends InsideInterface, BoxProps {}
 /**
  * @param component - Define what HTML tag will wrapper have. It's "section" by default.
  */
-export interface ArticleBlockInterface extends InsideInterface, BoxProps {}
+export interface ArticleBlockInterface extends InsideInterface {}
 
 // Interfaces for sub-components of ArticleBlock
 
@@ -74,7 +74,7 @@ export interface TranslateTextInterface extends ArticleBlockInterface {
  * @param m - Define margins for the children of the Action component.
  * @param align - Define how will components build by column or row.
  */
-export interface ActionInterface extends ArticleBlockInterface {
+export interface ActionInterface extends ArticleBlockInterface, BoxProps {
     m?: string;
     align?: 'column' | 'row';
 }
@@ -92,8 +92,4 @@ export interface ActionDividerInterface extends ActionInterface {
  * @param src - Path to the folder (Worth noting: As it's NextJS, you have to provide imported variable rather than hardcoded string path to the image).
  * @param alt - Image description, used mostly for SEO but will be displayed when image can't be loaded.
  */
-export interface ImageInterface extends ArticleBlockInterface {
-    src: StaticImageData;
-    alt: string;
-    style: CSSProperties
-}
+export interface ImageInterface extends ArticleBlockInterface, ImageProps {}

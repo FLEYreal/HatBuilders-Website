@@ -10,7 +10,7 @@ import { TextInterface } from '../../config/types';
 export const Text: React.FC<TextInterface> = ({
     variant = "h3",
     component = "p",
-    textAlign = 'start',
+    textAlign,
 
     children,
     sx,
