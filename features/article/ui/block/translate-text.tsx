@@ -16,7 +16,7 @@ import { TranslateTextInterface } from '../../config/types';
 export const TranslateText: React.FC<TranslateTextInterface> = ({
     variant = "h3",
     component = "p",
-    textAlign = 'start',
+    textAlign,
 
     name = 'main',
     ns = 'home',
@@ -47,6 +47,12 @@ export const TranslateText: React.FC<TranslateTextInterface> = ({
             variant={variant || 'h3'}
             sx={{
                 textAlign: textAlign,
+                p: {
+                    xs: '3px 0',
+                    md: '5px 0',
+                    lg: '8px 0',
+                    xl: '12px 0'
+                },
                 ...sx
             }}
         >

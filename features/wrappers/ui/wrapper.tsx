@@ -21,12 +21,13 @@ type StyledWrapperProps = styledDefaultInterface & React.ComponentProps<typeof B
 const StyledWrapper = styled(({ def, ...props }: StyledWrapperProps) => e(Box, props)) <StyledWrapperProps>` 
     // Styles independent of screen resolution
     margin: 0 auto;
+    position: relative;
 
     // Define Width for Wrapper
-    ${({ def }) => def!.b('xs')} { width: ${({ def }) => def!.v.sm + 'px'} }
-    ${({ def }) => def!.b('md')} { width: ${({ def }) => def!.v.md + 'px'} }
-    ${({ def }) => def!.b('lg')} { width: ${({ def }) => def!.v.lg + 'px'} }
-    ${({ def }) => def!.b('xl')} { width: ${({ def }) => def!.v.xl + 'px'} }
+    ${({ def }) => def!.b('xs')} { width: ${({ def }) => def!.v.smWidth + 'px'} }
+    ${({ def }) => def!.b('md')} { width: ${({ def }) => def!.v.mdWidth + 'px'} }
+    ${({ def }) => def!.b('lg')} { width: ${({ def }) => def!.v.lgWidth + 'px'} }
+    ${({ def }) => def!.b('xl')} { width: ${({ def }) => def!.v.xlWidth + 'px'} }
 
 `
 

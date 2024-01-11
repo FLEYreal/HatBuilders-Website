@@ -74,6 +74,8 @@ const StyledCyberpukBanner = styled(({ def, ...props }: styledDefaultInterface) 
     }
 `
 
+const StyledWrapperComponent = styled(Flex)<FlexInterface>``
+
 const OrderButton = (props: BigHatButtonInterface) => {
 
     // These variables tell wether it's bigger than breakpoint's screen size 
@@ -118,6 +120,7 @@ const OrderButton = (props: BigHatButtonInterface) => {
 // Export all styled components
 export const BottomPlatform = defaultWrapper(StyledBottomPlatform)
 export const CyberpukBanner = defaultWrapper(StyledCyberpukBanner)
+export const StyledWrapper = defaultWrapper(StyledWrapperComponent)
 
 // Export all ordinary components
 export { OrderButton }

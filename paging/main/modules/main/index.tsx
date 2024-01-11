@@ -8,9 +8,10 @@ import { VkButton, DcButton } from '@/widgets/social-buttons';
 import { Column, Row, Wrapper } from "@/features/wrappers";
 import { Flex } from '@/features/wrappers'
 import { Article, ArticleBlock } from "@/features/article";
+import { Appearance } from '@/features/animations'
 
 // Insides
-import { BottomPlatform, CyberpukBanner, OrderButton } from './styled-comps'
+import { BottomPlatform, CyberpukBanner, StyledWrapper, OrderButton } from './styled-comps'
 
 // Assets
 import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
@@ -19,14 +20,14 @@ import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
 export function Main() {
 
     return (
-        <Flex stretchX stretchY component='div' align={['start', 'center']}>
+        <StyledWrapper stretchX stretchY component='div' align={['start', 'center']}>
 
             {/* Logo & Title Component */}
             <Wrapper sx={{ pt: '64px' }}>
 
                 <Article align="center" textAlign="center">
-                    <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" sx={{ m: 0 }} />
-                    <ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5, color: '#ffffff' }} name="main_title" ns="home" />
+                    <Appearance delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" style={{ margin: 0 }} /></Appearance>
+                    <Appearance delay={1.25}><ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5, color: '#ffffff' }} name="main_title" ns="home" /></Appearance>
                 </Article>
 
             </Wrapper>
@@ -67,7 +68,7 @@ export function Main() {
 
             </BottomPlatform>
 
-        </Flex >
+        </StyledWrapper >
 
     )
 }

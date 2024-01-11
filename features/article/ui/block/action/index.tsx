@@ -1,5 +1,5 @@
 // Basics
-import React, { ReactElement, ReactNode } from 'react';
+import { cloneElement, Children, ReactElement, ReactNode } from 'react';
 
 // Material-UI
 import { Box } from '@mui/material';
@@ -21,10 +21,14 @@ const Action = ({
 }: ActionInterface) => {
 
     // Clone children and parse to apply custom styling
-    const clones = React.Children.map(children, (child: ReactNode) => {
+    const clones = Children.map(children, (child: ReactNode) => {
+
+        const sx = (child as ReactElement).props.sx
 
         // Recommended to use only MUI components inside because otherwise, sx won't be supported
-        return React.cloneElement(child as ReactElement, { sx: { marginRight: '10px', marginLeft: '0' } });
+        return cloneElement(child as ReactElement, { 
+            sx: { marginRight: '12px', marginLeft: '0', ...sx }
+        });
 
     });
 

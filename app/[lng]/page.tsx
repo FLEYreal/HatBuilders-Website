@@ -1,6 +1,3 @@
-// Features
-import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
-
 // Pages
 import {
 	MainModule,
@@ -13,20 +10,10 @@ import {
 // Widgets
 import { Header } from '@/widgets/header'
 
-// Shared
-import { useTranslation } from '@/shared/i18n/modal'
+// Features
+import { More, ScrollDots, DisplayModules, StepfulProvider } from '@/features/stepful-display'
 
-
-
-export default async function Home({
-	params: { lng },
-}: {
-	params: { lng: string }
-}) {
-
-	// eslint-disable-next-line react-hooks/rules-of-hooks
-	const { t } = await useTranslation(lng, 'home')
-
+export default async function Home() {
 
 	return (
 		<StepfulProvider
@@ -37,7 +24,6 @@ export default async function Home({
 				<PortfolioModule key={2} />,
 				<HireModule key={3} />,
 				<OrderModule key={4} />
-
 			]}>
 
 			{/* Main page special Header */}
@@ -49,7 +35,11 @@ export default async function Home({
 
 			{/* Component that displays all modules from "modules" attribute of "StepfulProvider" */}
 			<DisplayModules component="main" sx={{
-				overflow: 'hidden'
+				overflow: 'clip',
+				position: 'absolute',
+				top: 0,
+				left: 0,
+				width: '100%'
 			}} />
 		</StepfulProvider>
 	)
