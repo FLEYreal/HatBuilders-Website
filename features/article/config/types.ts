@@ -1,9 +1,9 @@
 // Basics
-import { CSSProperties, ReactNode } from 'react'
-import { ImageProps, StaticImageData } from 'next/image';
+import { ReactNode } from 'react'
+import { ImageProps } from 'next/image';
 
 // Material-UI
-import { BoxProps, TypographyOwnProps, DividerOwnProps } from '@mui/material'
+import { BoxProps, TypographyProps, DividerOwnProps } from '@mui/material'
 
 // Shared
 import { styledDefaultInterface } from '@/shared/mui';
@@ -52,8 +52,7 @@ export interface ArticleBlockInterface extends InsideInterface {}
  * @param variant - Define typography (from Material-UI) variant of the text (h1, h2, h3, ...etc).
  * @param textAlign - Define align of the text, start, center or end.
  */
-export interface TextInterface extends ArticleBlockInterface {
-    variant?: TypographyOwnProps['variant'];
+export interface TextInterface extends ArticleBlockInterface, TypographyProps {
     textAlign?: align;
 }
 
@@ -63,8 +62,7 @@ export interface TextInterface extends ArticleBlockInterface {
  * @param name - Name of the translation in locale folder
  * @param ns - What json file to use from local file.
  */
-export interface TranslateTextInterface extends ArticleBlockInterface {
-    variant?: TypographyOwnProps['variant'];
+export interface TranslateTextInterface extends ArticleBlockInterface, TypographyProps {
     textAlign?: align;
     name?: string;
     ns?: string

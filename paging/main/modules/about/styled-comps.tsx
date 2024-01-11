@@ -15,8 +15,7 @@ import { HatButton, HatButtonInterface } from "@/widgets/button";
 // Features
 import { Flex, defaultWrapper } from "@/features/wrappers";
 import { FlexInterface } from "@/features/wrappers/types";
-import { ArticleInterface, ImageInterface } from '@/features/article/config/types'
-import { Image } from "@/features/article/ui/block/image";
+import { ArticleInterface } from '@/features/article/config/types'
 import { Article } from '@/features/article'
 
 // Types
@@ -49,11 +48,14 @@ const StyledIllustration = styled(({ def, ...props }: IllustrationInterface) => 
     background-size: cover;
     z-index: -1;
 
+
+    
     ${({ def }) => def!.b('lg')} {
-        top: calc(50vh - 200px);
-        width: 400px;
-        height: 400px;
+        top: calc(50vh - 220px);
+        width: 440px;
+        height: 440px;
     }
+
     ${({ def }) => def!.b('xl')} {
         top: calc(50vh - 340px);
         width: 680px;
@@ -65,7 +67,10 @@ const StyledIllustration = styled(({ def, ...props }: IllustrationInterface) => 
 // DIVIDER STYLING
 const StyledPrimaryDivider = styled(({ def, ...props }: PrimaryDividerInterface) => e(Divider, props)) <PrimaryDividerInterface>`
     background-color: ${({ def }) => def!.t.palette.primary.light};
-    margin: 24px 0;
+    ${({ def }) => def!.b('xs')} { margin: 12px 0; }
+    ${({ def }) => def!.b('md')} { margin: 14px 0; }
+    ${({ def }) => def!.b('lg')} { margin: 18px 0; }
+    ${({ def }) => def!.b('xl')} { margin: 24px 0; }
 `
 
 

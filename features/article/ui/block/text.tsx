@@ -1,5 +1,5 @@
 // Material-UI
-import { Typography, BoxProps } from '@mui/material';
+import { Typography, TypographyProps } from '@mui/material';
 
 // Config
 import { TextInterface } from '../../config/types';
@@ -17,7 +17,7 @@ export const Text: React.FC<TextInterface> = ({
 }: TextInterface) => {
 
     // Define tag of the component relatively variant of the block
-    const comp: BoxProps['component'] = component || (() => {
+    const comp: TypographyProps['component'] = component || (() => {
         switch (variant) {
             case 'h1': { return 'h1' }
             case 'h2': { return 'h2' }
@@ -36,7 +36,12 @@ export const Text: React.FC<TextInterface> = ({
             variant={variant || 'h3'}
             sx={{
                 textAlign: textAlign,
-                p: '12px 0',
+                p: {
+                    xs: '5px 0',
+                    md: '7px 0',
+                    lg: '10px 0',
+                    xl: '12px 0'
+                },
                 ...sx
             }}
         >

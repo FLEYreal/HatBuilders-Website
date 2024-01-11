@@ -17,8 +17,8 @@ import { defaultWrapper } from '@/features/wrappers';
 const Wrapper = styled(({ def, ...props }: ArticleInterface) => e(Box, props)) <ArticleInterface>`
     transition: font-size 0.3s ease;
 
-    ${({ def }) => def!.b('xs')} { width: 300px; } 
-    ${({ def }) => def!.b('md')} { width: 370px; } 
+    ${({ def }) => def!.b('xs')} { width: 98%; } 
+    ${({ def }) => def!.b('md')} { width: 95%; } 
     ${({ def }) => def!.b('lg')} { width: 460px; } 
     ${({ def }) => def!.b('xl')} { width: 560px; } 
 `

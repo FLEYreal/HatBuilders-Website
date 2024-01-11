@@ -1,11 +1,7 @@
-// Basics
-// ...
-
 // Material-UI
 import { Box } from '@mui/material';
 
 // Widgets
-import { HatButton } from "@/widgets/button";
 import { DcButton, VkButton } from "@/widgets/social-buttons";
 
 // Features
@@ -20,9 +16,6 @@ import {
     StyledArticle,
     OrderButton
 } from "./styled-comps";
-
-// Shared
-// ...
 
 // Assets
 import hatbuildersSign from '@/public/images/primary-hb-sign-no-b.png';
