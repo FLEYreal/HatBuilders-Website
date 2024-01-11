@@ -1,6 +1,18 @@
 // Material-UI
 import { createTheme, Theme } from '@mui/material/styles';
 
+// Declarations
+declare module "@mui/material/styles"
+{
+    // Tell TypeScript about custom Breakpoints.
+    interface BreakpointOverrides {
+        smWidth: true,
+        mdWidth: true,
+        lgWidth: true,
+        xlWidth: true
+    }
+}
+
 // Palette of colors
 export const paletteDark = {
     primary: {
@@ -75,11 +87,20 @@ export const transitions = {
 // Breakpoints for responsive layout
 export const breakpoints = {
     values: {
+
+        // Default breakpoints: Used to define at what width to apply styles
         xs: 0,
-        sm: 320,
-        md: 480,
-        lg: 789,
-        xl: 1080,
+        sm: 321,
+        md: 481,
+        lg: 920,
+        xl: 1200,
+
+        // Custom breakpoints: Used to define width of content (for Wrapper component) per their default version
+        // It doesn't contain "xs" because there's no reason to specify different property with same "0" int.
+        smWidth: 321,
+        mdWidth: 520,
+        lgWidth: 790,
+        xlWidth: 1080
     },
 }
 
@@ -105,6 +126,9 @@ export const darkTheme = createTheme({
 export const lightTheme = createTheme({
     breakpoints: breakpoints,
     palette: {
+        background: {
+            default: "#ffffff"
+        },
         mode: 'light',
         ...paletteLight
     },

@@ -1,7 +1,6 @@
 // Material-UI & Emotion
 import { Theme } from "@mui/material"
 
-
 // Interfaces for usage outside of the component
 
 /**

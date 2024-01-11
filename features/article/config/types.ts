@@ -3,12 +3,13 @@ import { CSSProperties, ReactNode } from 'react'
 import { StaticImageData } from 'next/image';
 
 // Material-UI
-import { SxProps } from '@mui/system'
 import { BoxProps, TypographyOwnProps, DividerOwnProps } from '@mui/material'
+
+// Shared
+import { styledDefaultInterface } from '@/shared/mui';
 
 // Reusable Types
 type align = 'start' | 'center' | 'end';
-type component = BoxProps['component'];
 
 /**
  * Root inteface, parent of every interface in the feature.
@@ -16,9 +17,7 @@ type component = BoxProps['component'];
  * @param children - All provided children (React Components) will be inside this parent component.
  * @param sx - SX Styles are type of styles from Material-UI lib which used to create the feature.
  */
-export interface RootInterface {
-    sx?: SxProps;
-}
+export interface RootInterface extends styledDefaultInterface {}
 
 export interface InsideInterface extends RootInterface {
     children?: string | ReactNode;
@@ -31,7 +30,7 @@ export interface InsideInterface extends RootInterface {
  * @param align - Align entire article.
  * @param textAlign - Align all the text inside the article.
  */
-export interface ArticleInterface extends InsideInterface {
+export interface ArticleInterface extends InsideInterface, BoxProps {
     fullSize?: boolean;
     align?: align;
     textAlign?: align;
@@ -40,16 +39,12 @@ export interface ArticleInterface extends InsideInterface {
 /**
  * @param component - Define what HTML tag will wrapper have. It's "section" by default.
  */
-export interface ArticleSectionInterface extends InsideInterface {
-    component?: component
-}
+export interface ArticleSectionInterface extends InsideInterface, BoxProps {}
 
 /**
  * @param component - Define what HTML tag will wrapper have. It's "section" by default.
  */
-export interface ArticleBlockInterface extends InsideInterface {
-    component?: component
-}
+export interface ArticleBlockInterface extends InsideInterface, BoxProps {}
 
 // Interfaces for sub-components of ArticleBlock
 

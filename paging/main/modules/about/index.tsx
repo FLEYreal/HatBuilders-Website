@@ -10,10 +10,10 @@ import { DcButton, VkButton } from "@/widgets/social-buttons";
 
 // Features
 import { Wrapper } from "@/features/wrappers";
-import { Article, ArticleSection, ArticleBlock } from "@/features/article";
+import { ArticleSection, ArticleBlock } from "@/features/article";
 
 // Insides
-import { StyledWrapper, Illustration, PrimaryDivider } from "./styled-comps";
+import { StyledWrapper, Illustration, PrimaryDivider, StyledArticle } from "./styled-comps";
 
 // Shared
 // ...
@@ -33,28 +33,21 @@ export function About() {
             <Wrapper>
 
                 {/* Left Section With Article */}
-                <Article>
+                <StyledArticle>
                     <ArticleSection>
                         <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Logo" style={{
                             width: '450px'
                         }} />
-                        <ArticleBlock.Text>
-                            is a project whose goal is not just building best minecraft buildings to clients we love and care about but to do it more efficiently, fun and cheap!
-                        </ArticleBlock.Text>
-                        <ArticleBlock.Text>
-                            We can build the project of any scale from just a little village for your SMP server to big maps for UHC and whole lot more, if you’re interested, you can order any time, we’re always happy to hear you out!
-                        </ArticleBlock.Text>
+                        <ArticleBlock.TranslateText ns='home' name='about_p1' />
+                        <ArticleBlock.TranslateText ns='home' name='about_p2' />
                     </ArticleSection>
 
                     <PrimaryDivider />
 
                     <ArticleSection>
-                        <ArticleBlock.Text>
-                            If you love building, if you want to make money doing what you love, you can work with us. apply!
-                        </ArticleBlock.Text>
-                        <ArticleBlock.Text>
-                            You also able to order from our discord server or vk group!
-                        </ArticleBlock.Text>
+                        <ArticleBlock.TranslateText ns='home' name='about_p3' />
+                        <ArticleBlock.TranslateText ns='home' name='about_p4' />
+
                         <ArticleBlock.Action>
 
                             <HatButton sx={{
@@ -68,7 +61,7 @@ export function About() {
 
                         </ArticleBlock.Action>
                     </ArticleSection>
-                </Article>
+                </StyledArticle>
 
                 {/* Wrapper for floating thingies */}
                 <Box>

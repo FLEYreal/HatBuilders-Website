@@ -47,6 +47,7 @@ export const TranslateText: React.FC<TranslateTextInterface> = ({
             variant={variant || 'h3'}
             sx={{
                 textAlign: textAlign,
+                p: '12px 0',
                 ...sx
             }}
         >

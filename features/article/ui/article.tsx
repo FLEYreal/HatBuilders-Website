@@ -1,31 +1,27 @@
 'use client';
 
 // Basics
-import React, { ReactNode } from 'react';
+import React, { createElement as e } from 'react';
 
 // Material-UI
 import { Box } from '@mui/material';
-import { styled } from '@mui/system';
+
+// Emotion
+import styled from '@emotion/styled';
 
 // Config
 import { ArticleInterface } from '../config/types';
+import { defaultWrapper } from '@/features/wrappers';
 
 // Styling
-const Wrapper = styled(Box)(({ theme }) => ({
-    [theme.breakpoints.up('sm')]: {
-        width: '300px',
-    },
-    [theme.breakpoints.up('md')]: {
-        width: '370px',
-    },
-    [theme.breakpoints.up('lg')]: {
-        width: '400px',
-    },
-    [theme.breakpoints.up('xl')]: {
-        width: '540px',
-    },
-    transition: 'font-size 0.3s ease',
-}));
+const Wrapper = styled(({ def, ...props }: ArticleInterface) => e(Box, props)) <ArticleInterface>`
+    transition: font-size 0.3s ease;
+
+    ${({ def }) => def!.b('xs')} { width: 300px; } 
+    ${({ def }) => def!.b('md')} { width: 370px; } 
+    ${({ def }) => def!.b('lg')} { width: 400px; } 
+    ${({ def }) => def!.b('xl')} { width: 540px; } 
+`
 
 
 /**
@@ -33,13 +29,15 @@ const Wrapper = styled(Box)(({ theme }) => ({
  * for better readbility, convenient implementing, to define styles for all the article
  * and for SEO.
  */
-export function Article({
+const ArticleComponent =({
     children,
     sx,
     fullSize = false,
     align = 'start',
-    textAlign = 'start'
-}: ArticleInterface) {
+    textAlign = 'start',
+
+    ...props
+}: ArticleInterface) => {
 
 
     return (
@@ -53,10 +51,14 @@ export function Article({
 
                 textAlign: textAlign,
                 ...sx
-            }}>
+            }}
+            
+            {...props}
+            >
             {children}
         </Wrapper>
     );
 
 }
 
+export const Article = defaultWrapper<ArticleInterface>(ArticleComponent)
