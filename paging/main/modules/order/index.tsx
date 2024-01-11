@@ -13,7 +13,6 @@ import hatbuildersLogo from '@/public/images/secondary-hb-sign.png'
 import { StyledWrapper, Blackout, ApplyJobButton, JobApplicationButton } from './styled-comps';
 import { Flex } from '@/features/wrappers';
 
-
 // Main Component
 export function Order() {
     return (
@@ -25,53 +24,94 @@ export function Order() {
             textAlign='center'
         >
 
+            {/* Upper part with "HATBUILDERS" sign and title */}
             <Article align="center" sx={{ mt: '80px' }}>
 
-                <Appearance dur={0.5} delay={0.6}><ArticleBlock.Image alt="HatBuilders Logo" src={hatbuildersLogo} /></Appearance>
+                {/* Hatbuilders Sign */}
+                <Appearance dur={0.5} delay={0.6}>
+                    <ArticleBlock.Image alt="HatBuilders Logo" src={hatbuildersLogo} />
+                </Appearance>
 
-                <Appearance dur={0.5} delay={1}><ArticleBlock.TranslateText name="Time_to_Act" variant='h4' textAlign='center' sx={{ m: '-18px', fontSize: { xl: 16, lg: 15, md: 13, sm: 12 }, color: 'white', textShadow: '-1px -1px  black, 1px 1px 0 black, 1px -1px 0 black, -1px  1px 0 black' }} /></Appearance>
+                {/* General Title */}
+                <Appearance dur={0.5} delay={1}>
+                    <ArticleBlock.TranslateText
+                        name="Time_to_Act"
+                        variant='h4'
+                        textAlign='center'
+                        sx={{
+                            m: '-18px',
+                            fontSize: { xl: 16, lg: 15, md: 13, sm: 12 },
+                            color: 'white',
+                            textShadow: '-1px -1px  black, 1px 1px 0 black, 1px -1px 0 black, -1px  1px 0 black'
+                        }}
+                    />
+                </Appearance>
 
 
             </Article>
 
-            <Appearance dur={0.5} delay={1.4}><Article textAlign='center' align="center" sx={{ display: 'grid' }}>
+            {/* Bottom part with action buttons */}
+            <Appearance dur={0.5} delay={1.4}>
 
-                <ArticleBlock.TranslateText
-                    name="Share_Your_Input"
-                    variant='h6'
+                <Article
                     textAlign='center'
-                    sx={{
-                        fontSize: { xl: 15, lg: 14, md: 12, sm: 10 },
-                        justifySelf: 'center',
-                        color: 'white',
-                        maxWidth: { xl: 350, lg: 315, md: 290, sm: 265 },
-                        letterSpacing: '1.3px',
-                        textShadow: '0px 0px 5px #000000',
-                        mb: '10px'
-                    }}
-                />
+                    align="center"
+                    sx={{ display: 'grid' }}
+                >
 
-                <Article textAlign='center' align="center" sx={{ mb: '160px', display: 'flex' }}>
+                    {/* Description Text */}
+                    <ArticleBlock.TranslateText
+                        name="Share_Your_Input"
+                        variant='h6'
+                        textAlign='center'
+                        sx={{
+                            fontSize: { xl: 15, lg: 14, md: 12, sm: 10 },
+                            justifySelf: 'center',
+                            color: 'white',
+                            maxWidth: { xl: 350, lg: 315, md: 290, sm: 265 },
+                            letterSpacing: '1.3px',
+                            textShadow: '-1px -1px 1.5px black, 1px 1px 1.5px black, 1px  -1px 1.5px black, -1px  1px 1.5px black',
+                            mb: '10px'
+                        }}
+                    />
 
-                    <Flex align={['center', 'center']}>
+                    {/* Action Bar */}
+                    <Article textAlign='center' align="center" sx={{ mb: '160px', display: 'flex' }}>
 
-                        <JobApplicationButton color='primary' sx={{ mb: '7px' }} />
+                        {/* Buttons & Botton subtitle */}
+                        <Flex align={['center', 'center']}>
 
-                        <VkButton sx={{ m: ' 0 0 9px 15px' }} />
+                            {/* Buttons */}
+                            <JobApplicationButton color='primary' sx={{ mb: '7px' }} />
+                            <VkButton sx={{ m: ' 0 0 9px 15px' }} />
+                            <ApplyJobButton sx={{ mb: '7px' }} />
+                            <DcButton sx={{ m: '0 0 4px 15px' }} />
 
-                        <ApplyJobButton sx={{ mb: '7px' }} />
+                            {/* Subtitle */}
+                            <ArticleBlock.TranslateText
+                                name="Reviews_Discord"
+                                textAlign='center'
+                                variant='h6'
+                                sx={{
+                                    fontSize: { xl: 15, lg: 14, md: 12, sm: 10 },
+                                    letterSpacing: '0.4px',
+                                    color: 'white',
+                                    maxWidth: { xl: 295, lg: 270, md: 245, sm: 215 },
+                                    textShadow: '-1px -1px 1.5px black, 1px 1px 1.5px black, 1px  -1px 1.5px black, -1px  1px 1.5px black',
+                                    mt: '5px'
+                                }}
+                            />
 
-                        <DcButton sx={{ m: '0 0 4px 15px' }} />
 
-                        <ArticleBlock.TranslateText name="Reviews_Discord" sx={{ fontSize: { xl: 15, lg: 14, md: 12, sm: 10 }, letterSpacing: '0.4px', color: 'white', maxWidth: { xl: 295, lg: 270, md: 245, sm: 215 }, textShadow: '-1px -1px 1.5px black, 1px 1px 1.5px black, 1px  -1px 1.5px black, -1px  1px 1.5px black', mt: '5px' }} textAlign='center' variant='h6' />
+                        </Flex>
 
-
-                    </Flex>
+                    </Article>
 
                 </Article>
 
-            </Article></Appearance>
+            </Appearance>
 
+            {/* Custom blackout to see "more" component in both light and dark themes */}
             <Blackout />
 
         </StyledWrapper>

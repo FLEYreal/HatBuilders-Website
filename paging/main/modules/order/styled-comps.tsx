@@ -18,7 +18,7 @@ import { useResolution } from "@/shared/mui";
 import styled from "@emotion/styled";
 
 // Features
-import { Flex, defaultWrapper } from "@/features/wrappers";
+import { Flex } from "@/features/wrappers";
 import { FlexInterface } from "@/features/wrappers/types";
 
 // Assets
@@ -33,7 +33,7 @@ export const StyledWrapper = styled(({ def, ...props }: FlexInterface) => e(Flex
 `
 
 
-// Styles for wrapper
+// Styles for Wrapper
 const wrapper = () => ({
     position: 'absolute',
     top: '100%',
@@ -109,6 +109,7 @@ const ApplyJobButton = (props: BigHatButtonInterface) => {
                     lg ? 55 :
                         md ? 50 : 40
             }
+
             // This attribute provides props to typography component inside custom "BigHatButton" comp.
             typographyProps={
                 md ? {
@@ -127,8 +128,8 @@ const ApplyJobButton = (props: BigHatButtonInterface) => {
     )
 }
 
-//color theme
-export const Blackout = () => {
+// Color theme
+const Blackout = () => {
 
     // Theme
     const theme = useTheme() as Theme
@@ -153,4 +154,4 @@ export const Blackout = () => {
 }
 
 // Export all ordinary components
-export { ApplyJobButton, JobApplicationButton }
+export { ApplyJobButton, JobApplicationButton, Blackout }

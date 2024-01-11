@@ -1,9 +1,6 @@
 // Basics
 import Image from 'next/image';
 
-// Material-UI
-import { Box } from '@mui/material';
-
 // Widgets
 import { DcButton, VkButton } from "@/widgets/social-buttons";
 
@@ -37,6 +34,46 @@ export function About() {
             <Illustration />
 
             <Wrapper>
+
+                {/* Left Section With Article */}
+                <StyledArticle>
+
+                    {/* Upper section */}
+                    <ArticleSection>
+                        <Appearance dur={0.45} delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Logo" /></Appearance>
+                        <Appearance dur={0.45} delay={1.2}><ArticleBlock.TranslateText ns='home' name='about_p1' /></Appearance>
+                        <Appearance dur={0.45} delay={1.45}><ArticleBlock.TranslateText ns='home' name='about_p2' /></Appearance>
+                    </ArticleSection>
+
+                    {/* Divider component: Separates 2 sections */}
+                    <PrimaryDivider />
+
+                    {/* Bottom section */}
+                    <ArticleSection>
+
+                        {/* Paragraphs */}
+                        <Appearance dur={0.45} delay={1.7}><ArticleBlock.TranslateText ns='home' name='about_p3' /></Appearance>
+                        <Appearance dur={0.45} delay={2.15}><ArticleBlock.TranslateText ns='home' name='about_p4' /></Appearance>
+
+                        {/* Action Bar with buttons */}
+                        <Appearance dur={0.45} delay={2.5}>
+
+                            <ArticleBlock.Action
+                                sx={{
+                                    justifyContent: { xs: 'center', lg: 'flex-start' }
+                                }}
+                            >
+
+                                <OrderButton ns='home' name='order' />
+                                <VkButton /><DcButton />
+
+                            </ArticleBlock.Action>
+
+                        </Appearance>
+
+                    </ArticleSection>
+
+                </StyledArticle>
 
                 {/* Wrapper for floating objects */}
                 <Flex sxStyles={{ position: 'absolute' }}>
@@ -74,38 +111,6 @@ export function About() {
 
 
                 </Flex>
-
-                {/* Left Section With Article */}
-                <StyledArticle>
-                    <ArticleSection>
-                        <Appearance dur={0.45} delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Logo" /></Appearance>
-                        <Appearance dur={0.45} delay={1.2}><ArticleBlock.TranslateText ns='home' name='about_p1' /></Appearance>
-                        <Appearance dur={0.45} delay={1.45}><ArticleBlock.TranslateText ns='home' name='about_p2' /></Appearance>
-                    </ArticleSection>
-
-                    <PrimaryDivider />
-
-                    <ArticleSection>
-                        <Appearance dur={0.45} delay={1.7}><ArticleBlock.TranslateText ns='home' name='about_p3' /></Appearance>
-                        <Appearance dur={0.45} delay={2.15}><ArticleBlock.TranslateText ns='home' name='about_p4' /></Appearance>
-
-                        <Appearance dur={0.45} delay={2.5}><ArticleBlock.Action
-                            sx={{
-                                justifyContent: { xs: 'center', lg: 'flex-start' }
-                            }}
-                        >
-
-                            <OrderButton ns='home' name='order' />
-                            <VkButton /><DcButton />
-
-                        </ArticleBlock.Action></Appearance>
-                    </ArticleSection>
-                </StyledArticle>
-
-                {/* Wrapper for floating thingies */}
-                <Box>
-
-                </Box>
             </Wrapper>
         </StyledWrapper>
     )
