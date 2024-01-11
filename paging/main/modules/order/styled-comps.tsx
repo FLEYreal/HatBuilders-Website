@@ -27,10 +27,9 @@ import orderBg from '@/public/images/orderBg.png';
 // Styles Components
 export const StyledWrapper = styled(({ def, ...props }: FlexInterface) => e(Flex, props)) <FlexInterface>`
 
-
     background-image: url(${orderBg.src});
     background-size: cover;
-    background-position: center;
+    background-position: right;
 `
 
 
@@ -47,26 +46,28 @@ const wrapper = () => ({
 })
 
 
-const ApplyJobButton = (props: BigHatButtonInterface) => {
+const JobApplicationButton = (props: BigHatButtonInterface) => {
 
     // These variables tell wether it's bigger than breakpoint's screen size 
     // Example: XL equals 1080, it means that if screen is bigger than 1080, it'll return TRUE
     const { md, lg, xl } = useResolution()
 
     return (
-        <BigHatButton color="secondary" name="Job_Application"
+        <BigHatButton  color="secondary" name="order"
 
             // Define sizes of Order button "w" is width, "h" is height
             w={
                 xl ? 270 :
                     lg ? 210 :
-                        md ? 160 : 250
+                        md ? 160 : 140
+                            
+                        
             }
 
             h={
                 xl ? 65 :
                     lg ? 55 :
-                        md ? 50 : 65
+                        md ? 50 : 40
             }
             // This attribute provides props to typography component inside custom "BigHatButton" comp.
             typographyProps={
@@ -77,7 +78,7 @@ const ApplyJobButton = (props: BigHatButtonInterface) => {
                 } : {
                     // If it's XS, apply these styles
                     sx: {
-                        fontSize: '25px'
+                        fontSize: '12px'
                     }
                 }
             }
@@ -86,7 +87,47 @@ const ApplyJobButton = (props: BigHatButtonInterface) => {
     )
 }
 
+const ApplyJobButton = (props: BigHatButtonInterface) => {
 
+    // These variables tell wether it's bigger than breakpoint's screen size 
+    // Example: XL equals 1080, it means that if screen is bigger than 1080, it'll return TRUE
+    const { md, lg, xl } = useResolution()
+
+    return (
+        <BigHatButton  color="secondary" name="Job_Application"
+
+            // Define sizes of Order button "w" is width, "h" is height
+            w={
+                xl ? 270 :
+                    lg ? 210 :
+                        md ? 160 : 140
+                        
+            }
+
+            h={
+                xl ? 65 :
+                    lg ? 55 :
+                        md ? 50 : 40
+            }
+            // This attribute provides props to typography component inside custom "BigHatButton" comp.
+            typographyProps={
+                md ? {
+                    // If it's MD and higher, apply styles for H2
+                    variant: "h3",
+                    sx: { color: 'white' }
+                } : {
+                    // If it's XS, apply these styles
+                    sx: {
+                        fontSize: '12px'
+                    }
+                }
+            }
+
+            {...props} />
+    )
+}
+
+//color theme
 export const Blackout = () => {
 
     // Theme
@@ -112,4 +153,4 @@ export const Blackout = () => {
 }
 
 // Export all ordinary components
-export { ApplyJobButton }
+export { ApplyJobButton, JobApplicationButton }
