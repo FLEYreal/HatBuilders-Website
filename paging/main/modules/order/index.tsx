@@ -1,8 +1,5 @@
-// Material-UI
-import { Box } from '@mui/material'
 
 // Widgets
-import { BigHatButton } from "@/widgets/button";
 import { VkButton, DcButton } from '@/widgets/social-buttons'
 
 // Features
@@ -12,8 +9,9 @@ import { Article, ArticleBlock } from "@/features/article";
 import hatbuildersLogo from '@/public/images/secondary-hb-sign.png'
 
 // Styled Components
-import { StyledWrapper } from './styled-comps';
+import { StyledWrapper, Blackout, ApplyJobButton, JobApplicationButton } from './styled-comps';
 import { Flex } from '@/features/wrappers';
+
 
 // Main Component
 export function Order() {
@@ -26,49 +24,41 @@ export function Order() {
             textAlign='center'
         >
 
-            <Article align="center" sx={{ mt: '80px' }}>
+            <Article align="center"  sx={{ mt: '80px' }}>
 
                 <ArticleBlock.Image alt="HatBuilders Logo" src={hatbuildersLogo} />
 
-                <ArticleBlock.Text variant='h4' textAlign='center' sx={{ m: '0', color: 'white', textShadow: '-1px -1px  black, 1px 1px 0 black, 1px -1px 0 black, -1px  1px 0 black' }}>
-                    It&apos;s your best time to act!
-                </ArticleBlock.Text>
+                <ArticleBlock.TranslateText name="Time_to_Act" variant='h4' textAlign='center' sx={{m: '-18px', fontSize: {xl : 16, lg : 15, md: 13, sm: 12 }, color: 'white', textShadow: '-1px -1px  black, 1px 1px 0 black, 1px -1px 0 black, -1px  1px 0 black' }} />
+
 
             </Article>
 
             <Article textAlign='center' align="center" sx={{ display: 'grid' }}>
 
-                <ArticleBlock.Text variant='h6' sx={{ justifySelf: 'center', color: 'white', fontWeight: '700', maxWidth: '350px', letterSpacing: '1.5px', textShadow: '-1px -1px 0 black, 1px 1px 0 black, 1px -1px 0 black,-1px 1px 0 black', m: '0 0 15px 0' }} textAlign='center'>
-                    We don&apos;t know about you yet but it&apos;s your freedom to let us know your idea or will to work! Decide!
-                </ArticleBlock.Text>
+                <ArticleBlock.TranslateText name="Share_Your_Input" variant='h6' sx={{ fontSize: {xl : 15, lg : 14, md: 12, sm: 10 }, justifySelf: 'center', color: 'white', maxWidth: {xl : 350, lg : 315, md: 290, sm: 265 }, letterSpacing: '1.7px', textShadow: '-1px -1px 1.5px black, 1px 1px 1.5px black, 1px  -1px 1.5px black, -1px 1px 1.5px black', mb: '15px' }} textAlign='center' />
 
                 <Article textAlign='center' align="center" sx={{ mb: '160px', display: 'flex' }}>
 
-                    <Flex align={['center', 'flex-end']}>
+                    <Flex align={['center', 'center']}>
 
-                        <BigHatButton typographyProps={{ variant: "h2", sx: { color: '#ffffff' } }} sx={{ mb: '7px' }} type="main" color="primary">
-                            ORDER
-                        </BigHatButton>
+                        <JobApplicationButton color='primary' sx={{ mb: '7px' }}/>
 
-                        <BigHatButton typographyProps={{ variant: "h3", sx: { color: '#ffffff' } }} type="main" color="secondary">
-                            APPLY FOR JOB
-                        </BigHatButton>
+                        <VkButton sx={{m:' 0 0 9px 15px'}} />
 
-                        <ArticleBlock.Text sx={{ letterSpacing: '0.1px', fontSize: '10px !important', width: '290px', textShadow: '-1px -1px 0 black, 1px 1px 0 black, 1px  -1px 0 black, -1px  1px 0 black', mt: '5px' }} textAlign='center' variant='h6'>
-                            If you&apos;re looking for reviews, you can find them on discord server
-                        </ArticleBlock.Text>
+                        <ApplyJobButton sx={{ mb: '7px' }}/>
+
+                        <DcButton sx={{m:'0 0 4px 15px'}} />
+
+                        <ArticleBlock.TranslateText name="Reviews_Discord" sx={{fontSize: {xl : 15, lg : 14, md: 12, sm: 10 }, letterSpacing: '0.4px', color:'white', maxWidth: {xl : 295, lg : 270, md: 245, sm: 215 }, textShadow: '-1px -1px 1.5px black, 1px 1px 1.5px black, 1px  -1px 1.5px black, -1px  1px 1.5px black', mt: '5px' }} textAlign='center' variant='h6'/>
+
 
                     </Flex>
-
-
-                    <Box sx={{ width: '60px', height: '60px', m: '9px 0 0 15px', p: '0' }}>
-                        <VkButton /><DcButton />
-                    </Box>
-
 
                 </Article>
 
             </Article>
+
+            <Blackout/>
 
         </StyledWrapper>
 
