@@ -1,23 +1,28 @@
 'use client'
 
 // Basics
-import { createElement as e } from "react"
+import {
+    cloneElement,
+    Children,
+    ReactNode,
+    ReactElement,
+    CSSProperties
+} from "react"
 
 // Material-UI
-import { Box } from "@mui/material"
+import { SxProps } from "@mui/material"
 
 // Emotion
 import { keyframes } from "@emotion/react"
-import styled from "@emotion/styled"
-
-// Features
-import { defaultWrapper } from "@/features/wrappers"
 
 // Insides
 import { AppearanceInterface } from "../types"
 
 // Animation
-const appearanceKeyframes = keyframes`
+import s from './style.module.css'
+
+// Animation
+const sxAppearanceKeyframes = keyframes`
     0% {
         opacity: 0;
         transform: translateY(-6vh);
@@ -28,31 +33,49 @@ const appearanceKeyframes = keyframes`
     }
 `
 
-// Styled-Component
-const StyledAppearance = styled(({ dur, delay, ...props }: AppearanceInterface) => e(Box, props))<AppearanceInterface>`
-
-    opacity: 0;
-
-    animation: ${appearanceKeyframes} ${({ dur }) => dur ? dur : '1'}s ease-in-out;
-    animation-delay: ${({ delay }) => delay ? delay : '0'}s;
-    animation-fill-mode: forwards;
-
-`
-
 // Component
-const AppearanceComponent = ({ children, ...props }: AppearanceInterface) => {
+export const Appearance = ({
+    children,
+    isSx, // Define wether to use SX or Style
+    dur = 1, // Animation's duration
+    delay = 0, // Delay before starting
+    ...props
+}: AppearanceInterface) => {
 
-    return (
-        <StyledAppearance {...props}>
+    const mapChild = (child: ReactNode) => {
 
-            {children}
+        const { style, sx }: { style?: CSSProperties; sx?: SxProps } = (child as ReactElement).props;
 
-        </StyledAppearance>
-    )
+        const animationProps = {
+            opacity: 0,
+            animationDuration: dur + 's',
+            animationDelay: delay + 's',
+            animationFillMode: 'forwards',
+            ...style,
+        };
 
-}
+        if (isSx) {
+            return cloneElement(child as ReactElement, {
+                sx: {
+                    animation: `${sxAppearanceKeyframes}`,
+                    animationTimingFunction: 'ease-in-out',
+                    ...animationProps,
+                    ...sx,
+                },
+                ...props,
+            });
+        }
 
-export const Appearance = defaultWrapper<AppearanceInterface>(AppearanceComponent)
+        else {
+            return cloneElement(child as ReactElement, {
+                style: animationProps,
+                className: s.appearanceKeyframes,
+                ...props,
+            });
+        }
+    };
 
+    const clonedChildren = Children.map(children, mapChild);
 
-
+    return <>{clonedChildren}</>;
+};

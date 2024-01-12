@@ -1,13 +1,11 @@
 // Material-UI
 import { BoxProps } from "@mui/material"
 
-// Shared
-import { styledDefaultInterface } from "@/shared/mui"
-
 // Root interfaces
-export interface RootInterface extends styledDefaultInterface {
+export interface RootInterface {
     dur?: number;
     delay?: number;
+    isSx?: boolean;
 }
 
 // Components' interfaces

@@ -1,7 +1,7 @@
 'use client';
 
 // Basics
-import React, { createElement as e } from 'react';
+import { createElement as e } from 'react';
 
 // Material-UI
 import { Box } from '@mui/material';

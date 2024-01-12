@@ -1,6 +1,3 @@
-// Basics
-import React from 'react';
-
 // Material-UI
 import { Divider } from '@mui/material';
 

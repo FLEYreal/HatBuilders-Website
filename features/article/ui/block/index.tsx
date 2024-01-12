@@ -1,6 +1,3 @@
-// Basics
-import React from 'react';
-
 // Config
 import { ArticleBlockInterface } from '../../config/types';
 

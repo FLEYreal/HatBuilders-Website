@@ -1,5 +1,4 @@
 // Basics
-import React from 'react';
 import NextImage from 'next/image'
 
 // Config

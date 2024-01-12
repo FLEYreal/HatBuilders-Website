@@ -1,6 +1,9 @@
 // Basics
 import Image from 'next/image';
 
+// Material-UI
+import { Box } from '@mui/material'
+
 // Widgets
 import { DcButton, VkButton } from "@/widgets/social-buttons";
 
@@ -41,8 +44,8 @@ export function About() {
                     {/* Upper section */}
                     <ArticleSection>
                         <Appearance dur={0.45} delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Logo" /></Appearance>
-                        <Appearance dur={0.45} delay={1.2}><ArticleBlock.TranslateText ns='home' name='about_p1' /></Appearance>
-                        <Appearance dur={0.45} delay={1.45}><ArticleBlock.TranslateText ns='home' name='about_p2' /></Appearance>
+                        <Appearance isSx dur={0.45} delay={1.2}><ArticleBlock.TranslateText ns='home' name='about_p1' /></Appearance>
+                        <Appearance isSx dur={0.45} delay={1.45}><ArticleBlock.TranslateText ns='home' name='about_p2' /></Appearance>
                     </ArticleSection>
 
                     {/* Divider component: Separates 2 sections */}
@@ -52,11 +55,11 @@ export function About() {
                     <ArticleSection>
 
                         {/* Paragraphs */}
-                        <Appearance dur={0.45} delay={1.7}><ArticleBlock.TranslateText ns='home' name='about_p3' /></Appearance>
-                        <Appearance dur={0.45} delay={2.15}><ArticleBlock.TranslateText ns='home' name='about_p4' /></Appearance>
+                        <Appearance isSx dur={0.45} delay={1.7}><ArticleBlock.TranslateText ns='home' name='about_p3' /></Appearance>
+                        <Appearance isSx dur={0.45} delay={2.15}><ArticleBlock.TranslateText ns='home' name='about_p4' /></Appearance>
 
                         {/* Action Bar with buttons */}
-                        <Appearance dur={0.45} delay={2.5}>
+                        <Appearance isSx dur={0.45} delay={2.5}>
 
                             <ArticleBlock.Action
                                 sx={{
@@ -79,35 +82,60 @@ export function About() {
                 <Flex sxStyles={{ position: 'absolute' }}>
 
                     <Float sx={{
+                        opacity: 0.4,
                         top: { md: '190px', lg: '100px', xl: '150px' },
                         left: { md: '600px', lg: '535px', xl: '580px' },
                         display: { xs: 'none', md: 'block' }
-                    }}><Image src={heartBg} alt='Heart' style={{ transform: 'rotate(15deg)' }} /></Float>
+                    }}>
+                        <Box>
+                            <Image src={heartBg} alt='Heart' style={{ transform: 'rotate(15deg)' }} />
+                        </Box>
+                    </Float>
 
-                    <Float sx={{
+                    <Float dur={4} delay={0.2} sx={{
+                        opacity: 0.4,
                         top: { md: '280px', lg: '200px', xl: '250px' },
                         left: { md: '-90px', lg: '-90px', xl: '-90px' },
                         display: { xs: 'none', md: 'block' }
-                    }}><Image src={heartBg} alt='Heart' style={{ transform: 'rotate(-25deg)' }} /></Float>
+                    }}>
+                        <Box>
+                            <Image src={heartBg} alt='Heart' style={{ transform: 'rotate(-25deg)' }} />
+                        </Box>
+                    </Float>
 
 
-                    <Float sx={{
+                    <Float dur={3} delay={0.5} sx={{
+                        opacity: 0.4,
                         top: { md: '550px', lg: '350px', xl: '400px' },
                         left: { md: '590px', lg: '490px', xl: '650px' },
                         display: { xs: 'none', md: 'block' }
-                    }}><Image src={coinBg} alt='Coin' style={{ transform: 'rotate(25deg)' }} /></Float>
+                    }}>
+                        <Box>
+                            <Image src={coinBg} alt='Coin' style={{ transform: 'rotate(25deg)' }} />
+                        </Box>
+                    </Float>
 
-                    <Float sx={{
+                    <Float dur={3} delay={0.2} sx={{
+                        opacity: 0.4,
                         top: { md: '370px', lg: '440px', xl: '480px' },
                         left: { md: '565px', lg: '550px', xl: '610px' },
                         display: { xs: 'none', md: 'block' }
-                    }}><Image src={coinBg} alt='Coin' style={{ transform: 'rotate(-20deg)' }} /></Float>
+                    }}>
+                        <Box>
+                            <Image src={coinBg} alt='Coin' style={{ transform: 'rotate(-20deg)' }} />
+                        </Box>
+                    </Float>
 
-                    <Float sx={{
+                    <Float dur={8} delay={0.5} sx={{
+                        opacity: 0.4,
                         top: { md: '520px', lg: '450px', xl: '550px' },
                         left: { md: '-100px', lg: '-110px', xl: '-120px' },
                         display: { xs: 'none', md: 'block' }
-                    }}><Image src={coinBg} alt='Coin' style={{ transform: 'rotate(15deg)' }} /></Float>
+                    }}>
+                        <Box>
+                            <Image src={coinBg} alt='Coin' style={{ transform: 'rotate(15deg)' }} />
+                        </Box>
+                    </Float>
 
 
                 </Flex>

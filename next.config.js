@@ -34,7 +34,8 @@ const nextConfig = {
             // For example labelFormat: "my-classname--[local]", where [local] will be replaced with the name of the variable the result is assigned to.
             labelFormat: '[local]',
         }
-    }
+    },
+
 };
 
 module.exports = nextConfig
