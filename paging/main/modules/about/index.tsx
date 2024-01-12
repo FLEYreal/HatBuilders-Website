@@ -33,9 +33,7 @@ export function About() {
         <StyledWrapper stretchX stretchY>
 
             {/* Right Section with Art */}
-            <Opacity dur={3}>
-                <Illustration />
-            </Opacity>
+            <Illustration />
 
             <Wrapper>
 
@@ -89,11 +87,11 @@ export function About() {
                 </StyledArticle>
 
                 {/* Wrapper for floating objects */}
-                <Opacity isSx dur={4}>
+                <Opacity isSx dur={10}>
 
                     <Flex sxStyles={{ position: 'absolute', opacity: 0.4, display: { xs: 'none', md: 'block' } }}>
 
-                        <Float isSx>
+                        <Float<BoxProps> isSx>
                             <Box sx={{
                                 top: { md: '190px', lg: '100px', xl: '150px' },
                                 left: { md: '600px', lg: '535px', xl: '580px' },
@@ -102,7 +100,7 @@ export function About() {
                             </Box>
                         </Float>
 
-                        <Float isSx dur={4} delay={0.2}>
+                        <Float<BoxProps> isSx dur={4} delay={0.2}>
                             <Box sx={{
                                 top: { md: '280px', lg: '200px', xl: '250px' },
                                 left: { md: '-90px', lg: '-90px', xl: '-90px' },
@@ -112,7 +110,7 @@ export function About() {
                         </Float>
 
 
-                        <Float isSx dur={3} delay={0.5}>
+                        <Float<BoxProps> isSx dur={3} delay={0.5}>
                             <Box sx={{
                                 top: { md: '550px', lg: '350px', xl: '400px' },
                                 left: { md: '590px', lg: '490px', xl: '650px' },
@@ -121,7 +119,7 @@ export function About() {
                             </Box>
                         </Float>
 
-                        <Float isSx dur={3} delay={0.2}>
+                        <Float<BoxProps> isSx dur={3} delay={0.2}>
                             <Box sx={{
                                 top: { md: '370px', lg: '440px', xl: '480px' },
                                 left: { md: '565px', lg: '550px', xl: '610px' },
@@ -130,7 +128,7 @@ export function About() {
                             </Box>
                         </Float>
 
-                        <Float isSx dur={8} delay={0.5}>
+                        <Float<BoxProps> isSx dur={8} delay={0.5}>
                             <Box sx={{
                                 top: { md: '520px', lg: '450px', xl: '550px' },
                                 left: { md: '-100px', lg: '-110px', xl: '-120px' },

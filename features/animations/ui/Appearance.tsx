@@ -34,18 +34,39 @@ const sxAppearanceKeyframes = keyframes`
 `
 
 // Component
-export function Appearance({
+
+/**
+ * Provides animation for floating things. You can setup animation properties.
+ * 
+ * Important note:
+ * Use "args" attribute to provide properties to child components, otherwise styles might not apply or cause troubles.
+ * The only exception is SX and Style properties, you can both provide them to children and as separate attributes to
+ * this component.
+ * 
+ * @param isSx - Use this property to define either to use "sx" or "style" prop for styling.
+ * @param dur - Duration of animation.
+ * @param delay - Delay before starting animation. Useful to display page's components in order.
+ * @param sx - SX styles for children.
+ * @param style - Basic CSS styles for children.
+ * @param args - Provide all arguments to pass them to all children.
+ * 
+ * @returns Same children with animation applied + properties from "args" attribute.
+ */
+export function Appearance<T>({
     children,
     isSx, // Define wether to use SX or Style
     dur = 1, // Animation's duration
     delay = 0, // Delay before starting
-    ...props
-}: AppearanceInterface) {
+
+    sx,
+    style,
+
+    ...args
+}: AppearanceInterface<T>) {
 
     const mapChild = (child: ReactNode) => {
 
-        const { style, sx }: { style?: CSSProperties; sx?: SxProps } = (child as ReactElement).props;
-        const { style: styleProp, sx: sxProp }: { style?: CSSProperties; sx?: SxProps } = props;
+        const { style: styleProp, sx: sxProp }: { style?: CSSProperties; sx?: SxProps } = (child as ReactElement).props;
 
         const animationProps = {
             opacity: 0,
@@ -63,7 +84,8 @@ export function Appearance({
                     ...animationProps,
                     ...sx,
                     ...sxProp
-                }
+                },
+                ...args
             });
         }
 
@@ -73,7 +95,8 @@ export function Appearance({
                     ...animationProps,
                     ...styleProp
                 },
-                className: s.appearanceKeyframes
+                className: s.appearanceKeyframes,
+                ...args
             });
         }
     };

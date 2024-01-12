@@ -5,17 +5,18 @@ import { CSSProperties, ReactNode } from "react";
 import { SxProps } from "@mui/material";
 
 // Root interfaces
-export interface RootInterface {
+export type RootInterface<T> = {
     dur?: number;
     delay?: number;
     isSx?: boolean;
     children?: ReactNode;
 
     sx?: SxProps;
-    style?: CSSProperties
+    style?: CSSProperties;
+    args?: T;
 }
 
 // Components' interfaces
-export interface FloatInterface extends RootInterface {}
-export interface AppearanceInterface extends RootInterface {}
-export interface OpacityInterface extends RootInterface {}
+export interface FloatInterface<T> extends RootInterface<T> {}
+export interface AppearanceInterface<T> extends RootInterface<T> {}
+export interface OpacityInterface<T> extends RootInterface<T> {}
