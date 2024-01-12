@@ -27,7 +27,7 @@ export function Main() {
 
                 <Article align="center" textAlign="center">
                     <Appearance delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" style={{ margin: 0 }} /></Appearance>
-                    <Appearance delay={1.25}><ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5, color: '#ffffff' }} name="main_title" ns="home" /></Appearance>
+                    <Appearance isSx delay={1.25}><ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5, color: '#ffffff' }} name="main_title" ns="home" /></Appearance>
                 </Article>
 
             </Wrapper>

@@ -1,60 +1,51 @@
 'use client'
 
 // Basics
-import { cloneElement, Children, ReactNode, ReactElement, CSSProperties } from "react";
-
-// Material-UI
-import { BoxProps, SxProps } from "@mui/material";
+import { cloneElement, Children, ReactNode, ReactElement } from "react";
 
 // Emotion
 import { keyframes } from "@emotion/react";
 
 // Insides
-import { FloatInterface } from "../types";
+import { OpacityInterface } from "../types";
 
 // Animation
 import s from './style.module.css';
 
 // Animation
-const floatKeyframes = keyframes`
+const opacityKeyframes = keyframes`
     0% {
-        transform: translateY(-10px);
-    }
-    50% {
-        transform: translateY(10px);
+        opacity: 0;
     }
     100% {
-        transform: translateY(-10px);
+        opacity: 1;
     }
 `;
 
 // Component
-export function Float({
+export function Opacity({
     children,
     isSx, // Define wether to use SX or Style
-    dur = 6, // Animation's duration
+    dur = 1, // Animation's duration
     delay = 0, // Delay before starting
 
     sx,
     style,
 
     ...props
-}: FloatInterface) {
+}: OpacityInterface) {
 
     const mapChild = (child: ReactNode) => {
-
-        const { style: styleProp, sx: sxProp }: { style?: CSSProperties; sx?: SxProps } = (child as ReactElement).props;
-
 
         if (isSx) {
 
             return cloneElement(child as ReactElement, {
                 sx: {
-                    animation: `${floatKeyframes} ${dur}s ease-in-out infinite`,
+                    opacity: 0,
+                    animation: `${opacityKeyframes} ${dur}s ease-in-out`,
                     animationDelay: delay + 's',
-                    animationTimingFunction: 'ease-in-out',
-                    ...sx,
-                    ...sxProp
+                    animationFillMode: 'forwards',
+                    ...sx
                 },
                 ...props
             });
@@ -67,10 +58,9 @@ export function Float({
                 style: {
                     animationDuration: dur + 's',
                     animationDelay: delay + 's',
-                    ...style,
-                    ...styleProp
+                    ...style
                 },
-                className: s.floatKeyframes,
+                className: s.opacityKeyframes,
                 ...props
             });
 

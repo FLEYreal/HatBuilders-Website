@@ -34,17 +34,18 @@ const sxAppearanceKeyframes = keyframes`
 `
 
 // Component
-export const Appearance = ({
+export function Appearance({
     children,
     isSx, // Define wether to use SX or Style
     dur = 1, // Animation's duration
     delay = 0, // Delay before starting
     ...props
-}: AppearanceInterface) => {
+}: AppearanceInterface) {
 
     const mapChild = (child: ReactNode) => {
 
         const { style, sx }: { style?: CSSProperties; sx?: SxProps } = (child as ReactElement).props;
+        const { style: styleProp, sx: sxProp }: { style?: CSSProperties; sx?: SxProps } = props;
 
         const animationProps = {
             opacity: 0,
@@ -61,16 +62,18 @@ export const Appearance = ({
                     animationTimingFunction: 'ease-in-out',
                     ...animationProps,
                     ...sx,
-                },
-                ...props,
+                    ...sxProp
+                }
             });
         }
 
         else {
             return cloneElement(child as ReactElement, {
-                style: animationProps,
-                className: s.appearanceKeyframes,
-                ...props,
+                style: {
+                    ...animationProps,
+                    ...styleProp
+                },
+                className: s.appearanceKeyframes
             });
         }
     };

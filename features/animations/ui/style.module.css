@@ -36,3 +36,22 @@
         transform: translateY(-10px)
     }
 }
+
+/* Opacity Component */
+.opacityKeyframes {
+    opacity: 0;
+    animation: opacityKeyframes;
+    -webkit-animation: opacityKeyframes;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes opacityKeyframes {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
