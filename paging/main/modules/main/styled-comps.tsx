@@ -112,7 +112,6 @@ const OrderButton = (props: BigHatButtonInterface) => {
 }
 
 
-
 // Export all styled components
 export const BottomPlatform = defaultWrapper(StyledBottomPlatform)
 export const CyberpukBanner = defaultWrapper(StyledCyberpukBanner)

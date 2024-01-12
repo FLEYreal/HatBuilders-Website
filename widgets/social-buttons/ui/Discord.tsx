@@ -52,10 +52,10 @@ const StyledImage = styled(({ def, ...props }: StyledImageInterface) => e(Image,
     ${({ def }) => def!.b('xl')} { width: 32px; height: 32px; }
 `
 
-const DcButtonComponent = ({ def, ...props }: DcButtonInterface) => {
+const DcButtonComponent = ({ def, children, ...props }: DcButtonInterface) => {
     return (
         <StyledDcButton toUpperCase={false} def={def} {...props}>
-            <StyledImage src={dc} alt="Dc Button Icon" def={def} />
+            <StyledImage src={dc} alt="Dc Button Icon" def={def}/>
         </StyledDcButton>
     )
 }

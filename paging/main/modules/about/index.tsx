@@ -10,7 +10,7 @@ import { DcButton, VkButton } from "@/widgets/social-buttons";
 // Features
 import { Flex, Wrapper } from "@/features/wrappers";
 import { ArticleSection, ArticleBlock } from "@/features/article";
-import { Float, Appearance, Opacity, FloatInterface } from '@/features/animations';
+import { Float, Appearance, Opacity } from '@/features/animations';
 
 // Insides
 import {

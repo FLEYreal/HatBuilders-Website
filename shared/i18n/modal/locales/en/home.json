@@ -21,10 +21,17 @@
     "Share_Your_Input": "We don't know about you yet but it's your freedom to let us know your idea or will to work! Decide!",
     "Reviews_Discord": "If you're looking for reviews, you can find them on discord server",
     "Time_to_Act": "It's your best time to act!",
-    "Job_Application": "apply for job",
+    "Job_Application": "Apply For Job",
 
     "about_p1": "is a project whose goal is not just building best minecraft buildings to clients we love and care about but to do it more efficiently, fun and cheap!",
     "about_p2": "We'll build the project of any scale from just a little village for your SMP server to big maps for UHC and whole lot more, if you’re interested, you can order any time (Even now!). We’re always happy to hear you out!",
     "about_p3": "If you love building, if you want to make money doing what you love, you can work with us. Apply for job in \"We're hiring\"!",
-    "about_p4": "You're also able to order the map / apply fro job from our discord server or vk group!"
+    "about_p4": "You're also able to order the map / apply fro job from our discord server or vk group!",
+
+    "hire_p1": "We provide you a unique experience, you will have fun building a lot of interesting things but you have to remember that this is still a job with responsibility and standing afk just like Stevie on the art is forbidden!",
+    "hire_p2": "We don’t have a static salary, the income you get depends on the amount of work you do! Than more projects you do, than more effort you put into your work, than more money you earn!",
+    "hire_p3": "Help us grow and grow as builder yourself! If you’re interested and sure you want to work with us, you can apply for a job on our discord server or group VK. We will contact you shortly!",
+
+    "apply_dc": "Apply On Discord",
+    "apply_vk": "Apply On VK"
 }

@@ -8,7 +8,7 @@ import { styledDefaultInterface } from "@/shared/mui";
 export interface RootInterface {
     children?: React.ReactNode;
     onClick?: () => any;
-    sx?: SxProps;
+    sx: SxProps;
 
     name?: string;
     ns?: string;
@@ -16,6 +16,7 @@ export interface RootInterface {
 
 // Button Interfaces
 export interface HatButtonInterface extends RootInterface {
+    startIcon?: ButtonProps['startIcon'];
     color?: string & keyof Palette;
     type?: 'main' | 'light' | 'dark';
     variant?: 'contained' | 'outlined';
