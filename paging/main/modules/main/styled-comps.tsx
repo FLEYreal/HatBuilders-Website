@@ -13,14 +13,10 @@ import styled from "@emotion/styled";
 import { BigHatButton, BigHatButtonInterface } from "@/widgets/button";
 
 // Features
-import { Flex, defaultWrapper } from "@/features/wrappers";
-import { FlexInterface } from "@/features/wrappers/types";
+import { Flex, defaultWrapper, FlexInterface } from "@/features/wrappers";
 
 // Shared
-import { useResolution } from "@/shared/mui";
-
-// Types
-import { styledDefaultInterface } from "@/shared/mui";
+import { useResolution, styledDefaultInterface } from "@/shared/mui";
 
 // Assets
 import cyberpukPng from '@/public/images/Cyberpuk2.png'

@@ -4,7 +4,7 @@
 import React, { createContext, useContext } from 'react';
 
 // Types
-import { langType } from '../config/types';
+import { langType } from '../types';
 
 // Creates context for language
 export const LanguageContext = createContext<langType>('en');

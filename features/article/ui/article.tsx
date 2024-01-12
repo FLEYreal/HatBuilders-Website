@@ -10,7 +10,7 @@ import { Box } from '@mui/material';
 import styled from '@emotion/styled';
 
 // Config
-import { ArticleInterface } from '../config/types';
+import { ArticleInterface } from '../types';
 import { defaultWrapper } from '@/features/wrappers';
 
 // Styling

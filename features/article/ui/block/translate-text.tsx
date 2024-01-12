@@ -8,7 +8,7 @@ import { useTranslation } from '@/shared/i18n/client';
 import { useLanguage } from '@/shared/i18n';
 
 // Config
-import { TranslateTextInterface } from '../../config/types';
+import { TranslateTextInterface } from '../../types';
 
 /**
  * ArticleBlock: Block for translative titles, paragraphs and other type of text

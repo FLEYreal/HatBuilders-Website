@@ -5,7 +5,7 @@ import React from 'react'
 import Menu from '@mui/material/Menu';
 
 // Config
-import type { MenuInterface } from '../config/types'
+import type { MenuInterface } from '../types'
 
 export function HatMenu({
     children,

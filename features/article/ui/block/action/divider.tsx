@@ -2,7 +2,7 @@
 import { Divider } from '@mui/material';
 
 // Config
-import { ActionDividerInterface } from '../../../config/types';
+import { ActionDividerInterface } from '../../../types';
 
 /**
  * ArticleBlock.Action: Custom divider that doesn't differ much from MUI version, it's just fits code style

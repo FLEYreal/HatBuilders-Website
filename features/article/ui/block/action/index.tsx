@@ -5,7 +5,7 @@ import { cloneElement, Children, ReactElement, ReactNode } from 'react';
 import { Box } from '@mui/material';
 
 // Config
-import { ActionInterface } from '../../../config/types';
+import { ActionInterface } from '../../../types';
 
 /**
  * ArticleBlock: Block for creating action bars with buttons, widgets and other stuff.
@@ -26,7 +26,7 @@ const Action = ({
         const sx = (child as ReactElement).props.sx
 
         // Recommended to use only MUI components inside because otherwise, sx won't be supported
-        return cloneElement(child as ReactElement, { 
+        return cloneElement(child as ReactElement, {
             sx: { marginRight: '12px', marginLeft: '0', ...sx }
         });
 

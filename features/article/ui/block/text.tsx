@@ -2,7 +2,7 @@
 import { Typography, TypographyProps } from '@mui/material';
 
 // Config
-import { TextInterface } from '../../config/types';
+import { TextInterface } from '../../types';
 
 /**
  * ArticleBlock: Block for titles, paragraphs and other type of text

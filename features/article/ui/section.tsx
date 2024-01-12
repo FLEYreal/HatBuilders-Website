@@ -7,11 +7,11 @@ import { createElement as e } from 'react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 
-import { ArticleSectionInterface } from '../config/types';
+import { ArticleSectionInterface } from '../types';
 import { defaultWrapper } from '@/features/wrappers';
 
 // Styling
-const Wrapper = styled(({ def, ...props }: ArticleSectionInterface) => e(Box, props))<ArticleSectionInterface>`
+const Wrapper = styled(({ def, ...props }: ArticleSectionInterface) => e(Box, props)) <ArticleSectionInterface>`
     width: 100%;
     transition: font-size 0.3s ease;
 

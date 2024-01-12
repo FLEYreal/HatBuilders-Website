@@ -8,7 +8,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 // Shared
 import { GlobalThemeProvider } from '@/shared/mui/ui/provider'
 import { LanguageProvider } from '@/shared/i18n/ui/provider'
-import { langType } from '@/shared/i18n/config/types'
+import { langType } from '@/shared/i18n/types'
 
 // Get Minecraft Font
 const minecraftFont = localFont({
@@ -27,7 +27,7 @@ export default async function RootLayout({
 }) {
 
     return (
-        <html lang={lng} dir={dir(lng)}> 
+        <html lang={lng} dir={dir(lng)}>
             <body className={minecraftFont.className}>
                 <LanguageProvider value={lng}>
                     <GlobalThemeProvider>

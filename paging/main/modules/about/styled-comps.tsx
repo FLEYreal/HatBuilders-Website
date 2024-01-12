@@ -13,10 +13,8 @@ import styled from "@emotion/styled";
 import { HatButton, HatButtonInterface } from "@/widgets/button";
 
 // Features
-import { Flex, defaultWrapper } from "@/features/wrappers";
-import { FlexInterface } from "@/features/wrappers/types";
-import { ArticleInterface } from '@/features/article/config/types'
-import { Article } from '@/features/article'
+import { Flex, FlexInterface, defaultWrapper } from "@/features/wrappers";
+import { Article, ArticleInterface } from '@/features/article'
 
 // Types
 import { styledDefaultInterface, useResolution } from "@/shared/mui";

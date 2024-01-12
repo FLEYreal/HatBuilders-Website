@@ -1,5 +1,5 @@
 // Config
-import { ArticleBlockInterface } from '../../config/types';
+import { ArticleBlockInterface } from '../../types';
 
 // Components
 

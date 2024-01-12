@@ -1,3 +1,12 @@
 // UI
-export { type VkButtonInterface, VkButton } from './ui/Vk'
-export { type DcButtonInterface, DcButton } from './ui/Discord'
+export { 
+    type VkButtonInterface, 
+    type StyledImageInterface as StyledVkImageInterface,
+    VkButton 
+} from './ui/Vk'
+
+export { 
+    type DcButtonInterface, 
+    type StyledImageInterface as StyledDcImageInterface,
+    DcButton 
+} from './ui/Discord'

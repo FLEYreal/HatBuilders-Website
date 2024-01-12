@@ -2,7 +2,7 @@
 import NextImage from 'next/image'
 
 // Config
-import { ImageInterface } from '../../config/types';
+import { ImageInterface } from '../../types';
 
 /**
  * ArticleBlock: Block for images. Enables you to properly insert image into an article so it fit well!
