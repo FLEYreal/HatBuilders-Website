@@ -8,7 +8,7 @@ import { styledDefaultInterface } from "@/shared/mui";
 export interface RootInterface {
     children?: React.ReactNode;
     onClick?: () => any;
-    sx: SxProps;
+    sx?: SxProps;
 
     name?: string;
     ns?: string;

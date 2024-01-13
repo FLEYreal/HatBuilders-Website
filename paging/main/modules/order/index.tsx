@@ -33,7 +33,7 @@ export function Order() {
                 </Appearance>
 
                 {/* General Title */}
-                <Appearance dur={0.5} delay={1}>
+                <Appearance isSx dur={0.5} delay={1}>
                     <ArticleBlock.TranslateText
                         name="Time_to_Act"
                         variant='h4'

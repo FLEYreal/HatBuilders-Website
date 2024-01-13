@@ -37,7 +37,7 @@ const Action = ({
             display: 'flex',
             alignItems: 'start',
             justifyContent: 'start',
-            flexFlow: `${align} nowrap`,
+            flexFlow: align,
             m: m,
             ml: '0',
             ...sx

@@ -1,9 +1,9 @@
 // Basics
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import { ImageProps } from 'next/image';
 
 // Material-UI
-import { BoxProps, TypographyProps, DividerOwnProps } from '@mui/material'
+import { BoxProps, TypographyProps, DividerOwnProps, SxProps } from '@mui/material'
 
 // Shared
 import { styledDefaultInterface } from '@/shared/mui';
@@ -74,7 +74,7 @@ export interface TranslateTextInterface extends ArticleBlockInterface, Typograph
  */
 export interface ActionInterface extends ArticleBlockInterface, BoxProps {
     m?: string;
-    align?: 'column' | 'row';
+    align?: CSSProperties['flexFlow'] | { xs?: string, sm?: string, md?: string, lg?: string, xl?: string  };
 }
 
 /**
