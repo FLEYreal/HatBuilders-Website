@@ -1,32 +1,13 @@
-// Animation of appearance for image itself
+/* Animation of appearance for image itself */
 .appearance_image {
     animation: image 0.2s normal ease 1;
     -webkit-animation: image 0.2s normal ease 1;
 }
 
-// Animation of appearance for background of modal
+/* Animation of appearance for background of modal */
 .appearance_background {
     animation: bg 0.2s normal ease 1;
     -webkit-animation: bg 0.2s normal ease 1;
-}
-
-.hover {
-    transition: all 0.2s ease;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-}
-
-.hover:hover {
-    -webkit-box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.7);
-    box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.7);
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
 }
 
 @keyframes image {

@@ -8,9 +8,17 @@ import { SxProps } from '@mui/material/styles'
 // Components
 import { AlbumImage } from './AlbumImage'
 
-export async function Album(
-    { images, sizes, limit, sx }:
-    { images: ImageProps[], sizes: { width: number, height: number }, limit?: number, sx?: SxProps }) {
+// Interfaces
+export interface AlbumInterface { 
+    images: ImageProps[], 
+    sizes: { width: number, height: number }, 
+    limit?: number, 
+    sx?: SxProps
+}
+
+// Component
+export function Album(
+    { images, sizes, limit, sx }: AlbumInterface) {
 
 
     return (
@@ -23,7 +31,7 @@ export async function Album(
                 images.map((i: ImageProps, key: number) => {
 
                     // If it's index higher than limit - don't load images anymore
-                    if(limit && key > limit - 1) {
+                    if (limit && key > limit - 1) {
                         return;
                     }
 
@@ -31,9 +39,8 @@ export async function Album(
                         src={i.src}
                         key={key}
                         alt={i.alt}
-                        style={{
-                            marginTop: '10px',
-                            marginRight: '10px'
+                        sx={{
+                            margin: '8px'
                         }}
 
                         height={sizes.height}

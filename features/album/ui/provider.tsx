@@ -1,12 +1,19 @@
 'use client'
 
 // Basics
-import { createContext, useState, ReactNode, useContext } from "react";
+import { createContext, useState, ReactNode, useContext, SetStateAction, Dispatch } from "react";
 import { ImageProps } from "next/image";
 
 // Types
-import { AlbumContextInterface } from "../types";
 import { AlbumModal } from "./AlbumModal";
+
+// Interfaces
+export interface AlbumContextInterface {
+    image: ImageProps, 
+    setImage: Dispatch<SetStateAction<ImageProps>>,
+    isOpen: boolean,
+    setIsOpen: Dispatch<SetStateAction<boolean>>
+}
 
 // Context for Album Modal
 export const albumContext = createContext<AlbumContextInterface>({

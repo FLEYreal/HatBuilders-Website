@@ -1,3 +1,5 @@
+'use client'
+
 // Basic Imports
 import { useState, useEffect, useRef } from "react";
 import Image, { ImageProps } from "next/image";
@@ -6,9 +8,10 @@ import Image, { ImageProps } from "next/image";
 import { Box } from "@mui/material";
 
 // Styles
-import styles from './styles.module.scss'
+import styles from './styles.module.css'
 
-export function AlbumModal({ image, isOpen, setIsOpen }: {
+// Intefaces
+export interface AlbumModalInterface {
 
     // Data about images: src, alt, height, width
     image: ImageProps,
@@ -17,7 +20,10 @@ export function AlbumModal({ image, isOpen, setIsOpen }: {
     isOpen: boolean,
     setIsOpen: (value: (prevIsOpen: boolean) => boolean) => void
 
-}) {
+}
+
+// Component
+export function AlbumModal({ image, isOpen, setIsOpen }: AlbumModalInterface) {
 
     // Get components of the page with "useRef"
     const bgTag = useRef<HTMLElement>(null)
@@ -82,8 +88,8 @@ export function AlbumModal({ image, isOpen, setIsOpen }: {
 
             // Styles of the background
             sx={{
-                backdropFilter: 'blur(4px)',
-                backgroundColor: 'rgba(0,0,0,0.75)',
+                backdropFilter: 'blur(3px)',
+                backgroundColor: 'rgba(0,0,0,0.5)',
                 position: 'fixed',
                 top: 0,
                 left: 0,
@@ -106,7 +112,7 @@ export function AlbumModal({ image, isOpen, setIsOpen }: {
                 width={displayedWidth}
                 height={displayedHeight}
                 alt={image.alt}
-                style={{ display: 'inherit', borderRadius: '8px' }}
+                style={{ display: 'inherit' }}
 
             />
         </Box>

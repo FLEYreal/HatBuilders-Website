@@ -1,11 +1,5 @@
 // UI
-export { Album } from './ui/Album'
-export { AlbumImage } from './ui/AlbumImage'
-export { AlbumModal } from './ui/AlbumModal'
-export { albumContext, AlbumProvider, useAlbum } from './ui/provider'
-
-// Types
-export type { 
-    AlbumImageInterface,
-    AlbumContextInterface
-} from './types'
+export { Album, type AlbumInterface } from './ui/Album'
+export { AlbumImage, type AlbumImageInterface } from './ui/AlbumImage'
+export { AlbumModal, type AlbumModalInterface } from './ui/AlbumModal'
+export { albumContext, AlbumProvider, useAlbum, type AlbumContextInterface } from './ui/provider'

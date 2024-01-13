@@ -1,25 +1,34 @@
 'use client'
 
-// Basic imports
+// Basics
 import Image, { ImageProps } from "next/image";
 import { useContext } from "react";
+
+// Material-UI
+import { SxProps, Box } from "@mui/material";
 
 // Components
 import { albumContext } from "./provider";
 
-// Styles
-import styles from './styles.module.scss'
+// Interfaces
+export interface AlbumImageInterface extends ImageProps {
+    sx: SxProps;
+}
 
+// Component
 export function AlbumImage({
 
     // Params for each image
     src,
     alt,
-    style = {},
+    sx = {},
+
+    width,
+    height,
 
     ...props
 
-}: ImageProps) {
+}: AlbumImageInterface) {
 
     // Hook to define state of modal of image
     const { setIsOpen, setImage } = useContext(albumContext)
@@ -33,21 +42,31 @@ export function AlbumImage({
     }
 
     return (
-        <>
+        <Box sx={{
+            cursor: 'pointer',
+            transition: 'all 0.2s ease',
+            display: 'inline-block',
+            width: width,
+            height: height,
+
+            '&:hover': {
+                boxShadow: '0px 0px 32px 0px rgba(0, 0, 0, 0.7)',
+                transform: 'scale(1.1)'
+            },
+            
+            ...sx
+        }}>
             <Image
                 alt={alt}
                 src={src}
-                style={{
-                    cursor: 'pointer',
-                    borderRadius: '8px',
-                    ...style
-                }}
 
-                className={styles.hover}
                 onClick={handleModal}
+
+                width={width}
+                height={height}
 
                 {...props}
             />
-        </>
+        </Box>
     );
 }
