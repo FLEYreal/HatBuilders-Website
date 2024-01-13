@@ -9,7 +9,7 @@ import { AlbumModal } from "./AlbumModal";
 
 // Interfaces
 export interface AlbumContextInterface {
-    image: ImageProps, 
+    image: ImageProps,
     setImage: Dispatch<SetStateAction<ImageProps>>,
     isOpen: boolean,
     setIsOpen: Dispatch<SetStateAction<boolean>>
@@ -23,11 +23,11 @@ export const albumContext = createContext<AlbumContextInterface>({
         src: '/',
         alt: 'Empty Image'
     },
-    setImage: function() {},
+    setImage: function () { },
 
     // State of modal
     isOpen: false,
-    setIsOpen: function() {}
+    setIsOpen: function () { }
 })
 
 export function AlbumProvider({ children }: { children: ReactNode }) {
@@ -42,15 +42,8 @@ export function AlbumProvider({ children }: { children: ReactNode }) {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <albumContext.Provider value={{image, setImage, isOpen, setIsOpen}}>
-            <AlbumModal
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                image={{
-                    src: image.src,
-                    alt: image.alt
-                }}
-            />
+        <albumContext.Provider value={{ image, setImage, isOpen, setIsOpen }}>
+            <AlbumModal />
             {children}
         </albumContext.Provider>
     );

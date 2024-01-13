@@ -12,7 +12,7 @@ import { albumContext } from "./provider";
 
 // Interfaces
 export interface AlbumImageInterface extends ImageProps {
-    sx: SxProps;
+    sx?: SxProps;
 }
 
 // Component
@@ -34,11 +34,13 @@ export function AlbumImage({
     const { setIsOpen, setImage } = useContext(albumContext)
 
     function handleModal() {
-        setIsOpen((prev: boolean) => !prev)
         setImage({
             alt: alt,
-            src: src
+            src: src,
+            width: width,
+            height: height
         })
+        setIsOpen((prev: boolean) => !prev)
     }
 
     return (

@@ -2,34 +2,26 @@
 
 // Basic Imports
 import { useState, useEffect, useRef } from "react";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 
 // Material-UI
 import { Box } from "@mui/material";
 
-// Styles
+// Insides
+import { useAlbum } from "./provider";
 import styles from './styles.module.css'
 
-// Intefaces
-export interface AlbumModalInterface {
-
-    // Data about images: src, alt, height, width
-    image: ImageProps,
-
-    // useState consts, define a state of modal, either on or off
-    isOpen: boolean,
-    setIsOpen: (value: (prevIsOpen: boolean) => boolean) => void
-
-}
-
 // Component
-export function AlbumModal({ image, isOpen, setIsOpen }: AlbumModalInterface) {
+export function AlbumModal() {
+
+    // Get valuable data from Context
+    const { image, isOpen, setIsOpen } = useAlbum()
 
     // Get components of the page with "useRef"
     const bgTag = useRef<HTMLElement>(null)
     const imageTag = useRef<HTMLImageElement>(null)
 
-    // dimensions of the future image
+    // Dimensions of the future image
     const [originalDimensions, setOriginalDimensions] = useState({ width: 0, height: 0 });
 
     // Limit of image's dimensions so it didn't get bigger than user's screen
@@ -68,7 +60,7 @@ export function AlbumModal({ image, isOpen, setIsOpen }: AlbumModalInterface) {
 
     // useEffect to set sizes of the image
     useEffect(() => {
-        const img: HTMLImageElement = new window.Image();
+        const img = new window.Image();
         img.src = image.src as string;
 
         img.onload = () => {
@@ -88,8 +80,8 @@ export function AlbumModal({ image, isOpen, setIsOpen }: AlbumModalInterface) {
 
             // Styles of the background
             sx={{
-                backdropFilter: 'blur(3px)',
-                backgroundColor: 'rgba(0,0,0,0.5)',
+                backdropFilter: 'blur(4px)',
+                backgroundColor: 'rgba(0,0,0,0.75)',
                 position: 'fixed',
                 top: 0,
                 left: 0,
