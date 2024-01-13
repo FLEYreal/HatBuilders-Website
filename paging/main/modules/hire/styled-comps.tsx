@@ -66,24 +66,19 @@ const StyledShadow = styled(({ def, ...props }: ShadowInterface) => e(Box, props
 const StyledIllustration = styled(({ def, ...props }: IllustrationInterface) => e(Image, props))`
 
     // Static
+    bottom: 0;
 
     // Dynamic styles
     ${({ def }) => def!.b('xs')} { 
-
         right: 0px;
         height: auto;
         width: 100%;
-        bottom: 0;
-
-
     }
 
     ${({ def }) => def!.b('lg')} { 
         right: -110px;
         height: calc(25vw + 300px);
         width: auto;
-        bottom: 0;
-
     }
 
 `
