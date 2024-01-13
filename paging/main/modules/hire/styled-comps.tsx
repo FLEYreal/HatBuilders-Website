@@ -141,7 +141,7 @@ const ArticleComponent = ({ children, ...props }: StyledArticleInterface) => {
 }
 
 // Export all styled components
-export const StyledWrapper = defaultWrapper<ShadowInterface>(StyledWrapperComponent)
+export const StyledWrapper = defaultWrapper(StyledWrapperComponent)
 export const Shadow = defaultWrapper<ShadowInterface>(StyledShadow)
 export const Illustration = defaultWrapper<IllustrationInterface>(StyledIllustration)
 export const ActionButton = defaultWrapper<ActionButtonInterface>(StyledActionButton)

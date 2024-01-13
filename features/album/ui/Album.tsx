@@ -10,15 +10,15 @@ import { AlbumImage } from './AlbumImage'
 
 // Interfaces
 export interface AlbumInterface { 
-    images: ImageProps[], 
-    sizes: { width: number, height: number }, 
-    limit?: number, 
-    sx?: SxProps
+    images: ImageProps[];
+    sizes: { width: number, height: number };
+    limit?: number;
+    sx?: SxProps;
+    childSx?: SxProps;
 }
 
 // Component
-export function Album(
-    { images, sizes, limit, sx }: AlbumInterface) {
+export function Album({ images, sizes, limit, sx, childSx }: AlbumInterface) {
 
 
     return (
@@ -40,7 +40,8 @@ export function Album(
                         key={key}
                         alt={i.alt}
                         sx={{
-                            margin: '8px'
+                            margin: '8px',
+                            ...childSx
                         }}
 
                         height={sizes.height}
