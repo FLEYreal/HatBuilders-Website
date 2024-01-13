@@ -6,7 +6,7 @@ import { DcButton, VkButton } from "@/widgets/social-buttons";
 
 // Features
 import { Album } from "@/features/album";
-import { Center, Wrapper } from "@/features/wrappers";
+import { Wrapper } from "@/features/wrappers";
 import { Article, ArticleBlock } from "@/features/article";
 import { Appearance } from "@/features/animations";
 
@@ -78,9 +78,7 @@ export function Portfolio() {
 
             <PortfolioExample>
 
-                {/* <Album/>
-                <Album/>
-                <Album/> */}
+                {/* <Album/> */}
 
             </PortfolioExample>
 
