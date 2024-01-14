@@ -1,7 +1,7 @@
 'use client'
 
 // Material-UI
-import { Typography, BoxProps } from '@mui/material';
+import { Typography, TypographyProps } from '@mui/material';
 
 // Shared
 import { useTranslation } from '@/shared/i18n/client';
@@ -11,7 +11,8 @@ import { useLanguage } from '@/shared/i18n';
 import { TranslateTextInterface } from '../../types';
 
 /**
- * ArticleBlock: Block for translative titles, paragraphs and other type of text
+ * Translative Text Component Providing Standartized Text Element for Articles that can be translated to available languages
+ * @param {TypographyProps} props 
  */
 export const TranslateText: React.FC<TranslateTextInterface> = ({
     variant = "h3",
@@ -27,19 +28,16 @@ export const TranslateText: React.FC<TranslateTextInterface> = ({
     const lng = useLanguage()
     const { t } = useTranslation(lng, ns)
 
-    // Define tag of the component relatively variant of the block
-    const comp: BoxProps['component'] = component || (() => {
-        switch (variant) {
-            case 'h1': { return 'h1' }
-            case 'h2': { return 'h2' }
-            case 'h3': { return 'p' }
-            case 'h4': { return 'p' }
-            case 'h5': { return 'span' }
-            case 'h6': { return 'span' }
-            default:
-                return 'p'
-        }
-    })()
+    // What tag to use relative to the variant provided
+    const variantToComponent: Record<string, TypographyProps['component']> = {
+        'h1': 'h1',
+        'h2': 'h2',
+        'h3': 'p',
+        'h4': 'p',
+        'h5': 'span',
+        'h6': 'span',
+    };
+    const comp: TypographyProps['component'] = component || variantToComponent[variant] || 'p';
 
     return (
         <Typography

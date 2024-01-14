@@ -9,7 +9,7 @@ import { SxProps } from '@mui/material/styles'
 import { AlbumImage } from './AlbumImage'
 
 // Interfaces
-export interface AlbumInterface { 
+export interface AlbumInterface {
     images: ImageProps[];
     sizes: { width: number, height: number };
     limit?: number;
@@ -18,8 +18,17 @@ export interface AlbumInterface {
 }
 
 // Component
-export function Album({ images, sizes, limit, sx, childSx }: AlbumInterface) {
 
+/**
+ * Renders an album, collection of images with flex
+ * @param {ImageProps[]} images - an array of image objects
+ * @param {{ width: number, height: number }} sizes - the dimensions of each image
+ * @param {number} [limit] - the maximum number of images to render
+ * @param {SxProps} [sx] - additional CSS styles for the component
+ * @param {SxProps} [childSx] - additional CSS styles for each child element
+ * @returns {JSX.Element}
+ */
+export function Album({ images, sizes, limit, sx, childSx }: AlbumInterface) {
 
     return (
         <Box sx={{
@@ -40,7 +49,6 @@ export function Album({ images, sizes, limit, sx, childSx }: AlbumInterface) {
                         key={key}
                         alt={i.alt}
                         sx={{
-                            margin: '8px',
                             ...childSx
                         }}
 

@@ -19,6 +19,13 @@ import ru from '@/public/icons/ru.svg';
 import uk from '@/public/icons/uk.svg';
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 
+/**
+ * Renders a language selector component that allows the user to switch between
+ * different languages.
+ *
+ * @param {object} props - component properties
+ * @param {string} [props.color] - color of the language icon
+ */
 export function LanguageSelector({ color }: { color?: SvgIconOwnProps['color'] }) {
 
     // States
@@ -44,7 +51,6 @@ export function LanguageSelector({ color }: { color?: SvgIconOwnProps['color'] }
 
         let pathArr = pathname!.split('/')
         pathArr[1] = language
-        pathArr.join('/')
 
         router.push(pathArr.join('/'))
     }, [pathname, router])

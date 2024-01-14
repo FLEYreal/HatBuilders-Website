@@ -3,7 +3,7 @@ import { CSSProperties, ReactNode } from 'react'
 import { ImageProps } from 'next/image';
 
 // Material-UI
-import { BoxProps, TypographyProps, DividerOwnProps, SxProps } from '@mui/material'
+import { BoxProps, TypographyProps, DividerOwnProps } from '@mui/material'
 
 // Shared
 import { styledDefaultInterface } from '@/shared/mui';

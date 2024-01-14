@@ -1,14 +1,11 @@
-// Material-UI
-import { Box } from "@mui/material";
-
 // Widgets
 import { DcButton, VkButton } from "@/widgets/social-buttons";
 
 // Features
-import { Album } from "@/features/album";
+import { AlbumImage } from "@/features/album";
 import { Wrapper } from "@/features/wrappers";
 import { Article, ArticleBlock } from "@/features/article";
-import { Appearance } from "@/features/animations";
+import { Appearance, Opacity } from "@/features/animations";
 
 // Insides
 import {
@@ -42,45 +39,33 @@ export const albumSmall = {
 export function Portfolio() {
 
     return (
-        <StyledWrapper>
+        <StyledWrapper stretchY>
 
-            {/* Logo & Title Component */}
-            <Wrapper>
+            {/* Logo */}
+            <Article align="center" textAlign="center">
+                <Appearance delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" style={{ margin: 0 }} /></Appearance>
+                <Appearance isSx delay={1.25}><ArticleBlock.TranslateText textAlign="center" sx={{ m: -3 }} name="portfolio_p1" /></Appearance>
+            </Article>
 
-                {/* Logo */}
-                <Article align="center" textAlign="center">
-                    <Appearance delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" style={{ margin: 0 }} /></Appearance>
-                    <Appearance isSx delay={1.25}><ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5 }} name="portfolio_p1" /></Appearance>
+            {/* Album Component */}
+            <Opacity isSx delay={2.25}>
+                <PortfolioExample />
+            </Opacity>
+
+            {/* Action bar with Buttons */}
+            <Appearance isSx delay={1.75}>
+
+                <Article align="center">
+                    <ArticleBlock.Action sx={{ justifyContent: 'center', m: 0 }}>
+
+                        <PortfolioButton color="secondary" ns='home' name='full_portfolio' />
+                        <VkButton /><DcButton />
+
+                    </ArticleBlock.Action>
+                    <ArticleBlock.TranslateText textAlign="center" name="portfolio_p2" variant="h5" sx={{ p: 1 }} />
                 </Article>
 
-                {/* Action bar with Buttons */}
-                <Appearance isSx delay={1.75}>
-
-                    <Article align="center" sx={{
-                        mt: {
-                            xs: `${albumBig.xs.h + 90}px`,
-                            md: `${albumBig.md.h + 90}px`,
-                            lg: `${albumBig.lg.h + 90}px`,
-                            xl: `${albumBig.xl.h + 90}px`
-                        }
-                    }}>
-                        <ArticleBlock.Action sx={{ justifyContent: 'center' }}>
-
-                            <PortfolioButton color="secondary" ns='home' name='full_portfolio' />
-                            <VkButton /><DcButton />
-
-                        </ArticleBlock.Action>
-                    </Article>
-
-                </Appearance>
-
-            </Wrapper>
-
-            <PortfolioExample>
-
-                {/* <Album/> */}
-
-            </PortfolioExample>
+            </Appearance>
 
         </StyledWrapper>
     )
