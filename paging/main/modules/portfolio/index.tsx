@@ -51,7 +51,7 @@ export function Portfolio() {
     return (
         <StyledWrapper stretchY>
 
-            {/* Logo */}
+            {/* Wrapper for Logo & Subtitle */}
             <Wrapper>
                 <Article align="center" textAlign="center">
                     <Appearance delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" style={{ margin: 0 }} /></Appearance>
@@ -70,10 +70,13 @@ export function Portfolio() {
                 <Article align="center">
                     <ArticleBlock.Action sx={{ justifyContent: 'center', m: 0 }}>
 
+                        {/* Full Portfolio Button & Social Media Buttons */}
                         <PortfolioButton color="secondary" ns='home' name='full_portfolio' />
                         <VkButton /><DcButton />
 
                     </ArticleBlock.Action>
+
+                    {/* Subtitle below action bar */}
                     <ArticleBlock.TranslateText textAlign="center" name="portfolio_p2" variant="h5" sx={{ p: 1 }} />
                 </Article>
 
@@ -84,6 +87,7 @@ export function Portfolio() {
 
                 <Flex sx={{ zIndex: -3 }} childStyles={{ position: 'absolute' }}>
 
+                    {/* Dog Image */}
                     <Box sx={{
                         display: { xs: 'none', md: 'block' },
                         height: 'auto',
@@ -119,7 +123,7 @@ export function Portfolio() {
                         }}
                     />
 
-
+                    {/* Brush Item */}
                     <Float dur={8}>
                         <Box sx={{
                             height: 'auto',
@@ -141,14 +145,15 @@ export function Portfolio() {
                     </Float>
 
 
+                    {/* Palette Item */}
                     <Float dur={5}>
                         <Box sx={{
 
                             width: { xs: 90, md: 110, lg: 120, xl: 160 },
                             height: { xs: 90, md: 110, lg: 120, xl: 160 },
-                            top: { xs: '', md: 215, lg: 190, xl: 100 },
+                            top: { xs: '', md: 265, lg: 190, xl: 100 },
                             bottom: { xs: 20, md: '' },
-                            left: { left: 5, md: '5vw', lg: '6vw', xl: '8vw' },
+                            left: { left: 5, md: '2vw', lg: '6vw', xl: '8vw' },
                         }}>
                             <Image
                                 src={bgItem3}
@@ -162,7 +167,7 @@ export function Portfolio() {
                         </Box>
                     </Float>
 
-
+                    {/* Wooden Axe Item */}
                     <Float delay={1.5} dur={7.5}>
                         <Box sx={{
                             height: 'auto',
