@@ -1,6 +1,7 @@
 'use client'
 
 // Basics
+import Link from "next/link";
 import Image, { ImageProps } from "next/image";
 import { createElement as e } from "react";
 
@@ -54,9 +55,16 @@ const StyledImage = styled(({ def, ...props }: StyledImageInterface) => e(Image,
 `
 
 const VkButtonComponent = ({ def, ...props }: VkButtonInterface) => {
+
+    // Link to current official vk group of Hatbuilders
+    // (Currently it's empty, fill var when vk appears)
+    const vkGroupLink: string = "https://google.com"
+
     return (
         <StyledVkButton toUpperCase={false} def={def} {...props}>
-            <StyledImage src={vk} alt="VK Button Icon" def={def} />
+            <Link target="_blank" href={vkGroupLink}>
+                <StyledImage src={vk} alt="Vk Button Icon" def={def} />
+            </Link>
         </StyledVkButton>
     )
 }

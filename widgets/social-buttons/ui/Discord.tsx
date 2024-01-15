@@ -1,6 +1,7 @@
 'use client'
 
 // Basics
+import Link from "next/link";
 import Image, { ImageProps } from "next/image";
 import { createElement as e } from "react";
 
@@ -53,9 +54,15 @@ const StyledImage = styled(({ def, ...props }: StyledImageInterface) => e(Image,
 `
 
 const DcButtonComponent = ({ def, children, ...props }: DcButtonInterface) => {
+
+    // Link to current official discord server of Hatbuilders
+    const discordServerLink: string = "https://discord.gg/7cNAGPbGQu"
+
     return (
         <StyledDcButton toUpperCase={false} def={def} {...props}>
-            <StyledImage src={dc} alt="Dc Button Icon" def={def}/>
+            <Link target="_blank" href={discordServerLink}>
+                <StyledImage src={dc} alt="Dc Button Icon" def={def}/>
+            </Link>
         </StyledDcButton>
     )
 }

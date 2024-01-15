@@ -2,6 +2,7 @@
 
 // Basics
 import React, { createElement as e, useMemo } from "react";
+import { useRouter } from "next/navigation";
 
 // Matertial-UI
 import { Box, BoxProps } from "@mui/material";
@@ -11,9 +12,11 @@ import styled from "@emotion/styled";
 
 // Widgets
 import { HatButton, HatButtonInterface } from "@/widgets/button";
+import { VkButton, DcButton } from "@/widgets/social-buttons";
 
 // Features
 import { Center, CenterInterface, Flex, FlexInterface, defaultWrapper } from "@/features/wrappers";
+import { ArticleBlock } from "@/features/article";
 
 // Shared
 import { styledDefaultInterface, useResolution } from "@/shared/mui";
@@ -221,6 +224,24 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
     )
 })
 PortfolioExampleComponent.displayName = 'PortfolioExample'; // Display Name of a Component
+
+
+export const ActionBar = () => {
+
+    const router = useRouter()
+
+    return (
+        <ArticleBlock.Action sx={{ justifyContent: 'center', m: 0 }}>
+
+            {/* Full Portfolio Button & Social Media Buttons */}
+            <PortfolioButton onClick={() => router.push('/portfolio')} color="secondary" ns='home' name='full_portfolio' />
+            <VkButton /><DcButton />
+
+        </ArticleBlock.Action>
+    )
+
+}
+
 
 // Export all styled components
 export const StyledWrapper = defaultWrapper(StyledWrapperComponent)

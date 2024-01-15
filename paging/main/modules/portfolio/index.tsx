@@ -4,9 +4,6 @@ import Image from "next/image";
 // Material-UI
 import { Box } from "@mui/material";
 
-// Widgets
-import { DcButton, VkButton } from "@/widgets/social-buttons";
-
 // Features
 import { Article, ArticleBlock } from "@/features/article";
 import { Appearance, Float, Opacity } from "@/features/animations";
@@ -16,7 +13,7 @@ import {
 
     // Components
     StyledWrapper,
-    PortfolioButton,
+    ActionBar,
     PortfolioExample,
     ImageReflection
 
@@ -68,13 +65,9 @@ export function Portfolio() {
             <Appearance isSx delay={1.75}>
 
                 <Article align="center">
-                    <ArticleBlock.Action sx={{ justifyContent: 'center', m: 0 }}>
 
-                        {/* Full Portfolio Button & Social Media Buttons */}
-                        <PortfolioButton color="secondary" ns='home' name='full_portfolio' />
-                        <VkButton /><DcButton />
-
-                    </ArticleBlock.Action>
+                    {/* Action bar with Portfolio Button + Social Media Buttons */}
+                    <ActionBar/>
 
                     {/* Subtitle below action bar */}
                     <ArticleBlock.TranslateText textAlign="center" name="portfolio_p2" variant="h5" sx={{ p: 1 }} />

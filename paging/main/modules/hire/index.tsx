@@ -1,4 +1,5 @@
 // Basics
+import Link from "next/link";
 import Image from "next/image";
 
 // Material-UI
@@ -96,17 +97,24 @@ export function Hire() {
                                 lg: 'flex-start'
                             }
                         }}>
-                            <ActionButton
-                                startIcon={<Image src={dc} alt="Discord Icon" width={24} height={24} />}
-                                name="apply_dc"
-                                bg='#5865f2'
-                            />
 
-                            <ActionButton
-                                startIcon={<Image src={vk} alt="Vk Icon" width={24} height={24} />}
-                                name="apply_vk"
-                                bg='#0077ff'
-                            />
+                            {/* Buttons leading to our social media, provide new links when needed */}
+                            <Link target="_blank" href="https://discord.gg/7cNAGPbGQu">
+                                <ActionButton
+                                    startIcon={<Image src={dc} alt="Discord Icon" width={24} height={24} />}
+                                    name="apply_dc"
+                                    bg='#5865f2'
+                                />
+                            </Link>
+
+                            <Link target="_blank" href="https://google.com">
+                                <ActionButton
+                                    startIcon={<Image src={vk} alt="Vk Icon" width={24} height={24} />}
+                                    name="apply_vk"
+                                    bg='#0077ff'
+                                />
+                            </Link>
+
                         </ArticleBlock.Action>
 
                     </Appearance>
