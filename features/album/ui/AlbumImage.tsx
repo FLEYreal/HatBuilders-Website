@@ -53,9 +53,10 @@ export function AlbumImage({
 
             '&:hover': {
                 boxShadow: '0px 0px 32px 0px rgba(0, 0, 0, 0.7)',
-                transform: 'scale(1.1)'
+                transform: 'scale(1.1)',
+                opacity: 1
             },
-            
+
             ...sx
         }}>
             <Image

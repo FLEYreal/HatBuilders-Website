@@ -1,17 +1,13 @@
 'use client'
 
 // Basics
-import { createElement as e } from "react";
+import React, { createElement as e, useMemo } from "react";
 
 // Matertial-UI
-import { Box, Theme } from "@mui/material";
+import { Box, BoxProps } from "@mui/material";
 
 // Emotion
 import styled from "@emotion/styled";
-import { useTheme } from "@emotion/react";
-
-// Libs
-import hexToRgba from "hex-to-rgba";
 
 // Widgets
 import { HatButton, HatButtonInterface } from "@/widgets/button";
@@ -34,6 +30,13 @@ import example3 from '@/public/en/examples/example-3.webp'
 // Interfaces
 export interface PortfolioButtonInterface extends HatButtonInterface, styledDefaultInterface { }
 export interface PortfolioExampleInterface extends FlexInterface, styledDefaultInterface { }
+export interface ImageReflectionInterface extends BoxProps, styledDefaultInterface {
+    src: string;
+    sizes: {
+        w: number;
+        h: number;
+    };
+}
 
 // Styled Components
 const StyledWrapperComponent = styled(Center) <CenterInterface>`
@@ -81,6 +84,31 @@ const StyledPortfolioExample = styled(({ def, ...props }: PortfolioExampleInterf
         max-width: 1600px;
     }
 `
+
+const StyledImageReflection = styled(({ sizes, src, def, ...props }: ImageReflectionInterface) => e(Box, props)) <ImageReflectionInterface>`
+
+    width: ${({ sizes }) => sizes.w}px;
+    height: ${({ sizes }) => sizes.h}px;
+    position: absolute;
+    opacity: 0.25;
+
+    &::before {
+        content: "";
+        transform: scale(1, -1);
+        position: absolute;
+        background: url(${({ src }) => src}) lightgray 50% / cover no-repeat;
+        mask: linear-gradient(transparent 20%, black 100%);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: ${({ sizes }) => sizes.w}px;
+        height: ${({ sizes }) => sizes.h}px;
+    }
+
+`
+export const ImageReflection = defaultWrapper<ImageReflectionInterface>(StyledImageReflection)
+
+
 /**
  * Renders a React component that displays 3 examples from portfolio in a flex container.
  * The height and width of the images are determined based on the current screen resolution.
@@ -96,31 +124,23 @@ const StyledPortfolioExample = styled(({ def, ...props }: PortfolioExampleInterf
  *   <PortfolioExampleComponent />
  * )
  */
-const PortfolioExampleComponent = ({ ...props }: PortfolioExampleInterface) => {
-
-    // Get background color
-    const {
-        palette: {
-            background: {
-                default: bgColor
-            }
-        }
-    } = useTheme() as Theme;
+const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInterface) => {
 
     // Get resolution breakpoint boolean status
     const { md, lg, xl } = useResolution();
 
-    // Define what resolution to use
-    const breakpoint: 'xs' | 'md' | 'lg' | 'xl' = (() => {
+    // Memoize result of calculations
+    const breakpointMemo = useMemo(() => {
         if (xl) return 'xl';
         else if (lg) return 'lg';
         else if (md) return 'md';
         else return 'xs'
-    })()
+    }, [xl, lg, md]);
 
     return (
         <StyledPortfolioExample {...props}>
 
+            {/* AlbumImage component is a clickable image, that opens image on full screen when clicked, just like Album */}
             <AlbumImage
                 src={example1.src}
                 alt={"Portfolio Example #1"}
@@ -131,64 +151,43 @@ const PortfolioExampleComponent = ({ ...props }: PortfolioExampleInterface) => {
                     position: 'absolute'
                 }}
 
-                height={albumSmall[breakpoint].h}
-                width={albumSmall[breakpoint].w}
+                height={albumSmall[breakpointMemo].h}
+                width={albumSmall[breakpointMemo].w}
             />
-            <Box sx={{
-                width: albumSmall[breakpoint].w,
-                height: albumSmall[breakpoint].h,
-                position: 'absolute',
-                top: ((albumBig[breakpoint].h - albumSmall[breakpoint].h) / 2) + albumSmall[breakpoint].h + 'px',
-                left: 0,
-                opacity: 0.6,
-                zIndex: -2,
 
-                '&::before': {
-                    transform: 'scale(1, -1)',
-                    position: 'absolute',
-                    content: '""',
-                    background: `linear-gradient(180deg, ${bgColor} 10%, ${hexToRgba(bgColor, 0.85)} 100%), url(${example1.src}), lightgray 50% / cover no-repeat`,
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    width: albumSmall[breakpoint].w,
-                    height: albumSmall[breakpoint].h,
-                }
-            }} />
+            {/* Image reflection creates good looking effect of reflection below image */}
+            <ImageReflection
+                src={example1.src}
+                sizes={{ w: albumSmall[breakpointMemo].w, h: albumSmall[breakpointMemo].h }}
+                sx={{
+                    top: ((albumBig[breakpointMemo].h - albumSmall[breakpointMemo].h) / 2) + albumSmall[breakpointMemo].h + 'px',
+                    left: 0,
+                    zIndex: -2,
+                }}
+            />
 
             <AlbumImage
                 src={example2.src}
                 alt={"Portfolio Example #2"}
                 sx={{
-                    left: `calc(50% - (${albumBig[breakpoint].w}px / 2))`,
+                    left: `calc(50% - (${albumBig[breakpointMemo].w}px / 2))`,
                     zIndex: 2,
                     position: 'absolute'
                 }}
 
-                height={albumBig[breakpoint].h}
-                width={albumBig[breakpoint].w}
+                height={albumBig[breakpointMemo].h}
+                width={albumBig[breakpointMemo].w}
             />
-            <Box sx={{
-                width: albumBig[breakpoint].w,
-                height: albumBig[breakpoint].h,
-                position: 'absolute',
-                top: albumBig[breakpoint].h + 'px',
-                left: `calc(50% - (${albumBig[breakpoint].w}px / 2))`,
-                opacity: 1,
-                zIndex: -1,
-
-                '&::before': {
-                    transform: 'scale(1, -1)',
-                    position: 'absolute',
-                    content: '""',
-                    background: `linear-gradient(180deg, ${bgColor} 10%, ${hexToRgba(bgColor, 0.85)} 100%), url(${example2.src}), lightgray 50% / cover no-repeat`,
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    width: albumBig[breakpoint].w,
-                    height: albumBig[breakpoint].h,
-                }
-            }} />
+            <ImageReflection
+                src={example2.src}
+                sizes={{ w: albumBig[breakpointMemo].w, h: albumBig[breakpointMemo].h }}
+                sx={{
+                    top: albumBig[breakpointMemo].h + 'px',
+                    left: `calc(50% - (${albumBig[breakpointMemo].w}px / 2))`,
+                    zIndex: -1,
+                    opacity: 0.4
+                }}
+            />
 
             <AlbumImage
                 src={example3.src}
@@ -200,34 +199,22 @@ const PortfolioExampleComponent = ({ ...props }: PortfolioExampleInterface) => {
                     position: 'absolute'
                 }}
 
-                height={albumSmall[breakpoint].h}
-                width={albumSmall[breakpoint].w}
+                height={albumSmall[breakpointMemo].h}
+                width={albumSmall[breakpointMemo].w}
             />
-            <Box sx={{
-                width: albumSmall[breakpoint].w,
-                height: albumSmall[breakpoint].h,
-                position: 'absolute',
-                top: ((albumBig[breakpoint].h - albumSmall[breakpoint].h) / 2) + albumSmall[breakpoint].h + 'px',
-                right: 0,
-                opacity: 0.6,
-                zIndex: -2,
-
-                '&::before': {
-                    transform: 'scale(1, -1)',
-                    position: 'absolute',
-                    content: '""',
-                    background: `linear-gradient(180deg, ${bgColor} 10%, ${hexToRgba(bgColor, 0.85)} 100%), url(${example3.src}), lightgray 50% / cover no-repeat`,
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    width: albumSmall[breakpoint].w,
-                    height: albumSmall[breakpoint].h,
-                }
-            }} />
-
+            <ImageReflection
+                src={example3.src}
+                sizes={{ w: albumSmall[breakpointMemo].w, h: albumSmall[breakpointMemo].h }}
+                sx={{
+                    top: ((albumBig[breakpointMemo].h - albumSmall[breakpointMemo].h) / 2) + albumSmall[breakpointMemo].h + 'px',
+                    right: 0,
+                    zIndex: -2,
+                }}
+            />
         </StyledPortfolioExample>
     )
-}
+})
+PortfolioExampleComponent.displayName = 'PortfolioExample'; // Display Name of a Component
 
 // Export all styled components
 export const StyledWrapper = defaultWrapper(StyledWrapperComponent)
