@@ -32,7 +32,7 @@ export interface PortfolioButtonInterface extends HatButtonInterface, styledDefa
 export interface PortfolioExampleInterface extends FlexInterface, styledDefaultInterface { }
 export interface ImageReflectionInterface extends BoxProps, styledDefaultInterface {
     src: string;
-    sizes: {
+    sizes?: {
         w: number;
         h: number;
     };
@@ -64,20 +64,21 @@ const StyledPortfolioExample = styled(({ def, ...props }: PortfolioExampleInterf
 
     // Static styles
     position: relative;
-    margin: 8vh 0;
     width: 100%;
     justify-content: space-between;
 
     // Dynamic styles
     ${({ def }) => def!.b('xs')} { 
-        height: ${albumBig.xs.h}px;    
+        height: ${albumBig.xs.h + (albumSmall.xs.h / 2)}px;
+        margin: 6vh 0;
     }
     ${({ def }) => def!.b('md')} { 
-        height: ${albumBig.md.h}px;
+        height: ${albumBig.md.h + (albumSmall.md.h / 2)}px;
     }
     ${({ def }) => def!.b('lg')} {
         height: ${albumBig.lg.h}px;
         max-width: 873.16px;
+        margin: 8vh 0;
     }
     ${({ def }) => def!.b('xl')} {
         height: ${albumBig.xl.h}px;
@@ -87,8 +88,8 @@ const StyledPortfolioExample = styled(({ def, ...props }: PortfolioExampleInterf
 
 const StyledImageReflection = styled(({ sizes, src, def, ...props }: ImageReflectionInterface) => e(Box, props)) <ImageReflectionInterface>`
 
-    width: ${({ sizes }) => sizes.w}px;
-    height: ${({ sizes }) => sizes.h}px;
+    ${({ sizes }) => sizes ? `width: ${sizes.w}px;` : ''}
+    ${({ sizes }) => sizes ? `height: ${sizes.h}px;` : ''}
     position: absolute;
     opacity: 0.25;
 
@@ -96,13 +97,13 @@ const StyledImageReflection = styled(({ sizes, src, def, ...props }: ImageReflec
         content: "";
         transform: scale(1, -1);
         position: absolute;
-        background: url(${({ src }) => src}) lightgray 50% / cover no-repeat;
+        background: url(${({ src }) => src}) no-repeat;
         mask: linear-gradient(transparent 20%, black 100%);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        width: ${({ sizes }) => sizes.w}px;
-        height: ${({ sizes }) => sizes.h}px;
+        ${({ sizes }) => sizes ? `width: ${sizes.w}px;` : ''}
+        ${({ sizes }) => sizes ? `height: ${sizes.h}px;` : ''}
     }
 
 `
@@ -145,9 +146,10 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
                 src={example1.src}
                 alt={"Portfolio Example #1"}
                 sx={{
-                    left: 0,
+                    left: { xs: `calc(50% - (${albumSmall[breakpointMemo].w}px / 2))`, lg: 0 },
+                    top: { xs: 0, lg: `${(albumBig[breakpointMemo].h - albumSmall[breakpointMemo].h) / 2}px` },
                     zIndex: 1,
-                    opacity: 0.6,
+                    opacity: { xs: 0.4, lg: 0.6 },
                     position: 'absolute'
                 }}
 
@@ -160,6 +162,7 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
                 src={example1.src}
                 sizes={{ w: albumSmall[breakpointMemo].w, h: albumSmall[breakpointMemo].h }}
                 sx={{
+                    display: { xs: 'none', lg: 'block' },
                     top: ((albumBig[breakpointMemo].h - albumSmall[breakpointMemo].h) / 2) + albumSmall[breakpointMemo].h + 'px',
                     left: 0,
                     zIndex: -2,
@@ -182,6 +185,7 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
                 src={example2.src}
                 sizes={{ w: albumBig[breakpointMemo].w, h: albumBig[breakpointMemo].h }}
                 sx={{
+                    display: { xs: 'none', lg: 'block' },
                     top: albumBig[breakpointMemo].h + 'px',
                     left: `calc(50% - (${albumBig[breakpointMemo].w}px / 2))`,
                     zIndex: -1,
@@ -193,9 +197,10 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
                 src={example3.src}
                 alt={"Portfolio Example #3"}
                 sx={{
-                    right: 0,
+                    right: { xs: `calc(50% - (${albumSmall[breakpointMemo].w}px / 2))`, lg: 0 },
+                    bottom: { xs: 0, lg: `${(albumBig[breakpointMemo].h - albumSmall[breakpointMemo].h) / 2}px` },
                     zIndex: 1,
-                    opacity: 0.6,
+                    opacity: { xs: 0.4, lg: 0.6 },
                     position: 'absolute'
                 }}
 
@@ -206,6 +211,7 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
                 src={example3.src}
                 sizes={{ w: albumSmall[breakpointMemo].w, h: albumSmall[breakpointMemo].h }}
                 sx={{
+                    display: { xs: 'none', lg: 'block' },
                     top: ((albumBig[breakpointMemo].h - albumSmall[breakpointMemo].h) / 2) + albumSmall[breakpointMemo].h + 'px',
                     right: 0,
                     zIndex: -2,
