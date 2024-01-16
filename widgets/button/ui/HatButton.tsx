@@ -6,7 +6,9 @@ import React, { useMemo } from "react";
 // MUI
 import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
-import { PaletteColor, Button } from "@mui/material";
+import { PaletteColor } from "@mui/material";
+import LoadingButton from '@mui/lab/LoadingButton';
+import CircularProgress, { circularProgressClasses } from '@mui/material/CircularProgress';
 
 // Libs
 import hexToRgba from 'hex-to-rgba';
@@ -20,12 +22,13 @@ import { HatButtonInterface } from "../types";
 
 export function HatButton({
     children,
-    onClick,
+    onClick = () => { },
     sx,
     color,
     type = 'main',
     variant = "contained",
     toUpperCase = true,
+    loading = false,
 
     name = 'main',
     ns = 'home',
@@ -33,7 +36,7 @@ export function HatButton({
     ...props
 }: HatButtonInterface) {
 
-    // Hooks
+    // Theme object
     const theme = useTheme() as Theme;
 
     // Translation
@@ -84,24 +87,52 @@ export function HatButton({
                     : `0px 0px 0px 8px ${hexToRgba(buttonColor, 0.3)}`,
             },
 
+            ...(loading && {
+                background: variant === 'contained' ? buttonColor : `${hexToRgba(buttonColor, 0.1)}`,
+                border: variant === 'contained' ?
+                    theme.palette.mode === 'dark' ?
+                        '2px solid #fff' : '2px solid #000' :
+                    `2px solid ${buttonColor}`
+            }),
+
             // Custom styles overwriting button default styles
             ...sx,
         }
-    }, [buttonColor, lightButtonColor, sx, theme.palette.mode, variant]);
+    }, [buttonColor, lightButtonColor, sx, theme.palette.mode, variant, loading]);
 
     // Define wether it's translatable text (name & ns are defined) or static (children is defined)
     const insides = children ? children : t(name)
 
     return (
 
-        <Button
+        <LoadingButton
+
+            // Loading indicator that will be displayed in the state of loading button
+            loadingIndicator={
+                <CircularProgress
+                    size={35}
+                    thickness={6}
+
+                    // Override default styles for item to make it more visible
+                    sx={{
+                        [`& .${circularProgressClasses.circle}`]: {
+                            opacity: 1,
+                            color: theme.palette.mode === 'dark' ? '#fff' : '#000'
+                        }
+                    }}
+                />
+            }
+
+            // Other attributes
             disableElevation
             onClick={onClick}
             sx={buttonStyles}
+            loading={loading}
 
+            // Provided attributes
             {...props}
         >
             {toUpperCase ? (insides as string).toUpperCase() : insides}
-        </Button>
+        </LoadingButton>
     );
 }

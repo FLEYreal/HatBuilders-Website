@@ -7,6 +7,7 @@ import React, { useMemo } from "react";
 import { Theme } from "@mui/material/styles";
 import { useTheme } from "@emotion/react";
 import { PaletteColor, Typography } from "@mui/material";
+import CircularProgress, { circularProgressClasses } from '@mui/material/CircularProgress';
 
 // Shared
 import { useLanguage } from "@/shared/i18n";
@@ -26,6 +27,7 @@ export function BigHatButton({
     color,
     type = 'main',
     toUpperCase = true,
+    loading = false,
 
     // Locale-related props
     name = 'main',
@@ -84,7 +86,9 @@ export function BigHatButton({
             <FrontBigButton
 
                 buttonColor={buttonColor}
+                darkButtonColor={darkButtonColor}
                 h={h} w={w}
+                loading={loading}
                 variant="contained"
 
                 disableElevation
@@ -95,9 +99,30 @@ export function BigHatButton({
             >
                 {/* Typography is needed to be able to change font size, weight, family ... props. */}
                 {/* Provide everything needed to "typographyProps", it accepts all props available to Typography (MUI) */}
-                <Typography {...typographyProps}>
-                    {toUpperCase ? (insides as string).toUpperCase() : insides}
-                </Typography>
+                {
+                    loading ?
+
+                        // Loading indicator that will be displayed in the state of loading button
+                        <CircularProgress
+                            size={25}
+                            thickness={5}
+
+                            // Override default styles for item to make it more visible
+                            sx={{
+                                [`& .${circularProgressClasses.circle}`]: {
+                                    opacity: 1,
+                                    color: theme.palette.mode === 'dark' ? '#fff' : '#000'
+                                }
+                            }}
+                        />
+                        :
+
+                        // Display text of the button in the case it's not in loading state
+                        <Typography {...typographyProps}>
+                            {toUpperCase ? (insides as string).toUpperCase() : insides}
+                        </Typography>
+
+                }
 
             </FrontBigButton>
 

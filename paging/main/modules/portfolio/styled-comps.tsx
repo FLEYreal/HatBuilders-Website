@@ -1,7 +1,7 @@
 'use client'
 
 // Basics
-import React, { createElement as e, useMemo } from "react";
+import React, { createElement as e, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
 // Matertial-UI
@@ -228,13 +228,26 @@ PortfolioExampleComponent.displayName = 'PortfolioExample'; // Display Name of a
 
 export const ActionBar = () => {
 
+    const [loading, setLoading] = useState(false)
     const router = useRouter()
+
+    const handleClick = () => {
+
+        // Set loading status to button & push to the portfolio page
+        setLoading(true)
+        router.push('/portfolio')
+
+        // Loading is to long, enable button again
+        setTimeout(() => {
+            setLoading(false)
+        }, 5000)
+    }
 
     return (
         <ArticleBlock.Action sx={{ justifyContent: 'center', m: 0 }}>
 
             {/* Full Portfolio Button & Social Media Buttons */}
-            <PortfolioButton onClick={() => router.push('/portfolio')} color="secondary" ns='home' name='full_portfolio' />
+            <PortfolioButton loading={loading} onClick={handleClick} color="secondary" ns='home' name='full_portfolio' />
             <VkButton /><DcButton />
 
         </ArticleBlock.Action>

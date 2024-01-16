@@ -1,7 +1,7 @@
 'use client'
 
 // Basics
-import { createElement as e } from "react";
+import { createElement as e, useState } from "react";
 
 // Material-UI
 import { Box } from "@mui/material";
@@ -73,13 +73,32 @@ const StyledCyberpukBanner = styled(({ def, ...props }: styledDefaultInterface) 
 const StyledWrapperComponent = styled(Flex)<FlexInterface>``
 
 const OrderButton = (props: BigHatButtonInterface) => {
-
+    
     // These variables tell wether it's bigger than breakpoint's screen size 
     // Example: XL equals 1080, it means that if screen is bigger than 1080, it'll return TRUE
     const { md, lg, xl } = useResolution()
 
+    // Loading State
+    const [loading, setLoading] = useState(false);
+
+    // Handle loading on click
+    const handleClick = () => {
+
+        // Button will be loading on click
+        setLoading(true)
+
+        // When too many time has passed, turn off loading state
+        setTimeout(() => {
+            setLoading(false)
+        }, 5000)
+
+    }
+
     return (
         <BigHatButton color="secondary" name="order"
+
+            loading={loading}
+            onClick={handleClick}
 
             // Define sizes of Order button "w" is width, "h" is height
             w={

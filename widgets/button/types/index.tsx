@@ -3,11 +3,12 @@ import { BoxProps, ButtonProps, Palette, SxProps, TypographyProps } from "@mui/m
 
 // Shared
 import { styledDefaultInterface } from "@/shared/mui";
+import { LoadingButtonProps } from "@mui/lab";
 
 // Root interfaces whose props are inherited by every component in the slice
 export interface RootInterface {
     children?: React.ReactNode;
-    onClick?: () => any;
+    onClick?: () => void;
     sx?: SxProps;
 
     name?: string;
@@ -21,6 +22,7 @@ export interface HatButtonInterface extends RootInterface {
     type?: 'main' | 'light' | 'dark';
     variant?: 'contained' | 'outlined';
     toUpperCase?: boolean;
+    loading?: boolean;
 }
 
 export interface BigHatButtonInterface extends RootInterface {
@@ -29,6 +31,7 @@ export interface BigHatButtonInterface extends RootInterface {
     toUpperCase?: boolean;
     w?: number;
     h?: number;
+    loading?: boolean
 
     typographyProps?: TypographyProps;
     frontProps?: FrontBigButtonInterface;
@@ -46,8 +49,9 @@ export interface BackBigButtonInterface extends styledDefaultInterface, BoxProps
     h?: number;
     buttonColor?: string;
 }
-export interface FrontBigButtonInterface extends styledDefaultInterface, ButtonProps {
+export interface FrontBigButtonInterface extends styledDefaultInterface, LoadingButtonProps {
     w?: number;
     h?: number;
     buttonColor?: string;
+    darkButtonColor?: string;
 }

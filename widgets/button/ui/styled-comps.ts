@@ -2,10 +2,12 @@
 import { createElement as e } from "react";
 
 // Material-UI
-import { Box, Button } from "@mui/material";
+import Box from "@mui/material/Box";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 // Emotion
 import styled from "@emotion/styled";
+import { css } from '@emotion/react';
 
 // Features
 import { defaultWrapper } from "@/features/wrappers";
@@ -14,24 +16,33 @@ import { defaultWrapper } from "@/features/wrappers";
 import { WrapperBigButtonInterface, BackBigButtonInterface, FrontBigButtonInterface } from '../types'
 
 // Big Button Styled Components
-const StyledFrontBigButton = styled(({ w, h, buttonColor, ...props }: FrontBigButtonInterface) => e(Button, props)) <FrontBigButtonInterface>`
+const StyledFrontBigButton = styled(({ w, h, buttonColor, darkButtonColor, def, loading, ...props }: FrontBigButtonInterface) => e(LoadingButton, props)) <FrontBigButtonInterface>`
+    && {
+        
+        // Static styles
+        position: absolute;
+        top: 0px;
+        left: 6px;
+        z-index: 1;
+        box-shadow: 0px 6px 0px 0px rgba(255, 255, 255, 0.40) inset, 0px -6px 0px 0px rgba(0, 0, 0, 0.30) inset;
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
+        font-weight: 700;
+        color: #ffffff;
+        transition: background 0.1s ease-in-out;
 
-    // Static styles
-    position: absolute;
-    top: 0px;
-    left: 6px;
-    z-index: 1;
-    box-shadow: 0px 6px 0px 0px rgba(255, 255, 255, 0.40) inset, 0px -6px 0px 0px rgba(0, 0, 0, 0.30) inset;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.35);
-    font-weight: 700;
-    color: #ffffff;
-    transition: none;
+        // Dynamic styles
+        width: ${({ w }) => w!}px;
+        height: ${({ h }) => h! + 12}px;
+        background: ${({ buttonColor }) => buttonColor};
 
-    // Dynamic styles
-    width: ${({ w }) => w!}px;
-    height: ${({ h }) => h! + 12}px;
-    background: ${({ buttonColor }) => buttonColor};
-`
+        // Styles when button is in loading state
+        ${({ loading, darkButtonColor }) => loading &&
+        css`
+            background: ${darkButtonColor};
+        `}
+    }
+`;
+
 
 const StyledBackBigButton = styled(({ w, h, buttonColor, ...props }: BackBigButtonInterface) => e(Box, props)) <BackBigButtonInterface>`
 
@@ -41,6 +52,7 @@ const StyledBackBigButton = styled(({ w, h, buttonColor, ...props }: BackBigButt
     left: 0px;
     z-index: 0px;
     box-shadow: 6px 0px 0px 0px rgba(255, 255, 255, 0.40) inset, -6px 0px 0px 0px rgba(0, 0, 0, 0.30) inset;
+    transition: background 0.1s ease-in-out;
 
     // Dynamic styles
     width: ${({ w }) => w! + 12}px;

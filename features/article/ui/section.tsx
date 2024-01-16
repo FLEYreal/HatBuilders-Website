@@ -1,6 +1,8 @@
 'use client';
 
+
 // Basics
+import React from 'react';
 import { createElement as e } from 'react';
 
 // Material-UI
@@ -25,9 +27,9 @@ const Wrapper = styled(({ def, ...props }: ArticleSectionInterface) => e(Box, pr
  * Article Section component is made to create separate divided blocks of the article 
  * for better code and article (creates small margins between sections) readability and SEO
  */
-const ArticleSectionComponent = ({ children, sx, component, ...props }: ArticleSectionInterface) => {
+const ArticleSectionComponent: React.FC<ArticleSectionInterface> = ({ children, sx, component = "section", ...props }) => {
     return (
-        <Wrapper component={component ? component : "section"} {...props}>
+        <Wrapper component={component} {...props}>
             {children}
         </Wrapper>
     );

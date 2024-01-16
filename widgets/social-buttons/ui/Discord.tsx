@@ -61,7 +61,7 @@ const DcButtonComponent = ({ def, children, ...props }: DcButtonInterface) => {
     return (
         <StyledDcButton toUpperCase={false} def={def} {...props}>
             <Link target="_blank" href={discordServerLink}>
-                <StyledImage src={dc} alt="Dc Button Icon" def={def}/>
+                <StyledImage src={dc} alt="Dc Button Icon" def={def} />
             </Link>
         </StyledDcButton>
     )
