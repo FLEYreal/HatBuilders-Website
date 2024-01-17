@@ -15,6 +15,8 @@ import { BottomPlatform, CyberpukBanner, StyledWrapper, OrderButton } from './st
 
 // Assets
 import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
+import hatbuildersSignSmall from '@/public/images/secondary-hb-sign-small.png'
+
 import cyberpuk from '@/public/images/cyberpuk.png'
 import cyberpukSmall from '@/public/images/cyberpuk-small.webp'
 
@@ -29,8 +31,19 @@ export function Main() {
             <Wrapper sx={{ pt: '64px' }}>
 
                 <Article align="center" textAlign="center">
-                    <Appearance delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" style={{ margin: 0 }} /></Appearance>
-                    <Appearance isSx delay={1.25}><ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5, color: '#ffffff' }} name="main_title" ns="home" /></Appearance>
+
+                    <Appearance delay={0.75}>
+                        <ArticleBlock.Image isBlurry style={{ margin: 0 }} blurryProps={{
+                            image: { src: hatbuildersSign, alt: "HatBuilders Sign" },
+                            srcSmall: hatbuildersSignSmall.src,
+                            progress: { size: 20, thickness: 2 }
+                        }}/>
+                    </Appearance>
+
+                    <Appearance isSx delay={1.25}>
+                        <ArticleBlock.TranslateText textAlign="center" sx={{ m: -2.5, color: '#ffffff' }} name="main_title" ns="home" />
+                    </Appearance>
+
                 </Article>
 
             </Wrapper>

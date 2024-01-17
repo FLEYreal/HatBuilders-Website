@@ -5,6 +5,9 @@ import { ImageProps } from 'next/image';
 // Material-UI
 import { BoxProps, TypographyProps, DividerOwnProps } from '@mui/material'
 
+// Widgets
+import { BlurryImageInterface } from '@/widgets/blurry-image'
+
 // Shared
 import { styledDefaultInterface } from '@/shared/mui';
 
@@ -90,4 +93,9 @@ export interface ActionDividerInterface extends ActionInterface {
  * @param src - Path to the folder (Worth noting: As it's NextJS, you have to provide imported variable rather than hardcoded string path to the image).
  * @param alt - Image description, used mostly for SEO but will be displayed when image can't be loaded.
  */
-export interface ImageInterface extends ArticleBlockInterface, ImageProps {}
+export interface ImageInterface extends ArticleBlockInterface {
+    isBlurry?: boolean;
+    blurryProps?: BlurryImageInterface;
+    style?: CSSProperties;
+    imageProps?: ImageProps;
+}

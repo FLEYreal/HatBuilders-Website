@@ -19,7 +19,6 @@ import { useResolution, styledDefaultInterface } from "@/shared/mui";
 // INTERFACES
 export interface CyberpukBannerInterface extends styledDefaultInterface, BlurryImageInterface {
     children?: ReactNode;
-    ref?: React.Ref<HTMLDivElement>
 }
 
 

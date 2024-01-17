@@ -24,6 +24,7 @@ export interface BlurryImageInterface extends BoxProps, styledDefaultInterface {
     srcSmall: string;
     image: ImageProps;
     progress?: CircularProgressProps;
+    ref?: React.Ref<HTMLDivElement>;
 }
 
 // Component(s)
@@ -67,7 +68,7 @@ const BlurryImage =
                 }: BlurryImageInterface,
 
                 // Reference to the Box component
-                ref: React.Ref<HTMLDivElement>
+                ref?: React.Ref<HTMLDivElement>
 
             ) => {
 
