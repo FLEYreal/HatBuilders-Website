@@ -1,5 +1,6 @@
 // Basics
 import Image from "next/image";
+import type { Metadata } from 'next'
 
 // Material-UI
 import { Typography } from "@mui/material";
@@ -12,6 +13,12 @@ import { Column } from "@/features/wrappers";
 
 // Assets
 import warnImage from '@/public/images/418.jpg'
+
+// Meta data for SEO
+export const metadata: Metadata = {
+    title: 'HatBuilders: Portfolio',
+    description: 'Page with portfolio of images of Hatbuilders\' buildings',
+}
 
 export default function Portfolio() {
 

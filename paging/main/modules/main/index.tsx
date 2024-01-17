@@ -37,11 +37,14 @@ export function Main() {
 
             {/* Styled Component: Background Banner of Main Module */}
             <CyberpukBanner
-                image={{ 
-                    fill: true, 
+                image={{
+                    fill: true,
                     unoptimized: true,
                     alt: "Background Cyberpunk Banner",
                     src: cyberpuk
+                }}
+                progress={{
+                    sx: { mt: "20vh" }
                 }}
                 srcSmall={cyberpukSmall.src}
             />

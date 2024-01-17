@@ -11,6 +11,9 @@ import { LanguageProvider } from '@/shared/i18n/ui/provider'
 import { langType } from '@/shared/i18n/types'
 import { AlbumProvider } from '@/features/album'
 
+// Assets
+import favicon from '@/public/icons/favicon.ico'
+
 // Get Minecraft Font
 const minecraftFont = localFont({
     src: '../../public/fonts/minecraft.ttf'
@@ -29,6 +32,9 @@ export default async function RootLayout({
 
     return (
         <html lang={lng} dir={dir(lng)}>
+            <head>
+                <link rel="icon" href={favicon.src} sizes="any" />
+            </head>
             <body className={minecraftFont.className}>
                 <LanguageProvider value={lng}>
                     <GlobalThemeProvider>

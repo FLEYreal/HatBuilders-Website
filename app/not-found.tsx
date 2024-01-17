@@ -1,7 +1,7 @@
 // Basics
 import Image from 'next/image'
-import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import type { Metadata } from 'next'
 
 // Material-UI
 import { Typography } from '@mui/material';
@@ -29,12 +29,13 @@ export async function generateStaticParams() {
 
 // Meta data for SEO
 export const metadata: Metadata = {
-    title: 'HatBuilders Website',
-    description: 'HatBuilders: Future of Minecraft Building is in our hands!',
+    title: 'HatBuilders: Error 404',
+    description: 'Error page with http code 404',
 }
 
 // Assets
 import errorImage from '@/public/images/error.webp';
+import favicon from '@/public/icons/favicon.ico'
 
 // Component(s)
 const ErrorPage = () => {
@@ -44,6 +45,9 @@ const ErrorPage = () => {
         // Own HTML & BODY & Providers provided to avoid doubling HTML & BODY tags in main layout and [lng] layout
         // It was important for layout from [lng] to have HTML & BODY tags because of dir() function only working properly inside of [lng] directory
         <html>
+            <head>
+                <link rel="icon" href={favicon.src} sizes="any" />
+            </head>
             <body className={minecraftFont.className}>
                 <GlobalThemeProvider>
 
