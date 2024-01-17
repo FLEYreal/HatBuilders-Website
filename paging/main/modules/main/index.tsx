@@ -15,6 +15,9 @@ import { BottomPlatform, CyberpukBanner, StyledWrapper, OrderButton } from './st
 
 // Assets
 import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
+import cyberpuk from '@/public/images/cyberpuk.png'
+import cyberpukSmall from '@/public/images/cyberpuk-small.webp'
+
 
 // Main Component
 export function Main() {
@@ -33,7 +36,15 @@ export function Main() {
             </Wrapper>
 
             {/* Styled Component: Background Banner of Main Module */}
-            <CyberpukBanner />
+            <CyberpukBanner
+                image={{ 
+                    fill: true, 
+                    unoptimized: true,
+                    alt: "Background Cyberpunk Banner",
+                    src: cyberpuk
+                }}
+                srcSmall={cyberpukSmall.src}
+            />
 
             {/* Styled Component: Platform at module's bottom with order button and etc... */}
             <BottomPlatform stretchX align={['center', 'space-between']} flow='row nowrap'>

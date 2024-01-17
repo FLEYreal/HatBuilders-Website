@@ -1,16 +1,14 @@
 'use client'
 
 // Basics
-import { createElement as e, useState } from "react";
-
-// Material-UI
-import { Box } from "@mui/material";
+import { createElement as e, useState, ReactNode } from "react";
 
 // Emotion
 import styled from "@emotion/styled";
 
 // Widgets
 import { BigHatButton, BigHatButtonInterface } from "@/widgets/button";
+import { BlurryImage, BlurryImageInterface } from "@/widgets/blurry-image";
 
 // Features
 import { Flex, defaultWrapper, FlexInterface } from "@/features/wrappers";
@@ -18,8 +16,11 @@ import { Flex, defaultWrapper, FlexInterface } from "@/features/wrappers";
 // Shared
 import { useResolution, styledDefaultInterface } from "@/shared/mui";
 
-// Assets
-import cyberpukPng from '@/public/images/Cyberpuk2.png'
+// INTERFACES
+export interface CyberpukBannerInterface extends styledDefaultInterface, BlurryImageInterface {
+    children?: ReactNode;
+    ref?: React.Ref<HTMLDivElement>
+}
 
 
 // COMPONENTS
@@ -36,7 +37,7 @@ const StyledBottomPlatform = styled(({ def, ...props }: FlexInterface) => e(Flex
     box-shadow: 0px 6px 0px 0px ${({ def }) => def && def.t.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15) inset' : 'rgba(0, 0, 0, 0.15) inset'};
 `
 
-const StyledCyberpukBanner = styled(({ def, ...props }: styledDefaultInterface) => e(Box, props)) <styledDefaultInterface>`
+const StyledCyberpukBanner = styled(({ def, ...props }: CyberpukBannerInterface) => e(BlurryImage, props)) <CyberpukBannerInterface>`
 
     // Static styles
     z-index: -1;
@@ -48,8 +49,6 @@ const StyledCyberpukBanner = styled(({ def, ...props }: styledDefaultInterface) 
     width: 100%;
     margin: 0;
     padding: 0;
-    background: url(${cyberpukPng.src}) no-repeat center center fixed;
-    background-size: cover;
 
     // Dynamic styles
     ${({ def }) => def!.b('xs')} {
@@ -68,12 +67,13 @@ const StyledCyberpukBanner = styled(({ def, ...props }: styledDefaultInterface) 
         top: -500px;
         min-height: calc(100vh + 500px);
     }
-`
+`;
 
-const StyledWrapperComponent = styled(Flex)<FlexInterface>``
+
+const StyledWrapperComponent = styled(Flex) <FlexInterface>``
 
 const OrderButton = (props: BigHatButtonInterface) => {
-    
+
     // These variables tell wether it's bigger than breakpoint's screen size 
     // Example: XL equals 1080, it means that if screen is bigger than 1080, it'll return TRUE
     const { md, lg, xl } = useResolution()
@@ -132,8 +132,8 @@ const OrderButton = (props: BigHatButtonInterface) => {
 
 
 // Export all styled components
-export const BottomPlatform = defaultWrapper(StyledBottomPlatform)
 export const CyberpukBanner = defaultWrapper(StyledCyberpukBanner)
+export const BottomPlatform = defaultWrapper(StyledBottomPlatform)
 export const StyledWrapper = defaultWrapper(StyledWrapperComponent)
 
 // Export all ordinary components
