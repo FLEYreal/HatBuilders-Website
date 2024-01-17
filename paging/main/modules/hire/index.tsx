@@ -15,6 +15,7 @@ import { Shadow, StyledWrapper, Illustration, ActionButton, StyledArticle } from
 
 // Assets
 import hatbuildersSign from '@/public/images/primary-hb-sign-no-b.png';
+import hatbuildersSignSmall from '@/public/images/primary-hb-sign-no-b-small.webp';
 import blobHire from '@/public/images/blob-hire.svg'
 import hireBg from '@/public/images/hire-bg.png'
 import dc from '@/public/icons/social/discord.svg';
@@ -73,7 +74,14 @@ export function Hire() {
 
                     {/* Image Title */}
                     <Appearance dur={0.55} delay={0.9}>
-                        <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Logo" />
+                        <ArticleBlock.Image
+                            isBlurry
+                            blurryProps={{
+                                image: { src: hatbuildersSign, alt: "HatBuilders Logo" },
+                                srcSmall: hatbuildersSignSmall.src,
+                                progress: { size: 20, thickness: 2 }
+                            }}
+                        />
                     </Appearance>
 
                     {/* Text Block */}

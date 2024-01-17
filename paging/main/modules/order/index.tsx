@@ -4,6 +4,7 @@ import { Appearance } from '@/features/animations';
 
 // Assets
 import hatbuildersLogo from '@/public/images/secondary-hb-sign.png'
+import hatbuildersLogoSmall from '@/public/images/secondary-hb-sign-small.webp'
 
 // Styled Components
 import { StyledWrapper, Blackout, ApplyJobButton, OrderButton } from './styled-comps';
@@ -26,7 +27,13 @@ export function Order() {
 
                     {/* Hatbuilders Sign */}
                     <Appearance dur={0.5} delay={0.6}>
-                        <ArticleBlock.Image alt="HatBuilders Logo" src={hatbuildersLogo} />
+                        <ArticleBlock.Image
+                            isBlurry
+                            blurryProps={{
+                                image: { alt: "HatBuilders Logo", src: hatbuildersLogo },
+                                srcSmall: hatbuildersLogoSmall.src,
+                                progress: { size: 20, thickness: 2 }
+                            }} />
                     </Appearance>
 
                     {/* General Title */}

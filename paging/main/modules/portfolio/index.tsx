@@ -7,6 +7,7 @@ import { Box } from "@mui/material";
 // Features
 import { Article, ArticleBlock } from "@/features/article";
 import { Appearance, Float, Opacity } from "@/features/animations";
+import { Flex, Wrapper } from "@/features/wrappers";
 
 // Insides
 import {
@@ -21,11 +22,11 @@ import {
 
 // Assets
 import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
+import hatbuildersSignSmall from '@/public/images/secondary-hb-sign-small.webp'
 import bgItem1 from '@/public/images/portfolio-bg-1.png'
 import bgItem2 from '@/public/images/portfolio-bg-2.png'
 import bgItem3 from '@/public/images/portfolio-bg-3.png'
 import bgItem4 from '@/public/images/portfolio-bg-4.png'
-import { Flex, Wrapper } from "@/features/wrappers";
 
 // Variables
 export const albumBig = {
@@ -51,8 +52,18 @@ export function Portfolio() {
             {/* Wrapper for Logo & Subtitle */}
             <Wrapper>
                 <Article align="center" textAlign="center">
-                    <Appearance delay={0.75}><ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Sign" style={{ margin: 0 }} /></Appearance>
-                    <Appearance isSx delay={1.25}><ArticleBlock.TranslateText textAlign="center" sx={{ m: { xs: -1.5, lg: -3 } }} name="portfolio_p1" /></Appearance>
+
+                    <Appearance delay={0.75}>
+                        <ArticleBlock.Image isBlurry style={{ margin: 0 }} blurryProps={{
+                            image: { src: hatbuildersSign, alt: "HatBuilders Sign" },
+                            srcSmall: hatbuildersSignSmall.src,
+                            progress: { size: 20, thickness: 2 }
+                        }} />
+                    </Appearance>
+
+                    <Appearance isSx delay={1.25}>
+                        <ArticleBlock.TranslateText textAlign="center" sx={{ m: { xs: -1.5, lg: -3 } }} name="portfolio_p1" />
+                    </Appearance>
                 </Article>
             </Wrapper>
 
@@ -67,7 +78,7 @@ export function Portfolio() {
                 <Article align="center">
 
                     {/* Action bar with Portfolio Button + Social Media Buttons */}
-                    <ActionBar/>
+                    <ActionBar />
 
                     {/* Subtitle below action bar */}
                     <ArticleBlock.TranslateText textAlign="center" name="portfolio_p2" variant="h5" sx={{ p: 1 }} />

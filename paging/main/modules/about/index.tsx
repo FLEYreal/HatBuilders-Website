@@ -23,6 +23,9 @@ import {
 
 // Assets
 import hatbuildersSign from '@/public/images/primary-hb-sign-no-b.png';
+import hatbuildersSignSmall from '@/public/images/primary-hb-sign-no-b-small.webp';
+import dio from '@/public/images/dio-about.png';
+import dioSmall from '@/public/images/dio-about-small.webp';
 import coinBg from '@/public/images/coin-bg.png';
 import heartBg from '@/public/images/heart-bg.png';
 
@@ -33,7 +36,14 @@ export function About() {
         <StyledWrapper stretchX stretchY>
 
             {/* Right Section with Art */}
-            <Illustration />
+            <Illustration 
+                srcSmall={dioSmall.src} 
+                image={{ 
+                    src: dio, 
+                    alt: "Illustration", 
+                    fill: true, 
+                    style: { width: '100%', }
+                }} />
 
             <Wrapper>
 
@@ -44,7 +54,11 @@ export function About() {
                     <ArticleSection>
 
                         <Appearance dur={0.7} delay={0.7}>
-                            <ArticleBlock.Image src={hatbuildersSign} alt="HatBuilders Logo" />
+                            <ArticleBlock.Image isBlurry blurryProps={{
+                                image: { src: hatbuildersSign, alt: "HatBuilders Logo" },
+                                srcSmall: hatbuildersSignSmall.src,
+                                progress: { size: 20, thickness: 2 }
+                            }} />
                         </Appearance>
 
                         <Appearance isSx dur={0.8} delay={1.4}>

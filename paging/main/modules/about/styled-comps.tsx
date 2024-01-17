@@ -4,13 +4,14 @@
 import { createElement as e } from "react";
 
 // Material-UI
-import { Box, BoxProps, Divider, DividerProps } from "@mui/material";
+import { Box, Divider, DividerProps } from "@mui/material";
 
 // Emotion
 import styled from "@emotion/styled";
 
 // Widgets
 import { HatButton, HatButtonInterface } from "@/widgets/button";
+import { BlurryImage, BlurryImageInterface } from "@/widgets/blurry-image";
 
 // Features
 import { Flex, FlexInterface, defaultWrapper } from "@/features/wrappers";
@@ -19,11 +20,8 @@ import { Article, ArticleInterface } from '@/features/article'
 // Types
 import { styledDefaultInterface, useResolution } from "@/shared/mui";
 
-// Assets
-import dio from '@/public/images/dio-about.png';
-
 // Interfaces
-export interface IllustrationInterface extends BoxProps, styledDefaultInterface { }
+export interface IllustrationInterface extends BlurryImageInterface, styledDefaultInterface { }
 export interface PrimaryDividerInterface extends DividerProps, styledDefaultInterface { }
 export interface StyledArticleInterface extends ArticleInterface, styledDefaultInterface { }
 export interface OrderButtonInterface extends HatButtonInterface, styledDefaultInterface { }
@@ -39,38 +37,39 @@ const StyledWrapperComponent = styled(Flex) <FlexInterface>`
 
 
 // ILLUSTRATION STYLING
-const StyledIllustration = styled(({ def, ...props }: IllustrationInterface) => e(Box, props)) <IllustrationInterface>`
+const StyledIllustration = styled(({ def, ...props }: IllustrationInterface) => e(BlurryImage, props)) <IllustrationInterface>`
     position: absolute;
-    background-image: url(${dio.src});
-    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: -1;
 
     ${({ def }) => def!.b('xs')} {
-        top: 6vh;
-        right: calc(50vw - 125px);
-        width: 250px;
-        height: 160px;
+        top: 10vh;
+        right: calc(50vw - (280px / 2));
+        width: 280px;
+        height: 185.76px;
     }
 
     ${({ def }) => def!.b('md')} {
         top: 4vh;
-        right: calc(50vw - 210px);
-        width: 420px;
-        height: 280px;
+        right: calc(50vw - (530px / 2));
+        width: 530px;
+        height: 351.61px;
     }
 
     ${({ def }) => def!.b('lg')} {
-        top: calc(50vh - 220px);
-        right: 0;
-        width: 440px;
-        height: 440px;
+        top: calc(50vh - (364.88px / 2));
+        right: -130px;
+        width: 550px;
+        height: 364.88px;
     }
 
     ${({ def }) => def!.b('xl')} {
-        top: calc(50vh - 340px);
-        right: 0;
-        width: 680px;
-        height: 680px;
+        top: calc(50vh - (597.07px / 2));
+        right: -240px;
+        width: 900px;
+        height: 597.07px;
     }
 `
 

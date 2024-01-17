@@ -87,7 +87,7 @@ const BlurryImage =
                     <Box
                         ref={ref}
                         sx={{
-                            background: `url(${srcSmall}) no-repeat center center fixed`,
+                            background: loaded ? 'none' : `url(${srcSmall}) no-repeat center center fixed`,
                             backgroundSize: 'cover',
                             ...sx
                         }}

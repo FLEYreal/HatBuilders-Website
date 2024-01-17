@@ -15,7 +15,7 @@ import { BottomPlatform, CyberpukBanner, StyledWrapper, OrderButton } from './st
 
 // Assets
 import hatbuildersSign from '@/public/images/secondary-hb-sign.png'
-import hatbuildersSignSmall from '@/public/images/secondary-hb-sign-small.png'
+import hatbuildersSignSmall from '@/public/images/secondary-hb-sign-small.webp'
 
 import cyberpuk from '@/public/images/cyberpuk.png'
 import cyberpukSmall from '@/public/images/cyberpuk-small.webp'
@@ -37,7 +37,7 @@ export function Main() {
                             image: { src: hatbuildersSign, alt: "HatBuilders Sign" },
                             srcSmall: hatbuildersSignSmall.src,
                             progress: { size: 20, thickness: 2 }
-                        }}/>
+                        }} />
                     </Appearance>
 
                     <Appearance isSx delay={1.25}>
