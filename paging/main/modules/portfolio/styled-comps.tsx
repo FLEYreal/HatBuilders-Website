@@ -29,6 +29,9 @@ import { AlbumImage } from "@/features/album";
 import example1 from '@/public/en/examples/example-1.webp'
 import example2 from '@/public/en/examples/example-2.webp'
 import example3 from '@/public/en/examples/example-3.webp'
+import smallExample1 from '@/public/en/examples/example-1-small.webp'
+import smallExample2 from '@/public/en/examples/example-2-small.webp'
+import smallExample3 from '@/public/en/examples/example-3-small.webp'
 
 // Interfaces
 export interface PortfolioButtonInterface extends HatButtonInterface, styledDefaultInterface { }
@@ -146,8 +149,17 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
 
             {/* AlbumImage component is a clickable image, that opens image on full screen when clicked, just like Album */}
             <AlbumImage
-                src={example1.src}
-                alt={"Portfolio Example #1"}
+                isBlurry
+                blurryProps={{
+                    image: {
+                        src: example1.src,
+                        alt: "Portfolio Example #1",
+                        height: albumSmall[breakpointMemo].h,
+                        width: albumSmall[breakpointMemo].w
+                    },
+                    srcSmall: smallExample1.src,
+                    progress: { size: 30, thickness: 3 }
+                }}
                 sx={{
                     left: { xs: `calc(50% - (${albumSmall[breakpointMemo].w}px / 2))`, lg: 0 },
                     top: { xs: 0, lg: `${(albumBig[breakpointMemo].h - albumSmall[breakpointMemo].h) / 2}px` },
@@ -155,9 +167,6 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
                     opacity: { xs: 0.4, lg: 0.6 },
                     position: 'absolute'
                 }}
-
-                height={albumSmall[breakpointMemo].h}
-                width={albumSmall[breakpointMemo].w}
             />
 
             {/* Image reflection creates good looking effect of reflection below image */}
@@ -173,16 +182,22 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
             />
 
             <AlbumImage
-                src={example2.src}
-                alt={"Portfolio Example #2"}
+                isBlurry
+                blurryProps={{
+                    image: {
+                        src: example2.src,
+                        alt: "Portfolio Example #2",
+                        height: albumBig[breakpointMemo].h,
+                        width: albumBig[breakpointMemo].w
+                    },
+                    srcSmall: smallExample2.src,
+                    progress: { size: 30, thickness: 3 }
+                }}
                 sx={{
                     left: `calc(50% - (${albumBig[breakpointMemo].w}px / 2))`,
                     zIndex: 2,
                     position: 'absolute'
                 }}
-
-                height={albumBig[breakpointMemo].h}
-                width={albumBig[breakpointMemo].w}
             />
             <ImageReflection
                 src={example2.src}
@@ -197,8 +212,17 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
             />
 
             <AlbumImage
-                src={example3.src}
-                alt={"Portfolio Example #3"}
+                isBlurry
+                blurryProps={{
+                    image: {
+                        src: example3.src,
+                        alt: "Portfolio Example #3",
+                        height: albumSmall[breakpointMemo].h,
+                        width: albumSmall[breakpointMemo].w
+                    },
+                    srcSmall: smallExample3.src,
+                    progress: { size: 30, thickness: 3 }
+                }}
                 sx={{
                     right: { xs: `calc(50% - (${albumSmall[breakpointMemo].w}px / 2))`, lg: 0 },
                     bottom: { xs: 0, lg: `${(albumBig[breakpointMemo].h - albumSmall[breakpointMemo].h) / 2}px` },
@@ -206,9 +230,6 @@ const PortfolioExampleComponent = React.memo(({ ...props }: PortfolioExampleInte
                     opacity: { xs: 0.4, lg: 0.6 },
                     position: 'absolute'
                 }}
-
-                height={albumSmall[breakpointMemo].h}
-                width={albumSmall[breakpointMemo].w}
             />
             <ImageReflection
                 src={example3.src}

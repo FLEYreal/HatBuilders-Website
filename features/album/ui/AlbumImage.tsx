@@ -9,22 +9,23 @@ import { SxProps, Box } from "@mui/material";
 
 // Components
 import { albumContext } from "./provider";
+import { BlurryImageInterface, BlurryImage } from "@/widgets/blurry-image";
 
 // Interfaces
-export interface AlbumImageInterface extends ImageProps {
+export interface AlbumImageInterface {
     sx?: SxProps;
+    isBlurry: boolean;
+    imageProps?: ImageProps;
+    blurryProps?: BlurryImageInterface;
 }
 
 // Component
 export function AlbumImage({
+    imageProps,
+    blurryProps,
 
-    // Params for each image
-    src,
-    alt,
     sx = {},
-
-    width,
-    height,
+    isBlurry = false,
 
     ...props
 
@@ -32,6 +33,12 @@ export function AlbumImage({
 
     // Hook to define state of modal of image
     const { setIsOpen, setImage } = useContext(albumContext)
+    const { src, alt, width, height } =
+        imageProps ||
+        (isBlurry && blurryProps ?
+            blurryProps!.image :
+            { src: '/', alt: 'Empty Image', width: 0, height: 0 }
+        )
 
     function handleModal() {
         setImage({
@@ -44,7 +51,7 @@ export function AlbumImage({
     }
 
     return (
-        <Box sx={{
+        <Box {...props} sx={{
             cursor: 'pointer',
             transition: 'all 0.2s ease',
             display: 'inline-block',
@@ -59,17 +66,32 @@ export function AlbumImage({
 
             ...sx
         }}>
-            <Image
-                alt={alt}
-                src={src}
+            {
+                isBlurry && blurryProps ?
+                    <BlurryImage
 
-                onClick={handleModal}
+                        onClick={handleModal}
 
-                width={width}
-                height={height}
+                        {...blurryProps}
+                    />
+                    :
+                    imageProps ?
 
-                {...props}
-            />
+                        /* eslint-disable-next-line jsx-a11y/alt-text */
+                        <Image
+
+                            onClick={handleModal}
+
+                            {...imageProps}
+                        />
+                        :
+                        <span style={{
+                            padding: '10px',
+                            color: 'red',
+                        }}>
+                            Image properties were not provided!
+                        </span>
+            }
         </Box>
     );
 }

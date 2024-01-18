@@ -58,12 +58,15 @@ const BlurryImage =
             (
 
                 // Props to be passed to component
-                { 
-                    image, 
+                {
+                    image,
                     progress,
-                    progress: { sx: progressSx = {} } = {},
+                    progress: {
+                        sx: progressSx = {},
+                        size = 50
+                    } = {},
                     srcSmall,
-                    sx = {}, 
+                    sx = {},
                     ...props
                 }: BlurryImageInterface,
 
@@ -87,8 +90,11 @@ const BlurryImage =
                     <Box
                         ref={ref}
                         sx={{
+                            position: 'relative',
                             background: loaded ? 'none' : `url(${srcSmall}) no-repeat center center fixed`,
                             backgroundSize: 'cover',
+                            height: image.height || '100%',
+                            width: image.width || '100%',
                             ...sx
                         }}
                         {...props}
@@ -102,8 +108,8 @@ const BlurryImage =
                                 height: '100%',
                                 objectFit: 'cover',
                                 objectPosition: 'center',
-                                transition: 'opacity 0.3s ease-in-out',
-                                opacity: loaded ? 1 : 0,
+                                transition: 'opacity 0.5s ease-in-out',
+                                opacity: loaded ? 1 : 0
                             }}
                             {...image}
                         />
@@ -111,8 +117,6 @@ const BlurryImage =
                         {
                             !loaded && <CircularProgress
 
-                                // Default props
-                                size={50}
                                 thickness={4}
 
                                 // Parse potential attributes to override existing
@@ -120,6 +124,11 @@ const BlurryImage =
 
                                 // Override default styles for item to make it more visible
                                 sx={{
+
+                                    position: 'absolute',
+                                    top: `calc(50% - ${size}px)`,
+                                    left: `calc(50% - ${size}px)`,
+
                                     [`& .${circularProgressClasses.circle}`]: {
                                         opacity: 0.5,
                                         color: '#fff'
@@ -128,6 +137,8 @@ const BlurryImage =
                                     // If progress has SX props, they will sum with existing ones
                                     ...progressSx
                                 }}
+
+                                size={size}
                             />
                         }
 

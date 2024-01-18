@@ -2,7 +2,7 @@
 import Image from 'next/image';
 
 // Material-UI
-import { Box, BoxProps } from '@mui/material'
+import { Box, BoxProps, sliderClasses } from '@mui/material'
 
 // Widgets
 import { DcButton, VkButton } from "@/widgets/social-buttons";
@@ -36,13 +36,12 @@ export function About() {
         <StyledWrapper stretchX stretchY>
 
             {/* Right Section with Art */}
-            <Illustration 
-                srcSmall={dioSmall.src} 
-                image={{ 
-                    src: dio, 
-                    alt: "Illustration", 
-                    fill: true, 
-                    style: { width: '100%', }
+            <Illustration
+                srcSmall={dioSmall.src}
+                image={{
+                    src: dio,
+                    alt: "Illustration",
+                    fill: true
                 }} />
 
             <Wrapper>

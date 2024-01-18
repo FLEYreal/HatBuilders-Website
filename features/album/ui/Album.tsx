@@ -5,12 +5,15 @@ import { ImageProps } from "next/image";
 import { Box, } from "@mui/material";
 import { SxProps } from '@mui/material/styles'
 
-// Components
+// Widgets
+import { BlurryImageInterface } from "@/widgets/blurry-image";
+
+// Insides
 import { AlbumImage } from './AlbumImage'
 
 // Interfaces
 export interface AlbumInterface {
-    images: ImageProps[];
+    images: BlurryImageInterface[];
     sizes: { width: number, height: number };
     limit?: number;
     sx?: SxProps;
@@ -37,7 +40,7 @@ export function Album({ images, sizes, limit, sx, childSx }: AlbumInterface) {
         }}>
             {
                 // Iterate each image from JSON array
-                images.map((i: ImageProps, key: number) => {
+                images.map((i: BlurryImageInterface, key: number) => {
 
                     // If it's index higher than limit - don't load images anymore
                     if (limit && key > limit - 1) {
@@ -45,15 +48,20 @@ export function Album({ images, sizes, limit, sx, childSx }: AlbumInterface) {
                     }
 
                     return (<AlbumImage
-                        src={i.src}
+                        isBlurry
+                        blurryProps={{
+                            ...i,
+
+                            image: {
+                                width: sizes.width,
+                                height: sizes.height,
+                                ...i.image
+                            }
+                        }}
                         key={key}
-                        alt={i.alt}
                         sx={{
                             ...childSx
                         }}
-
-                        height={sizes.height}
-                        width={sizes.width}
 
                     />)
                 })

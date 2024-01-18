@@ -21,7 +21,9 @@ export const albumContext = createContext<AlbumContextInterface>({
     // Image data
     image: {
         src: '/',
-        alt: 'Empty Image'
+        alt: 'Empty Image',
+        width: 0,
+        height: 0
     },
     setImage: function () { },
 
@@ -35,7 +37,9 @@ export function AlbumProvider({ children }: { children: ReactNode }) {
     // Image data
     const [image, setImage] = useState<ImageProps>({
         src: '/',
-        alt: 'Empty Image'
+        alt: 'Empty Image',
+        width: 0,
+        height: 0
     })
 
     // Hook to define state of modal of image
