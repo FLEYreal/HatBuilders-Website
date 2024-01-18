@@ -10,6 +10,11 @@ import hatbuildersLogoSmall from '@/public/images/secondary-hb-sign-small.webp'
 import { StyledWrapper, Blackout, ApplyJobButton, OrderButton } from './styled-comps';
 import { Column, Wrapper } from '@/features/wrappers';
 
+// Assets
+import orderBg from '@/public/images/order-bg.png';
+import orderBgSmall from '@/public/images/order-bg-small.webp';
+import { BlurryImage } from "@/widgets/blurry-image";
+
 // Main Component
 export function Order() {
     return (
@@ -20,6 +25,28 @@ export function Order() {
             align={['center', 'space-between']}
             textAlign='center'
         >
+
+            <BlurryImage
+
+                srcSmall={orderBgSmall.src}
+
+                image={{
+                    src: orderBg,
+                    alt: "Background Image",
+                    fill: true,
+                    unoptimized: true
+                }}
+
+                sx={{
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                    zIndex: -10,
+                    width: '100%',
+                    height: '100vh'
+                }}
+
+            />
 
             {/* Upper part with "HATBUILDERS" sign and title */}
             <Wrapper sx={{ pt: '80px', zIndex: 10 }}>

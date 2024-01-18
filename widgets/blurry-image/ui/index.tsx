@@ -92,6 +92,7 @@ const BlurryImage =
                         sx={{
                             position: 'relative',
                             background: loaded ? 'none' : `url(${srcSmall}) no-repeat center center fixed`,
+                            transition: 'all 0.4s ease-in-out',
                             backgroundSize: 'cover',
                             height: image.height || '100%',
                             width: image.width || '100%',
@@ -108,7 +109,7 @@ const BlurryImage =
                                 height: '100%',
                                 objectFit: 'cover',
                                 objectPosition: 'center',
-                                transition: 'opacity 0.5s ease-in-out',
+                                transition: 'opacity 0.4s ease-in-out',
                                 opacity: loaded ? 1 : 0
                             }}
                             {...image}

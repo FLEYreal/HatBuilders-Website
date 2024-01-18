@@ -20,17 +20,8 @@ import styled from "@emotion/styled";
 import { Flex } from "@/features/wrappers";
 import { FlexInterface } from "@/features/wrappers/types";
 
-// Assets
-import orderBg from '@/public/images/order-bg.png';
-
 // Styles Components
-export const StyledWrapper = styled(({ def, ...props }: FlexInterface) => e(Flex, props)) <FlexInterface>`
-
-    background-image: url(${orderBg.src});
-    background-size: cover;
-    background-position: right;
-
-`
+export const StyledWrapper = styled(({ def, ...props }: FlexInterface) => e(Flex, props)) <FlexInterface>``
 
 
 // Styles for Wrapper

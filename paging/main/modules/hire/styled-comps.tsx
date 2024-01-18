@@ -2,7 +2,6 @@
 
 // Basics
 import { CSSProperties, createElement as e } from "react";
-import Image, { ImageProps } from "next/image";
 
 // Material-UI
 import { Box, BoxProps } from "@mui/material";
@@ -12,6 +11,7 @@ import styled from "@emotion/styled";
 
 // Widgets
 import { HatButton, HatButtonInterface } from "@/widgets/button";
+import { BlurryImage, BlurryImageInterface } from "@/widgets/blurry-image";
 
 // Features
 import { Flex, FlexInterface, defaultWrapper } from "@/features/wrappers";
@@ -22,7 +22,7 @@ import { styledDefaultInterface, useResolution } from "@/shared/mui";
 
 // Interfaces
 export interface ShadowInterface extends styledDefaultInterface, BoxProps { }
-export interface IllustrationInterface extends styledDefaultInterface, ImageProps { }
+export interface IllustrationInterface extends styledDefaultInterface, BlurryImageInterface { }
 export interface StyledArticleInterface extends ArticleInterface, styledDefaultInterface { }
 export interface ActionButtonInterface extends styledDefaultInterface, HatButtonInterface {
     bg: CSSProperties['background']
@@ -63,7 +63,7 @@ const StyledShadow = styled(({ def, ...props }: ShadowInterface) => e(Box, props
 
 `
 
-const StyledIllustration = styled(({ def, ...props }: IllustrationInterface) => e(Image, props))`
+const StyledIllustration = styled(({ def, ...props }: IllustrationInterface) => e(BlurryImage, props))`
 
     // Static
     bottom: 0;

@@ -1,6 +1,3 @@
-// Basics
-import { ImageProps } from "next/image";
-
 // Matertial-UI
 import { Box, } from "@mui/material";
 import { SxProps } from '@mui/material/styles'

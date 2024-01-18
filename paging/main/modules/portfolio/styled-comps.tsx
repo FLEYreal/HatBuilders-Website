@@ -94,22 +94,27 @@ const StyledPortfolioExample = styled(({ def, ...props }: PortfolioExampleInterf
 
 const StyledImageReflection = styled(({ sizes, src, def, ...props }: ImageReflectionInterface) => e(Box, props)) <ImageReflectionInterface>`
 
-    ${({ sizes }) => sizes ? `width: ${sizes.w}px;` : ''}
-    ${({ sizes }) => sizes ? `height: ${sizes.h}px;` : ''}
     position: absolute;
     opacity: 0.25;
 
+    ${({ sizes }) => sizes ? `width: ${sizes.w}px;` : ''}
+    ${({ sizes }) => sizes ? `height: ${sizes.h}px;` : ''}
+
     &::before {
+
         content: "";
         transform: scale(1, -1);
         position: absolute;
-        background: url(${({ src }) => src}) no-repeat;
         mask: linear-gradient(transparent 20%, black 100%);
+
+        background: url(${({ src }) => src}) no-repeat;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        
         ${({ sizes }) => sizes ? `width: ${sizes.w}px;` : ''}
         ${({ sizes }) => sizes ? `height: ${sizes.h}px;` : ''}
+
     }
 
 `

@@ -18,6 +18,7 @@ import hatbuildersSign from '@/public/images/primary-hb-sign-no-b.png';
 import hatbuildersSignSmall from '@/public/images/primary-hb-sign-no-b-small.webp';
 import blobHire from '@/public/images/blob-hire.svg'
 import hireBg from '@/public/images/hire-bg.png'
+import hireBgSmall from '@/public/images/hire-bg-small.webp'
 import dc from '@/public/icons/social/discord.svg';
 import vk from '@/public/icons/social/vk.svg';
 
@@ -50,7 +51,15 @@ export function Hire() {
                 </Box>
 
                 {/* General Module's Illustration */}
-                <Illustration src={hireBg} alt="Background Blob" />
+                <Illustration
+
+                    srcSmall={hireBgSmall.src}
+                    image={{
+                        src: hireBg,
+                        alt: "Background Illustration"
+                    }}
+
+                />
 
             </Flex>
 
