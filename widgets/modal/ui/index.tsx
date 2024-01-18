@@ -5,7 +5,7 @@ import React, { useState, useMemo, cloneElement } from 'react'
 import { createPortal } from 'react-dom';
 
 // MUI
-import { Dialog, DialogProps, DialogTitle, SxProps } from '@mui/material'
+import { Dialog, DialogProps, DialogTitle, DialogTitleProps, SxProps } from '@mui/material'
 
 // Widgets
 import { Cross } from '@/widgets/cross'
@@ -17,10 +17,11 @@ export interface HatModalInterface {
 	onClick?: () => void;
 	sx?: SxProps;
 	element?: React.ReactNode;
+	dialogTitleProps?: DialogTitleProps;
 	dialogProps?: Omit<DialogProps, 'open'>;
 }
 
-export function HatModal({ element, children, dialogProps }: HatModalInterface) {
+export function HatModal({ element, children, dialogTitleProps, dialogProps }: HatModalInterface) {
 
 	// State that defines wether modal is open
 	const [open, setOpen] = useState(false)
@@ -38,20 +39,28 @@ export function HatModal({ element, children, dialogProps }: HatModalInterface) 
 	})
 
 	// Memoized Styles
-	const modalStyles = useMemo(() => {
-		return {
-			textAlign: 'center',
-			modal: {
-				display: 'flex',
-				flexDirection: 'column-reverse',
-				alignItems: 'center',
-				padding: '15px',
-				justifyContent: 'flex-end',
-				height: '600px',
-				boxShadow: '5px 5px 0px 0px rgba(255, 255, 255, 0.15) inset, -5px -5px 0px 0px rgba(0, 0, 0, 0.30) inset',
-			},
+	const modalStyles = useMemo(() => ({
+
+		dialog: {
+
+			'& .MuiDialog-paper': {
+				maxWidth: '100%',
+				margin: '0'
+			}
+
+		},
+
+		dialogTitle: {
+			display: 'flex',
+			flexDirection: 'column',
+			alignItems: 'center',
+			padding: 'calc(1.2vw + 20px)',
+			justifyContent: 'flex-end',
+			minHeight: '200px',
+			boxShadow: '5px 5px 0px 0px rgba(255, 255, 255, 0.15) inset, -5px -5px 0px 0px rgba(0, 0, 0, 0.30) inset',
 		}
-	}, [])
+
+	}), [])
 
 	return (
 		<>
@@ -66,21 +75,32 @@ export function HatModal({ element, children, dialogProps }: HatModalInterface) 
 					open={open}
 					onClose={() => setOpen(false)}
 					fullWidth
-					maxWidth='xs'
 					PaperProps={{
 						elevation: 0
 					}}
 
 					{...dialogProps}
+
+					sx={Object.assign({}, modalStyles.dialog, dialogProps?.sx)}
 				>
 
-					<DialogTitle sx={modalStyles.modal}>
+					<DialogTitle
+
+						{...dialogTitleProps}
+
+						sx={Object.assign({}, modalStyles.dialogTitle, dialogTitleProps?.sx)}
+
+					>
+
+
+						<Cross onClose={() => setOpen(false)} sx={{
+							position: 'absolute',
+							right: '16px',
+							top: '16px'
+						}} />
+
 
 						{children}
-
-						<div style={{ alignSelf: 'flex-end', marginRight: '10px' }}>
-							<Cross onClose={() => setOpen(false)} />
-						</div>
 
 					</DialogTitle>
 
