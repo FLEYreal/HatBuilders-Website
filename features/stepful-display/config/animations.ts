@@ -2,7 +2,7 @@
 
 import { keyframes } from "@mui/material"
 
-export const transitionDur = 1
+export const transitionDur = 0.8
 export const fadeInFromDown = keyframes`
     0% {
         opacity: 0;

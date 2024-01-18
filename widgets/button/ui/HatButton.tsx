@@ -27,7 +27,7 @@ export function HatButton({
     color,
     type = 'main',
     variant = "contained",
-    toUpperCase = true,
+    toUpperCase = false,
     loading = false,
 
     name = 'main',

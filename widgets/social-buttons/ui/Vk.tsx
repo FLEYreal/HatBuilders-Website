@@ -61,7 +61,7 @@ const VkButtonComponent = ({ def, ...props }: VkButtonInterface) => {
     const vkGroupLink: string = "https://google.com"
 
     return (
-        <StyledVkButton toUpperCase={false} def={def} {...props}>
+        <StyledVkButton def={def} {...props}>
             <Link target="_blank" href={vkGroupLink}>
                 <StyledImage src={vk} alt="Vk Button Icon" def={def} />
             </Link>

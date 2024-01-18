@@ -273,7 +273,7 @@ export const ActionBar = () => {
         <ArticleBlock.Action sx={{ justifyContent: 'center', m: 0 }}>
 
             {/* Full Portfolio Button & Social Media Buttons */}
-            <PortfolioButton loading={loading} onClick={handleClick} color="secondary" ns='home' name='full_portfolio' />
+            <PortfolioButton loading={loading} onClick={handleClick} color="secondary" ns='home' name='full_portfolio' toUpperCase />
             <VkButton /><DcButton />
 
         </ArticleBlock.Action>

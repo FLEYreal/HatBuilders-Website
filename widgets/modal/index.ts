@@ -1,5 +1,5 @@
 // Basics
-export {Modal} from './ui'
+export { HatModal } from './ui'
 
 // Types
-export type {HatModalType} from './ui'
+export type { HatModalInterface } from './ui'

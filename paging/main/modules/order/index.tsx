@@ -1,3 +1,7 @@
+// Widgets
+import { BlurryImage } from "@/widgets/blurry-image";
+import { OrderModal, HireModal } from "@/widgets/modals";
+
 // Features
 import { Article, ArticleBlock } from "@/features/article";
 import { Appearance } from '@/features/animations';
@@ -13,7 +17,6 @@ import { Column, Wrapper } from '@/features/wrappers';
 // Assets
 import orderBg from '@/public/images/order-bg.png';
 import orderBgSmall from '@/public/images/order-bg-small.webp';
-import { BlurryImage } from "@/widgets/blurry-image";
 
 // Main Component
 export function Order() {
@@ -97,8 +100,13 @@ export function Order() {
                         <Column sx={{ gap: 0 }} align={['center', 'center']}>
 
                             {/* Buttons */}
-                            <OrderButton sx={{ mb: '7px' }} />
-                            <ApplyJobButton sx={{ mb: '7px' }} />
+                            <OrderModal
+                                element={<OrderButton sx={{ mb: '7px' }} />}
+                            />
+
+                            <HireModal
+                                element={<ApplyJobButton sx={{ mb: '7px' }} />}
+                            />
 
                             {/* Subtitle */}
                             <ArticleBlock.TranslateText

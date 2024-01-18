@@ -59,7 +59,7 @@ const DcButtonComponent = ({ def, children, ...props }: DcButtonInterface) => {
     const discordServerLink: string = "https://discord.gg/7cNAGPbGQu"
 
     return (
-        <StyledDcButton toUpperCase={false} def={def} {...props}>
+        <StyledDcButton def={def} {...props}>
             <Link target="_blank" href={discordServerLink}>
                 <StyledImage src={dc} alt="Dc Button Icon" def={def} />
             </Link>

@@ -87,7 +87,7 @@ export function About() {
                                 }}
                             >
 
-                                <OrderButton ns='home' name='order' />
+                                <OrderButton ns='home' name='order' toUpperCase/>
                                 <VkButton /><DcButton />
 
                             </ArticleBlock.Action>
