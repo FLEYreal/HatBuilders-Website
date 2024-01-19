@@ -104,6 +104,8 @@ export function HatModal({ element, children, dialogTitleProps, dialogProps }: H
 
 					</DialogTitle>
 
+					{dialogProps?.children}
+
 				</Dialog>,
 
 				document.body

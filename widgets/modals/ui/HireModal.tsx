@@ -32,7 +32,7 @@ export function HireModal({ ...props }: HatModalInterface) {
                         xl: '600px'
                     },
                     margin: 'auto',
-                },
+                }
             }}
 
             // Props for wrapper itself

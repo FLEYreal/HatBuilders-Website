@@ -62,13 +62,6 @@ export function Float<T>({
 
         const { style: styleProp, sx: sxProp }: { style?: CSSProperties; sx?: SxProps } = (child as ReactElement).props;
 
-        console.log({
-            animationDuration: dur + 's',
-            animationDelay: delay + 's',
-            ...style,
-            ...styleProp
-        })
-
         if (isSx) {
 
             return cloneElement(child as ReactElement, {
