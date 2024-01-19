@@ -4,8 +4,6 @@ export { Flex } from './ui/flex'
 export { Column } from './ui/column'
 export { Row } from './ui/row'
 export { Center } from './ui/center'
-
-// Hocs
 export { defaultWrapper } from './ui/hocs'
 
 // Types

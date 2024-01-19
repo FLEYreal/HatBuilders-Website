@@ -2,8 +2,8 @@
 import React, { ReactNode, Dispatch, SetStateAction } from "react"
 
 // Material-UI
-import { BoxProps } from "@mui/system"
-import { SxProps } from "@mui/material"
+import { SxProps, BoxProps } from "@mui/material"
+
 
 // Types
 
@@ -39,14 +39,15 @@ export type direction = 'up' | 'down' | number
  * @param {Function} switchModule - function that smoothly switches modules, it has direction params to defines switch direction: "up" or "down"
  */
 export type StepfulContext = {
-    modules: ReactNode[],
-    setModules: Dispatch<SetStateAction<ReactNode[]>>
-    current: number,
-    setCurrent: Dispatch<SetStateAction<number>>,
-    switchModule: (direction: direction) => void,
-    moduleStyles: SxProps, 
-    setModuleStyles: Dispatch<SetStateAction<SxProps>>
+    modules: ReactNode[];
+    setModules: Dispatch<SetStateAction<ReactNode[]>>;
+    current: number;
+    setCurrent: Dispatch<SetStateAction<number>>;
+    switchModule: (direction: direction) => void;
+    moduleStyles: SxProps;
+    setModuleStyles: Dispatch<SetStateAction<SxProps>>;
 }
+
 
 // Interfaces
 
@@ -61,25 +62,44 @@ export type StepfulContext = {
  * @property {string} id - Required parameter. Unique id of the Modules. If not provided, generates autamically
  */
 export interface ModulesInterface {
-    sx?: SxProps
-    component?: BoxProps['component'],
+    sx?: SxProps;
+    component?: BoxProps['component'];
 }
 
+/**
+ * Interface for the Provider component in stepful-display feature.
+ * 
+ * @param {ReactNode} children - Required parameter. It's a react node that will be displayed inside the Provider component.
+ * @param {ReactNode[]} modules - Required parameter. Array of react components (modules) to display.
+ * @param {number} [current] - Index element from "modules" array. This index defines what is current module has to be displayed.
+ * @param {string} id - Required parameter. Unique id of the Provider component.
+ */
 export interface ProviderInterface {
-    children: ReactNode,
-    modules: ReactNode[],
-    current?: number,
-    id: string
+    children: ReactNode;
+    modules: ReactNode[];
+    current?: number;
+    id: string;
 }
 
+/**
+ * Interface for the StepfulTabs component.
+ * 
+ * @param {string} [ns] - Optional parameter. Namespace for the component.
+ * @param {object} [moduleTheme] - Optional parameter. Array of objects that define the theme of the modules.
+ * @param {('inherit'|'primary'|'secondary')} moduleTheme.color - Required parameter. Color of the icon.
+ * @param {string} moduleTheme.translation - Required parameter. Translation key for the label of the module.
+ * @param {ReactNode} [moduleTheme.icon] - Optional parameter. Icon to be displayed next to the label of the module.
+ * @param {SxProps} [sxChild] - Optional parameter. Custom styles for the child elements of the component.
+ * @param {SxProps} [sxParent] - Optional parameter. Custom styles for the child that are MUI's components.
+ */
 export interface StepfulTabsInterface {
-    ns?: string,
+    ns?: string;
     moduleTheme?: {
-        color: 'inherit' | 'primary' | 'secondary'
-        translation: string,
-        icon?: ReactNode
+        color: 'inherit' | 'primary' | 'secondary';
+        translation: string;
+        icon?: ReactNode;
     }[],
 
-    sxChild?: SxProps,
-    sxParent?: SxProps
+    sxChild?: SxProps;
+    sxParent?: SxProps;
 }

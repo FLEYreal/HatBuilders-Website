@@ -30,6 +30,7 @@ import { FlexInterface } from "../types"
 // Higher-Order Components
 import { defaultWrapper } from "./hocs"
 
+
 // Styled components
 const StyledFlex = styled(({ flow, align, f, grow, shrink, basis, stretchY, stretchX, def, ...props }: FlexInterface) => e(Box, props)) <FlexInterface>`
 
@@ -64,6 +65,22 @@ const StyledFlex = styled(({ flow, align, f, grow, shrink, basis, stretchY, stre
 `
 
 
+/**
+ * A React component that provides a flexible container for arranging items in a row or column.
+ * 
+ * @param {ReactNode} children - The child elements to be displayed in the flex container.
+ * @param {FlexInterface} props - The properties of the Flex component.
+ * @param {string} props.flow - The direction of the flex items. Can be either 'row' or 'column'. Defaults to 'row'.
+ * @param {string[][]} props.align - The alignment of the flex items on the main axis. The first value specifies the alignment for items when there is extra space on the main axis. The second value specifies the alignment for items when there is extra space on the cross axis. Can be either 'start', 'end', 'center', or 'stretch'. Defaults to ['center', 'center'].
+ * @param {string} props.f - The flex value for the flex items. Can be any CSS flex property value.
+ * @param {number} props.grow - The flex grow value for the flex items.
+ * @param {number} props.shrink - The flex shrink value for the flex items.
+ * @param {string} props.basis - The flex basis value for the flex items.
+ * @param {boolean} props.stretchX - Whether to stretch the flex items horizontally. Defaults to true.
+ * @param {boolean} props.stretchY - Whether to stretch the flex items vertically. Defaults to false.
+ * @param {object} props.childStyles - The styles to be applied to the child elements. Can be either CSS styles or Material-UI's CSS styling version: 'sx'.
+ * @param {object} props.sxStyles - The styles to be applied to the child elements using Material-UI's CSS styling version: 'sx'.
+ */
 function WrapperFlex({
 
     // Children of the component
@@ -91,9 +108,11 @@ function WrapperFlex({
     ...props
 }: FlexInterface) {
 
-    // Cloned children to apply styles to them if needed
-    const [clones, setClones] = useState<ReactNode>(children)
+    // STATES
+    const [clones, setClones] = useState<ReactNode>(children) // Cloned children to apply styles to them if needed
 
+
+    // EFFECTS
     useEffect(() => {
 
         // Variable to assign cloned children with new styles to it if there are

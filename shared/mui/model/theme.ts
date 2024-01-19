@@ -1,6 +1,7 @@
 // Material-UI
 import { createTheme, Theme } from '@mui/material/styles';
 
+
 // Declarations
 declare module "@mui/material/styles"
 {
@@ -12,6 +13,7 @@ declare module "@mui/material/styles"
         xlWidth: true
     }
 }
+
 
 // Palette of colors
 export const paletteDark = {
@@ -42,6 +44,7 @@ export const paletteDark = {
     }
 }
 
+
 // Palette of colors
 export const paletteLight = {
     primary: {
@@ -71,6 +74,7 @@ export const paletteLight = {
     }
 }
 
+
 // Duration of transitions
 export const transitions = {
     duration: {
@@ -83,6 +87,7 @@ export const transitions = {
         leavingScreen: 195,
     }
 }
+
 
 // Breakpoints for responsive layout
 export const breakpoints = {
@@ -104,6 +109,7 @@ export const breakpoints = {
     },
 }
 
+
 // Custom dark theme
 export const darkTheme = createTheme({
     breakpoints: breakpoints,
@@ -121,6 +127,7 @@ export const darkTheme = createTheme({
         fontFamily: 'inherit'
     }
 });
+
 
 // Custom light theme
 export const lightTheme = createTheme({
@@ -140,7 +147,9 @@ export const lightTheme = createTheme({
     }
 });
 
+
 const themes = [darkTheme, lightTheme]
+
 
 // Define styling for typography. Needed to standartized article creation
 // This all's been used in Text sort of components.
@@ -156,6 +165,7 @@ for (let i = 0; i < themes.length; i++) {
         [themes[i].breakpoints.up('xl')]: { fontSize: '12px' }
     }
 
+
     // Type: Regular Sub-Text
     // Example: Small Signs, Sub-Strings, Post-Scriptum
     themes[i].typography.h5 = {
@@ -168,6 +178,7 @@ for (let i = 0; i < themes.length; i++) {
         [themes[i].breakpoints.up('lg')]: { fontSize: '11px' },
         [themes[i].breakpoints.up('xl')]: { fontSize: '14px' }
     }
+
 
     // Type: Small Paragtaph
     // Example: Signs, Post-Scriptum
@@ -182,6 +193,7 @@ for (let i = 0; i < themes.length; i++) {
         [themes[i].breakpoints.up('xl')]: { fontSize: '15px' }
     }
 
+
     // Type: Regular Paragraph
     // Example: Text of the Article, Buttons
     themes[i].typography.h3 = {
@@ -194,6 +206,7 @@ for (let i = 0; i < themes.length; i++) {
         [themes[i].breakpoints.up('lg')]: { fontSize: '15px' },
         [themes[i].breakpoints.up('xl')]: { fontSize: '17px' }
     }
+
 
     // Type: Small Title
     // Example: Subtitles, Block's titles
@@ -208,6 +221,7 @@ for (let i = 0; i < themes.length; i++) {
         [themes[i].breakpoints.up('xl')]: { fontSize: '26px' }
     }
 
+
     // Type: Regular Title
     // Examples: Logos, Articles' Titles
     themes[i].typography.h1 = {
@@ -220,6 +234,7 @@ for (let i = 0; i < themes.length; i++) {
         [themes[i].breakpoints.up('lg')]: { fontSize: '26px' },
         [themes[i].breakpoints.up('xl')]: { fontSize: '30px' }
     }
+
 
     // Type: Button Name
     themes[i].typography.button = {

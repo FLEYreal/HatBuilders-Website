@@ -10,9 +10,11 @@ import { useLanguage } from '@/shared/i18n/ui/provider';
 // Hooks
 import { useModules } from './provider';
 
-// Config
+// Insides
 import { type StepfulTabsInterface } from '../config/types'
 
+
+// Outisde vairables
 export const sxTab = {
     fontSize: {
         lg: '12px',
@@ -24,25 +26,30 @@ export const sxTab = {
     }
 }
 
+
 /**
  * Selectable tabs, list of main modules. When you click, it switches to selected module
  */
 export function StepfulTabs({ moduleTheme, ns = 'header', sxChild, sxParent }: StepfulTabsInterface) {
 
-    // Get data from module's context
-    let { modules, current, switchModule } = useModules();
+    // CUSTOM VARIABLES & HOOKS
+    let { modules, current, switchModule } = useModules(); // Get data from module's context
 
-    // Get language
-    let lng = useLanguage();
-    const { t } = useTranslation(lng, ns);
+    let lng = useLanguage(); // Get currentlanguage
+    const { t } = useTranslation(lng, ns); // Get translation object
 
-    // Handler(s)
-    const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+
+    // HANDLERS
+    const handleTabChange = (
+        _: React.SyntheticEvent, // Unused
+        newValue: number
+    ) => {
 
         // Switch to the provided module by index
         switchModule(newValue);
     };
 
+    
     return (
         <Tabs
             // Value & Change value

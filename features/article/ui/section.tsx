@@ -1,6 +1,5 @@
 'use client';
 
-
 // Basics
 import React from 'react';
 import { createElement as e } from 'react';
@@ -9,8 +8,12 @@ import { createElement as e } from 'react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 
-import { ArticleSectionInterface } from '../types';
+// Features
 import { defaultWrapper } from '@/features/wrappers';
+
+// Insides
+import { ArticleSectionInterface } from '../types';
+
 
 // Styling
 const Wrapper = styled(({ def, ...props }: ArticleSectionInterface) => e(Box, props)) <ArticleSectionInterface>`
@@ -22,6 +25,7 @@ const Wrapper = styled(({ def, ...props }: ArticleSectionInterface) => e(Box, pr
     ${({ def }) => def!.b('lg')} { margin: '24px 0'; }
     ${({ def }) => def!.b('xl')} { margin: '32px 0'; }
 `
+
 
 /**
  * Article Section component is made to create separate divided blocks of the article 

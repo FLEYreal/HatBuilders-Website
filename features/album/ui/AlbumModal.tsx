@@ -14,15 +14,21 @@ import styles from './styles.module.css'
 // Component
 export function AlbumModal() {
 
-    // Get valuable data from Context
-    const { image, isOpen, setIsOpen } = useAlbum()
 
-    // Get components of the page with "useRef"
-    const bgTag = useRef<HTMLElement>(null)
+    // STATES
+    const [originalDimensions, setOriginalDimensions] = useState({ width: 0, height: 0 }); // Dimensions of the future image
+
+
+    // CONTEXTS
+    const { image, isOpen, setIsOpen } = useAlbum() // Get valuable data from Context
+
+
+    // REFERENCES
+    const bgTag = useRef<HTMLElement>(null) // Get components of the page with
     const imageTag = useRef<HTMLImageElement>(null)
 
-    // Dimensions of the future image
-    const [originalDimensions, setOriginalDimensions] = useState({ width: 0, height: 0 });
+
+    // CUSTOM VARIABLES & HOOKS
 
     // Limit of image's dimensions so it didn't get bigger than user's screen
     const maxScreenWidth = Math.floor(window.innerWidth * 0.8);
@@ -45,8 +51,9 @@ export function AlbumModal() {
         displayedHeight *= scale;
     }
 
-    // useEffect to animate image's appearance
-    useEffect(() => {
+    
+    // EFFECTS
+    useEffect(() => { // useEffect to animate image's appearance
         if (isOpen && imageTag && bgTag) {
             imageTag.current!.classList.add(styles.appearance_image);
             bgTag.current!.classList.add(styles.appearance_background);
@@ -58,8 +65,8 @@ export function AlbumModal() {
         }
     }, [isOpen])
 
-    // useEffect to set sizes of the image
-    useEffect(() => {
+    
+    useEffect(() => { // useEffect to set sizes of the image
         const img = new window.Image();
         img.src = image.src as string;
 
@@ -68,8 +75,9 @@ export function AlbumModal() {
         };
     }, [image.src]);
 
-    // Function to turn on/off modal
-    function handleModal() {
+
+    // HANDLERS
+    const handleModal = () => { // Function to turn on/off modal
         setIsOpen((prev: boolean) => !prev)
     }
 

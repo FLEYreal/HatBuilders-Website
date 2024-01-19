@@ -1,5 +1,5 @@
 // Matertial-UI
-import { Box, } from "@mui/material";
+import { Box } from "@mui/material";
 import { SxProps } from '@mui/material/styles'
 
 // Widgets
@@ -7,6 +7,7 @@ import { BlurryImageInterface } from "@/widgets/blurry-image";
 
 // Insides
 import { AlbumImage } from './AlbumImage'
+
 
 // Interfaces
 export interface AlbumInterface {
@@ -17,10 +18,11 @@ export interface AlbumInterface {
     childSx?: SxProps;
 }
 
-// Component
 
 /**
- * Renders an album, collection of images with flex
+ * Renders an album, collection of album images. If you click on any of the images. 
+ * It will scale up to let you see it better.
+ * 
  * @param {ImageProps[]} images - an array of image objects
  * @param {{ width: number, height: number }} sizes - the dimensions of each image
  * @param {number} [limit] - the maximum number of images to render

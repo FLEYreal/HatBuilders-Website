@@ -1,20 +1,22 @@
 // Material-UI
 import { Typography, TypographyProps } from '@mui/material';
 
-// Config
+// Insides
 import { TextInterface } from '../../types';
+
 
 /**
  * Text Component Providing Standartized Text Element for Articles
  * @param {TypographyProps} props 
  */
 export const Text: React.FC<TextInterface> = ({
-    variant = "h3",
-    component = "p",
-    textAlign,
-    children,
-    sx,
+    variant = "h3", // What Typography (from MUI) variant to use
+    component = "p", // What tag to use
+    textAlign, // How to align text, start, center or end
 
+    sx, // MUI's styles
+
+    children,
     ...props
 }: TextInterface) => {
 

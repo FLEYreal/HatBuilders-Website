@@ -1,7 +1,6 @@
-// Config
+// Insides
 import { ArticleBlockInterface } from '../../types';
 
-// Components
 
 /**
  * General Component for creating blocks of the Article
@@ -14,17 +13,20 @@ function ArticleBlock({ children }: ArticleBlockInterface) {
     return (<>{children}</>)
 }
 
+
 // Sub-Components
 import { Text } from './text';
 import { Image } from './image';
 import { Action } from './action';
 import { TranslateText } from './translate-text';
 
+
 // Assign Sub-Components to Parent
 ArticleBlock.Text = Text
 ArticleBlock.TranslateText = TranslateText
 ArticleBlock.Image = Image
 ArticleBlock.Action = Action
+
 
 // Export Parent
 export { ArticleBlock };

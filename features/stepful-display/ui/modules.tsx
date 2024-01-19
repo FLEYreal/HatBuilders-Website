@@ -6,14 +6,12 @@ import { useEffect, useRef, useCallback } from "react"
 // Material-UI
 import { Box } from "@mui/material"
 
-// Config
+// Insides
+import { useModules } from "./provider"
 import {
     ModulesInterface as StepfulModulesInterface,
     direction as directionType
 } from '../config/types'
-
-// Context
-import { useModules } from "./provider"
 
 // Component(s)
 
@@ -26,11 +24,15 @@ import { useModules } from "./provider"
  */
 export const Modules = ({ sx, component = 'section' }: StepfulModulesInterface) => {
 
-    // Hooks
+    // CONTEXTS
     const { modules, current, switchModule, moduleStyles } = useModules()
+
+
+    // REFERENCES
     const isDelay = useRef<boolean>(false)
 
-    // Handlers
+
+    // HANDLERS
 
     /**
      * Handler for scroll event, activates "switchModule" function
@@ -45,9 +47,10 @@ export const Modules = ({ sx, component = 'section' }: StepfulModulesInterface) 
         switchModule(direction)
     }, [switchModule])
 
-    // UseEffects
 
+    // EFFECTS
     useEffect(() => {
+
         // Setup listener to track scrolling
         window.addEventListener('wheel', handleScroll);
 

@@ -1,19 +1,18 @@
 'use client'
 
 // Basics
-import Image from 'next/image';
 import { CSSProperties } from "react"
 import { createPortal } from "react-dom"
 
 // Material-UI
 import { Box, Theme } from "@mui/material"
+
+// Emotion
 import { useTheme } from "@emotion/react"
 
-// UI
+// Insides
 import { useModules } from "../ui/provider"
 
-// Assets
-import scrollDotsShadow from '@/public/images/scroll-dots-shadow.svg'
 
 // Styles for wrapper
 const wrapper = () => ({
@@ -40,12 +39,13 @@ const dots = (
 
 export const ScrollDots = () => {
 
-    // Get variable from custom stepful display hook
-    const { current, modules } = useModules()
 
-    // Theme
-    const theme = useTheme() as Theme
+    // CUSTOM HOOKS & VARIABLES
+    const { current, modules } = useModules() // Get variable from custom stepful display hook
+    const theme = useTheme() as Theme // Get theme object
 
+
+    // Teleport More component straight to root (body tag)
     return createPortal(
         <Box sx={wrapper()}>
             <Box

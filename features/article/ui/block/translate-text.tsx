@@ -7,28 +7,29 @@ import { Typography, TypographyProps } from '@mui/material';
 import { useTranslation } from '@/shared/i18n/client';
 import { useLanguage } from '@/shared/i18n';
 
-// Config
+// Insides
 import { TranslateTextInterface } from '../../types';
+
 
 /**
  * Translative Text Component Providing Standartized Text Element for Articles that can be translated to available languages
  * @param {TypographyProps} props 
  */
 export const TranslateText: React.FC<TranslateTextInterface> = ({
-    variant = "h3",
-    component = "p",
-    textAlign,
+    variant = "h3", // What Typography (from MUI) variant to use
+    component = "p", // What tag to use
+    textAlign, // How to align text, start, center or end
 
-    name = 'main',
-    ns = 'home',
-    sx,
+    name = 'main', // Name of the translation in translation object
+    ns = 'home', // What namespace to use for the translation
+    sx, // MUI's styles
 
     ...props
 }: TranslateTextInterface) => {
 
-    // Get translation 
-    const lng = useLanguage()
-    const { t } = useTranslation(lng, ns)
+    // CUSTOM VARIABLES & HOOKS
+    const lng = useLanguage() // Get current language
+    const { t } = useTranslation(lng, ns) // Get object with translations
 
     // What tag to use relative to the variant provided
     const variantToComponent: Record<string, TypographyProps['component']> = {

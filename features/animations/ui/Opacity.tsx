@@ -12,8 +12,9 @@ import { keyframes } from "@emotion/react";
 // Insides
 import { OpacityInterface } from "../types";
 
-// Animation
+// Styles
 import s from './style.module.css';
+
 
 // Animation
 const opacityKeyframes = keyframes`
@@ -25,7 +26,6 @@ const opacityKeyframes = keyframes`
     }
 `;
 
-// Component
 
 /**
  * Provides animation for floating things. You can setup animation properties.
@@ -58,8 +58,10 @@ export function Opacity<T>({
 
     const mapChild = (child: ReactNode) => {
 
+        // Get styles of the child.
         const { style: styleProp, sx: sxProp }: { style?: CSSProperties; sx?: SxProps } = (child as ReactElement).props;
 
+        // If it's MUI component
         if (isSx) {
 
             return cloneElement(child as ReactElement, {
@@ -76,6 +78,7 @@ export function Opacity<T>({
 
         }
 
+        // If it's regular component
         else {
 
             return cloneElement(child as ReactElement, {
@@ -92,7 +95,7 @@ export function Opacity<T>({
         }
     };
 
+    // Map all children (component allows to animate more than 1 child) and return them all animated
     const clonedChildren = Children.map(children, mapChild);
-
     return <>{clonedChildren}</>;
 };

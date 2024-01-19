@@ -1,35 +1,55 @@
 'use client'
 
 // Basics
-import { ReactNode, createContext, useContext, useState, useRef, useEffect, useCallback } from "react"
+import { 
+
+    // Utils
+    ReactNode, 
+    createContext, 
+
+    // Hooks
+    useContext, 
+    useState, 
+    useRef, 
+    useEffect, 
+    useCallback
+
+} from "react"
 
 // Material-UI
 import { SxProps } from '@mui/material'
 
-// Config
+// Insides
 import {
+
     StepfulContext as StepfulContextType,
     ProviderInterface as StepfulProvierInterface,
     direction as directionType,
+
 } from '../config/types'
 
 import {
+
+    // Animations' duration
     transitionDur,
+
+    // Fade animations
     fadeInFromDown,
     fadeOutToUp,
     fadeInFromUp,
     fadeOutToDown
+
 } from "../config/animations"
 
 // Context
 export const StepfulContext = createContext<StepfulContextType>({
-    modules: [],
-    setModules: () => { },
-    current: 0,
-    setCurrent: () => { },
-    switchModule: () => { },
-    moduleStyles: {},
-    setModuleStyles: () => { }
+    modules: [], // List of modules
+    setModules: () => { }, // Update list of modules
+    current: 0, // Current module to display
+    setCurrent: () => { }, // Update current module
+    switchModule: () => { }, // Function to smoothly switch between modules
+    moduleStyles: {}, // Styles of the module's wrapper
+    setModuleStyles: () => { } // Update module's styles
 })
 
 // Context Hook
@@ -37,11 +57,17 @@ export const useModules = () => useContext(StepfulContext)
 
 export const Provider = ({ children, modules, current = 0, id }: StepfulProvierInterface) => {
 
-    // Hooks
-    const [moduleList, setModuleList] = useState<ReactNode[]>(modules)
-    const [moduleStyles, setModuleStyles] = useState<SxProps>({})
-    const [currentModule, setCurrentModule] = useState<number>(Number(localStorage.getItem(`${id}-current-module`)) || current)
-    const isDelay = useRef<boolean>(false)
+    // STATES
+    const [moduleList, setModuleList] = useState<ReactNode[]>(modules) // List of modules
+    const [moduleStyles, setModuleStyles] = useState<SxProps>({}) // Styles for module's wrapper
+    const [currentModule, setCurrentModule] = useState<number>(Number(localStorage.getItem(`${id}-current-module`)) || current) // Current module
+    
+    
+    // REFERENCES
+    const isDelay = useRef<boolean>(false) // Forbids changing modules while animation plays
+
+
+    // FUNCTIONS
 
     /**
      * Handles animated transition from 1 module to another.
@@ -54,6 +80,7 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
      */
     const switchModule = useCallback((direction: directionType = 'down') => {
 
+        // Can't continue if it's still a delay
         if (isDelay.current === true) return;
 
         // Setup animation for scroll down by default
@@ -117,8 +144,8 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
         }, transitionDur * 1000);
     }, [currentModule, moduleList.length])
 
-    // UseEffects
 
+    // EFFECTS
     useEffect(() => {
 
         // Setup Fade-In animation when module first loaded
@@ -140,6 +167,7 @@ export const Provider = ({ children, modules, current = 0, id }: StepfulProvierI
         ) localStorage.setItem(`${id}-current-module`, String(currentModule))
 
     }, [currentModule, id, moduleList.length])
+
 
     return (
         <StepfulContext.Provider value={{

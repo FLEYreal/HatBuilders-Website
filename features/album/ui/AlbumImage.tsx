@@ -11,6 +11,7 @@ import { SxProps, Box } from "@mui/material";
 import { albumContext } from "./provider";
 import { BlurryImageInterface, BlurryImage } from "@/widgets/blurry-image";
 
+
 // Interfaces
 export interface AlbumImageInterface {
     sx?: SxProps;
@@ -19,20 +20,38 @@ export interface AlbumImageInterface {
     blurryProps?: BlurryImageInterface;
 }
 
-// Component
+
+/**
+ * An album image. It's main feature that when you click on an image, it scales up to let you
+ * see it better.
+ * 
+ * @param {SxProps} sx - Override or extend the styles applied to the component.
+ * @param {boolean} isBlurry - Whether to display the blurry version of the image.
+ * @param {ImageProps} imageProps - Props passed to the Next/Image component.
+ * @param {BlurryImageInterface} blurryProps - Props passed to the BlurryImage component.
+ * @returns {JSX.Element}
+ */
 export function AlbumImage({
+
+    // Define what type of image to use
+    isBlurry = false,
+
+    // Props to image
     imageProps,
     blurryProps,
 
+    // Styling to wrapper
     sx = {},
-    isBlurry = false,
 
     ...props
 
 }: AlbumImageInterface) {
 
-    // Hook to define state of modal of image
-    const { setIsOpen, setImage } = useContext(albumContext)
+    // CONTEXTS
+    const { setIsOpen, setImage } = useContext(albumContext) // Hook to define state of modal of image
+    
+    
+    // CUSTOM VARIABLES & HOOKS
     const { src, alt, width, height } =
         imageProps ||
         (isBlurry && blurryProps ?
@@ -40,7 +59,9 @@ export function AlbumImage({
             { src: '/', alt: 'Empty Image', width: 0, height: 0 }
         )
 
-    function handleModal() {
+    
+    // HANDLERS
+    const handleModal = () => {
         setImage({
             alt: alt,
             src: src,
@@ -67,6 +88,7 @@ export function AlbumImage({
             ...sx
         }}>
             {
+                // Define wether to use regular "next/image" component or custom blurry component.
                 isBlurry && blurryProps ?
                     <BlurryImage
 
@@ -85,6 +107,7 @@ export function AlbumImage({
                             {...imageProps}
                         />
                         :
+                        // If no props are passed to the component, just give and error message.
                         <span style={{
                             padding: '10px',
                             color: 'red',

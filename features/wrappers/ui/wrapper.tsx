@@ -10,12 +10,14 @@ import { styledDefaultInterface } from "@/shared/mui";
 // Emotion
 import styled from '@emotion/styled'
 
-// Higher-Order Components
+// Insides
 import { defaultWrapper } from "./hocs";
 import { WrapperInterface } from "../types";
 
+
 // Define custom props type
 type StyledWrapperProps = styledDefaultInterface & React.ComponentProps<typeof Box>;
+
 
 // Styled Component
 const StyledWrapper = styled(({ def, ...props }: StyledWrapperProps) => e(Box, props)) <StyledWrapperProps>` 
@@ -32,9 +34,11 @@ const StyledWrapper = styled(({ def, ...props }: StyledWrapperProps) => e(Box, p
 `
 
 
-// Component
-function WrapperComponent({ children, def, ...props }: WrapperInterface) {
 
+/**
+ * A component that wraps its children in a responsive MUI Box component. It properly shrinks relatively screen sizes.
+ */
+function WrapperComponent({ children, def, ...props }: WrapperInterface): JSX.Element {
     return (
         <StyledWrapper
             def={def}
@@ -44,8 +48,7 @@ function WrapperComponent({ children, def, ...props }: WrapperInterface) {
         >
             {children}
         </StyledWrapper>
-    )
-
+    );
 }
 
 // Export New Wrapper

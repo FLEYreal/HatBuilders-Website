@@ -4,8 +4,7 @@
 import { createPortal } from "react-dom"
 
 // Material-UI
-import { SxProps, Box, Theme } from "@mui/material"
-import { useTheme } from "@emotion/react"
+import { SxProps, Box } from "@mui/material"
 
 // UI
 import { useModules } from "./provider"
@@ -18,22 +17,28 @@ import { useTranslation } from "@/shared/i18n/client"
 import s from './styles.module.css'
 
 
+/**
+ * Renders the "More" button at the bottom of the screen.
+ * @param {SxProps} sx - Styles for the component.
+ */
 export function More({ sx }: { sx?: SxProps }) {
 
-    // Get variable from custom stepful display hook
-    const { switchModule } = useModules()
+    // CONTEXTS
+    const { switchModule } = useModules() // Get variable from custom stepful display hook
 
-    // Theme
-    const theme = useTheme() as Theme
 
-    // Language
+    // CUSTOM VARIABLES & HOOKS
     const lng = useLanguage()
     const { t } = useTranslation(lng, 'home')
 
-    // Switch to next module on click
-    const handleContinue = () => switchModule('down')
 
+    // HANDLERS
+    const handleContinue = () => switchModule('down') // Switch to next module on click
+
+
+    // Teleport More component straight to root (body tag)
     return createPortal(
+        
         <Box sx={{
             zIndex: 1000,
             position: 'absolute',
@@ -49,11 +54,16 @@ export function More({ sx }: { sx?: SxProps }) {
             flexFlow: 'column',
             ...sx
         }}>
+
             <div className={s.moreWrapper} onClick={handleContinue}>
+
                 <div>{t('more')}</div>
                 <div className={s.moreArrow}>^</div>
+
             </div>
+
         </Box>,
+
         document.body
     )
 }

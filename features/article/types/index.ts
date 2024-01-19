@@ -11,8 +11,12 @@ import { BlurryImageInterface } from '@/widgets/blurry-image'
 // Shared
 import { styledDefaultInterface } from '@/shared/mui';
 
-// Reusable Types
+
+// Types
 type align = 'start' | 'center' | 'end';
+
+
+// Interfaces
 
 /**
  * Root inteface, parent of every interface in the feature.
@@ -25,8 +29,6 @@ export interface RootInterface extends styledDefaultInterface {}
 export interface InsideInterface extends RootInterface {
     children?: string | ReactNode;
 }
-
-// Interfaces for components
 
 /** 
  * @param fullSize - Do stretch article to the whole page?.

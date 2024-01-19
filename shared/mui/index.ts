@@ -25,5 +25,5 @@ export {
 
 
 // Types
-export type { styledInterface, styledDefaultInterface } from './types'
+export type { styledDefaultInterface } from './types'
 

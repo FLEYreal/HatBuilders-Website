@@ -5,19 +5,21 @@ import { cloneElement, Children, ReactElement, ReactNode } from 'react';
 import { Box } from '@mui/material';
 
 // Config
-import { ActionInterface } from '../../../types';
+import { ActionInterface } from '../../types';
+
 
 /**
  * ArticleBlock: Block for creating action bars with buttons, widgets and other stuff.
- * Recommended to use only MUI components inside because otherwise, default styles might not be applied
+ * Recommended to use only MUI components inside because otherwise, default styles might not be applied!
  */
-const Action = ({
-    align = 'row',
-    m = '16px',
+export const Action = ({
+    align = 'row', // Align components in a "row" or "column"?
+    m = '16px', // Margins between items
 
     children,
-    component = "section",
-    sx = {}
+    component = "section", // MUI's component prop. Defines what tag to use for wrapper
+
+    ...props
 }: ActionInterface) => {
 
     // Clone children and parse to apply custom styling
@@ -33,26 +35,22 @@ const Action = ({
     });
 
     return (
-        <Box component={component} sx={{
-            display: 'flex',
-            alignItems: 'start',
-            justifyContent: 'start',
-            flexFlow: align,
-            m: m,
-            ml: '0',
-            ...sx
-        }}>
+        <Box
+            component={component}
+
+            {...props}
+
+            sx={{
+                display: 'flex',
+                alignItems: 'start',
+                justifyContent: 'start',
+                flexFlow: align,
+                m: m,
+                ml: '0',
+                ...props.sx
+            }}
+        >
             {clones}
         </Box>
     )
 }
-
-
-// Sub-Components
-import { ArticleDivider } from './divider'
-
-// Assign Sub-Components to Parent
-Action.Divider = ArticleDivider
-
-// Export Parent
-export { Action }

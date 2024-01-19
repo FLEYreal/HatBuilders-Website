@@ -13,7 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.0",
     "@mui/lab": "^5.0.0-alpha.158",
-    "@mui/material": "^5.15.0",
+    "@mui/material": "^5.15.5",
     "accept-language": "^3.0.18",
     "hex-to-rgba": "^2.0.1",
     "i18next": "^23.7.11",
@@ -23,7 +23,6 @@
     "react": "^18",
     "react-dom": "^18",
     "react-i18next": "^13.5.0",
-    "sass": "^1.69.7",
     "sharp": "^0.33.1"
   },
   "devDependencies": {

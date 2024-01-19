@@ -1,10 +1,11 @@
 // Insides
 import { Flex } from './flex'
-
-// Types
 import { ColumnInterface } from '../types'
 
-// Component(s)
+
+/**
+ * Inherits Flex component with only difference that it aligns children vertically.
+ */
 export function Column({
 
     // Common Params

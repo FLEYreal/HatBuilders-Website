@@ -25,6 +25,19 @@ export interface defaultWrapperInterface<T extends styledDefaultInterface> {
 }
 
 // Interfaces of Components & Styled Components
+
+/**
+ * @param {string} flow - The direction of the flex items. Can be either 'row' or 'column'. Defaults to 'row'.
+ * @param {string[][]} align - The alignment of the flex items on the main axis. The first value specifies the alignment for items when there is extra space on the main axis. The second value specifies the alignment for items when there is extra space on the cross axis. Can be either 'start', 'end', 'center', or 'stretch'. Defaults to ['center', 'center'].
+ * @param {string} f - The flex value for the flex items. Can be any CSS flex property value.
+ * @param {number} grow - The flex grow value for the flex items.
+ * @param {number} shrink - The flex shrink value for the flex items.
+ * @param {string} basis - The flex basis value for the flex items.
+ * @param {boolean} stretchX - Whether to stretch the flex items horizontally. Defaults to true.
+ * @param {boolean} stretchY - Whether to stretch the flex items vertically. Defaults to false.
+ * @param {object} childStyles - The styles to be applied to the child elements. Can be either CSS styles or Material-UI's CSS styling version: 'sx'.
+ * @param {object} sxStyles - The styles to be applied to the child elements using Material-UI's CSS styling version: 'sx'.
+ */
 export interface FlexInterface extends RootInterface, BoxProps {
     stretchY?: boolean;
     stretchX?: boolean;

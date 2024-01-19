@@ -2,10 +2,19 @@
 
 // Material-UI
 import { useMediaQuery, Theme, Breakpoint } from '@mui/material';
+
+// Emotion
 import { useTheme } from '@emotion/react';
 
+
 // Types
-type resolutionReturnType = { xs: boolean, sm: boolean, md: boolean, lg: boolean, xl: boolean }
+type resolutionReturnType = { 
+    xs: boolean, 
+    sm: boolean, 
+    md: boolean, 
+    lg: boolean, 
+    xl: boolean
+}
 type singleResolutionReturnType = boolean
 
 
@@ -19,8 +28,6 @@ interface singleResolutionInterface {
     breakpoint: Breakpoint | number
 }
 
-
-// Hooks
 
 /**
  * Hook that helps defining current screen resolution.
@@ -37,9 +44,10 @@ export const useResolution = (
 
 ): resolutionReturnType => {
 
-    // Get theme object
-    const theme = useTheme() as Theme
+    // CUSTOM VARIABLES & HOOKS
+    const theme = useTheme() as Theme // Get theme object
 
+    
     // Get all breakpoints
     const xs = useMediaQuery(theme.breakpoints[direction]('xs'))
     const sm = useMediaQuery(theme.breakpoints[direction]('sm'))

@@ -5,13 +5,12 @@ import React, { useState, useCallback } from 'react';
 import Image, { ImageProps } from 'next/image'
 
 // Material-UI
-import { Box, BoxProps } from '@mui/material'
+import { Box, BoxProps, SxProps } from '@mui/material'
 import CircularProgress, { circularProgressClasses, CircularProgressProps } from '@mui/material/CircularProgress'
 
-// Features
+// Shared
 import { styledDefaultInterface } from '@/shared/mui'
 
-// Interfaces
 
 /**
  * Interface for BlurryImage component
@@ -25,9 +24,10 @@ export interface BlurryImageInterface extends BoxProps, styledDefaultInterface {
     image: ImageProps;
     progress?: CircularProgressProps;
     ref?: React.Ref<HTMLDivElement>;
+    sx: SxProps;
 }
 
-// Component(s)
+
 /**
  * Component made to display Blurry small image before full high quality image has fully loaded.
  * 
@@ -60,13 +60,16 @@ const BlurryImage =
                 // Props to be passed to component
                 {
                     image,
+
                     progress,
                     progress: {
                         sx: progressSx = {},
                         size = 50
                     } = {},
+
                     srcSmall,
                     sx = {},
+
                     ...props
                 }: BlurryImageInterface,
 
@@ -75,14 +78,17 @@ const BlurryImage =
 
             ) => {
 
-                // Indicates wether main image is loaded
-                const [loaded, setLoaded] = useState(() => false);
+                
+                // STATES
+                const [loaded, setLoaded] = useState(() => false); // Indicates wether main image is loaded
 
-                // Memoized handler to determine wether image loaded
-                const handleLoad = useCallback(() => {
+                
+                // HANDLERS
+                const handleLoad = useCallback(() => { // Memoized handler to determine wether image loaded
                     setLoaded(true);
                 }, []);
 
+                
                 return (
 
                     // Wrapper that contains the Blurry image as background.

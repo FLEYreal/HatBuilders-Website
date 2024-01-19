@@ -6,10 +6,16 @@ import React, { createContext, useContext } from 'react';
 // Types
 import { langType } from '../types';
 
+
 // Creates context for language
 export const LanguageContext = createContext<langType>('en');
 
-// Wrapper for every component that depends on language, provides language to every children
+
+/**
+ * Wrapper for every component that depends on language, provides language to every children
+ * @param children - React.ReactNode
+ * @param value - langType
+ */
 export function LanguageProvider({ children, value }: { children?: React.ReactNode, value: langType }) {
 
     return (
@@ -20,4 +26,9 @@ export function LanguageProvider({ children, value }: { children?: React.ReactNo
 
 }
 
+
+/**
+ * Hook for getting the current language
+ * @returns {langType} current language
+ */
 export const useLanguage = () => useContext(LanguageContext);

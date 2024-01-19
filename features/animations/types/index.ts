@@ -4,6 +4,7 @@ import { CSSProperties, ReactNode } from "react";
 // Material-UI
 import { SxProps } from "@mui/material";
 
+
 // Root interfaces
 export type RootInterface<T> = {
     dur?: number;
@@ -15,6 +16,7 @@ export type RootInterface<T> = {
     style?: CSSProperties;
     args?: T;
 }
+
 
 // Components' interfaces
 export interface FloatInterface<T> extends RootInterface<T> {}

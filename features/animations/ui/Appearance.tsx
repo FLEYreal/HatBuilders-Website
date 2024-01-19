@@ -18,8 +18,9 @@ import { keyframes } from "@emotion/react"
 // Insides
 import { AppearanceInterface } from "../types"
 
-// Animation
+// Styles
 import s from './style.module.css'
+
 
 // Animation
 const sxAppearanceKeyframes = keyframes`
@@ -33,7 +34,6 @@ const sxAppearanceKeyframes = keyframes`
     }
 `
 
-// Component
 
 /**
  * Provides animation for floating things. You can setup animation properties.
@@ -66,8 +66,10 @@ export function Appearance<T>({
 
     const mapChild = (child: ReactNode) => {
 
+        // Get styles of the child.
         const { style: styleProp, sx: sxProp }: { style?: CSSProperties; sx?: SxProps } = (child as ReactElement).props;
 
+        // Create animation props for animations
         const animationProps = {
             opacity: 0,
             animationDuration: dur + 's',
@@ -76,6 +78,7 @@ export function Appearance<T>({
             ...style,
         };
 
+        // If it's MUI component
         if (isSx) {
             return cloneElement(child as ReactElement, {
                 sx: {
@@ -89,6 +92,7 @@ export function Appearance<T>({
             });
         }
 
+        // If it's regular component
         else {
             return cloneElement(child as ReactElement, {
                 style: {
@@ -101,7 +105,8 @@ export function Appearance<T>({
         }
     };
 
+    
+    // Map all children (component allows to animate more than 1 child) and return them all animated
     const clonedChildren = Children.map(children, mapChild);
-
     return <>{clonedChildren}</>;
 };

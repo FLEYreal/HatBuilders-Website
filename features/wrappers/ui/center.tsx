@@ -1,18 +1,18 @@
 // Insides
 import { Flex } from './flex'
-
-// Types
 import { CenterInterface } from '../types'
 
-// Component(s)
+/**
+ * Inherits Flex component with only difference that it centers itself and children.
+ */
 export function Center({ 
 
     // Common Params
     children, sx, 
 
     // Unique Params
-    x = true, 
-    y = true,
+    x = true, // To center horizontally
+    y = true, // To center vertically
 
     // Rest
     ...props

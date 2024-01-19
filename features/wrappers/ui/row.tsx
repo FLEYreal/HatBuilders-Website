@@ -1,10 +1,11 @@
 // Insides
 import { Flex } from './flex'
-
-// Types
 import { RowInterface } from '../types'
 
-// Component(s)
+
+/**
+ * Inherits Flex component with only difference that it aligns children horizontally.
+ */
 export function Row({ 
 
     // Common Params

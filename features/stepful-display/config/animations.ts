@@ -1,8 +1,14 @@
 'use client'
 
+// Material-UI
 import { keyframes } from "@mui/material"
 
+
+// The duration of module's switching animation.
 export const transitionDur = 0.8
+
+
+// Fade Animations, define the way module shows up
 export const fadeInFromDown = keyframes`
     0% {
         opacity: 0;
