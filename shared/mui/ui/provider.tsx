@@ -1,7 +1,7 @@
 'use client'
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { Theme } from '@mui/material/styles';
-import { darkTheme, lightTheme } from '../modal/theme';
+import { darkTheme, lightTheme } from '../model/theme';
 import { useLayoutEffect, useState, createContext, useContext } from 'react';
 
 // Define the structure for the ThemeContext

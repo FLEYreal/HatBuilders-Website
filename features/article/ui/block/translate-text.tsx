@@ -22,6 +22,8 @@ export const TranslateText: React.FC<TranslateTextInterface> = ({
     name = 'main',
     ns = 'home',
     sx,
+
+    ...props
 }: TranslateTextInterface) => {
 
     // Get translation 
@@ -53,6 +55,7 @@ export const TranslateText: React.FC<TranslateTextInterface> = ({
                 },
                 ...sx
             }}
+            {...props}
         >
             {t(name)}
         </Typography>

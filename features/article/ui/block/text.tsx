@@ -14,6 +14,8 @@ export const Text: React.FC<TextInterface> = ({
     textAlign,
     children,
     sx,
+
+    ...props
 }: TextInterface) => {
 
     // What tag to use relative to the variant provided
@@ -41,6 +43,7 @@ export const Text: React.FC<TextInterface> = ({
                 },
                 ...sx
             }}
+            {...props}
         >
             {children}
         </Typography>

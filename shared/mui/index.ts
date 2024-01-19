@@ -14,14 +14,14 @@ export {
 
 
 // Modal
-export { darkTheme, lightTheme } from './modal/theme' // Import theme object
-export { 
+export { darkTheme, lightTheme } from './model/theme' // Import theme object
+export {
 
     // Returns boolean(s) that help you define resolution size
-    useResolution, 
+    useResolution,
     useSingleResolution
 
-} from './modal/hooks'
+} from './model/hooks'
 
 
 // Types
