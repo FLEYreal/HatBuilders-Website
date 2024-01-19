@@ -1,5 +1,5 @@
 // Widgets
-import { DcButton, VkButton } from "@/widgets/social-buttons";
+import { DcButton, VkButton, TgButton } from "@/widgets/social-buttons";
 
 // Features
 import { Column, Row } from "@/features/wrappers";
@@ -14,7 +14,7 @@ export function ChooseSocial() {
             <ArticleBlock.TranslateText variant="h4" name="choose_your_way" ns="modals" sx={{ m: 0 }} />
 
             <Row center>
-                <DcButton /><VkButton />
+                <DcButton /><TgButton />
             </Row>
 
         </Column>

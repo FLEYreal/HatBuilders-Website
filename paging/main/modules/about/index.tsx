@@ -2,10 +2,11 @@
 import Image from 'next/image';
 
 // Material-UI
-import { Box, BoxProps, sliderClasses } from '@mui/material'
+import { Box, BoxProps } from '@mui/material'
 
 // Widgets
-import { DcButton, VkButton } from "@/widgets/social-buttons";
+import { DcButton, TgButton, VkButton } from "@/widgets/social-buttons";
+import { OrderModal } from '@/widgets/modals';
 
 // Features
 import { Flex, Wrapper } from "@/features/wrappers";
@@ -87,8 +88,8 @@ export function About() {
                                 }}
                             >
 
-                                <OrderButton ns='home' name='order' toUpperCase/>
-                                <VkButton /><DcButton />
+                                <OrderModal element={<OrderButton ns='home' name='order' toUpperCase sx={{ mr: '12px' }} />} />
+                                <DcButton /><TgButton /><VkButton />
 
                             </ArticleBlock.Action>
 

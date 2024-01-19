@@ -89,7 +89,7 @@ const OrderButton = (props: BigHatButtonInterface) => {
         // When too many time has passed, turn off loading state
         setTimeout(() => {
             setLoading(false)
-        }, 5000)
+        }, 1350)
 
     }
 

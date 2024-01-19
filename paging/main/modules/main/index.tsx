@@ -2,7 +2,7 @@
 import { Typography } from "@mui/material";
 
 // Widgets
-import { VkButton, DcButton } from '@/widgets/social-buttons';
+import { VkButton, DcButton, TgButton } from '@/widgets/social-buttons';
 
 // Features
 import { Column, Row, Wrapper } from "@/features/wrappers";
@@ -19,6 +19,7 @@ import hatbuildersSignSmall from '@/public/images/secondary-hb-sign-small.webp'
 
 import cyberpuk from '@/public/images/cyberpuk.png'
 import cyberpukSmall from '@/public/images/cyberpuk-small.webp'
+import { OrderModal } from "@/widgets/modals";
 
 
 // Main Component
@@ -67,7 +68,7 @@ export function Main() {
 
                 {/* Social Media Buttons */}
                 <Row align={['center', 'start']} sx={{ ml: '24px', display: { xs: 'none', md: 'flex' } }}>
-                    <DcButton isTransparent /><VkButton isTransparent />
+                    <DcButton isTransparent /><VkButton isTransparent /><TgButton isTransparent/>
                 </Row>
 
                 {/* Order Button Wrapper */}
@@ -79,7 +80,7 @@ export function Main() {
                         xl: '-40px'
                     }
                 }}>
-                    <OrderButton /> {/* Styled Component of Order Button */}
+                    <OrderModal element={<OrderButton />}/> {/* Styled Component of Order Button */}
                 </Flex>
 
                 {/* Credits to website's creators */}
