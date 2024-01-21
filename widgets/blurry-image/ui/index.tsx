@@ -24,7 +24,7 @@ export interface BlurryImageInterface extends BoxProps, styledDefaultInterface {
     image: ImageProps;
     progress?: CircularProgressProps;
     ref?: React.Ref<HTMLDivElement>;
-    sx: SxProps;
+    sx?: SxProps;
 }
 
 

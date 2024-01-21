@@ -24,7 +24,13 @@ export const ThemeContext = createContext<ThemeContextProps | undefined>(undefin
  * Context hook providing current theme
  * @returns {ThemeContextProps} the theme context
  */
-export const useThemeContext = () => useContext(ThemeContext);
+export const useThemeContext = () => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+        throw new Error('useThemeContext must be used within a ThemeProvider'); // Error handling if context is not available
+    }
+    return context;
+};
 
 
 /**
