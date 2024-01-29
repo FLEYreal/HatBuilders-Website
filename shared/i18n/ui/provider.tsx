@@ -12,6 +12,13 @@ export const LanguageContext = createContext<langType>('en');
 
 
 /**
+ * Hook for getting the current language
+ * @returns {langType} current language
+ */
+export const useLanguage = () => useContext(LanguageContext);
+
+
+/**
  * Wrapper for every component that depends on language, provides language to every children
  * @param children - React.ReactNode
  * @param value - langType
@@ -25,10 +32,3 @@ export function LanguageProvider({ children, value }: { children?: React.ReactNo
     )
 
 }
-
-
-/**
- * Hook for getting the current language
- * @returns {langType} current language
- */
-export const useLanguage = () => useContext(LanguageContext);
