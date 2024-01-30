@@ -20,7 +20,14 @@ interface ThemeContextProps {
 // Create a context for theme-related functions and values
 export const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
-export const useThemeContext = () => useContext(ThemeContext)
+// Custom hook to use the ThemeContext
+export const useThemeContext = () => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+        throw new Error('useThemeContext must be used within a ThemeProvider'); // Error handling if context is not available
+    }
+    return context;
+};
 
 /**
  * @function GlobalThemeProvider
