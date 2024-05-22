@@ -1,6 +1,6 @@
 'use client'
 
-// Basic
+// Basics
 import React, { useState, useMemo, cloneElement } from 'react'
 import { createPortal } from 'react-dom';
 

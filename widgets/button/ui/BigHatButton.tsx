@@ -1,6 +1,6 @@
 'use client'
 
-// Basic
+// Basics
 import React, { useMemo } from "react";
 
 // MUI
